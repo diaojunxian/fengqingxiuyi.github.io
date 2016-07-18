@@ -118,9 +118,9 @@
 本人是在Mac搭建博客的，所以不会包含和Windows相关的内容，操作系统参数如下：MacBook Pro OS X EI Capitan 10.11.5。
 因为搭建博客的过程中会经常输命令，所以：
 如果文中代码区块是以$开头的话，代表的是终端默认目录，如：Qing">
-<meta property="og:image" content="https://fengqingxiuyi.github.io/../../../../images/Mac-GitHub-Hexo-NexT/查看hexo版本.png">
-<meta property="og:image" content="https://fengqingxiuyi.github.io/../../../../images/Mac-GitHub-Hexo-NexT/设置仓库地址.png">
-<meta property="og:updated_time" content="2016-07-18T16:32:00.000Z">
+<meta property="og:image" content="https://fengqingxiuyi.github.io/../../../../../images/Mac-GitHub-Hexo-NexT/查看hexo版本.png">
+<meta property="og:image" content="https://fengqingxiuyi.github.io/../../../../../images/Mac-GitHub-Hexo-NexT/设置仓库地址.png">
+<meta property="og:updated_time" content="2016-07-18T17:38:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mac+GitHub+Hexo+NexT（三）Hexo">
 <meta name="twitter:description" content="上文我们学会了如何安装Git和Node.js，接下来我们就需要开始真正的搭建Hexo博客框架了
@@ -129,7 +129,7 @@
 本人是在Mac搭建博客的，所以不会包含和Windows相关的内容，操作系统参数如下：MacBook Pro OS X EI Capitan 10.11.5。
 因为搭建博客的过程中会经常输命令，所以：
 如果文中代码区块是以$开头的话，代表的是终端默认目录，如：Qing">
-<meta name="twitter:image" content="https://fengqingxiuyi.github.io/../../../../images/Mac-GitHub-Hexo-NexT/查看hexo版本.png">
+<meta name="twitter:image" content="https://fengqingxiuyi.github.io/../../../../../images/Mac-GitHub-Hexo-NexT/查看hexo版本.png">
 
 
 
@@ -408,7 +408,7 @@
 <h3 id="校检安装"><a href="#校检安装" class="headerlink" title="校检安装"></a>校检安装</h3><p>Hexo安装完成之后，也需要判断是否安装成功，继续输入命令：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo -v</div></pre></td></tr></table></figure>
 <p>会出现一系列信息，如果每一行都显示正确的版本号信息，则表明安装正确，如下图所示：</p>
-<p><img src="../../../../images/Mac-GitHub-Hexo-NexT/查看hexo版本.png" alt="查看hexo版本"></p>
+<p><img src="../../../../../images/Mac-GitHub-Hexo-NexT/查看hexo版本.png" alt="查看hexo版本"></p>
 <h1 id="搭建博客"><a href="#搭建博客" class="headerlink" title="搭建博客"></a>搭建博客</h1><h2 id="初始化Hexo"><a href="#初始化Hexo" class="headerlink" title="初始化Hexo"></a>初始化Hexo</h2><p>首先选择一个目录用于存放和博客相关的文件，如果没有中意的目录，可以创建，比如我创建的名为<code>Blog</code>的文件夹，然后进入该目录下，输入命令：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Blog $ hexo init</div></pre></td></tr></table></figure>
 <p>用于初始化Hexo。全部完成以后会出现一些文件或文件夹，目录结构如下所示：</p>
@@ -434,7 +434,7 @@
 <p>修改为</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># Deployment</div><div class="line">## Docs: https://hexo.io/docs/deployment.html</div><div class="line">deploy:</div><div class="line">  type: git # 因为Hexo版本大于3.0，所以填git；否则填github</div><div class="line">  repository: # 你的仓库地址</div><div class="line">  branch: # 你工程的分支名</div></pre></td></tr></table></figure>
 <p>例如下图所示：</p>
-<p><img src="../../../../images/Mac-GitHub-Hexo-NexT/设置仓库地址.png" alt="设置仓库地址"></p>
+<p><img src="../../../../../images/Mac-GitHub-Hexo-NexT/设置仓库地址.png" alt="设置仓库地址"></p>
 <h4 id="查看仓库地址"><a href="#查看仓库地址" class="headerlink" title="查看仓库地址"></a>查看仓库地址</h4><p>进入你的GitHub官网即可查看，如<a href="https://github.com/fengqingxiuyi/fengqingxiuyi.github.io" target="_blank" rel="external">我的GitHub地址</a>，打开后，点击页面右边中部的绿色按钮，名称为<code>Clone or download</code>，即可复制仓库地址，HTTPS和SSH两者皆可。</p>
 <p>如果仓库地址填写为SSH地址，则必须要先配置好SSH key，可以在<a href="https://fengqingxiuyi.github.io/2016/07/17/Mac-GitHub-Hexo-NexT-——-GitHub/">Mac+GitHub+Hexo+NexT —— GitHub</a>一文中学习如何配置。</p>
 <h4 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a><font color="red">注意点</font></h4><ol>

@@ -49,7 +49,7 @@
 <p>其实就是把其中<code>url</code>对应的默认值修改为你的网站域名。</p>
 <h1 id="Markdown"><a href="#Markdown" class="headerlink" title="Markdown"></a>Markdown</h1><p>Hexo博客是基于Markdown来进行编写的，由于相关的编辑器也有很多，所以这里就不做太多阐述了，大家有兴趣可以去<a href="https://linux.cn/article-2994-1.html" target="_blank" rel="external">这里</a>看看。</p>
 <p>Mac下主要是用<a href="http://25.io/mou/" target="_blank" rel="external">Mou</a>编辑器进行编写的。界面效果如下所示：</p>
-<p><img src="../../../../images/Mac-GitHub-Hexo-NexT/Mou.png" alt="Mou"></p>
+<p><img src="../../../../../images/Mac-GitHub-Hexo-NexT/Mou.png" alt="Mou"></p>
 <p>并附上教程地址：<a href="https://wizardforcel.gitbooks.io/markdown-simple-world/content/hexo-tutor-1.html" target="_blank" rel="external">Markdown简单的世界</a></p>
 <h1 id="附"><a href="#附" class="headerlink" title="附"></a>附</h1><p>最后推荐几篇个人认为<code>Hexo博客搭建</code>写的比较好的文章（包括官方教程）：</p>
 <ol>
@@ -149,7 +149,7 @@
 <h3 id="校检安装"><a href="#校检安装" class="headerlink" title="校检安装"></a>校检安装</h3><p>Hexo安装完成之后，也需要判断是否安装成功，继续输入命令：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo -v</div></pre></td></tr></table></figure>
 <p>会出现一系列信息，如果每一行都显示正确的版本号信息，则表明安装正确，如下图所示：</p>
-<p><img src="../../../../images/Mac-GitHub-Hexo-NexT/查看hexo版本.png" alt="查看hexo版本"></p>
+<p><img src="../../../../../images/Mac-GitHub-Hexo-NexT/查看hexo版本.png" alt="查看hexo版本"></p>
 <h1 id="搭建博客"><a href="#搭建博客" class="headerlink" title="搭建博客"></a>搭建博客</h1><h2 id="初始化Hexo"><a href="#初始化Hexo" class="headerlink" title="初始化Hexo"></a>初始化Hexo</h2><p>首先选择一个目录用于存放和博客相关的文件，如果没有中意的目录，可以创建，比如我创建的名为<code>Blog</code>的文件夹，然后进入该目录下，输入命令：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Blog $ hexo init</div></pre></td></tr></table></figure>
 <p>用于初始化Hexo。全部完成以后会出现一些文件或文件夹，目录结构如下所示：</p>
@@ -175,7 +175,7 @@
 <p>修改为</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># Deployment</div><div class="line">## Docs: https://hexo.io/docs/deployment.html</div><div class="line">deploy:</div><div class="line">  type: git # 因为Hexo版本大于3.0，所以填git；否则填github</div><div class="line">  repository: # 你的仓库地址</div><div class="line">  branch: # 你工程的分支名</div></pre></td></tr></table></figure>
 <p>例如下图所示：</p>
-<p><img src="../../../../images/Mac-GitHub-Hexo-NexT/设置仓库地址.png" alt="设置仓库地址"></p>
+<p><img src="../../../../../images/Mac-GitHub-Hexo-NexT/设置仓库地址.png" alt="设置仓库地址"></p>
 <h4 id="查看仓库地址"><a href="#查看仓库地址" class="headerlink" title="查看仓库地址"></a>查看仓库地址</h4><p>进入你的GitHub官网即可查看，如<a href="https://github.com/fengqingxiuyi/fengqingxiuyi.github.io" target="_blank" rel="external">我的GitHub地址</a>，打开后，点击页面右边中部的绿色按钮，名称为<code>Clone or download</code>，即可复制仓库地址，HTTPS和SSH两者皆可。</p>
 <p>如果仓库地址填写为SSH地址，则必须要先配置好SSH key，可以在<a href="https://fengqingxiuyi.github.io/2016/07/17/Mac-GitHub-Hexo-NexT-——-GitHub/">Mac+GitHub+Hexo+NexT —— GitHub</a>一文中学习如何配置。</p>
 <h4 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a><font color="red">注意点</font></h4><ol>
@@ -244,13 +244,13 @@
 </ol>
 <p>由于内容比较多，在这里我就分章节进行讲解，本文将要讲解的是GitHub的创建和SSH的配置。</p>
 <h1 id="GitHub的创建"><a href="#GitHub的创建" class="headerlink" title="GitHub的创建"></a>GitHub的创建</h1><h2 id="创建GitHub账号"><a href="#创建GitHub账号" class="headerlink" title="创建GitHub账号"></a>创建GitHub账号</h2><h3 id="Step1-Set-up-a-personal-account"><a href="#Step1-Set-up-a-personal-account" class="headerlink" title="Step1 Set up a personal account"></a>Step1 Set up a personal account</h3><p>首先在浏览器中输入网址：<a href="https://github.com/join?source=header-home" target="_blank" rel="external">https://github.com/join?source=header-home</a>，然后填写用户名、邮箱、密码，<code>注意：该邮箱地址在之后的SSH配置中有重要作用</code>，最后点击<code>Create an account</code>按钮，界面如下图所示：</p>
-<p><img src="../../../../images/Mac-GitHub-Hexo-NexT/注册github步骤1.png" alt="注册github步骤1"></p>
+<p><img src="../../../../../images/Mac-GitHub-Hexo-NexT/注册github步骤1.png" alt="注册github步骤1"></p>
 <h3 id="Step2-Choose-your-plan"><a href="#Step2-Choose-your-plan" class="headerlink" title="Step2 Choose your plan"></a>Step2 Choose your plan</h3><p>默认选择即可，直接点击<code>Continue</code>按钮，进入下一步进行邮箱验证，界面如下图所示：</p>
-<p><img src="../../../../images/Mac-GitHub-Hexo-NexT/注册github步骤2.png" alt="注册github步骤2"></p>
+<p><img src="../../../../../images/Mac-GitHub-Hexo-NexT/注册github步骤2.png" alt="注册github步骤2"></p>
 <h3 id="Step3-Tailor-your-experinece"><a href="#Step3-Tailor-your-experinece" class="headerlink" title="Step3 Tailor your experinece"></a>Step3 Tailor your experinece</h3><p>登录自己设置的邮箱，点击<code>验证邮箱</code>之类的按钮后会进入<a href="https://github.com/" target="_blank" rel="external">该网页</a>，如果在其左上角有<code>Your email was verified.</code>这样的文案表明邮箱验证成功。</p>
 <h2 id="配置GitHub相关信息"><a href="#配置GitHub相关信息" class="headerlink" title="配置GitHub相关信息"></a>配置GitHub相关信息</h2><p>接下来就可以进行创建工程、偏好设置等工作了：</p>
 <h3 id="创建工程"><a href="#创建工程" class="headerlink" title="创建工程"></a>创建工程</h3><p>如图所示：</p>
-<p><img src="../../../../images/Mac-GitHub-Hexo-NexT/配置相关信息.png" alt="配置相关信息"></p>
+<p><img src="../../../../../images/Mac-GitHub-Hexo-NexT/配置相关信息.png" alt="配置相关信息"></p>
 <p>如果你从未使用过GitHub，可以点击<a href="https://guides.github.com/activities/hello-world/" target="_blank" rel="external">Read the guide</a>按钮学习如何创建工程并使用。</p>
 <p>如果你知道如何创建GitHub工程的话，那就简单了，我们直接点击<code>Start a project</code>按钮就可以开始工程的创建，当然也可以从<a href="https://github.com/new" target="_blank" rel="external">该网页</a>进入。依次填写仓库名、描述信息、初始化README文件，最后点击<code>Create repository</code>按钮，就成功创建一个工程了。但是因为该工程是为了给我们搭建博客用的，所以有以下几个注意点：</p>
 <ol>
@@ -258,7 +258,7 @@
 <li>描述信息和是否初始化README文件完全看个人兴趣，但是我的建议是需要的，因为这样能直截了当的明白这个工程是干嘛用的。</li>
 </ol>
 <p>例如下图所示：</p>
-<p><img src="../../../../images/Mac-GitHub-Hexo-NexT/创建仓库.png" alt="创建仓库"></p>
+<p><img src="../../../../../images/Mac-GitHub-Hexo-NexT/创建仓库.png" alt="创建仓库"></p>
 <h3 id="偏好设置"><a href="#偏好设置" class="headerlink" title="偏好设置"></a>偏好设置</h3><p>如果你熟悉GitHub，则可以进行一些偏好设置，即个性化设置，如上传头像。这些都是非常简单的，所示就不做阐述了，我们直接进入正题——配置SSH。</p>
 <h3 id="配置SSH"><a href="#配置SSH" class="headerlink" title="配置SSH"></a>配置SSH</h3><ol>
 <li><p>打开终端，输入命令：</p>
@@ -268,7 +268,7 @@
 <li><p>继续输入命令：</p>
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh-keygen -C &quot;Your primary GitHub email address”</div></pre></td></tr></table></figure>
 <p> 切记必须修改命令中的邮箱地址，该邮箱地址即为你注册GitHub时所填写的邮箱地址。输入成功之后会依行出现如下图所示提示：</p>
-<p> <img src="../../../../images/Mac-GitHub-Hexo-NexT/设置SSH-key.png" alt="设置SSH-key"></p>
+<p> <img src="../../../../../images/Mac-GitHub-Hexo-NexT/设置SSH-key.png" alt="设置SSH-key"></p>
 <p> 分别表示为文件名、密码和确认密码，输入正确后会给出重要的配置信息。</p>
 </li>
 <li><p>继续输入命令：</p>
@@ -276,7 +276,7 @@
 <p> 该命令中pub文件的文件名即为上一步中设置的文件名，由于该命令中包含pbcopy关键字，所以该命令可以将pub文件中的内容直接复制到剪切板中，以防之后再网页中配置SSH信息时发生不必要的错误。</p>
 </li>
 <li><p>打开<a href="https://github.com/settings/keys" target="_blank" rel="external">配置SSH</a>的网页，点击右上角的<code>New SSH key</code>按钮，如下图所示：</p>
-<p> <img src="../../../../images/Mac-GitHub-Hexo-NexT/设置SSH-key.png" alt="设置SSH-key"></p>
+<p> <img src="../../../../../images/Mac-GitHub-Hexo-NexT/设置SSH-key.png" alt="设置SSH-key"></p>
 <p> 然后将pub文件中的内容粘贴到Key表示的文本框中，然后在Title表示的文本框中随便命名一个名字，最后点击<code>Add SSH key</code>按钮即可添加SSH key。</p>
 </li>
 <li><p>虽然已经成功添加了SSH key，但是这并不代表着SSH配置成功了，我们继续在终端输入命令：</p>
