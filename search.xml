@@ -4,14 +4,290 @@
   
     
     <entry>
-      <title><![CDATA[Mac+GitHub+Hexo+NexT —— GitHub]]></title>
-      <url>https://fengqingxiuyi.github.io/2016/07/17/Mac-GitHub-Hexo-NexT-%E2%80%94%E2%80%94-GitHub/</url>
+      <title><![CDATA[Jenkins项目构建过程详解]]></title>
+      <url>https://fengqingxiuyi.github.io/2016/07/19/ShowJoy/Jenkins%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA%E8%BF%87%E7%A8%8B%E8%AF%A6%E8%A7%A3/</url>
+      <content type="html"><![CDATA[<h1 id="首页网址："><a href="#首页网址：" class="headerlink" title="首页网址："></a>首页网址：</h1><p>网站首页地址如下所示：<a href="http://192.168.0.62:8080/" target="_blank" rel="external">http://192.168.0.62:8080/</a></p>
+<h1 id="构建项目过程："><a href="#构建项目过程：" class="headerlink" title="构建项目过程："></a>构建项目过程：</h1><ol>
+<li><p>在网页右侧选择需要进行项目构建的项目选项，如<code>尚妆</code>、<code>购给利</code>等，网址如：<a href="http://192.168.0.62:8080/view/购给利/" target="_blank" rel="external">http://192.168.0.62:8080/view/购给利/</a></p>
+</li>
+<li><p>点击网页左侧第一栏：新建，进行构建项目所需要的配置信息，如：<br>Enter an item name：gougeli-1.5.3<br>类别：构建一个自由风格的软件项目<br>Copy from：输入字符就会自动列出可能需要的结果，如：gougeili-1.5.2</p>
+</li>
+<li><p>输入完毕后点击OK会进入详细的配置信息页面，网址如：<a href="http://192.168.0.62:8080/view/购给利/job/gougeili-1.5.3/configure" target="_blank" rel="external">http://192.168.0.62:8080/view/购给利/job/gougeili-1.5.3/configure</a><br>一般需要修改的地方如下：描述、Branches to build -&gt; Branch Specifier (blank for ‘any’)中的分支名、Execute shell -&gt; Command中的分支名，其他的地方慎重处理，最后点击Apply或者保存按钮进行保存。</p>
+<p> <font color="red"><strong><em>注意：</em></strong></font>点击Apply不会关闭本页面，点击保存会关闭页面，并跳转到：<a href="http://192.168.0.62:8080/view/购给利/job/gougeili-1.5.3/" target="_blank" rel="external">http://192.168.0.62:8080/view/购给利/job/gougeili-1.5.3/</a>。</p>
+</li>
+<li><p>然后点击左侧<code>立即构建</code>按钮，就会开始构建，构建完成或失败后可以在左侧最下面的<code>构建历史</code>中详细查看相对应的信息。</p>
+</li>
+</ol>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Mac+GitHub+Hexo+NexT（五）偏好设置+Markdown]]></title>
+      <url>https://fengqingxiuyi.github.io/2016/07/18/Mac+GitHub+Hexo+NexT/Mac+GitHub+Hexo+NexT%EF%BC%88%E4%BA%94%EF%BC%89%E5%81%8F%E5%A5%BD%E8%AE%BE%E7%BD%AE+Markdown/</url>
+      <content type="html"><![CDATA[<p>上文主要讲述了NexT的偏好设置，接下来就让我们开始Hexo的偏好设置吧。</p>
+<p>首先进行相关重要说明，请仔细阅读：</p>
+<ol>
+<li>本人是在Mac搭建博客的，所以不会包含和Windows相关的内容，操作系统参数如下：<code>MacBook Pro OS X EI Capitan 10.11.5</code>。</li>
+<li>因为搭建博客的过程中会经常输命令，所以：<ol>
+<li>如果文中代码区块是以<code>$</code>开头的话，代表的是终端默认目录，如：<code>QingFengdeMacBook-Pro:~ qingfeng$</code>。</li>
+<li>如果文中代码区块是以<code>Blog $</code>开头的话，代表的是<font color="blue">站点根目录</font>，如：<code>QingFengdeMacBook-Pro:Blog qingfeng$</code>。</li>
+<li>如果文中代码区块是以<code>next $</code>开头的话，代表的是<font color="purple">主题根目录</font>，如：<code>QingFengdeMacBook-Pro:next qingfeng$</code>。</li>
+</ol>
+</li>
+<li>所有输出类文字或者是提示性文字或者是重点文字都会有自带背景色。</li>
+<li>需要掌握vim的基本知识和用法。</li>
+</ol>
+<h1 id="网站基本设置"><a href="#网站基本设置" class="headerlink" title="网站基本设置"></a>网站基本设置</h1><p>网站基本设置主要包括：标题、个性签名、用户名、语言和头像，即以下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"># Site</div><div class="line">title:	# 网站标题</div><div class="line">subtitle:	# 网站副标题</div><div class="line">description:	# 个人描述即个性签名</div><div class="line">author:	# 用户名</div><div class="line">language: # 网站语言，如：zh-Hans即为简体中文</div><div class="line">timezone:	# 网站时区</div><div class="line"># 头像</div><div class="line">avatar: /images/avatar.png</div></pre></td></tr></table></figure>
+<h1 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h1><p>搜索功能对于每个网站都是很重要的，它可以帮助我们快速查找需要查找的内容，本网站也不例外，官网所推荐的搜索服务是<code>Swiftype</code>，但是效果不是太好，所以我们使用<code>本地搜索</code>功能。</p>
+<p>首先我们需要安装search插件，在<font color="blue">站点根目录</font>下执行以下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Blog $ npm install hexo-generator-search --save</div></pre></td></tr></table></figure>
+<p>然后我们打开<font color="blue">站配置文件</font>，在其中新增search字段，具体填写内容如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">search:</div><div class="line">  path: search.xml</div><div class="line">  field: post</div></pre></td></tr></table></figure>
+<p>最后我们需要修改网站的<code>url</code>，具体修改内容如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># URL</div><div class="line">## If your site is put in a subdirectory, set url as &apos;http://yoursite.com/child&apos; and root as &apos;/child/&apos;</div><div class="line">url: https://fengqingxiuyi.github.io/</div><div class="line">root: /</div><div class="line">permalink: :year/:month/:day/:title/</div><div class="line">permalink_defaults:</div></pre></td></tr></table></figure>
+<p>其实就是把其中<code>url</code>对应的默认值修改为你的网站域名。</p>
+<h1 id="Markdown"><a href="#Markdown" class="headerlink" title="Markdown"></a>Markdown</h1><p>Hexo博客是基于Markdown来进行编写的，由于相关的编辑器也有很多，所以这里就不做太多阐述了，大家有兴趣可以去<a href="https://linux.cn/article-2994-1.html" target="_blank" rel="external">这里</a>看看。</p>
+<p>Mac下主要是用<a href="http://25.io/mou/" target="_blank" rel="external">Mou</a>编辑器进行编写的。界面效果如下所示：</p>
+<p><img src="../../../../images/Mac-GitHub-Hexo-NexT/Mou.png" alt="Mou"></p>
+<p>并附上教程地址：<a href="https://wizardforcel.gitbooks.io/markdown-simple-world/content/hexo-tutor-1.html" target="_blank" rel="external">Markdown简单的世界</a></p>
+<h1 id="附"><a href="#附" class="headerlink" title="附"></a>附</h1><p>最后推荐几篇个人认为<code>Hexo博客搭建</code>写的比较好的文章（包括官方教程）：</p>
+<ol>
+<li><a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="external">Hexo中文官方教程</a></li>
+<li><a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="external">NexT开始使用教程</a>，注意：右上角还有其他方面的教程</li>
+<li><a href="http://ibruce.info/2015/04/04/busuanzi/" target="_blank" rel="external">不蒜子-搞定你的网站计数</a></li>
+<li><a href="https://wizardforcel.gitbooks.io/markdown-simple-world/content/hexo-tutor-1.html" target="_blank" rel="external">Markdown简单的世界</a></li>
+<li><a href="http://blog.csdn.net/u014595668/article/details/51854259" target="_blank" rel="external">在github上搭建blog(基于Node.js的Hexo+next)</a></li>
+<li><a href="http://www.jianshu.com/p/f66103553c45" target="_blank" rel="external">使用Hexo + Next搭建静态博客</a></li>
+<li><a href="http://www.tuicool.com/articles/aQriym3" target="_blank" rel="external">Hexo+Next搭建Github个人静态博客</a></li>
+<li><a href="http://zhiho.github.io/2015/09/21/start-hexo/" target="_blank" rel="external">Hexo搭建GitHub博客（一）- 环境搭建</a>，注意：还有第二、三部分哦！</li>
+<li><a href="http://ezlippi.com/blog/2016/02/jekyll-to-hexo.html" target="_blank" rel="external">Jekyll迁移到Hexo搭建个人博客</a></li>
+</ol>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Mac+GitHub+Hexo+NexT（四）NexT]]></title>
+      <url>https://fengqingxiuyi.github.io/2016/07/18/Mac+GitHub+Hexo+NexT/Mac+GitHub+Hexo+NexT%EF%BC%88%E5%9B%9B%EF%BC%89NexT/</url>
+      <content type="html"><![CDATA[<p>博客框架我们已经全部搭建完成了，但是大部分人都不喜欢默认的landscape主题，因此，在本文中我就讲解一下很热门的NexT主题。</p>
+<p>首先进行相关重要说明，请仔细阅读：</p>
+<ol>
+<li>本人是在Mac搭建博客的，所以不会包含和Windows相关的内容，操作系统参数如下：<code>MacBook Pro OS X EI Capitan 10.11.5</code>。</li>
+<li>因为搭建博客的过程中会经常输命令，所以：<ol>
+<li>如果文中代码区块是以<code>$</code>开头的话，代表的是终端默认目录，如：<code>QingFengdeMacBook-Pro:~ qingfeng$</code>。</li>
+<li>如果文中代码区块是以<code>Blog $</code>开头的话，代表的是<font color="blue">站点根目录</font>，如：<code>QingFengdeMacBook-Pro:Blog qingfeng$</code>。</li>
+<li>如果文中代码区块是以<code>next $</code>开头的话，代表的是<font color="purple">主题根目录</font>，如：<code>QingFengdeMacBook-Pro:next qingfeng$</code>。</li>
+</ol>
+</li>
+<li>所有输出类文字或者是提示性文字或者是重点文字都会有自带背景色。</li>
+<li>需要掌握vim的基本知识和用法。</li>
+</ol>
+<p>关于NexT主题的下载安装与使用，在<a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="external">官方文档</a>中已经描述的十分详细了，所以这里我就讲一些个人认为比较重要的部分。</p>
+<h1 id="favicon"><a href="#favicon" class="headerlink" title="favicon"></a>favicon</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># Put your favicon.ico into `hexo-site/source/` directory.</div><div class="line">favicon: /images/favicon.ico</div></pre></td></tr></table></figure>
+<p>显而易见，favicon的起始目录就是source下，所以对我而言：favicon的完整目录就是<code>/Blog/source/images/favicon.ico</code>。</p>
+<h1 id="RSS"><a href="#RSS" class="headerlink" title="RSS"></a>RSS</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># Set rss to false to disable feed link.</div><div class="line"># Leave rss as empty to use site&apos;s feed link.</div><div class="line"># Set rss to specific value if you have burned your feed already.</div><div class="line">rss:</div></pre></td></tr></table></figure>
+<p>有需要的可以设置一下，这里我就简要阐述一下：</p>
+<ol>
+<li><p>在<font color="blue">站点根目录</font>下，新建一个字段<code>plugins</code>，然后进行如下配置：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">plugins:</div><div class="line">- hexo-generator-feed # 插件名</div></pre></td></tr></table></figure>
+</li>
+<li><p>然后再配置显示你站点的RSS，文件路径<code>\atom.xml</code>，即：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># Set rss to false to disable feed link.</div><div class="line"># Leave rss as empty to use site&apos;s feed link.</div><div class="line"># Set rss to specific value if you have burned your 	feed already.</div><div class="line">rss: \atom.xml</div></pre></td></tr></table></figure>
+</li>
+<li><p>最后你可以使用RSS作为迁移工具，用如下命令读取其他位置的RSS：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Blog $ hexo migrate rss &lt;source&gt; # source是本地或网络文件路径</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h1 id="网站创建日期"><a href="#网站创建日期" class="headerlink" title="网站创建日期"></a>网站创建日期</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># Specify the date when the site was setup</div><div class="line">since: 2016</div></pre></td></tr></table></figure>
+<p>一般显示在网页最底部</p>
+<h1 id="菜单栏设置"><a href="#菜单栏设置" class="headerlink" title="菜单栏设置"></a>菜单栏设置</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"># When running the site in a subdirectory (e.g. domain.tld/blog), remove the leading slash (/archives -&gt; archives)</div><div class="line">menu:</div><div class="line">  home: /			# 主页</div><div class="line">  categories: /categories	# 分类页（需手动创建）</div><div class="line">  #about: /about		# 关于页面（需手动创建）</div><div class="line">  archives: /archives		# 归档页</div><div class="line">  tags: /tags			# 标签页（需手动创建）</div><div class="line">  #commonweal: /404.html	# 404页面（需手动创建）</div></pre></td></tr></table></figure>
+<p>在这里我们直接将<code>categories</code>和<code>tags</code>前面的<code>#</code>去掉，如果你想在首页显示<code>关于页面</code>和<code>404页面</code>的话，同样也可以将前面的<code>#</code>去掉。但是这样还不能让去掉<code>#</code>的页面正常显示，需要我们进行一些操作，请这里只介绍<code>分类页</code>和<code>标签页</code>修改。</p>
+<h2 id="分类页"><a href="#分类页" class="headerlink" title="分类页"></a>分类页</h2><p>我们回到<font color="blue">站点根目录</font>下，然后输入命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Blog $ hexo new page &quot;categories&quot;</div></pre></td></tr></table></figure>
+<p>会在source目录下新建一个<code>categories</code>文件夹，里面包含一个<code>index.md</code>文件，然后用文本编辑器打开该文件，并将其头文件修改成一下格式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">---</div><div class="line">title: categories</div><div class="line">date: 2016-07-14 18:35:46</div><div class="line">type: &quot;categories&quot;</div><div class="line">---</div></pre></td></tr></table></figure>
+<h2 id="标签页"><a href="#标签页" class="headerlink" title="标签页"></a>标签页</h2><p>修改完<code>分类页</code>后，继续输入命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Blog $ hexo new page &quot;tags&quot;</div></pre></td></tr></table></figure>
+<p>会在source目录下新建一个<code>tags</code>文件夹，里面包含一个<code>index.md</code>文件，同样的用文本编辑器打开该文件，并将其头文件修改成一下格式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">---</div><div class="line">title: tags</div><div class="line">date: 2016-07-14 18:31:07</div><div class="line">type: &quot;tags&quot;</div><div class="line">---</div></pre></td></tr></table></figure>
+<h1 id="主题样式"><a href="#主题样式" class="headerlink" title="主题样式"></a>主题样式</h1><p>NexT主题一共有一下三种样式，分别有不同的显示效果，具体功能显示如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"># ---------------------------------------------------------------</div><div class="line"># Scheme Settings</div><div class="line"># ---------------------------------------------------------------</div><div class="line"></div><div class="line"># Schemes</div><div class="line">#scheme: Muse	# 默认 Scheme，这是 NexT 最初的版本，黑白主调，大量留白</div><div class="line">scheme: Mist	# Muse 的紧凑版本，整洁有序的单栏外观</div><div class="line">#scheme: Pisces	# 双栏 Scheme，小家碧玉似的清新</div></pre></td></tr></table></figure>
+<h1 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h1><p>字体的设置就看个人兴趣了，以下是我的字体设置，有兴趣的可以看一下，默认配置与我的配置只有一个不同点：它们很多都没有设置<code>family</code>的值。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"># ---------------------------------------------------------------</div><div class="line"># Font Settings</div><div class="line"># - Find fonts on Google Fonts (https://www.google.com/fonts)</div><div class="line"># - All fonts set here will have the following styles:</div><div class="line">#     light, light italic, normal, normal intalic, bold, bold italic</div><div class="line"># - Be aware that setting too much fonts will cause site running slowly</div><div class="line"># - Introduce in 5.0.1</div><div class="line"># ---------------------------------------------------------------</div><div class="line">font:</div><div class="line">  enable: true</div><div class="line">  </div><div class="line">  # Uri of fonts host. E.g. //fonts.googleapis.com (Default)</div><div class="line">  host:</div><div class="line"></div><div class="line">  # Global font settings used on &lt;body&gt; element.</div><div class="line">  global:</div><div class="line">    # external: true will load this font family from host.</div><div class="line">    external: true</div><div class="line">    family: Monda</div><div class="line"></div><div class="line">  # Font settings for Headlines (h1, h2, h3, h4, h5, h6)</div><div class="line">  # Fallback to `global` font settings.</div><div class="line">  headings:</div><div class="line">    external: true</div><div class="line">    family: Roboto Slab</div><div class="line"></div><div class="line">  # Font settings for posts</div><div class="line">  # Fallback to `global` font settings.</div><div class="line">  posts:</div><div class="line">    external: true</div><div class="line">    family:</div><div class="line"></div><div class="line">  # Font settings for Logo</div><div class="line">  # Fallback to `global` font settings.</div><div class="line">  # The `size` option use `px` as unit</div><div class="line">  logo:</div><div class="line">    external: true</div><div class="line">    family: Lobster Two</div><div class="line">    size: 24</div><div class="line">    </div><div class="line">  # Font settings for &lt;code&gt; and code blocks.</div><div class="line">  codes:</div><div class="line">    external: true</div><div class="line">    family: PT Monos</div></pre></td></tr></table></figure>
+<h1 id="Social-Links"><a href="#Social-Links" class="headerlink" title="Social Links"></a>Social Links</h1><p>这里没有写中文标题的原因是：直接翻译过来总感觉不合适，在我看来，这边一般都是存放和自己有直接关联的地址，如：自己的博客地址，微博地址等，像我的就是这样：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"># Social Links</div><div class="line"># Key is the link label showing to end users.</div><div class="line"># Value is the target link (E.g. GitHub: https://github.com/iissnan)</div><div class="line">social:</div><div class="line">  #LinkLabel: Link</div><div class="line">  GitHub: https://github.com/fengqingxiuyi</div><div class="line">  CSDN: http://blog.csdn.net/u012505400</div><div class="line">  新浪微博: http://weibo.com/sd323</div><div class="line">  # 等等</div></pre></td></tr></table></figure>
+<h1 id="友情链接"><a href="#友情链接" class="headerlink" title="友情链接"></a>友情链接</h1><p>不多说了，直接上我的配置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"># Blogrolls</div><div class="line">links_title: 友情链接</div><div class="line">#links_layout: block</div><div class="line">#links_layout: inline</div><div class="line">links:</div><div class="line">  #Title: http://example.com/</div><div class="line">  Cribug: http://notes.cribug.com/</div><div class="line">  郭朝的博客: http://blog.csdn.net/smartbetter/</div><div class="line">  郭霖的专栏: http://blog.csdn.net/guolin_blog/</div></pre></td></tr></table></figure>
+<h1 id="代码高亮主题"><a href="#代码高亮主题" class="headerlink" title="代码高亮主题"></a>代码高亮主题</h1><p>顾名思义，适用于将代码块区域高亮显示的，当然不同语言的代码块区域高亮规则是不一样的，它的默认主题是<code>normal</code>，一般有以下几个主题，我这边选择了<code>night bright</code>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># Code Highlight theme</div><div class="line"># Available value:</div><div class="line">#    normal | night | night eighties | night blue | night bright</div><div class="line"># https://github.com/chriskempson/tomorrow-theme</div><div class="line">highlight_theme: night bright</div></pre></td></tr></table></figure>
+<h1 id="第三方服务"><a href="#第三方服务" class="headerlink" title="第三方服务"></a>第三方服务</h1><p>关于<a href="http://duoshuo.com/" target="_blank" rel="external">多说评论</a>和<a href="https://leancloud.cn/" target="_blank" rel="external">LeanCloud</a>，这里就不做过多阐述了，大家看官方文档就可以了，点击超链接即可进入他们各自的官方网站。</p>
+<p>这里我们主要讲述以下另外一种<font color="red">站点访问计数</font>方法，即<a href="http://ibruce.info/2015/04/04/busuanzi/" target="_blank" rel="external">不蒜子</a>，在这里我要对博主<code>zhiho</code>表示感谢，<a href="http://zhiho.github.io/2015/09/29/hexo-next/" target="_blank" rel="external">文中第6章</a>对于此<font color="red">站点访问计数</font>方法写的十分详细，虽然看起来有点小复杂，但是只要细心就不会出现奇葩问题的，所以我也就不做阐述了。</p>
+<p>如果你有兴趣的话，你也可以看看<a href="http://zhiho.github.io/2015/09/29/hexo-next/" target="_blank" rel="external">这篇文章</a>中对于<code>sitemap</code>插件，也是有很大帮助的。</p>
+<h1 id="附"><a href="#附" class="headerlink" title="附"></a>附</h1><p>至此，我们已经讲解完了NexT主题的使用，如果你有其他个性化设置，欢迎留言；相信在前面讲解Hexo的时候，大家早就迫不及待的修改了一些Hexo中的个性化配置了吧，接下来我们来详细的配置一下。</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Mac+GitHub+Hexo+NexT（三）Hexo]]></title>
+      <url>https://fengqingxiuyi.github.io/2016/07/17/Mac+GitHub+Hexo+NexT/Mac+GitHub+Hexo+NexT%EF%BC%88%E4%B8%89%EF%BC%89Hexo/</url>
+      <content type="html"><![CDATA[<p>上文我们学会了如何安装Git和Node.js，接下来我们就需要开始真正的搭建Hexo博客框架了</p>
+<p>首先进行相关重要说明，请仔细阅读：</p>
+<ol>
+<li>本人是在Mac搭建博客的，所以不会包含和Windows相关的内容，操作系统参数如下：<code>MacBook Pro OS X EI Capitan 10.11.5</code>。</li>
+<li>因为搭建博客的过程中会经常输命令，所以：<ol>
+<li>如果文中代码区块是以<code>$</code>开头的话，代表的是终端默认目录，如：<code>QingFengdeMacBook-Pro:~ qingfeng$</code>。</li>
+</ol>
+</li>
+<li>所有输出类文字或者是提示性文字或者是重点文字都会有自带背景色。</li>
+<li>需要掌握vim的基本知识和用法。</li>
+</ol>
+<h1 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h1><h2 id="安装npm"><a href="#安装npm" class="headerlink" title="安装npm"></a>安装npm</h2><p>安装Hexo需要使用npm插件，由于我使用的Mac电脑，所以一般都是自带npm 的，如果你没有的话，请自行下载安装，此处不做阐述。</p>
+<h2 id="安装Hexo-1"><a href="#安装Hexo-1" class="headerlink" title="安装Hexo"></a>安装Hexo</h2><h3 id="下载安装"><a href="#下载安装" class="headerlink" title="下载安装"></a>下载安装</h3><p>打开终端后，直接输入命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-cli -g</div></pre></td></tr></table></figure>
+<p>如果出现权限不足之类的错误，可以使用sudo提升权限，则新命令如下： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo npm install hexo-cli -g</div></pre></td></tr></table></figure>
+<h3 id="校检安装"><a href="#校检安装" class="headerlink" title="校检安装"></a>校检安装</h3><p>Hexo安装完成之后，也需要判断是否安装成功，继续输入命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo -v</div></pre></td></tr></table></figure>
+<p>会出现一系列信息，如果每一行都显示正确的版本号信息，则表明安装正确，如下图所示：</p>
+<p><img src="../../../../images/Mac-GitHub-Hexo-NexT/查看hexo版本.png" alt="查看hexo版本"></p>
+<h1 id="搭建博客"><a href="#搭建博客" class="headerlink" title="搭建博客"></a>搭建博客</h1><h2 id="初始化Hexo"><a href="#初始化Hexo" class="headerlink" title="初始化Hexo"></a>初始化Hexo</h2><p>首先选择一个目录用于存放和博客相关的文件，如果没有中意的目录，可以创建，比如我创建的名为<code>Blog</code>的文件夹，然后进入该目录下，输入命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Blog $ hexo init</div></pre></td></tr></table></figure>
+<p>用于初始化Hexo。全部完成以后会出现一些文件或文件夹，目录结构如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">根目录</div><div class="line"> |----_config.yml	# 全局配置文件</div><div class="line"> |----node_modules	# 插件安装位置</div><div class="line"> |----package.json	# Hexo框架参数</div><div class="line"> |----scaffolds		# 包含新建文章的文件头模板</div><div class="line"> |----scripts		# 脚本目录，JavaScript文件会自动执行</div><div class="line"> |----source		# 保存新建的文章及相关资源</div><div class="line">   |----_drafts		# 保存临时文件</div><div class="line">   |----_posts		# 保存新建的文章，md文件会被编译成html文件</div><div class="line"> |----themes		# 网站主题</div></pre></td></tr></table></figure>
+<h2 id="预览博客"><a href="#预览博客" class="headerlink" title="预览博客"></a>预览博客</h2><p>继续输入命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Blog $ hexo server</div></pre></td></tr></table></figure>
+<p>当出现<code>Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.</code>这样的提示消息时，我们就可以在浏览器中打开<a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a>，用于访问自己的博客了。按Ctrl+C即可停止server服务。</p>
+<h2 id="新建文章"><a href="#新建文章" class="headerlink" title="新建文章"></a>新建文章</h2><p>预览好博客之后，我们来写一篇文章吧！那么，怎么写呢？很简单，我们按Ctrl+C停止了Hexo的server服务后，接着输入命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Blog $ hexo new &quot;Hello World&quot;</div></pre></td></tr></table></figure>
+<p>于是我们就创建了一篇名为Hello World的文章，并且终端也会告诉我们它的存储位置，如：<code>INFO  Created: /Volumes/MAIN/qingfeng/Blog/source/_posts/Hello-World.md</code>。</p>
+<p>然后我们用文本编辑器打开该文件之后，会发现其中包含着这样一个文件头信息：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">---</div><div class="line">title: Hello World	# 文章标题即文件名</div><div class="line">date: 2016-07-17 11:36:39	# 日期</div><div class="line">tags:	# 标签，值为[value1, value2, ...]的格式</div><div class="line">---</div><div class="line"># 正文，需要用MarkDown语言编写</div></pre></td></tr></table></figure>
+<h2 id="生成静态网页"><a href="#生成静态网页" class="headerlink" title="生成静态网页"></a>生成静态网页</h2><p>继续输入命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Blog $ hexo generate</div></pre></td></tr></table></figure>
+<p>即可生成静态网页。</p>
+<h2 id="部署到GitHub"><a href="#部署到GitHub" class="headerlink" title="部署到GitHub"></a>部署到GitHub</h2><h3 id="安装自动部署插件"><a href="#安装自动部署插件" class="headerlink" title="安装自动部署插件"></a>安装自动部署插件</h3><p>部署到GitHub即意味着将本地文件上传到GitHub网站中，所以显然是需要工具来实现的。在这里就介绍一下自动部署到GitHub上的插件，我们只需要输入一下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Blog $ npm install hexo-deployer-git --save</div></pre></td></tr></table></figure>
+<p>即可实现下载安装，有些博客中该命令是没有最后的<code>--save</code>这一部分的，我这里这样写主要是为了防止出现一些不必要的错误。</p>
+<h3 id="编辑全局配置文件"><a href="#编辑全局配置文件" class="headerlink" title="编辑全局配置文件"></a>编辑全局配置文件</h3><h4 id="打开全局配置文件"><a href="#打开全局配置文件" class="headerlink" title="打开全局配置文件"></a>打开全局配置文件</h4><p>下载安装成功之后，我们需要修改一下全局配置文件，输入一下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Blog $ vim _config.yml</div></pre></td></tr></table></figure>
+<p>即可编辑该文件，目前我们将</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># Deployment</div><div class="line">## Docs: https://hexo.io/docs/deployment.html</div><div class="line">deploy:</div><div class="line">  type:</div></pre></td></tr></table></figure>
+<p>修改为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># Deployment</div><div class="line">## Docs: https://hexo.io/docs/deployment.html</div><div class="line">deploy:</div><div class="line">  type: git # 因为Hexo版本大于3.0，所以填git；否则填github</div><div class="line">  repository: # 你的仓库地址</div><div class="line">  branch: # 你工程的分支名</div></pre></td></tr></table></figure>
+<p>例如下图所示：</p>
+<p><img src="../../../../images/Mac-GitHub-Hexo-NexT/设置仓库地址.png" alt="设置仓库地址"></p>
+<h4 id="查看仓库地址"><a href="#查看仓库地址" class="headerlink" title="查看仓库地址"></a>查看仓库地址</h4><p>进入你的GitHub官网即可查看，如<a href="https://github.com/fengqingxiuyi/fengqingxiuyi.github.io" target="_blank" rel="external">我的GitHub地址</a>，打开后，点击页面右边中部的绿色按钮，名称为<code>Clone or download</code>，即可复制仓库地址，HTTPS和SSH两者皆可。</p>
+<p>如果仓库地址填写为SSH地址，则必须要先配置好SSH key，可以在<a href="https://fengqingxiuyi.github.io/2016/07/17/Mac-GitHub-Hexo-NexT-——-GitHub/">Mac+GitHub+Hexo+NexT —— GitHub</a>一文中学习如何配置。</p>
+<h4 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a><font color="red">注意点</font></h4><ol>
+<li>type、repository、branch必须并列对齐，切前面只能有两个空格符。<br></li>
+<li>每个冒号后面都必须要有一个空格符（链接地址中的冒号除外）。</li>
+</ol>
+<h3 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h3><p>输入命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Blog $ hexo deploy</div></pre></td></tr></table></figure>
+<p>即可进行部署操作，如果输出内容为<code>ERROR Deployer not found: git</code>，则表明你的全局配置文件填写错误，或者是之前安装自动化部署插件时，所用的命令后面没有添加<code>-- save</code>，或者是其他原因，需要仔细排查。</p>
+<h3 id="浏览查看"><a href="#浏览查看" class="headerlink" title="浏览查看"></a>浏览查看</h3><p>如果成功部署到了GitHub之上，我们就可以在浏览器中查看我们自己的博客了，在浏览器中输入你的GitHub仓库名即可查看，如：<a href="https://fengqingxiuyi.github.io/">https://fengqingxiuyi.github.io/</a>，如果显示正确，并且与你在本地预览时的别效果一模一样，则表明部署成功！</p>
+<h1 id="命令简写"><a href="#命令简写" class="headerlink" title="命令简写"></a>命令简写</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">hexo n == hexo new</div><div class="line">hexo g == hexo generate</div><div class="line">hexo s == hexo server</div><div class="line">hexo d == hexo deploy</div></pre></td></tr></table></figure>
+<h1 id="附"><a href="#附" class="headerlink" title="附"></a>附</h1><p>至此，我们已经学会了博客的搭建与使用，接下来我们将要讲解如何使用NexT主题，美化我们的博客，当然你也可以使用其他主题美化，<a href="https://www.zhihu.com/question/24422335" target="_blank" rel="external">这里列举了一些好看的Hexo主题</a>。</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Mac+GitHub+Hexo+NexT（二）Git+Node.js]]></title>
+      <url>https://fengqingxiuyi.github.io/2016/07/17/Mac+GitHub+Hexo+NexT/Mac+GitHub+Hexo+NexT%EF%BC%88%E4%BA%8C%EF%BC%89Git+Node.js/</url>
+      <content type="html"><![CDATA[<p>上文我们主要讲了如何创建GitHub账号和配置SSH，接下我们就来学习一下怎么安装Git和Node.js吧！</p>
+<p>首先还是进行相关重要说明，请仔细阅读：</p>
+<ol>
+<li>本人是在Mac搭建博客的，所以不会包含和Windows相关的内容，操作系统参数如下：<code>MacBook Pro OS X EI Capitan 10.11.5</code>。</li>
+<li>因为搭建博客的过程中会经常输命令，所以：<ol>
+<li>如果文中代码区块是以<code>$</code>开头的话，代表的是终端默认目录，如：<code>QingFengdeMacBook-Pro:~ qingfeng$</code>。</li>
+</ol>
+</li>
+<li>所有输出类文字或者是提示性文字或者是重点文字都会有自带背景色。</li>
+</ol>
+<p>接下来开始正文阐述：</p>
+<h1 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h1><h2 id="什么是Git"><a href="#什么是Git" class="headerlink" title="什么是Git"></a>什么是Git</h2><p>我们每安装一个软件都应该了解它是什么，能干什么。这里简要阐述一下：</p>
+<ol>
+<li>Git是目前世界上最先进的分布式版本控制系统（没有之一）。</li>
+<li>Git有什么特点？简单来说就是：高端大气上档次！</li>
+<li>附上廖雪峰的Git经典入门教程：<a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="external">Git入门教程</a></li>
+</ol>
+<h2 id="安装途径与过程"><a href="#安装途径与过程" class="headerlink" title="安装途径与过程"></a>安装途径与过程</h2><p>安装Git的方式有很多种，我们即可以从<a href="http://git-scm.com/downloads" target="_blank" rel="external">官网</a>下载，也可以使用其他方式安装，这里我们使用<a href="https://github.com/Homebrew" target="_blank" rel="external">Homebrew</a>来进行安装。</p>
+<h3 id="安装Homebrew"><a href="#安装Homebrew" class="headerlink" title="安装Homebrew"></a>安装Homebrew</h3><p>安装Homebrew十分简单，我们只需要在打开终端之后，直接输入命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ /usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)”</div></pre></td></tr></table></figure>
+<p>然后等待它下载安装即可。</p>
+<h3 id="安装Git-1"><a href="#安装Git-1" class="headerlink" title="安装Git"></a>安装Git</h3><p>Homebrew安装完成之后，继续输入命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ brew install git</div></pre></td></tr></table></figure>
+<p>就会自动下载最新的Git进行安装。</p>
+<h3 id="安装校检"><a href="#安装校检" class="headerlink" title="安装校检"></a>安装校检</h3><p>安装完成之后，如何知道Git是否安装成功了呢？很简单，我们继续输入命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git --verison</div></pre></td></tr></table></figure>
+<p>如果正确输出版本号信息，则表明Git安装正确，反之则表明安装失败，如果操作无误的话，请尝试其他途径。</p>
+<h1 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装Node.js</h1><h2 id="下载安装"><a href="#下载安装" class="headerlink" title="下载安装"></a>下载安装</h2><p>进入Node.js的<a href="https://nodejs.org/en/" target="_blank" rel="external">官网</a>，然后下载需要的版本就可以了，如<a href="https://nodejs.org/dist/v4.4.7/node-v4.4.7.pkg" target="_blank" rel="external">官方推荐版本</a>。下载完成之后，双击安装包一步一步进行傻瓜式安装即可。</p>
+<h2 id="安装校检-1"><a href="#安装校检-1" class="headerlink" title="安装校检"></a>安装校检</h2><p>跟安装Git一样，我们也需要判断Node.js是否安装正确，同样十分简单，在终端输入命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ node -v</div></pre></td></tr></table></figure>
+<p>如果正确输出版本号信息，则表明Node.js安装正确。</p>
+<h1 id="附"><a href="#附" class="headerlink" title="附"></a>附</h1><p>至此，想必大家已经学会怎么安装Git和Node.js了吧，接下来让我们开始Hexo的正式征途吧。</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Mac+GitHub+Hexo+NexT（一）GitHub]]></title>
+      <url>https://fengqingxiuyi.github.io/2016/07/17/Mac+GitHub+Hexo+NexT/Mac+GitHub+Hexo+NexT%EF%BC%88%E4%B8%80%EF%BC%89GitHub/</url>
       <content type="html"><![CDATA[<p>无意中发现了一篇博客，感觉好高大上的样纸，然后发现大家都在用这个搭建博客，我也算是out了，于是自己搭着也玩了玩。网上的搭建教程各式各样，不一定有适合自己的，或多或少都需要改动，下面就讲解一下我的博客搭建之旅。</p>
-<p>首先我来介绍一下我的系统环境，以防因环境的变化而变化：</p>
-<p>OS：MacBook Pro OS X EI Capitan 10.11.5</p>
+<p>首先进行相关重要说明，请仔细阅读：</p>
+<ol>
+<li>本人是在Mac搭建博客的，所以不会包含和Windows相关的内容，操作系统参数如下：<code>MacBook Pro OS X EI Capitan 10.11.5</code>。</li>
+<li>因为搭建博客的过程中会经常输命令，所以：<ol>
+<li>如果文中代码区块是以<code>$</code>开头的话，代表的是终端默认目录，如：<code>QingFengdeMacBook-Pro:~ qingfeng$</code>。</li>
+</ol>
+</li>
+<li>所有输出类文字或者是提示性文字或者是重点文字都会有自带背景色。</li>
+</ol>
 <p>由于内容比较多，在这里我就分章节进行讲解，本文将要讲解的是GitHub的创建和SSH的配置。</p>
-<h1 id="GitHub的创建"><a href="#GitHub的创建" class="headerlink" title="GitHub的创建"></a>GitHub的创建</h1><h2 id="创建GitHub账号"><a href="#创建GitHub账号" class="headerlink" title="创建GitHub账号"></a>创建GitHub账号</h2><p>网址：<a href="https://github.com/join?source=header-home" target="_blank" rel="external">https://github.com/join?source=header-home</a></p>
-<h3 id="设置用户名、邮箱、密码，点击Create-an-account按钮"><a href="#设置用户名、邮箱、密码，点击Create-an-account按钮" class="headerlink" title="设置用户名、邮箱、密码，点击Create an account按钮"></a>设置用户名、邮箱、密码，点击Create an account按钮</h3><p><img src="../../../../images/Mac-GitHub-Hexo-NexT/注册github步骤1.png" alt="注册github步骤1"></p>
+<h1 id="GitHub的创建"><a href="#GitHub的创建" class="headerlink" title="GitHub的创建"></a>GitHub的创建</h1><h2 id="创建GitHub账号"><a href="#创建GitHub账号" class="headerlink" title="创建GitHub账号"></a>创建GitHub账号</h2><h3 id="Step1-Set-up-a-personal-account"><a href="#Step1-Set-up-a-personal-account" class="headerlink" title="Step1 Set up a personal account"></a>Step1 Set up a personal account</h3><p>首先在浏览器中输入网址：<a href="https://github.com/join?source=header-home" target="_blank" rel="external">https://github.com/join?source=header-home</a>，然后填写用户名、邮箱、密码，<code>注意：该邮箱地址在之后的SSH配置中有重要作用</code>，最后点击<code>Create an account</code>按钮，界面如下图所示：</p>
+<p><img src="../../../../images/Mac-GitHub-Hexo-NexT/注册github步骤1.png" alt="注册github步骤1"></p>
+<h3 id="Step2-Choose-your-plan"><a href="#Step2-Choose-your-plan" class="headerlink" title="Step2 Choose your plan"></a>Step2 Choose your plan</h3><p>默认选择即可，直接点击<code>Continue</code>按钮，进入下一步进行邮箱验证，界面如下图所示：</p>
+<p><img src="../../../../images/Mac-GitHub-Hexo-NexT/注册github步骤2.png" alt="注册github步骤2"></p>
+<h3 id="Step3-Tailor-your-experinece"><a href="#Step3-Tailor-your-experinece" class="headerlink" title="Step3 Tailor your experinece"></a>Step3 Tailor your experinece</h3><p>登录自己设置的邮箱，点击<code>验证邮箱</code>之类的按钮后会进入<a href="https://github.com/" target="_blank" rel="external">该网页</a>，如果在其左上角有<code>Your email was verified.</code>这样的文案表明邮箱验证成功。</p>
+<h2 id="配置GitHub相关信息"><a href="#配置GitHub相关信息" class="headerlink" title="配置GitHub相关信息"></a>配置GitHub相关信息</h2><p>接下来就可以进行创建工程、偏好设置等工作了：</p>
+<h3 id="创建工程"><a href="#创建工程" class="headerlink" title="创建工程"></a>创建工程</h3><p>如图所示：</p>
+<p><img src="../../../../images/Mac-GitHub-Hexo-NexT/配置相关信息.png" alt="配置相关信息"></p>
+<p>如果你从未使用过GitHub，可以点击<a href="https://guides.github.com/activities/hello-world/" target="_blank" rel="external">Read the guide</a>按钮学习如何创建工程并使用。</p>
+<p>如果你知道如何创建GitHub工程的话，那就简单了，我们直接点击<code>Start a project</code>按钮就可以开始工程的创建，当然也可以从<a href="https://github.com/new" target="_blank" rel="external">该网页</a>进入。依次填写仓库名、描述信息、初始化README文件，最后点击<code>Create repository</code>按钮，就成功创建一个工程了。但是因为该工程是为了给我们搭建博客用的，所以有以下几个注意点：</p>
+<ol>
+<li>仓库名必须为<strong>name.github.io</strong>这样的格式，其中<strong>name</strong>可以自定义，但其他部分不可变化，必须一模一样！！！据说后面的<strong>io</strong>也可以是<strong>com</strong>，这个我就不清楚了，有兴趣的可以尝试一下。</li>
+<li>描述信息和是否初始化README文件完全看个人兴趣，但是我的建议是需要的，因为这样能直截了当的明白这个工程是干嘛用的。</li>
+</ol>
+<p>例如下图所示：</p>
+<p><img src="../../../../images/Mac-GitHub-Hexo-NexT/创建仓库.png" alt="创建仓库"></p>
+<h3 id="偏好设置"><a href="#偏好设置" class="headerlink" title="偏好设置"></a>偏好设置</h3><p>如果你熟悉GitHub，则可以进行一些偏好设置，即个性化设置，如上传头像。这些都是非常简单的，所示就不做阐述了，我们直接进入正题——配置SSH。</p>
+<h3 id="配置SSH"><a href="#配置SSH" class="headerlink" title="配置SSH"></a>配置SSH</h3><ol>
+<li><p>打开终端，输入命令：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh -T git@github.com</div></pre></td></tr></table></figure>
+<p> 如果输出内容是<code>Permission denied (publickey).</code>，则表明我们尚未在GitHub中正确配置SSH，反之则表明配置成功，直接跳过这一部分即可。</p>
+</li>
+<li><p>继续输入命令：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh-keygen -C &quot;Your primary GitHub email address”</div></pre></td></tr></table></figure>
+<p> 切记必须修改命令中的邮箱地址，该邮箱地址即为你注册GitHub时所填写的邮箱地址。输入成功之后会依行出现如下图所示提示：</p>
+<p> <img src="../../../../images/Mac-GitHub-Hexo-NexT/设置SSH-key.png" alt="设置SSH-key"></p>
+<p> 分别表示为文件名、密码和确认密码，输入正确后会给出重要的配置信息。</p>
+</li>
+<li><p>继续输入命令：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ cat ~/.ssh/key&apos;s filename.pub | pbcopy</div></pre></td></tr></table></figure>
+<p> 该命令中pub文件的文件名即为上一步中设置的文件名，由于该命令中包含pbcopy关键字，所以该命令可以将pub文件中的内容直接复制到剪切板中，以防之后再网页中配置SSH信息时发生不必要的错误。</p>
+</li>
+<li><p>打开<a href="https://github.com/settings/keys" target="_blank" rel="external">配置SSH</a>的网页，点击右上角的<code>New SSH key</code>按钮，如下图所示：</p>
+<p> <img src="../../../../images/Mac-GitHub-Hexo-NexT/设置SSH-key.png" alt="设置SSH-key"></p>
+<p> 然后将pub文件中的内容粘贴到Key表示的文本框中，然后在Title表示的文本框中随便命名一个名字，最后点击<code>Add SSH key</code>按钮即可添加SSH key。</p>
+</li>
+<li><p>虽然已经成功添加了SSH key，但是这并不代表着SSH配置成功了，我们继续在终端输入命令：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh -T git@github.com</div></pre></td></tr></table></figure>
+<p> 如果输出内容包含<code>You&#39;ve successfully authenticated, but GitHub does not provide shell access.</code>则表明SSH配置成功；如果出现错误信息，可以继续输入该命令：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh -Tv git@github.com</div></pre></td></tr></table></figure>
+<p> 进行诊断与调试。</p>
+</li>
+<li>最后附上配置SSH的<a href="https://help.github.com/articles/generating-an-ssh-key/" target="_blank" rel="external">官方教程</a>，还是很详细的。</li>
+</ol>
+<h1 id="附"><a href="#附" class="headerlink" title="附"></a>附</h1><p>至此，我们已经完成了GitHub的创建和SSH的配置，接下来就让我们来学习一下怎么安装Git和Node.js吧。</p>
 ]]></content>
     </entry>
     

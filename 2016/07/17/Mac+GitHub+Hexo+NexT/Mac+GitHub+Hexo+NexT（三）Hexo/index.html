@@ -86,7 +86,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Hexo," />
 
 
 
@@ -102,27 +102,34 @@
 
 
 
-<meta name="description" content="无意中发现了一篇博客，感觉好高大上的样纸，然后发现大家都在用这个搭建博客，我也算是out了，于是自己搭着也玩了玩。网上的搭建教程各式各样，不一定有适合自己的，或多或少都需要改动，下面就讲解一下我的博客搭建之旅。
-首先我来介绍一下我的系统环境，以防因环境的变化而变化：
-OS：MacBook Pro OS X EI Capitan 10.11.5
-由于内容比较多，在这里我就分章节进行讲解，本文将要讲解">
+<meta name="description" content="上文我们学会了如何安装Git和Node.js，接下来我们就需要开始真正的搭建Hexo博客框架了
+首先进行相关重要说明，请仔细阅读：
+
+本人是在Mac搭建博客的，所以不会包含和Windows相关的内容，操作系统参数如下：MacBook Pro OS X EI Capitan 10.11.5。
+因为搭建博客的过程中会经常输命令，所以：
+如果文中代码区块是以$开头的话，代表的是终端默认目录，如：Qing">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Mac+GitHub+Hexo+NexT —— GitHub">
-<meta property="og:url" content="https://fengqingxiuyi.github.io/2016/07/17/Mac-GitHub-Hexo-NexT-——-GitHub/index.html">
+<meta property="og:title" content="Mac+GitHub+Hexo+NexT（三）Hexo">
+<meta property="og:url" content="https://fengqingxiuyi.github.io/2016/07/17/Mac+GitHub+Hexo+NexT/Mac+GitHub+Hexo+NexT（三）Hexo/index.html">
 <meta property="og:site_name" content="风清袖一的博客">
-<meta property="og:description" content="无意中发现了一篇博客，感觉好高大上的样纸，然后发现大家都在用这个搭建博客，我也算是out了，于是自己搭着也玩了玩。网上的搭建教程各式各样，不一定有适合自己的，或多或少都需要改动，下面就讲解一下我的博客搭建之旅。
-首先我来介绍一下我的系统环境，以防因环境的变化而变化：
-OS：MacBook Pro OS X EI Capitan 10.11.5
-由于内容比较多，在这里我就分章节进行讲解，本文将要讲解">
-<meta property="og:image" content="https://fengqingxiuyi.github.io/../../../../images/Mac-GitHub-Hexo-NexT/注册github步骤1.png">
-<meta property="og:updated_time" content="2016-07-17T07:20:44.000Z">
+<meta property="og:description" content="上文我们学会了如何安装Git和Node.js，接下来我们就需要开始真正的搭建Hexo博客框架了
+首先进行相关重要说明，请仔细阅读：
+
+本人是在Mac搭建博客的，所以不会包含和Windows相关的内容，操作系统参数如下：MacBook Pro OS X EI Capitan 10.11.5。
+因为搭建博客的过程中会经常输命令，所以：
+如果文中代码区块是以$开头的话，代表的是终端默认目录，如：Qing">
+<meta property="og:image" content="https://fengqingxiuyi.github.io/../../../../images/Mac-GitHub-Hexo-NexT/查看hexo版本.png">
+<meta property="og:image" content="https://fengqingxiuyi.github.io/../../../../images/Mac-GitHub-Hexo-NexT/设置仓库地址.png">
+<meta property="og:updated_time" content="2016-07-18T16:32:00.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mac+GitHub+Hexo+NexT —— GitHub">
-<meta name="twitter:description" content="无意中发现了一篇博客，感觉好高大上的样纸，然后发现大家都在用这个搭建博客，我也算是out了，于是自己搭着也玩了玩。网上的搭建教程各式各样，不一定有适合自己的，或多或少都需要改动，下面就讲解一下我的博客搭建之旅。
-首先我来介绍一下我的系统环境，以防因环境的变化而变化：
-OS：MacBook Pro OS X EI Capitan 10.11.5
-由于内容比较多，在这里我就分章节进行讲解，本文将要讲解">
-<meta name="twitter:image" content="https://fengqingxiuyi.github.io/../../../../images/Mac-GitHub-Hexo-NexT/注册github步骤1.png">
+<meta name="twitter:title" content="Mac+GitHub+Hexo+NexT（三）Hexo">
+<meta name="twitter:description" content="上文我们学会了如何安装Git和Node.js，接下来我们就需要开始真正的搭建Hexo博客框架了
+首先进行相关重要说明，请仔细阅读：
+
+本人是在Mac搭建博客的，所以不会包含和Windows相关的内容，操作系统参数如下：MacBook Pro OS X EI Capitan 10.11.5。
+因为搭建博客的过程中会经常输命令，所以：
+如果文中代码区块是以$开头的话，代表的是终端默认目录，如：Qing">
+<meta name="twitter:image" content="https://fengqingxiuyi.github.io/../../../../images/Mac-GitHub-Hexo-NexT/查看hexo版本.png">
 
 
 
@@ -134,7 +141,7 @@ OS：MacBook Pro OS X EI Capitan 10.11.5
     fancybox: true,
     motion: true,
     duoshuo: {
-      userId: 6307133899575133000,
+      userId: 6307371788401640000,
       author: '风清袖一'
     }
   };
@@ -143,9 +150,9 @@ OS：MacBook Pro OS X EI Capitan 10.11.5
 
 
 
-  <link rel="canonical" href="https://fengqingxiuyi.github.io/2016/07/17/Mac-GitHub-Hexo-NexT-——-GitHub/"/>
+  <link rel="canonical" href="https://fengqingxiuyi.github.io/2016/07/17/Mac+GitHub+Hexo+NexT/Mac+GitHub+Hexo+NexT（三）Hexo/"/>
 
-  <title> Mac+GitHub+Hexo+NexT —— GitHub | 风清袖一的博客 </title>
+  <title> Mac+GitHub+Hexo+NexT（三）Hexo | 风清袖一的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -300,7 +307,7 @@ OS：MacBook Pro OS X EI Capitan 10.11.5
             
             
               
-                Mac+GitHub+Hexo+NexT —— GitHub
+                Mac+GitHub+Hexo+NexT（三）Hexo
               
             
           </h1>
@@ -312,19 +319,38 @@ OS：MacBook Pro OS X EI Capitan 10.11.5
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-17T14:14:59+08:00" content="2016-07-17">
+            <time itemprop="dateCreated" datetime="2016-07-17T18:59:37+08:00" content="2016-07-17">
               2016-07-17
             </time>
           </span>
 
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Hexo/" itemprop="url" rel="index">
+                    <span itemprop="name">Hexo</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
           
 
           
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/07/17/Mac-GitHub-Hexo-NexT-——-GitHub/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/17/Mac-GitHub-Hexo-NexT-——-GitHub/" itemprop="commentsCount"></span>
+                <a href="/2016/07/17/Mac+GitHub+Hexo+NexT/Mac+GitHub+Hexo+NexT（三）Hexo/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/17/Mac+GitHub+Hexo+NexT/Mac+GitHub+Hexo+NexT（三）Hexo/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -341,7 +367,7 @@ OS：MacBook Pro OS X EI Capitan 10.11.5
 
           
           
-             <span id="/2016/07/17/Mac-GitHub-Hexo-NexT-——-GitHub/" class="leancloud_visitors" data-flag-title="Mac+GitHub+Hexo+NexT —— GitHub">
+             <span id="/2016/07/17/Mac+GitHub+Hexo+NexT/Mac+GitHub+Hexo+NexT（三）Hexo/" class="leancloud_visitors" data-flag-title="Mac+GitHub+Hexo+NexT（三）Hexo">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -363,12 +389,64 @@ OS：MacBook Pro OS X EI Capitan 10.11.5
       
 
       
-        <p>无意中发现了一篇博客，感觉好高大上的样纸，然后发现大家都在用这个搭建博客，我也算是out了，于是自己搭着也玩了玩。网上的搭建教程各式各样，不一定有适合自己的，或多或少都需要改动，下面就讲解一下我的博客搭建之旅。</p>
-<p>首先我来介绍一下我的系统环境，以防因环境的变化而变化：</p>
-<p>OS：MacBook Pro OS X EI Capitan 10.11.5</p>
-<p>由于内容比较多，在这里我就分章节进行讲解，本文将要讲解的是GitHub的创建和SSH的配置。</p>
-<h1 id="GitHub的创建"><a href="#GitHub的创建" class="headerlink" title="GitHub的创建"></a>GitHub的创建</h1><h2 id="创建GitHub账号"><a href="#创建GitHub账号" class="headerlink" title="创建GitHub账号"></a>创建GitHub账号</h2><p>网址：<a href="https://github.com/join?source=header-home" target="_blank" rel="external">https://github.com/join?source=header-home</a></p>
-<h3 id="设置用户名、邮箱、密码，点击Create-an-account按钮"><a href="#设置用户名、邮箱、密码，点击Create-an-account按钮" class="headerlink" title="设置用户名、邮箱、密码，点击Create an account按钮"></a>设置用户名、邮箱、密码，点击Create an account按钮</h3><p><img src="../../../../images/Mac-GitHub-Hexo-NexT/注册github步骤1.png" alt="注册github步骤1"></p>
+        <p>上文我们学会了如何安装Git和Node.js，接下来我们就需要开始真正的搭建Hexo博客框架了</p>
+<p>首先进行相关重要说明，请仔细阅读：</p>
+<ol>
+<li>本人是在Mac搭建博客的，所以不会包含和Windows相关的内容，操作系统参数如下：<code>MacBook Pro OS X EI Capitan 10.11.5</code>。</li>
+<li>因为搭建博客的过程中会经常输命令，所以：<ol>
+<li>如果文中代码区块是以<code>$</code>开头的话，代表的是终端默认目录，如：<code>QingFengdeMacBook-Pro:~ qingfeng$</code>。</li>
+</ol>
+</li>
+<li>所有输出类文字或者是提示性文字或者是重点文字都会有自带背景色。</li>
+<li>需要掌握vim的基本知识和用法。</li>
+</ol>
+<h1 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h1><h2 id="安装npm"><a href="#安装npm" class="headerlink" title="安装npm"></a>安装npm</h2><p>安装Hexo需要使用npm插件，由于我使用的Mac电脑，所以一般都是自带npm 的，如果你没有的话，请自行下载安装，此处不做阐述。</p>
+<h2 id="安装Hexo-1"><a href="#安装Hexo-1" class="headerlink" title="安装Hexo"></a>安装Hexo</h2><h3 id="下载安装"><a href="#下载安装" class="headerlink" title="下载安装"></a>下载安装</h3><p>打开终端后，直接输入命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-cli -g</div></pre></td></tr></table></figure>
+<p>如果出现权限不足之类的错误，可以使用sudo提升权限，则新命令如下： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo npm install hexo-cli -g</div></pre></td></tr></table></figure>
+<h3 id="校检安装"><a href="#校检安装" class="headerlink" title="校检安装"></a>校检安装</h3><p>Hexo安装完成之后，也需要判断是否安装成功，继续输入命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo -v</div></pre></td></tr></table></figure>
+<p>会出现一系列信息，如果每一行都显示正确的版本号信息，则表明安装正确，如下图所示：</p>
+<p><img src="../../../../images/Mac-GitHub-Hexo-NexT/查看hexo版本.png" alt="查看hexo版本"></p>
+<h1 id="搭建博客"><a href="#搭建博客" class="headerlink" title="搭建博客"></a>搭建博客</h1><h2 id="初始化Hexo"><a href="#初始化Hexo" class="headerlink" title="初始化Hexo"></a>初始化Hexo</h2><p>首先选择一个目录用于存放和博客相关的文件，如果没有中意的目录，可以创建，比如我创建的名为<code>Blog</code>的文件夹，然后进入该目录下，输入命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Blog $ hexo init</div></pre></td></tr></table></figure>
+<p>用于初始化Hexo。全部完成以后会出现一些文件或文件夹，目录结构如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">根目录</div><div class="line"> |----_config.yml	# 全局配置文件</div><div class="line"> |----node_modules	# 插件安装位置</div><div class="line"> |----package.json	# Hexo框架参数</div><div class="line"> |----scaffolds		# 包含新建文章的文件头模板</div><div class="line"> |----scripts		# 脚本目录，JavaScript文件会自动执行</div><div class="line"> |----source		# 保存新建的文章及相关资源</div><div class="line">   |----_drafts		# 保存临时文件</div><div class="line">   |----_posts		# 保存新建的文章，md文件会被编译成html文件</div><div class="line"> |----themes		# 网站主题</div></pre></td></tr></table></figure>
+<h2 id="预览博客"><a href="#预览博客" class="headerlink" title="预览博客"></a>预览博客</h2><p>继续输入命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Blog $ hexo server</div></pre></td></tr></table></figure>
+<p>当出现<code>Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.</code>这样的提示消息时，我们就可以在浏览器中打开<a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a>，用于访问自己的博客了。按Ctrl+C即可停止server服务。</p>
+<h2 id="新建文章"><a href="#新建文章" class="headerlink" title="新建文章"></a>新建文章</h2><p>预览好博客之后，我们来写一篇文章吧！那么，怎么写呢？很简单，我们按Ctrl+C停止了Hexo的server服务后，接着输入命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Blog $ hexo new &quot;Hello World&quot;</div></pre></td></tr></table></figure>
+<p>于是我们就创建了一篇名为Hello World的文章，并且终端也会告诉我们它的存储位置，如：<code>INFO  Created: /Volumes/MAIN/qingfeng/Blog/source/_posts/Hello-World.md</code>。</p>
+<p>然后我们用文本编辑器打开该文件之后，会发现其中包含着这样一个文件头信息：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">---</div><div class="line">title: Hello World	# 文章标题即文件名</div><div class="line">date: 2016-07-17 11:36:39	# 日期</div><div class="line">tags:	# 标签，值为[value1, value2, ...]的格式</div><div class="line">---</div><div class="line"># 正文，需要用MarkDown语言编写</div></pre></td></tr></table></figure>
+<h2 id="生成静态网页"><a href="#生成静态网页" class="headerlink" title="生成静态网页"></a>生成静态网页</h2><p>继续输入命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Blog $ hexo generate</div></pre></td></tr></table></figure>
+<p>即可生成静态网页。</p>
+<h2 id="部署到GitHub"><a href="#部署到GitHub" class="headerlink" title="部署到GitHub"></a>部署到GitHub</h2><h3 id="安装自动部署插件"><a href="#安装自动部署插件" class="headerlink" title="安装自动部署插件"></a>安装自动部署插件</h3><p>部署到GitHub即意味着将本地文件上传到GitHub网站中，所以显然是需要工具来实现的。在这里就介绍一下自动部署到GitHub上的插件，我们只需要输入一下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Blog $ npm install hexo-deployer-git --save</div></pre></td></tr></table></figure>
+<p>即可实现下载安装，有些博客中该命令是没有最后的<code>--save</code>这一部分的，我这里这样写主要是为了防止出现一些不必要的错误。</p>
+<h3 id="编辑全局配置文件"><a href="#编辑全局配置文件" class="headerlink" title="编辑全局配置文件"></a>编辑全局配置文件</h3><h4 id="打开全局配置文件"><a href="#打开全局配置文件" class="headerlink" title="打开全局配置文件"></a>打开全局配置文件</h4><p>下载安装成功之后，我们需要修改一下全局配置文件，输入一下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Blog $ vim _config.yml</div></pre></td></tr></table></figure>
+<p>即可编辑该文件，目前我们将</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># Deployment</div><div class="line">## Docs: https://hexo.io/docs/deployment.html</div><div class="line">deploy:</div><div class="line">  type:</div></pre></td></tr></table></figure>
+<p>修改为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># Deployment</div><div class="line">## Docs: https://hexo.io/docs/deployment.html</div><div class="line">deploy:</div><div class="line">  type: git # 因为Hexo版本大于3.0，所以填git；否则填github</div><div class="line">  repository: # 你的仓库地址</div><div class="line">  branch: # 你工程的分支名</div></pre></td></tr></table></figure>
+<p>例如下图所示：</p>
+<p><img src="../../../../images/Mac-GitHub-Hexo-NexT/设置仓库地址.png" alt="设置仓库地址"></p>
+<h4 id="查看仓库地址"><a href="#查看仓库地址" class="headerlink" title="查看仓库地址"></a>查看仓库地址</h4><p>进入你的GitHub官网即可查看，如<a href="https://github.com/fengqingxiuyi/fengqingxiuyi.github.io" target="_blank" rel="external">我的GitHub地址</a>，打开后，点击页面右边中部的绿色按钮，名称为<code>Clone or download</code>，即可复制仓库地址，HTTPS和SSH两者皆可。</p>
+<p>如果仓库地址填写为SSH地址，则必须要先配置好SSH key，可以在<a href="https://fengqingxiuyi.github.io/2016/07/17/Mac-GitHub-Hexo-NexT-——-GitHub/">Mac+GitHub+Hexo+NexT —— GitHub</a>一文中学习如何配置。</p>
+<h4 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a><font color="red">注意点</font></h4><ol>
+<li>type、repository、branch必须并列对齐，切前面只能有两个空格符。<br></li>
+<li>每个冒号后面都必须要有一个空格符（链接地址中的冒号除外）。</li>
+</ol>
+<h3 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h3><p>输入命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Blog $ hexo deploy</div></pre></td></tr></table></figure>
+<p>即可进行部署操作，如果输出内容为<code>ERROR Deployer not found: git</code>，则表明你的全局配置文件填写错误，或者是之前安装自动化部署插件时，所用的命令后面没有添加<code>-- save</code>，或者是其他原因，需要仔细排查。</p>
+<h3 id="浏览查看"><a href="#浏览查看" class="headerlink" title="浏览查看"></a>浏览查看</h3><p>如果成功部署到了GitHub之上，我们就可以在浏览器中查看我们自己的博客了，在浏览器中输入你的GitHub仓库名即可查看，如：<a href="https://fengqingxiuyi.github.io/">https://fengqingxiuyi.github.io/</a>，如果显示正确，并且与你在本地预览时的别效果一模一样，则表明部署成功！</p>
+<h1 id="命令简写"><a href="#命令简写" class="headerlink" title="命令简写"></a>命令简写</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">hexo n == hexo new</div><div class="line">hexo g == hexo generate</div><div class="line">hexo s == hexo server</div><div class="line">hexo d == hexo deploy</div></pre></td></tr></table></figure>
+<h1 id="附"><a href="#附" class="headerlink" title="附"></a>附</h1><p>至此，我们已经学会了博客的搭建与使用，接下来我们将要讲解如何使用NexT主题，美化我们的博客，当然你也可以使用其他主题美化，<a href="https://www.zhihu.com/question/24422335" target="_blank" rel="external">这里列举了一些好看的Hexo主题</a>。</p>
 
       
     </div>
@@ -389,7 +467,31 @@ OS：MacBook Pro OS X EI Capitan 10.11.5
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Hexo/" rel="tag">#Hexo</a>
+          
+        </div>
+      
 
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/17/Mac+GitHub+Hexo+NexT/Mac+GitHub+Hexo+NexT（二）Git+Node.js/" rel="next" title="Mac+GitHub+Hexo+NexT（二）Git+Node.js">
+                <i class="fa fa-chevron-left"></i> Mac+GitHub+Hexo+NexT（二）Git+Node.js
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/07/18/Mac+GitHub+Hexo+NexT/Mac+GitHub+Hexo+NexT（四）NexT/" rel="prev" title="Mac+GitHub+Hexo+NexT（四）NexT">
+                Mac+GitHub+Hexo+NexT（四）NexT <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
       
 
       
@@ -412,8 +514,8 @@ OS：MacBook Pro OS X EI Capitan 10.11.5
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/07/17/Mac-GitHub-Hexo-NexT-——-GitHub/"
-           data-title="Mac+GitHub+Hexo+NexT —— GitHub" data-url="https://fengqingxiuyi.github.io/2016/07/17/Mac-GitHub-Hexo-NexT-——-GitHub/">
+      <div class="ds-thread" data-thread-key="2016/07/17/Mac+GitHub+Hexo+NexT/Mac+GitHub+Hexo+NexT（三）Hexo/"
+           data-title="Mac+GitHub+Hexo+NexT（三）Hexo" data-url="https://fengqingxiuyi.github.io/2016/07/17/Mac+GitHub+Hexo+NexT/Mac+GitHub+Hexo+NexT（三）Hexo/">
       </div>
     
   </div>
@@ -458,13 +560,27 @@ OS：MacBook Pro OS X EI Capitan 10.11.5
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">1</span>
+              <span class="site-state-item-count">6</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
 
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
           
 
         </nav>
@@ -541,7 +657,7 @@ OS：MacBook Pro OS X EI Capitan 10.11.5
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#GitHub的创建"><span class="nav-number">1.</span> <span class="nav-text">GitHub的创建</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建GitHub账号"><span class="nav-number">1.1.</span> <span class="nav-text">创建GitHub账号</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#设置用户名、邮箱、密码，点击Create-an-account按钮"><span class="nav-number">1.1.1.</span> <span class="nav-text">设置用户名、邮箱、密码，点击Create an account按钮</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#安装Hexo"><span class="nav-number">1.</span> <span class="nav-text">安装Hexo</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装npm"><span class="nav-number">1.1.</span> <span class="nav-text">安装npm</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Hexo-1"><span class="nav-number">1.2.</span> <span class="nav-text">安装Hexo</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#下载安装"><span class="nav-number">1.2.1.</span> <span class="nav-text">下载安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#校检安装"><span class="nav-number">1.2.2.</span> <span class="nav-text">校检安装</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#搭建博客"><span class="nav-number">2.</span> <span class="nav-text">搭建博客</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#初始化Hexo"><span class="nav-number">2.1.</span> <span class="nav-text">初始化Hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#预览博客"><span class="nav-number">2.2.</span> <span class="nav-text">预览博客</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新建文章"><span class="nav-number">2.3.</span> <span class="nav-text">新建文章</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#生成静态网页"><span class="nav-number">2.4.</span> <span class="nav-text">生成静态网页</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#部署到GitHub"><span class="nav-number">2.5.</span> <span class="nav-text">部署到GitHub</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装自动部署插件"><span class="nav-number">2.5.1.</span> <span class="nav-text">安装自动部署插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编辑全局配置文件"><span class="nav-number">2.5.2.</span> <span class="nav-text">编辑全局配置文件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#打开全局配置文件"><span class="nav-number">2.5.2.1.</span> <span class="nav-text">打开全局配置文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查看仓库地址"><span class="nav-number">2.5.2.2.</span> <span class="nav-text">查看仓库地址</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#注意点"><span class="nav-number">2.5.2.3.</span> <span class="nav-text">注意点</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#部署"><span class="nav-number">2.5.3.</span> <span class="nav-text">部署</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#浏览查看"><span class="nav-number">2.5.4.</span> <span class="nav-text">浏览查看</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#命令简写"><span class="nav-number">3.</span> <span class="nav-text">命令简写</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#附"><span class="nav-number">4.</span> <span class="nav-text">附</span></a></li></ol></div>
             
           </div>
         </section>

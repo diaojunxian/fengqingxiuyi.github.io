@@ -86,7 +86,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Git,Node.js," />
 
 
 
@@ -102,15 +102,31 @@
 
 
 
-<meta name="description" content="谁人背后无人说，谁人背后不说人">
-<meta property="og:type" content="website">
-<meta property="og:title" content="风清袖一的博客">
-<meta property="og:url" content="https://fengqingxiuyi.github.io/archives/index.html">
+<meta name="description" content="上文我们主要讲了如何创建GitHub账号和配置SSH，接下我们就来学习一下怎么安装Git和Node.js吧！
+首先还是进行相关重要说明，请仔细阅读：
+
+本人是在Mac搭建博客的，所以不会包含和Windows相关的内容，操作系统参数如下：MacBook Pro OS X EI Capitan 10.11.5。
+因为搭建博客的过程中会经常输命令，所以：
+如果文中代码区块是以$开头的话，代表的是终端默认">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mac+GitHub+Hexo+NexT（二）Git+Node.js">
+<meta property="og:url" content="https://fengqingxiuyi.github.io/2016/07/17/Mac+GitHub+Hexo+NexT/Mac+GitHub+Hexo+NexT（二）Git+Node.js/index.html">
 <meta property="og:site_name" content="风清袖一的博客">
-<meta property="og:description" content="谁人背后无人说，谁人背后不说人">
+<meta property="og:description" content="上文我们主要讲了如何创建GitHub账号和配置SSH，接下我们就来学习一下怎么安装Git和Node.js吧！
+首先还是进行相关重要说明，请仔细阅读：
+
+本人是在Mac搭建博客的，所以不会包含和Windows相关的内容，操作系统参数如下：MacBook Pro OS X EI Capitan 10.11.5。
+因为搭建博客的过程中会经常输命令，所以：
+如果文中代码区块是以$开头的话，代表的是终端默认">
+<meta property="og:updated_time" content="2016-07-18T14:58:46.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="风清袖一的博客">
-<meta name="twitter:description" content="谁人背后无人说，谁人背后不说人">
+<meta name="twitter:title" content="Mac+GitHub+Hexo+NexT（二）Git+Node.js">
+<meta name="twitter:description" content="上文我们主要讲了如何创建GitHub账号和配置SSH，接下我们就来学习一下怎么安装Git和Node.js吧！
+首先还是进行相关重要说明，请仔细阅读：
+
+本人是在Mac搭建博客的，所以不会包含和Windows相关的内容，操作系统参数如下：MacBook Pro OS X EI Capitan 10.11.5。
+因为搭建博客的过程中会经常输命令，所以：
+如果文中代码区块是以$开头的话，代表的是终端默认">
 
 
 
@@ -131,9 +147,9 @@
 
 
 
-  <link rel="canonical" href="https://fengqingxiuyi.github.io/archives/"/>
+  <link rel="canonical" href="https://fengqingxiuyi.github.io/2016/07/17/Mac+GitHub+Hexo+NexT/Mac+GitHub+Hexo+NexT（二）Git+Node.js/"/>
 
-  <title> 归档 | 风清袖一的博客 </title>
+  <title> Mac+GitHub+Hexo+NexT（二）Git+Node.js | 风清袖一的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -154,7 +170,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  page-archive  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -265,251 +281,203 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
-
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      嗯..! 目前共计 6 篇日志。 继续努力。
-    </span>
-
+  <div id="posts" class="posts-expand">
+    <!--render方法第二个参数is_index为是否为首页-->
+    <!--第三个参数is_pv为我们刚才设置的是否显示计数-->
     
-
-      
-      
-      
-
-      
-        
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2016">2016</h2>
-        </div>
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/07/19/ShowJoy/Jenkins项目构建过程详解/" itemprop="url">
-              
-                <span itemprop="name">Jenkins项目构建过程详解</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-07-19T01:03:45+08:00"
-              content="2016-07-19" >
-          07-19
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/07/18/Mac+GitHub+Hexo+NexT/Mac+GitHub+Hexo+NexT（五）偏好设置+Markdown/" itemprop="url">
-              
-                <span itemprop="name">Mac+GitHub+Hexo+NexT（五）偏好设置+Markdown</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-07-18T23:16:21+08:00"
-              content="2016-07-18" >
-          07-18
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/07/18/Mac+GitHub+Hexo+NexT/Mac+GitHub+Hexo+NexT（四）NexT/" itemprop="url">
-              
-                <span itemprop="name">Mac+GitHub+Hexo+NexT（四）NexT</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-07-18T09:55:54+08:00"
-              content="2016-07-18" >
-          07-18
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/07/17/Mac+GitHub+Hexo+NexT/Mac+GitHub+Hexo+NexT（三）Hexo/" itemprop="url">
-              
-                <span itemprop="name">Mac+GitHub+Hexo+NexT（三）Hexo</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-07-17T18:59:37+08:00"
-              content="2016-07-17" >
-          07-17
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/07/17/Mac+GitHub+Hexo+NexT/Mac+GitHub+Hexo+NexT（二）Git+Node.js/" itemprop="url">
-              
-                <span itemprop="name">Mac+GitHub+Hexo+NexT（二）Git+Node.js</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-07-17T18:00:44+08:00"
-              content="2016-07-17" >
-          07-17
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/07/17/Mac+GitHub+Hexo+NexT/Mac+GitHub+Hexo+NexT（一）GitHub/" itemprop="url">
-              
-                <span itemprop="name">Mac+GitHub+Hexo+NexT（一）GitHub</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-07-17T14:14:59+08:00"
-              content="2016-07-17" >
-          07-17
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-  </section>
 
   
+  
 
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Mac+GitHub+Hexo+NexT（二）Git+Node.js
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-07-17T18:00:44+08:00" content="2016-07-17">
+              2016-07-17
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Hexo/" itemprop="url" rel="index">
+                    <span itemprop="name">Hexo</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/17/Mac+GitHub+Hexo+NexT/Mac+GitHub+Hexo+NexT（二）Git+Node.js/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/17/Mac+GitHub+Hexo+NexT/Mac+GitHub+Hexo+NexT（二）Git+Node.js/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          <!--插入到这里-->
+          
+            <span>&nbsp; | &nbsp;
+              <span id="busuanzi_value_page_pv" ></span>次阅读
+            </span>    
+          
+
+          
+
+          
+          
+             <span id="/2016/07/17/Mac+GitHub+Hexo+NexT/Mac+GitHub+Hexo+NexT（二）Git+Node.js/" class="leancloud_visitors" data-flag-title="Mac+GitHub+Hexo+NexT（二）Git+Node.js">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>上文我们主要讲了如何创建GitHub账号和配置SSH，接下我们就来学习一下怎么安装Git和Node.js吧！</p>
+<p>首先还是进行相关重要说明，请仔细阅读：</p>
+<ol>
+<li>本人是在Mac搭建博客的，所以不会包含和Windows相关的内容，操作系统参数如下：<code>MacBook Pro OS X EI Capitan 10.11.5</code>。</li>
+<li>因为搭建博客的过程中会经常输命令，所以：<ol>
+<li>如果文中代码区块是以<code>$</code>开头的话，代表的是终端默认目录，如：<code>QingFengdeMacBook-Pro:~ qingfeng$</code>。</li>
+</ol>
+</li>
+<li>所有输出类文字或者是提示性文字或者是重点文字都会有自带背景色。</li>
+</ol>
+<p>接下来开始正文阐述：</p>
+<h1 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h1><h2 id="什么是Git"><a href="#什么是Git" class="headerlink" title="什么是Git"></a>什么是Git</h2><p>我们每安装一个软件都应该了解它是什么，能干什么。这里简要阐述一下：</p>
+<ol>
+<li>Git是目前世界上最先进的分布式版本控制系统（没有之一）。</li>
+<li>Git有什么特点？简单来说就是：高端大气上档次！</li>
+<li>附上廖雪峰的Git经典入门教程：<a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="external">Git入门教程</a></li>
+</ol>
+<h2 id="安装途径与过程"><a href="#安装途径与过程" class="headerlink" title="安装途径与过程"></a>安装途径与过程</h2><p>安装Git的方式有很多种，我们即可以从<a href="http://git-scm.com/downloads" target="_blank" rel="external">官网</a>下载，也可以使用其他方式安装，这里我们使用<a href="https://github.com/Homebrew" target="_blank" rel="external">Homebrew</a>来进行安装。</p>
+<h3 id="安装Homebrew"><a href="#安装Homebrew" class="headerlink" title="安装Homebrew"></a>安装Homebrew</h3><p>安装Homebrew十分简单，我们只需要在打开终端之后，直接输入命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ /usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)”</div></pre></td></tr></table></figure>
+<p>然后等待它下载安装即可。</p>
+<h3 id="安装Git-1"><a href="#安装Git-1" class="headerlink" title="安装Git"></a>安装Git</h3><p>Homebrew安装完成之后，继续输入命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ brew install git</div></pre></td></tr></table></figure>
+<p>就会自动下载最新的Git进行安装。</p>
+<h3 id="安装校检"><a href="#安装校检" class="headerlink" title="安装校检"></a>安装校检</h3><p>安装完成之后，如何知道Git是否安装成功了呢？很简单，我们继续输入命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git --verison</div></pre></td></tr></table></figure>
+<p>如果正确输出版本号信息，则表明Git安装正确，反之则表明安装失败，如果操作无误的话，请尝试其他途径。</p>
+<h1 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装Node.js</h1><h2 id="下载安装"><a href="#下载安装" class="headerlink" title="下载安装"></a>下载安装</h2><p>进入Node.js的<a href="https://nodejs.org/en/" target="_blank" rel="external">官网</a>，然后下载需要的版本就可以了，如<a href="https://nodejs.org/dist/v4.4.7/node-v4.4.7.pkg" target="_blank" rel="external">官方推荐版本</a>。下载完成之后，双击安装包一步一步进行傻瓜式安装即可。</p>
+<h2 id="安装校检-1"><a href="#安装校检-1" class="headerlink" title="安装校检"></a>安装校检</h2><p>跟安装Git一样，我们也需要判断Node.js是否安装正确，同样十分简单，在终端输入命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ node -v</div></pre></td></tr></table></figure>
+<p>如果正确输出版本号信息，则表明Node.js安装正确。</p>
+<h1 id="附"><a href="#附" class="headerlink" title="附"></a>附</h1><p>至此，想必大家已经学会怎么安装Git和Node.js了吧，接下来让我们开始Hexo的正式征途吧。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Git/" rel="tag">#Git</a>
+          
+            <a href="/tags/Node-js/" rel="tag">#Node.js</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/17/Mac+GitHub+Hexo+NexT/Mac+GitHub+Hexo+NexT（一）GitHub/" rel="next" title="Mac+GitHub+Hexo+NexT（一）GitHub">
+                <i class="fa fa-chevron-left"></i> Mac+GitHub+Hexo+NexT（一）GitHub
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/07/17/Mac+GitHub+Hexo+NexT/Mac+GitHub+Hexo+NexT（三）Hexo/" rel="prev" title="Mac+GitHub+Hexo+NexT（三）Hexo">
+                Mac+GitHub+Hexo+NexT（三）Hexo <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -517,6 +485,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/07/17/Mac+GitHub+Hexo+NexT/Mac+GitHub+Hexo+NexT（二）Git+Node.js/"
+           data-title="Mac+GitHub+Hexo+NexT（二）Git+Node.js" data-url="https://fengqingxiuyi.github.io/2016/07/17/Mac+GitHub+Hexo+NexT/Mac+GitHub+Hexo+NexT（二）Git+Node.js/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -536,8 +512,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.png"
@@ -638,6 +623,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#安装Git"><span class="nav-number">1.</span> <span class="nav-text">安装Git</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是Git"><span class="nav-number">1.1.</span> <span class="nav-text">什么是Git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装途径与过程"><span class="nav-number">1.2.</span> <span class="nav-text">安装途径与过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Homebrew"><span class="nav-number">1.2.1.</span> <span class="nav-text">安装Homebrew</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Git-1"><span class="nav-number">1.2.2.</span> <span class="nav-text">安装Git</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装校检"><span class="nav-number">1.2.3.</span> <span class="nav-text">安装校检</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装Node-js"><span class="nav-number">2.</span> <span class="nav-text">安装Node.js</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#下载安装"><span class="nav-number">2.1.</span> <span class="nav-text">下载安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装校检-1"><span class="nav-number">2.2.</span> <span class="nav-text">安装校检</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#附"><span class="nav-number">3.</span> <span class="nav-text">附</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -741,11 +737,9 @@
   
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
 
 
   
