@@ -124,7 +124,7 @@
     <link href="https://fengqingxiuyi.github.io/2016/07/18/Mac+GitHub+Hexo+NexT/Mac+GitHub+Hexo+NexT%EF%BC%88%E5%9B%9B%EF%BC%89NexT/"/>
     <id>https://fengqingxiuyi.github.io/2016/07/18/Mac+GitHub+Hexo+NexT/Mac+GitHub+Hexo+NexT（四）NexT/</id>
     <published>2016-07-18T01:55:54.000Z</published>
-    <updated>2016-07-18T16:44:04.000Z</updated>
+    <updated>2016-07-19T03:36:02.000Z</updated>
     
     <content type="html">&lt;p&gt;博客框架我们已经全部搭建完成了，但是大部分人都不喜欢默认的landscape主题，因此，在本文中我就讲解一下很热门的NexT主题。&lt;/p&gt;
 &lt;p&gt;首先进行相关重要说明，请仔细阅读：&lt;/p&gt;
@@ -180,6 +180,20 @@
 &lt;h1 id=&quot;第三方服务&quot;&gt;&lt;a href=&quot;#第三方服务&quot; class=&quot;headerlink&quot; title=&quot;第三方服务&quot;&gt;&lt;/a&gt;第三方服务&lt;/h1&gt;&lt;p&gt;关于&lt;a href=&quot;http://duoshuo.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;多说评论&lt;/a&gt;和&lt;a href=&quot;https://leancloud.cn/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;LeanCloud&lt;/a&gt;，这里就不做过多阐述了，大家看官方文档就可以了，点击超链接即可进入他们各自的官方网站。&lt;/p&gt;
 &lt;p&gt;这里我们主要讲述以下另外一种&lt;font color=&quot;red&quot;&gt;站点访问计数&lt;/font&gt;方法，即&lt;a href=&quot;http://ibruce.info/2015/04/04/busuanzi/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;不蒜子&lt;/a&gt;，在这里我要对博主&lt;code&gt;zhiho&lt;/code&gt;表示感谢，&lt;a href=&quot;http://zhiho.github.io/2015/09/29/hexo-next/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;文中第6章&lt;/a&gt;对于此&lt;font color=&quot;red&quot;&gt;站点访问计数&lt;/font&gt;方法写的十分详细，虽然看起来有点小复杂，但是只要细心就不会出现奇葩问题的，所以我也就不做阐述了。&lt;/p&gt;
 &lt;p&gt;如果你有兴趣的话，你也可以看看&lt;a href=&quot;http://zhiho.github.io/2015/09/29/hexo-next/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这篇文章&lt;/a&gt;中对于&lt;code&gt;sitemap&lt;/code&gt;插件，也是有很大帮助的。&lt;/p&gt;
+&lt;h1 id=&quot;网站背景&quot;&gt;&lt;a href=&quot;#网站背景&quot; class=&quot;headerlink&quot; title=&quot;网站背景&quot;&gt;&lt;/a&gt;网站背景&lt;/h1&gt;&lt;p&gt;如果你想要给自己的网站加一个背景图片也很简单，你只需要一下两步就行了：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;首先将背景图片存放到该目录下：&lt;/p&gt;
+ &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;Blog $ cd themes/next/source/images/&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;接着打开你的scheme所在的目录，比如我的scheme是Mist，然后编辑index.styl文件，即以下两条命令：&lt;/p&gt;
+ &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;Blog $ cd themes/next/source/css/_schemes/Mist(Pisces和Muse也行)/&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;Blog $ vim index.styl&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;打开index.styl文件之后，在&lt;code&gt;Components&lt;/code&gt;上面新增设置背景图片的代码，具体内容如下所示：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;...&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;@import &amp;quot;sidebar/sidebar-blogroll&amp;quot;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;body &amp;#123; background:url(/images/back.png);&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;// Components&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;...&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;ol&gt;
+&lt;li&gt;最后重新部署就可以了！&lt;/li&gt;
+&lt;/ol&gt;
 &lt;h1 id=&quot;附&quot;&gt;&lt;a href=&quot;#附&quot; class=&quot;headerlink&quot; title=&quot;附&quot;&gt;&lt;/a&gt;附&lt;/h1&gt;&lt;p&gt;至此，我们已经讲解完了NexT主题的使用，如果你有其他个性化设置，欢迎留言；相信在前面讲解Hexo的时候，大家早就迫不及待的修改了一些Hexo中的个性化配置了吧，接下来我们来详细的配置一下。&lt;/p&gt;
 </content>
     
