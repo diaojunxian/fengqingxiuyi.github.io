@@ -1548,7 +1548,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #e7ffb4;
+  background: #a2ff69;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2363,6 +2363,9 @@ hr {
 }
 .links-of-blogroll-inline .links-of-blogroll-item {
   display: inline-block;
+}
+body {
+  background: url("/images/back.jpg");
 }
 .btn {
   padding: 0 10px;
