@@ -4,6 +4,76 @@
   
     
     <entry>
+      <title><![CDATA[图片携带其他图片和文字后转换为图片]]></title>
+      <url>https://fengqingxiuyi.github.io/2016/07/23/ShowJoy/%E5%9B%BE%E7%89%87%E6%90%BA%E5%B8%A6%E5%85%B6%E4%BB%96%E5%9B%BE%E7%89%87%E5%92%8C%E6%96%87%E5%AD%97%E5%90%8E%E8%BD%AC%E6%8D%A2%E4%B8%BA%E5%9B%BE%E7%89%87/</url>
+      <content type="html"><![CDATA[<p><font color="blue">业务需求详细描述：</font>最近产品说要在分享的商品图中添加一些其他图片和文字，然后拼接为一张图片，再分享到微信朋友圈，于是我就一脸懵逼了，但是没办法还是得做额！</p>
+<p>然后整理了一下思路，主要有这么两条路线：<br>1、自己手动绘制。<br>2、将布局转换为图片。</p>
+<p>很显然第一种方式是不合适的，无论是开发前还是开发后，成本都很大，果断选择了第二种方式。<br>一开始的时候，我没有经过大脑思考，果断的使用了getDrawingCache这个方法来解决这个业务需求，大致流程如下：<br>1、创建需要显示成图片的布局，代码如下：<br>&lt;?xml version=”1.0” encoding=”utf-8”?&gt;</p>
+<linearlayout xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/picmontage_root" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical"><br><br>    <relativelayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_weight="1" android:background="@android:color/white"><br><br>        <imageview android:id="@+id/img_shop" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_margin="20dp"><br><br>        <relativelayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignparentbottom="true" android:layout_centerhorizontal="true" android:layout_marginbottom="20dp"><br><br>            <imageview android:id="@+id/img_price" android:layout_width="wrap_content" android:layout_height="wrap_content"><br><br>            <textview android:id="@+id/txt_price" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerinparent="true"><br><br>        </textview></imageview></relativelayout><br><br>    </imageview></relativelayout><br><br>    <linearlayout android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@android:color/white"><br><br>        <imageview android:id="@+id/img_qrcode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="20dp"><br><br>        <linearlayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginbottom="20dp" android:layout_marginright="20dp" android:layout_margintop="20dp" android:orientation="vertical"><br><br>            <textview android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="黄老五 提子味皇式烤芙条 300g 沙琪玛 休闲办公室零食...\n" android:textcolor="@android:color/black"><br><br>            <textview android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="长按识别二维码或扫一扫购买\n" android:textcolor="@android:color/darker_gray"><br><br>            <textview android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="From 萌店" android:textcolor="@android:color/darker_gray"><br><br>        </textview></textview></textview></linearlayout>
+
+<pre><code>&lt;/LinearLayout&gt;
+</code></pre><p></p></imageview></linearlayout><br>2、设置图片和文字信息，这里为了方便，直接把文字放到了布局中，设置图片的代码如下所示：<br>private void addLinearLayout() {<br>    view = View.inflate(this, R.layout.activity_picmontage, null);<p></p>
+<pre><code>LinearLayout picmontageRoot = (LinearLayout) view.findViewById(R.id.picmontage_root);
+ImageView shopImg = (ImageView) view.findViewById(R.id.img_shop);
+ImageView priceImg = (ImageView) view.findViewById(R.id.img_price);
+TextView priceTxt = (TextView) view.findViewById(R.id.txt_price);
+ImageView qrcodeImg = (ImageView) view.findViewById(R.id.img_qrcode);
+
+shopImg.setImageResource(R.mipmap.shop);
+priceImg.setImageResource(R.mipmap.price);
+priceTxt.setText(&quot;$ 20.00&quot;);
+priceTxt.setTextSize(20);
+priceTxt.setTextColor(Color.WHITE);
+qrcodeImg.setImageResource(R.mipmap.qrcode);
+
+addViewContent.addView(view);
+</code></pre><p>}<br>3、然后就可以将布局转换成图片了，代码如下所示：<br>private void drawingCacheShow() {<br>    Bitmap cacheBitmap = convertViewToBitmap(addViewContent);<br>    //Bitmap cacheBitmap = getMagicDrawingCache(addViewContent);</p>
+<pre><code>//addViewContent.removeView(view);
+
+if(cacheBitmap != null) {
+    Bitmap newBitmap = Bitmap.createBitmap(cacheBitmap);
+    if (newBitmap != null) {
+        imgAddViewCache.setImageBitmap(newBitmap);
+    } else {
+        Log.i(&quot;123&quot;, &quot;newBitmap=null&quot;);
+    }
+} else {
+    Log.i(&quot;123&quot;, &quot;cacheBitmap=null&quot;);
+}
+</code></pre><p>}<br>public static Bitmap convertViewToBitmap(View view){<br>    view.measure(<br>            View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED),<br>            View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED));<br>    view.layout(0, 0, view.getMeasuredWidth(), view.getMeasuredHeight());<br>    view.buildDrawingCache();<br>    Bitmap bitmap = view.getDrawingCache();</p>
+<pre><code>if (bitmap != null) {
+    Bitmap.Config cfg = bitmap.getConfig();
+    Log.d(&quot;123&quot;, &quot;----------------------- cache.getConfig() = &quot; + cfg);
+}
+
+return bitmap;
+</code></pre><p>}<br>4、然后发现图片不能正确显示，经过debug之后发现原来是图片过大的缘故，一脸懵逼，虽然使用了这样的压缩算法，但总是不尽如人意：<br>private void addLinearLayout() {<br>    view = View.inflate(this, R.layout.activity_picmontage, null);</p>
+<pre><code>LinearLayout picmontageRoot = (LinearLayout) view.findViewById(R.id.picmontage_root);
+ImageView shopImg = (ImageView) view.findViewById(R.id.img_shop);
+ImageView priceImg = (ImageView) view.findViewById(R.id.img_price);
+TextView priceTxt = (TextView) view.findViewById(R.id.txt_price);
+ImageView qrcodeImg = (ImageView) view.findViewById(R.id.img_qrcode);
+
+// 压缩shop
+Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.shop);
+shopImg.setImageBitmap(resizeBm(bitmap, 600));
+priceImg.setImageResource(R.mipmap.price);
+priceTxt.setText(&quot;$ 20.00&quot;);
+priceTxt.setTextSize(20);
+priceTxt.setTextColor(Color.WHITE);
+qrcodeImg.setImageResource(R.mipmap.qrcode);
+
+addViewContent.addView(view);
+</code></pre><p>}<br>private Bitmap resizeBm(Bitmap bitmap, int scaleWidth) {<br>    // 原始宽高<br>    float rawWidth = bitmap.getWidth();<br>    float rawHeight = bitmap.getHeight();<br>    // 新宽高<br>    float newWidth = 0;<br>    float newHeight = 0;<br>    // 将宽度缩放到scaleWidth<br>    if(rawWidth&gt;scaleWidth) {<br>        newWidth = scaleWidth;<br>        newHeight = rawHeight*(scaleWidth/rawWidth);<br>    } else {<br>        newWidth = rawWidth;<br>        newHeight = rawHeight;<br>    }<br>    // 计算缩放比例<br>    float widthScale = newWidth/rawWidth;<br>    float heightScale = newHeight/rawHeight;<br>    Log.i(“123”, “widthScale=”+widthScale+”, heightScale=”+heightScale);<br>    // 显示<br>    Matrix matrix = new Matrix();<br>    matrix.postScale(widthScale,heightScale);<br>    Bitmap resizeBmp = Bitmap.createBitmap(bitmap,0,0,bitmap.getWidth(),bitmap.getHeight(),matrix,true);<br>    return resizeBmp;<br>}</p>
+<p>之后有了大神的帮助，终于顿悟了，发现了神奇的方法：view.draw(canvas)。然后就很简单了：<br>这里的第1步和第2步流程与上面的1、2步流程一模一样，我们直接进入第3步，我先给出主界面中的布局：<br>&lt;?xml version=”1.0” encoding=”utf-8”?&gt;</p>
+<linearlayout xmlns:android="http://schemas.android.com/apk/res/android" android:id="@+id/main_root" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical"><br><br>    <scrollview android:layout_width="match_parent" android:layout_height="wrap_content"><br><br>        <linearlayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical"><br><br>            <button android:layout_width="match_parent" android:layout_height="wrap_content" android:onclick="showPic" android:text="显示绘制的图片"><br><br>            <imageview android:id="@+id/img" android:layout_width="wrap_content" android:layout_height="wrap_content"><br><br>            <linearlayout android:id="@+id/main_content" android:visibility="invisible" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical"><br><br>        </linearlayout>
+
+<pre><code>&lt;/ScrollView&gt;
+</code></pre><p></p></imageview></button></linearlayout><br>3、然后将该布局添加到主界面中，并设置为invisible，但不能设置为gone，否则不能成功渲染，同样不能生成图片了：<br>mainContent.addView(v);<br>4、最后我们就可以在点击事件里面将布局生成图片了，代码如下：<br>public void showPic(View view) {<br>    int width = picmontageRoot.getMeasuredWidth();<br>    int height = picmontageRoot.getMeasuredHeight();<br>    Bitmap b = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565);<br>    Canvas canvas = new Canvas(b);<br>    picmontageRoot.draw(canvas);<br>    img.setImageBitmap(b);<br>}<p></p>
+</scrollview></linearlayout></linearlayout>]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[网络请求的使用与查找]]></title>
       <url>https://fengqingxiuyi.github.io/2016/07/23/ShowJoy/%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82%E7%9A%84%E4%BD%BF%E7%94%A8%E4%B8%8E%E6%9F%A5%E6%89%BE/</url>
       <content type="html"><![CDATA[<h1 id="情况一：网络请求的使用："><a href="#情况一：网络请求的使用：" class="headerlink" title="情况一：网络请求的使用："></a>情况一：网络请求的使用：</h1><p>由于路飞已经把网络请求封装的很好了，所以实现起来是很方便的，目前网络请求是通过volley+okhttp3+fastjson来实现的。</p>
