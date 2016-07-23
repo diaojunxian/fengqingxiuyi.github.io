@@ -116,15 +116,13 @@
 以GET请求而言，主要的继承机构如下：
 1BaseRequest&amp;lt;T&amp;gt; -&amp;gt; BaseGetRequest&amp;lt;T&amp;gt; -&amp;gt; SHGetRequest&amp;lt;T&amp;gt;
 所以当我们有新的业务需要进行网络请求时，">
-<meta property="og:image" content="https://fengqingxiuyi.github.io/../../../../../images/ShowJoy/网络请求的使用与查找-情况二.gif">
-<meta property="og:updated_time" content="2016-07-23T01:14:34.000Z">
+<meta property="og:updated_time" content="2016-07-23T14:31:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="网络请求的使用与查找">
 <meta name="twitter:description" content="情况一：网络请求的使用：由于路飞已经把网络请求封装的很好了，所以实现起来是很方便的，目前网络请求是通过volley+okhttp3+fastjson来实现的。
 以GET请求而言，主要的继承机构如下：
 1BaseRequest&amp;lt;T&amp;gt; -&amp;gt; BaseGetRequest&amp;lt;T&amp;gt; -&amp;gt; SHGetRequest&amp;lt;T&amp;gt;
 所以当我们有新的业务需要进行网络请求时，">
-<meta name="twitter:image" content="https://fengqingxiuyi.github.io/../../../../../images/ShowJoy/网络请求的使用与查找-情况二.gif">
 
 
 
@@ -345,7 +343,7 @@
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
                 <a href="/2016/07/23/ShowJoy/网络请求的使用与查找/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/07/23/ShowJoy/网络请求的使用与查找/" itemprop="commentsCount"></span>
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/23/ShowJoy/网络请求的使用与查找/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -414,8 +412,8 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">this</span>.getRealUrl(url, (Map)params)</div></pre></td></tr></table></figure>
 <p>再进入这个方法看看：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> String <span class="title">getRealUrl</span><span class="params">(String url, Map&lt;String, String&gt; mParams)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span>(<span class="keyword">null</span> == mParams) &#123;</div><div class="line">        <span class="keyword">return</span> url;</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        Uri uri = Uri.parse(url);</div><div class="line">        Builder builder = uri.buildUpon();</div><div class="line">        Iterator realUrl = mParams.entrySet().iterator();</div><div class="line"></div><div class="line">        <span class="keyword">while</span>(realUrl.hasNext()) &#123;</div><div class="line">            Entry entry = (Entry)realUrl.next();</div><div class="line">            builder.appendQueryParameter((String)entry.getKey(), (String)entry.getValue());</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        String realUrl1 = builder.build().toString();</div><div class="line">        SHNetworkLog.d(<span class="string">"RealUrl:"</span>, realUrl1);</div><div class="line">        <span class="keyword">return</span> realUrl1;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>原来这是将URL和参数进行拼接的方法，最后的realUrl1即真正的请求地址。</p>
-<h1 id="情况二：操作流程图"><a href="#情况二：操作流程图" class="headerlink" title="情况二：操作流程图"></a>情况二：操作流程图</h1><p><img src="../../../../../images/ShowJoy/网络请求的使用与查找-情况二.gif" alt="网络请求的使用与查找-情况二"></p>
+<p>原来这是将URL和参数进行拼接的方法，最后的realUrl1即真正的请求地址。<br><!--# 情况二：操作流程图
+![网络请求的使用与查找-情况二](../../../../../images/ShowJoy/网络请求的使用与查找-情况二.gif)--></p>
 
       
     </div>
@@ -483,11 +481,8 @@
           
   <div class="comments" id="comments">
     
-      <div id="disqus_thread">
-        <noscript>
-          Please enable JavaScript to view the
-          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
-        </noscript>
+      <div class="ds-thread" data-thread-key="2016/07/23/ShowJoy/网络请求的使用与查找/"
+           data-title="网络请求的使用与查找" data-url="https://fengqingxiuyi.github.io/2016/07/23/ShowJoy/网络请求的使用与查找/">
       </div>
     
   </div>
@@ -636,7 +631,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#情况一：网络请求的使用："><span class="nav-number">1.</span> <span class="nav-text">情况一：网络请求的使用：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#情况二：网络请求的查找："><span class="nav-number">2.</span> <span class="nav-text">情况二：网络请求的查找：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#查找URL地址过程："><span class="nav-number">2.1.</span> <span class="nav-text">查找URL地址过程：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#情况二：操作流程图"><span class="nav-number">3.</span> <span class="nav-text">情况二：操作流程图</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#情况一：网络请求的使用："><span class="nav-number">1.</span> <span class="nav-text">情况一：网络请求的使用：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#情况二：网络请求的查找："><span class="nav-number">2.</span> <span class="nav-text">情况二：网络请求的查找：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#查找URL地址过程："><span class="nav-number">2.1.</span> <span class="nav-text">查找URL地址过程：</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
@@ -757,30 +752,30 @@
 
   
 
-
-
+  
+    
   
 
-    <script type="text/javascript">
-      var disqus_shortname = 'fengqingxiuyi';
-      var disqus_identifier = '2016/07/23/ShowJoy/网络请求的使用与查找/';
-      var disqus_title = "网络请求的使用与查找";
-      var disqus_url = 'https://fengqingxiuyi.github.io/2016/07/23/ShowJoy/网络请求的使用与查找/';
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"fengqingxiuyi"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
 
-      function run_disqus_script(disqus_script){
-        var dsq = document.createElement('script');
-        dsq.type = 'text/javascript';
-        dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-      }
-
-      run_disqus_script('count.js');
-      
-        run_disqus_script('embed.js');
-      
-    </script>
   
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
 
 
 
