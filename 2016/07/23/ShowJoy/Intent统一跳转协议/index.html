@@ -1,0 +1,1046 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Intent,统一跳转," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="风清袖一的博客" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="目的Intent统一跳转协议就是为了解决模块之间的耦合而存在的，不再以
+1startActivity(new Intent(this, OtherActivity.class));
+的方式进行页面跳转，而是以路径的形式进行跳转，去除了模块之间的引用，从而解决了模块之间的耦合问题。
+其中路径形式一般是以下形式：
+1跳转Uri：scheme://host/path
+但是因为这样形式的路径都是在Andr">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Intent统一跳转协议">
+<meta property="og:url" content="https://fengqingxiuyi.github.io/2016/07/23/ShowJoy/Intent统一跳转协议/index.html">
+<meta property="og:site_name" content="风清袖一的博客">
+<meta property="og:description" content="目的Intent统一跳转协议就是为了解决模块之间的耦合而存在的，不再以
+1startActivity(new Intent(this, OtherActivity.class));
+的方式进行页面跳转，而是以路径的形式进行跳转，去除了模块之间的引用，从而解决了模块之间的耦合问题。
+其中路径形式一般是以下形式：
+1跳转Uri：scheme://host/path
+但是因为这样形式的路径都是在Andr">
+<meta property="og:image" content="https://fengqingxiuyi.github.io/../../../../../images/ShowJoy/Intent统一跳转协议-情况一.gif">
+<meta property="og:image" content="https://fengqingxiuyi.github.io/../../../../../images/ShowJoy/Intent统一跳转协议-情况二.gif">
+<meta property="og:updated_time" content="2016-07-23T00:56:16.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Intent统一跳转协议">
+<meta name="twitter:description" content="目的Intent统一跳转协议就是为了解决模块之间的耦合而存在的，不再以
+1startActivity(new Intent(this, OtherActivity.class));
+的方式进行页面跳转，而是以路径的形式进行跳转，去除了模块之间的引用，从而解决了模块之间的耦合问题。
+其中路径形式一般是以下形式：
+1跳转Uri：scheme://host/path
+但是因为这样形式的路径都是在Andr">
+<meta name="twitter:image" content="https://fengqingxiuyi.github.io/../../../../../images/ShowJoy/Intent统一跳转协议-情况一.gif">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 6307371788401640000,
+      author: '风清袖一'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="https://fengqingxiuyi.github.io/2016/07/23/ShowJoy/Intent统一跳转协议/"/>
+
+  <title> Intent统一跳转协议 | 风清袖一的博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">风清袖一的博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    <!--render方法第二个参数is_index为是否为首页-->
+    <!--第三个参数is_pv为我们刚才设置的是否显示计数-->
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Intent统一跳转协议
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-07-23T08:08:35+08:00" content="2016-07-23">
+              2016-07-23
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/ShowJoy/" itemprop="url" rel="index">
+                    <span itemprop="name">ShowJoy</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/23/ShowJoy/Intent统一跳转协议/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/07/23/ShowJoy/Intent统一跳转协议/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          <!--插入到这里-->
+          
+            <span>&nbsp; | &nbsp;
+              <span id="busuanzi_value_page_pv" ></span>次阅读
+            </span>    
+          
+
+          
+
+          
+          
+             <span id="/2016/07/23/ShowJoy/Intent统一跳转协议/" class="leancloud_visitors" data-flag-title="Intent统一跳转协议">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h1><p>Intent统一跳转协议就是为了解决模块之间的耦合而存在的，不再以</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">startActivity(<span class="keyword">new</span> Intent(<span class="keyword">this</span>, OtherActivity.class));</div></pre></td></tr></table></figure>
+<p>的方式进行页面跳转，而是以路径的形式进行跳转，去除了模块之间的引用，从而解决了模块之间的耦合问题。</p>
+<p>其中路径形式一般是以下形式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">跳转Uri：scheme://host/path</div></pre></td></tr></table></figure>
+<p>但是因为这样形式的路径都是在Androidmanifset.xml文件中进行定义的，根据业务的需要，不一定会完整定义跳转Uri，所以有以下两种情况。</p>
+<h1 id="情况一：定义完整"><a href="#情况一：定义完整" class="headerlink" title="情况一：定义完整"></a>情况一：定义完整</h1><p>情况一：在清单文件中已经定义完整了data中的scheme、host和path后，一般不需要在Activity中接收处理，除非含有其他参数，例如<code>gougeli://page.sh/detail?userId=123456</code>。</p>
+<p>Intent统一跳转协议分为以下几步：</p>
+<p>（1）在Androidmanifest.xml文件中配置intent-filter，例如：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;activity</div><div class="line">    android:name=".module.detail.DetailActivity"</div><div class="line">    android:exported="true"</div><div class="line">    android:screenOrientation="portrait" &gt;</div><div class="line">    &lt;intent-filter&gt;</div><div class="line">        &lt;action android:name="android.intent.action.VIEW"/&gt;</div><div class="line">        &lt;category android:name="android.intent.category.DEFAULT"/&gt;</div><div class="line">        &lt;category android:name="android.intent.category.BROWSABLE"/&gt;</div><div class="line">        &lt;data android:scheme="gougeili"</div><div class="line">            android:host="page.sh"</div><div class="line">            android:path="/detail"/&gt;</div><div class="line">    &lt;/intent-filter&gt;</div><div class="line">&lt;/activity&gt;</div></pre></td></tr></table></figure>
+<p>（2）新建一个枚举类型的文件ActivityType，定义名称为Androidmanifest.xml文件中的intent-filter字段下的data字段下的<font color="red">android:path</font>的值，例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">enum</span>  ActivityType &#123;</div><div class="line">    </div><div class="line">    DETAIL(<span class="string">"detail"</span>);</div><div class="line">    </div><div class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String text;</div><div class="line">    </div><div class="line">    ActivityType(<span class="keyword">final</span> String text) &#123;</div><div class="line">        <span class="keyword">this</span>.text = text;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> text;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>（3）编写SHIntent类，获取统一跳转所需的intent意图，通过之前设置的ActivityType实现路径的拼接，具体实现如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">static</span> <span class="keyword">final</span> String SCHEME = <span class="string">"gougeili://"</span>;</div><div class="line"><span class="keyword">static</span> <span class="keyword">final</span> String HOST = <span class="string">"page.sh/"</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Intent <span class="title">getIntent</span><span class="params">(ActivityType activityType)</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Intent(Intent.ACTION_VIEW, Uri.parse(getUrl(activityType.toString())));</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">static</span> String <span class="title">getUrl</span><span class="params">(String type)</span> </span>&#123;</div><div class="line">    StringBuilder builder = <span class="keyword">new</span> StringBuilder(SCHEME);</div><div class="line">    builder.append(HOST);</div><div class="line">    builder.append(type);</div><div class="line">    <span class="keyword">return</span> builder.toString();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>（4）到此我们就设置好了接收方，接下来就是设置发送方了。我们可以设置一个SHJump类，编写跳转到detail的方法，参数可填写bean类，用于数据的传递。例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">goToDetail</span><span class="params">(Activity activity, SkuVo skuVo)</span> </span>&#123;</div><div class="line">    Intent intent = SHIntent.getIntent(ActivityType.DETAIL);</div><div class="line">    intent.putExtra(DetailConstants.EXTRA_ID, skuVo.outProductId);</div><div class="line">    intent.putExtra(DetailConstants.EXTRA_PRICE, skuVo.price);</div><div class="line">    intent.putExtra(DetailConstants.EXTRA_IMAGE, skuVo.skuPicture);</div><div class="line">    intent.putExtra(DetailConstants.EXTRA_TITLE, skuVo.name);</div><div class="line">    activity.startActivity(intent);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>当然也可以是其他的参数类型，但是你也应该发现了，如果在SHJump类中写好了，也意味着写死了，如果需要灵活的实现数据的传递，可以通过SHIntent实现，其实是一样的，只不过不封装在SHJump类中了，因为SHJump类中存放的是通用方法。</p>
+<h2 id="情况一：操作流程图"><a href="#情况一：操作流程图" class="headerlink" title="情况一：操作流程图"></a>情况一：操作流程图</h2><p><img src="../../../../../images/ShowJoy/Intent统一跳转协议-情况一.gif" alt="Intent统一跳转协议-情况一"></p>
+<h1 id="情况二：未定义完整"><a href="#情况二：未定义完整" class="headerlink" title="情况二：未定义完整"></a>情况二：未定义完整</h1><p>情况二：在清单文件中未定义完整data中的参数，例如只定义了scheme，那么就需要在该Activity中进行接收处理，例如：<code>gglapp://2836482321</code>。</p>
+<p>Intent统一跳转协议分为以下几步：</p>
+<p>（1）在Androidmanifest.xml文件中配置intent-filter，例如：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&lt;activity</div><div class="line">    android:name=".module.splash.StartActivity"</div><div class="line">    android:exported="true"</div><div class="line">    android:theme="@style/Theme.Activity.Start"</div><div class="line">    android:screenOrientation="portrait" &gt;</div><div class="line">    &lt;intent-filter&gt;</div><div class="line">        &lt;action android:name="android.intent.action.MAIN" /&gt;</div><div class="line"></div><div class="line">        &lt;category android:name="android.intent.category.LAUNCHER" /&gt;</div><div class="line">    &lt;/intent-filter&gt;</div><div class="line">     &lt;intent-filter&gt;  </div><div class="line">        &lt;action android:name="android.intent.action.VIEW"/&gt;     </div><div class="line">        &lt;category android:name="android.intent.category.DEFAULT"/&gt;               </div><div class="line">        &lt;category android:name="android.intent.category.BROWSABLE"/&gt;  </div><div class="line">        &lt;data android:scheme="gglapp"/&gt;</div><div class="line">    &lt;/intent-filter&gt;   </div><div class="line">&lt;/activity&gt;</div></pre></td></tr></table></figure>
+<p>（2）此处并未使用统一跳转协议，所以以详细情况为例：</p>
+<p><font color="red">问：</font>将购给利中的商品分享到微信后，用浏览器打开该链接，再点击其中的某个商品，只是跳转到客户端的首页，不能够跳转到购给利的商品详情页？</p>
+<p><font color="blue">答：</font>使用intent接收并传递数据时，使用的intent对象出现错误，导致uri为空。</p>
+<p><font color="purple">代码解析：</font>因为从外部浏览器跳转到内部Activity，必然有一个Uri地址，再由上述清单文件中只是定义了scheme，最后根据问题得知最终目的是跳转到商品详情页，所以StartActivity必然有通过getIntent方法接收Uri地址的代码，通过搜索getIntent发现如下代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">skip</span><span class="params">()</span> </span>&#123;</div><div class="line">    Intent intent = getIntent();</div><div class="line">    Uri uri = intent.getData();</div><div class="line"></div><div class="line">    Intent mainIntent = <span class="keyword">new</span> Intent(<span class="keyword">this</span>, MainActivity.class);</div><div class="line">    Bundle bundle = <span class="keyword">new</span> Bundle();</div><div class="line"></div><div class="line">    mainIntent.putExtra(AppConstants.EXTRA_URI, uri);</div><div class="line"></div><div class="line">    ...</div><div class="line"></div><div class="line">    startActivity(mainIntent);</div><div class="line">    finish();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>上述代码表示从浏览器接收到了<code>Uri地址</code>之后，并将其传递到了MainActivity这个类中。</p>
+<p>（3）然后我们可以在MainActivity中查找相关代码，这样比较复杂，我们可以将光标移动到EXTRA_URI处，然后按option+F7，即可迅速定位到相关代码位置，代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">	<span class="keyword">super</span>.onCreate(savedInstanceState);	</div><div class="line">	...</div><div class="line"></div><div class="line">	Uri uri = getIntent().getParcelableExtra(AppConstants.EXTRA_URI);</div><div class="line">	UriHandler.handle(<span class="keyword">this</span>, uri);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>于是我们发现它将Uri交给了UriHandler进行处理，再到UriHandler类中进行查看：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">handle</span><span class="params">(Activity activity, Uri uri)</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (<span class="keyword">null</span> == uri) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    LogUtils.d(<span class="string">"uri:"</span>, uri.toString());</div><div class="line"></div><div class="line">    String host = uri.getHost();</div><div class="line"></div><div class="line"></div><div class="line">    <span class="keyword">if</span> (TextUtils.isEmpty(host)) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (host.equals(<span class="string">"gglappFulishe"</span>)) &#123;</div><div class="line">        activity.startActivity(<span class="keyword">new</span> Intent(activity, AddressActivity.class));</div><div class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        Set&lt;String&gt; params = uri.getQueryParameterNames();</div><div class="line">        Intent intent = SHIntent.getIntent(ActivityType.DETAIL);</div><div class="line">        intent.putExtra(DetailConstants.EXTRA_ID, host);</div><div class="line">        <span class="keyword">for</span> (String param : params) &#123;</div><div class="line">            intent.putExtra(param, uri.getQueryParameter(param));</div><div class="line">        &#125;</div><div class="line">        activity.startActivity(intent);</div><div class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>最终发现了处理Uri的详细操作，原来它是通过匹配host来进行区分处理的。</p>
+<h2 id="情况二：操作流程图"><a href="#情况二：操作流程图" class="headerlink" title="情况二：操作流程图"></a>情况二：操作流程图</h2><p><img src="../../../../../images/ShowJoy/Intent统一跳转协议-情况二.gif" alt="Intent统一跳转协议-情况二"></p>
+<h1 id="附"><a href="#附" class="headerlink" title="附"></a>附</h1><p>另外还需要注意的是，我们定义这样形式的路径只是定义了接收方而已，而发送方是谁都可以进行发送的。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Intent/" rel="tag">#Intent</a>
+          
+            <a href="/tags/统一跳转/" rel="tag">#统一跳转</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/19/ShowJoy/Jenkins项目构建过程详解/" rel="next" title="Jenkins项目构建过程详解">
+                <i class="fa fa-chevron-left"></i> Jenkins项目构建过程详解
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/07/23/ShowJoy/网络请求的使用与查找/" rel="prev" title="网络请求的使用与查找">
+                网络请求的使用与查找 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="青峰" />
+          <p class="site-author-name" itemprop="name">青峰</p>
+          <p class="site-description motion-element" itemprop="description">谁人背后无人说，谁人背后不说人</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/fengqingxiuyi" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://blog.csdn.net/u012505400" target="_blank" title="CSDN">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  CSDN
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://blog.sina.com.cn/u/3858496160" target="_blank" title="新浪博客">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  新浪博客
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://notes.cribug.com/" title="Cribug" target="_blank">Cribug</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blog.csdn.net/smartbetter/" title="郭朝的博客" target="_blank">郭朝的博客</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blog.csdn.net/guolin_blog/" title="郭霖的专栏" target="_blank">郭霖的专栏</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#目的"><span class="nav-number">1.</span> <span class="nav-text">目的</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#情况一：定义完整"><span class="nav-number">2.</span> <span class="nav-text">情况一：定义完整</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#情况一：操作流程图"><span class="nav-number">2.1.</span> <span class="nav-text">情况一：操作流程图</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#情况二：未定义完整"><span class="nav-number">3.</span> <span class="nav-text">情况二：未定义完整</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#情况二：操作流程图"><span class="nav-number">3.1.</span> <span class="nav-text">情况二：操作流程图</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#附"><span class="nav-number">4.</span> <span class="nav-text">附</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">青峰</span>
+</div>
+<!--
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+-->
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+本站总访问量 <span id="busuanzi_value_site_pv"></span> &nbsp&nbsp&nbsp
+您是第<span id="busuanzi_value_site_uv"></span>个来到的小伙伴
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'fengqingxiuyi';
+      var disqus_identifier = '2016/07/23/ShowJoy/Intent统一跳转协议/';
+      var disqus_title = "Intent统一跳转协议";
+      var disqus_url = 'https://fengqingxiuyi.github.io/2016/07/23/ShowJoy/Intent统一跳转协议/';
+
+      function run_disqus_script(disqus_script){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+      
+        run_disqus_script('embed.js');
+      
+    </script>
+  
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("qFnJ1pQaEsIPYF2qGYgLWXNT-gzGzoHsz", "T4nQpf74BeGitOQmRVC7rSKM");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+</body>
+</html>
