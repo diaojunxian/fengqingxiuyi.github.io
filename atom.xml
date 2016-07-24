@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://fengqingxiuyi.github.io/"/>
-  <updated>2016-07-24T02:23:08.000Z</updated>
+  <updated>2016-07-24T02:24:54.000Z</updated>
   <id>https://fengqingxiuyi.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://fengqingxiuyi.github.io/2016/07/24/ShowJoy/MVP%E6%80%9D%E6%83%B3%E5%A4%8D%E6%9D%82%E4%BD%BF%E7%94%A8/"/>
     <id>https://fengqingxiuyi.github.io/2016/07/24/ShowJoy/MVP思想复杂使用/</id>
     <published>2016-07-24T02:10:30.000Z</published>
-    <updated>2016-07-24T02:23:08.000Z</updated>
+    <updated>2016-07-24T02:24:54.000Z</updated>
     
     <content type="html">&lt;p&gt;由于和前文&lt;a href=&quot;../MVP思想简单使用/index.html&quot;&gt;MVP思想简单使用&lt;/a&gt;类似，所以此处不做过多阐述，以情况二为例：&lt;/p&gt;
 &lt;h1 id=&quot;情况二：打开的页面需要直接调用一个或多个接口&quot;&gt;&lt;a href=&quot;#情况二：打开的页面需要直接调用一个或多个接口&quot; class=&quot;headerlink&quot; title=&quot;情况二：打开的页面需要直接调用一个或多个接口&quot;&gt;&lt;/a&gt;情况二：打开的页面需要直接调用一个或多个接口&lt;/h1&gt;&lt;p&gt;&lt;font color=&quot;red&quot;&gt;注意：&lt;/font&gt;本情况最好是只调用一个接口，以&lt;code&gt;搜索页面&lt;/code&gt;为例！！！&lt;/p&gt;
@@ -54,7 +54,7 @@
     <link href="https://fengqingxiuyi.github.io/2016/07/24/ShowJoy/MVP%E6%80%9D%E6%83%B3%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/"/>
     <id>https://fengqingxiuyi.github.io/2016/07/24/ShowJoy/MVP思想简单使用/</id>
     <published>2016-07-24T01:45:55.000Z</published>
-    <updated>2016-07-24T02:49:24.000Z</updated>
+    <updated>2016-07-24T02:49:34.000Z</updated>
     
     <content type="html">&lt;p&gt;由于MVC导致了Activity负担过程，而且View和Model之间耦合严重，所里本文就MVP思想简单做了以下两种情况：&lt;/p&gt;
 &lt;h1 id=&quot;情况一：打开的页面不需要立刻调用接口&quot;&gt;&lt;a href=&quot;#情况一：打开的页面不需要立刻调用接口&quot; class=&quot;headerlink&quot; title=&quot;情况一：打开的页面不需要立刻调用接口&quot;&gt;&lt;/a&gt;情况一：打开的页面不需要立刻调用接口&lt;/h1&gt;&lt;p&gt;&lt;font color=&quot;red&quot;&gt;注意：&lt;/font&gt;本情况以&lt;code&gt;关于我们&lt;/code&gt;页面为例！！！&lt;/p&gt;
