@@ -1,0 +1,1012 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="风清袖一的博客" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="原文出处：http://blog.csdn.net/yanzi1225627/article/details/22592831
+作者: yanzi1225627
+    本文背景:前些天用到了之前写的自定义图片文字复合控件，在给他设置监听时遇到了麻烦。虽然最后解决了问题，但发现在不重写LinearLayout的onInterceptTouchEvent时，子ImageView、子TextView、">
+<meta property="og:type" content="article">
+<meta property="og:title" content="细说Android事件传递机制(dispatchTouchEvent、onInterceptTouchEvent、onTouchEvent)">
+<meta property="og:url" content="https://fengqingxiuyi.github.io/2016/08/11/Android/事件传递机制/细说Android事件传递机制(dispatchTouchEvent、onInterceptTouchEvent、onTouchEvent)/index.html">
+<meta property="og:site_name" content="风清袖一的博客">
+<meta property="og:description" content="原文出处：http://blog.csdn.net/yanzi1225627/article/details/22592831
+作者: yanzi1225627
+    本文背景:前些天用到了之前写的自定义图片文字复合控件，在给他设置监听时遇到了麻烦。虽然最后解决了问题，但发现在不重写LinearLayout的onInterceptTouchEvent时，子ImageView、子TextView、">
+<meta property="og:image" content="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png">
+<meta property="og:updated_time" content="2016-08-11T03:34:34.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="细说Android事件传递机制(dispatchTouchEvent、onInterceptTouchEvent、onTouchEvent)">
+<meta name="twitter:description" content="原文出处：http://blog.csdn.net/yanzi1225627/article/details/22592831
+作者: yanzi1225627
+    本文背景:前些天用到了之前写的自定义图片文字复合控件，在给他设置监听时遇到了麻烦。虽然最后解决了问题，但发现在不重写LinearLayout的onInterceptTouchEvent时，子ImageView、子TextView、">
+<meta name="twitter:image" content="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 6307371788401640000,
+      author: '风清袖一'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="https://fengqingxiuyi.github.io/2016/08/11/Android/事件传递机制/细说Android事件传递机制(dispatchTouchEvent、onInterceptTouchEvent、onTouchEvent)/"/>
+
+  <title> 细说Android事件传递机制(dispatchTouchEvent、onInterceptTouchEvent、onTouchEvent) | 风清袖一的博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">风清袖一的博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    <!--render方法第二个参数is_index为是否为首页-->
+    <!--第三个参数is_pv为我们刚才设置的是否显示计数-->
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                细说Android事件传递机制(dispatchTouchEvent、onInterceptTouchEvent、onTouchEvent)
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-11T10:17:45+08:00" content="2016-08-11">
+              2016-08-11
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android-事件传递机制/" itemprop="url" rel="index">
+                    <span itemprop="name">Android_事件传递机制</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/11/Android/事件传递机制/细说Android事件传递机制(dispatchTouchEvent、onInterceptTouchEvent、onTouchEvent)/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/11/Android/事件传递机制/细说Android事件传递机制(dispatchTouchEvent、onInterceptTouchEvent、onTouchEvent)/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          <!--插入到这里-->
+          
+            <span>&nbsp; | &nbsp;
+              <span id="busuanzi_value_page_pv" ></span>次阅读
+            </span>    
+          
+
+          
+
+          
+          
+             <span id="/2016/08/11/Android/事件传递机制/细说Android事件传递机制(dispatchTouchEvent、onInterceptTouchEvent、onTouchEvent)/" class="leancloud_visitors" data-flag-title="细说Android事件传递机制(dispatchTouchEvent、onInterceptTouchEvent、onTouchEvent)">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>原文出处：<a href="http://blog.csdn.net/yanzi1225627/article/details/22592831" target="_blank" rel="external">http://blog.csdn.net/yanzi1225627/article/details/22592831</a></p>
+<p>作者: yanzi1225627</p>
+<div id="article_content" class="article_content"><br><p><span style="font-family: 'Comic Sans MS';"><span style="font-size:18px;"><span style="white-space: pre;">    </span>本文背景:前些天用到了之前写的<a target="_blank" href="http://blog.csdn.net/yanzi1225627/article/details/8633872">自定义图片文字复合控件</a>，在给他设置监听时遇到了麻烦。虽然最后解决了问题，但发现在不重写LinearLayout的onInterceptTouchEvent时，子ImageView、子TextView、父Linearlayout三者不同的属性配置(android:clickable android:focuseable)会造成自定义控件onClick监听失败、或成功。复写了父Linearlayout 的onInterceptTouchEvent时，监听不受子图片、子文字的属性影响。为知其所以然，深入研究android的事件传递机制，记录于此。</span></span></p><h1><span style="font-family: 'Comic Sans MS';"><span style="font-size:18px;">一、View的dispatchTouchEvent和onTouchEvent</span></span></h1><div><span style="font-family: 'Comic Sans MS';"><span style="font-size:18px;"><span style="white-space:pre">    </span>探讨Android事件传递机制前，明确android的两大基础控件类型:View和ViewGroup。View即普通的控件，没有子布局的，如Button、TextView. ViewGroup继承自View，表示可以有子控件，如Linearlayout、Listview这些。而事件即MotionEvent，最重要的有3个:</span></span></div><div><span style="font-family: 'Comic Sans MS';"><span style="font-size:18px;">(1)MotionEvent.ACTION_DOWN &nbsp;按下View，是所有事件的开始</span></span></div><div><span style="font-family: 'Comic Sans MS';"><span style="font-size:18px;">(2)MotionEvent.ACTION_MOVE &nbsp; 滑动事件<br></span></span></div><div><span style="font-family: 'Comic Sans MS';"><span style="font-size:18px;">(3)MotionEvent.ACTION_UP &nbsp; &nbsp; &nbsp; 与down对应，表示抬起<br></span></span></div><div><span style="font-family: 'Comic Sans MS';"><span style="font-size:18px;"><span style="white-space:pre">    </span>另外，明确事件传递机制的最终目的都是为了触发执行View的点击监听和触摸监听:</span></span></div><div><span style="font-family: 'Comic Sans MS';"><span style="font-size:18px;"><span style="white-space:pre">        </span><strong>**</strong>.setOnClickListener(new View.OnClickListener() {<br><span style="white-space:pre">            </span><br><span style="white-space:pre">            </span>@Override<br><span style="white-space:pre">            </span>public void onClick(View v) {<br><span style="white-space:pre">                </span>// TODO Auto-generated method stub<br><span style="white-space:pre">                </span>Log.i(tag, &quot;testLinelayout—onClick…&quot;);<br><span style="white-space:pre">            </span>}<br><span style="white-space:pre">        </span>});<br></span></span></div><div><span style="font-family: 'Comic Sans MS';"><span style="font-size:18px;"><br></span></span></div><div><span style="font-family: 'Comic Sans MS';"><span style="font-size:18px;"><span style="white-space:pre">        </span><strong><em>*</em></strong>.setOnTouchListener(new View.OnTouchListener() {<br><span style="white-space:pre">            </span><br><span style="white-space:pre">            </span>@Override<br><span style="white-space:pre">            </span>public boolean onTouch(View v, MotionEvent event) {<br><span style="white-space:pre">                </span>// TODO Auto-generated method stub<br><span style="white-space:pre">    </span><br><span style="white-space:pre">                </span>return false;<br><span style="white-space:pre">            </span>}<br><span style="white-space:pre">        </span>});<br></span></span></div><div><span style="font-family: 'Comic Sans MS';"><span style="font-size:18px;"><span style="white-space:pre">    </span>我们简称为onClick监听和onTouch监听，一般程序会注册这两个监听。从上面可以看到，onTouch监听里默认return false。不要小看了这个return false，后面可以看到它有大用。</span></span></div><div><span style="font-family: 'Comic Sans MS';"><span style="font-size:18px;"><span style="white-space:pre">    </span>对于View来说，事件传递机制有两个函数：<span style="color:#ff0000;">dispatchTouchEvent</span>负责分发事件，在dispatch<strong>*里又会调用<span style="color:#ff0000;">onTouchEvent</span>表示执行事件，或者说消费事件，结合源码分析其流程。事件传递的入口是View的dispatchTouchEvent()函数:</strong></span></span></div><div><span style="font-size:18px;"><span style="font-family: 'Comic Sans MS';"></span></span><pre code_snippet_id="271353" snippet_file_name="blog_20140402_1_7835809" name="code" class="java"><span style="font-size:18px;">    /<br>     <em> Pass the touch screen motion event down to the target view, or this
+     </em> view if it is the target.<br>     <em>
+     </em> @param event The motion event to be dispatched.<br>     <em> @return True if the event was handled by the view, false otherwise.
+     </em>/<br>    public boolean dispatchTouchEvent(MotionEvent event) {<br>        if (mInputEventConsistencyVerifier != null) {<br>            mInputEventConsistencyVerifier.onTouchEvent(event, 0);<br>        }<br><br>        if (onFilterTouchEventForSecurity(event)) {<br>            //noinspection SimplifiableIfStatement<br>            ListenerInfo li = mListenerInfo;<br>            if (li != null &amp;&amp; li.mOnTouchListener != null &amp;&amp; (mViewFlags &amp; ENABLED_MASK) == ENABLED<br>                    &amp;&amp; li.mOnTouchListener.onTouch(this, event)) {<br>                return true;<br>            }<br><br>            if (onTouchEvent(event)) {<br>                return true;<br>            }<br>        }<br><br>        if (mInputEventConsistencyVerifier != null) {<br>            mInputEventConsistencyVerifier.onUnhandledEvent(event, 0);<br>        }<br>        return false;<br>    }</span></pre><span style="font-size:18px;">找到这个判断:</span></div><div><span style="font-size:18px;color:#ff0000;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if (li != null &amp;&amp; li.mOnTouchListener != null &amp;&amp; (mViewFlags &amp; ENABLED_MASK) == ENABLED<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &amp;&amp; li.mOnTouchListener.onTouch(this, event)) {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return true;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<br></span></div><div><span style="font-size:18px;">他会执行View的OnTouchListener.onTouch这个函数，也就是上面说的onTouch监听。里面有三个判断，如果三个都为1，就会执行return true，不往下走了。而默认的onTouch监听返回false，只要一个是false，就不会返回true。接着往下看，程序执行onTouchEvent：</span></div><div><span style="font-size:18px;"><span style="font-family: 'Comic Sans MS';"></span></span><pre code_snippet_id="271353" snippet_file_name="blog_20140402_2_3419135" name="code" class="java"><span style="font-size:18px;">            if (onTouchEvent(event)) {<br>                return true;<br>            }</span></pre><span style="font-size:18px;">onTouchEvent的源码比较多，贴最重要的:</span></div><div><span style="font-size:18px;"><span style="font-family: 'Comic Sans MS';"></span></span><pre code_snippet_id="271353" snippet_file_name="blog_20140402_3_9450183" name="code" class="java"><span style="font-size:18px;">                        if (!mHasPerformedLongPress) {<br>                            // This is a tap, so remove the longpress check<br>                            removeLongPressCallback();<br><br>                            // Only perform take click actions if we were in the pressed state<br>                            if (!focusTaken) {<br>                                // Use a Runnable and post this rather than calling<br>                                // performClick directly. This lets other visual state<br>                                // of the view update before click actions start.<br>                                if (mPerformClick == null) {<br>                                    mPerformClick = new PerformClick();<br>                                }<br>                                if (!post(mPerformClick)) {<br>                                   <span style="color:#ff0000;"> performClick();</span><br>                                }<br>                            }<br>                        }</span></pre><span style="font-size:18px;">可以看到有个<span style="color:#ff0000;">performClick()</span>,它的源码里有这么一句<span style="color:#ff0000;">&nbsp;li.mOnClickListener.onClick(this);</span></span></div><div><span style="font-size:18px;"><span style="font-family: 'Comic Sans MS';"></span></span><pre code_snippet_id="271353" snippet_file_name="blog_20140402_4_5829896" name="code" class="java"><span style="font-size:18px;">    public boolean performClick() {<br>        sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_CLICKED);<br><br>        ListenerInfo li = mListenerInfo;<br>        if (li != null &amp;&amp; li.mOnClickListener != null) {<br>            playSoundEffect(SoundEffectConstants.CLICK);<br>            <span style="color:#ff0000;"><strong>li.mOnClickListener.onClick(this);</strong></span><br>            return true;<br>        }<br><br>        return false;<br>    }</span></pre><span style="font-size:18px;"><br>终于对上了，它执行了我们注册的onClick监听。当然执行前会经过一系列判断，是否注册了监听等。<br>总结:</span></div><div><span style="font-family: 'Comic Sans MS';"><span style="font-size:18px;">1、事件入口是dispatchTouchEvent(),它会先执行注册的onTouch监听,如果一切顺利的话，接着执行onTouchEvent，在onTouchEvent里会执行onClick监听。</span></span></div><div><span style="font-family: 'Comic Sans MS';"><span style="font-size:18px;">2、无论是dispatchTouchEvent还是onTouchEvent，如果返回true表示这个事件已经被消费、处理了，不再往下传了。在dispathTouchEvent的源码里可以看到，如果onTouchEvent返回了true，那么它也返回true。如果dispatch<strong><em>在执行onTouch监听的时候，onTouch返回了true，那么它也返回true，这个事件提前被onTouch消费掉了。就不再执行onTouchEvent了，更别说onClick监听了。</em></strong></span></span></div><div><span style="font-family: 'Comic Sans MS';"><span style="font-size:18px;">3、我们通常在onTouch监听了设置图片一旦被触摸就改变它的背景、透明度之类的，这个onTouch表示事件的时机。而在onClick监听了去具体干某些事。</span></span></div><div><span style="font-family: 'Comic Sans MS';"><span style="font-size:18px;"><br></span></span></div><div><span style="font-family: 'Comic Sans MS';"><span style="font-size:18px;"><span style="white-space:pre">    </span>下面通过代码来说明,自定义一个TestButton继承自Button，重写它的dispath和onTouchEvent方法，为了简单只关注down和up事件。</span></span></div><div><span style="font-size:18px;"><span style="font-family: 'Comic Sans MS';"></span></span><pre code_snippet_id="271353" snippet_file_name="blog_20140402_5_8796282" name="code" class="java"><span style="font-size:18px;">package org.yanzi.ui;<br><br>import android.content.Context;<br>import android.util.AttributeSet;<br>import android.util.Log;<br>import android.view.MotionEvent;<br>import android.widget.Button;<br><br>public class TestButton extends Button {<br>    private final static String tag = &quot;yan&quot;;<br>    public TestButton(Context context, AttributeSet attrs) {<br>        super(context, attrs);<br>        // TODO Auto-generated constructor stub<br>    }<br>    @Override<br>    public boolean onTouchEvent(MotionEvent event) {<br>        // TODO Auto-generated method stub<br>        switch(event.getAction()){<br>        case MotionEvent.ACTION_DOWN:<br>            Log.i(tag, &quot;TestButton-onTouchEvent-ACTION_DOWN…&quot;);<br>            break;<br>        case MotionEvent.ACTION_UP:<br>            Log.i(tag, &quot;TestButton-onTouchEvent-ACTION_UP…&quot;);<br>            break;<br>        default:break;<br>        }<br>        return super.onTouchEvent(event);<br>    }<br><br>    @Override<br>    public boolean dispatchTouchEvent(MotionEvent event) {<br>        // TODO Auto-generated method stub<br>        switch(event.getAction()){<br>        case MotionEvent.ACTION_DOWN:<br>            Log.i(tag, &quot;TestButton-dispatchTouchEvent-ACTION_DOWN…&quot;);<br>            break;<br>        case MotionEvent.ACTION_UP:<br>            Log.i(tag, &quot;TestButton-dispatchTouchEvent-ACTION_UP…&quot;);<br>            break;<br>        default:break;<br>        }<br><br>        return super.dispatchTouchEvent(event);<br>    }<br><br>}<br></span></pre><span style="font-size:18px;"><br>在Activity里注册两个监听:</span></div><div><span style="font-size:18px;"><span style="font-family: 'Comic Sans MS';"></span></span><pre code_snippet_id="271353" snippet_file_name="blog_20140402_6_6255790" name="code" class="java"><span style="font-size:18px;">        testBtn.setOnClickListener(new View.OnClickListener() {<br><br>            @Override<br>            public void onClick(View v) {<br>                // TODO Auto-generated method stub<br>                Log.i(tag, &quot;testBtn—onClick…&quot;);<br>            }<br>        });<br>        testBtn.setOnTouchListener(new View.OnTouchListener() {<br><br>            @Override<br>            public boolean onTouch(View v, MotionEvent event) {<br>                // TODO Auto-generated method stub<br>                switch(event.getAction()){<br>                case MotionEvent.ACTION_DOWN:<br>                    Log.i(tag, &quot;testBtn-onTouch-ACTION_DOWN…&quot;);<br>                    break;<br>                case MotionEvent.ACTION_UP:<br>                    Log.i(tag, &quot;testBtn-onTouch-ACTION_UP…&quot;);<br>                    break;<br>                default:break;<br><br>                }<br>                return false;<br>            }<br>        });</span></pre><span style="font-size:18px;"><br>同时复写Activity的dispatch方法和onTouchEvent方法：</span></div><div><span style="font-size:18px;"><span style="font-family: 'Comic Sans MS';"></span></span><pre code_snippet_id="271353" snippet_file_name="blog_20140402_7_683656" name="code" class="java"><span style="font-size:18px;">@Override<br>    public boolean dispatchTouchEvent(MotionEvent ev) {<br>        // TODO Auto-generated method stub<br>        switch(ev.getAction()){<br>        case MotionEvent.ACTION_DOWN:<br>            Log.i(tag, &quot;MainActivity-dispatchTouchEvent-ACTION_DOWN…&quot;);<br>            break;<br>        case MotionEvent.ACTION_UP:<br>            Log.i(tag, &quot;MainActivity-dispatchTouchEvent-ACTION_UP…&quot;);<br>            break;<br>        default:break;<br>        }<br>        return super.dispatchTouchEvent(ev);<br>    }<br><br>    @Override<br>    public boolean onTouchEvent(MotionEvent event) {<br>        // TODO Auto-generated method stub<br>        switch(event.getAction()){<br>        case MotionEvent.ACTION_DOWN:<br>            Log.i(tag, &quot;MainActivity-onTouchEvent-ACTION_DOWN…&quot;);<br>            break;<br>        case MotionEvent.ACTION_UP:<br>            Log.i(tag, &quot;MainActivity-onTouchEvent-ACTION_UP…&quot;);<br>            break;<br>        default:break;<br>        }<br>        return super.onTouchEvent(event);<br>    }</span></pre><span style="font-size:18px;"><br>最终一次点击，打印信息如下:</span></div><div><span style="font-family: 'Comic Sans MS';"><span style="font-size:18px;"><span style="white-space:pre">    </span>Line 33: 01-08 14:59:45.847 I/yan &nbsp; &nbsp; ( 4613): MainActivity-dispatchTouchEvent-ACTION_DOWN…<br><span style="white-space:pre">    </span>Line 35: 01-08 14:59:45.849 I/yan &nbsp; &nbsp; ( 4613): TestButton-dispatchTouchEvent-ACTION_DOWN…<br><span style="white-space:pre">    </span>Line 37: 01-08 14:59:45.849 I/yan &nbsp; &nbsp; ( 4613): testBtn-onTouch-ACTION_DOWN…<br><span style="white-space:pre">    </span>Line 39: 01-08 14:59:45.849 I/yan &nbsp; &nbsp; ( 4613): TestButton-onTouchEvent-ACTION_DOWN…<br><span style="white-space:pre">    </span>Line 41: 01-08 14:59:45.939 I/yan &nbsp; &nbsp; ( 4613): MainActivity-dispatchTouchEvent-ACTION_UP…<br><span style="white-space:pre">    </span>Line 43: 01-08 14:59:45.941 I/yan &nbsp; &nbsp; ( 4613): TestButton-dispatchTouchEvent-ACTION_UP…<br><span style="white-space:pre">    </span>Line 45: 01-08 14:59:45.944 I/yan &nbsp; &nbsp; ( 4613): testBtn-onTouch-ACTION_UP…<br><span style="white-space:pre">    </span>Line 47: 01-08 14:59:45.946 I/yan &nbsp; &nbsp; ( 4613): TestButton-onTouchEvent-ACTION_UP…<br><span style="white-space:pre">    </span>Line 49: 01-08 14:59:45.974 I/yan &nbsp; &nbsp; ( 4613): testBtn—onClick…<br></span></span></div><div><span style="font-family: 'Comic Sans MS';"><span style="font-size:18px;"><span style="white-space:pre">    </span>事件先由Activity的dispatchTouchEvent进行分发，然后TestButton的dispatchTouchEvent进行分发，接着执行onTouch监听，然后执行onTouchEvent。第二次UP动作的时候，在onTouchEvent里又执行了onClick监听。</span></span></div><div><span style="font-family: 'Comic Sans MS';"><span style="font-size:18px;"><span style="white-space:pre">    </span>如果我们想这个TestButton只能执行onTouch监听不能执行onClick监听，方法有很多。在onTouch监听里默认返回false改为true，如下:</span></span></div><div><span style="font-size:18px;"><span style="font-family: 'Comic Sans MS';"></span></span><pre code_snippet_id="271353" snippet_file_name="blog_20140402_8_3475319" name="code" class="java"><span style="font-size:18px;">testBtn.setOnTouchListener(new View.OnTouchListener() {<br><br>            @Override<br>            public boolean onTouch(View v, MotionEvent event) {<br>                // TODO Auto-generated method stub<br>                switch(event.getAction()){<br>                case MotionEvent.ACTION_DOWN:<br>                    Log.i(tag, &quot;testBtn-onTouch-ACTION_DOWN…&quot;);<br>                    break;<br>                case MotionEvent.ACTION_UP:<br>                    Log.i(tag, &quot;testBtn-onTouch-ACTION_UP…&quot;);<br>                    break;<br>                default:break;<br><br>                }<br>                return true;<br>            }<br>        });</span></pre><span style="font-size:18px;"><br>事件流程为:</span></div><div><span style="font-family: 'Comic Sans MS';"><span style="font-size:18px;"><span style="white-space:pre">    </span>Line 75: 01-08 15:05:51.627 I/yan &nbsp; &nbsp; ( 5262): MainActivity-dispatchTouchEvent-ACTION_DOWN…<br><span style="white-space:pre">    </span>Line 77: 01-08 15:05:51.628 I/yan &nbsp; &nbsp; ( 5262): TestButton-dispatchTouchEvent-ACTION_DOWN…<br><span style="white-space:pre">    </span>Line 79: 01-08 15:05:51.629 I/yan &nbsp; &nbsp; ( 5262): testBtn-onTouch-ACTION_DOWN…<br><span style="white-space:pre">    </span>Line 81: 01-08 15:05:51.689 I/yan &nbsp; &nbsp; ( 5262): MainActivity-dispatchTouchEvent-ACTION_UP…<br><span style="white-space:pre">    </span>Line 83: 01-08 15:05:51.691 I/yan &nbsp; &nbsp; ( 5262): TestButton-dispatchTouchEvent-ACTION_UP…<br><span style="white-space:pre">    </span>Line 85: 01-08 15:05:51.695 I/yan &nbsp; &nbsp; ( 5262): testBtn-onTouch-ACTION_UP…<br></span></span></div><div><span style="font-family: 'Comic Sans MS';"><span style="font-size:18px;"><span style="white-space:pre">    </span>可以看到压根就没执行onTouchEvent。因为onTouch返回了true，已提前将这个事件消费了，就不往下传了，dispatch流程提前终止。</span></span></div><div><span style="font-family: 'Comic Sans MS';"><span style="font-size:18px;"><br></span></span></div><h1><span style="font-family: 'Comic Sans MS';"><span style="font-size:18px;">二、ViewGroup的dispatchTouchEvent、onInterceptTouchEvent、onTouchEvent</span></span></h1><div><span style="font-family: 'Comic Sans MS';"><span style="font-size:18px;"><span style="white-space:pre">    </span>再来看ViewGroup，在复写ViewGroup时可以发现它的onTouchEvent在在View里的，表示这两个方法是一样的。但dispatchTouchEvent是在ViewGroup里的，表示和View的dispatchTouchEvent不一样，多了一个onInterceptTouchEvent函数，表示拦截的意思。<a target="_blank" href="http://www.cnblogs.com/xiaoQLu/archive/2012/04/28/2474443.html">链接</a>&nbsp;打个很形象的比喻，这玩意就像个秘书、谋士。为啥View没有呢，因为它级别不够，一个Button里面是不可能有子View的。但LinearLayout(继承ViewGroup)就有孩子(子布局)，这个onInterceptTouchEvent就会判断事件要不要通知它的孩子呢。它的源码如下：</span></span></div><div><span style="font-size:18px;"><span style="font-family: 'Comic Sans MS';"></span></span><pre code_snippet_id="271353" snippet_file_name="blog_20140402_9_378420" name="code" class="java"><span style="font-size:18px;">    public boolean dispatchTouchEvent(MotionEvent ev) {<br>        if (mInputEventConsistencyVerifier != null) {<br>            mInputEventConsistencyVerifier.onTouchEvent(ev, 1);<br>        }<br><br>        boolean handled = false;<br>        if (onFilterTouchEventForSecurity(ev)) {<br>            final int action = ev.getAction();<br>            final int actionMasked = action &amp; MotionEvent.ACTION_MASK;<br><br>            // Handle an initial down.<br>            if (actionMasked == MotionEvent.ACTION_DOWN) {<br>                // Throw away all previous state when starting a new touch gesture.<br>                // The framework may have dropped the up or cancel event for the previous gesture<br>                // due to an app switch, ANR, or some other state change.<br>                cancelAndClearTouchTargets(ev);<br>                resetTouchState();<br>            }<br><br>            // Check for interception.<br>            final boolean intercepted;<br>            if (actionMasked == MotionEvent.ACTION_DOWN<br>                    || mFirstTouchTarget != null) {<br>                final boolean disallowIntercept = (mGroupFlags &amp; FLAG_DISALLOW_INTERCEPT) != 0;<br>                if (!disallowIntercept) {<br>                    <strong><span style="color:#ff0000;">intercepted = onInterceptTouchEvent(ev);</span></strong><br>                    ev.setAction(action); // restore action in case it was changed<br>                } else {<br>                    intercepted = false;<br>                }<br>            } else {<br>                // There are no touch targets and this action is not an initial down<br>                // so this view group continues to intercept touches.<br>                intercepted = true;<br>            }<br><br>            // Check for cancelation.<br>            final boolean canceled = resetCancelNextUpFlag(this)<br>                    || actionMasked == MotionEvent.ACTION_CANCEL;<br><br>            // Update list of touch targets for pointer down, if needed.<br>            final boolean split = (mGroupFlags &amp; FLAG_SPLIT_MOTION_EVENTS) != 0;<br>            TouchTarget newTouchTarget = null;<br>            boolean alreadyDispatchedToNewTouchTarget = false;<br>            <strong><span style="color:#ff0000;">if (!canceled &amp;&amp; !intercepted)</span></strong> {<br>                if (actionMasked == MotionEvent.ACTION_DOWN<br>                        || (split &amp;&amp; actionMasked == MotionEvent.ACTION_POINTER_DOWN)<br>                        || actionMasked == MotionEvent.ACTION_HOVER_MOVE) {<br>                    final int actionIndex = ev.getActionIndex(); // always 0 for down<br>                    final int idBitsToAssign = split ? 1 &lt;&lt; ev.getPointerId(actionIndex)<br>                            : TouchTarget.ALL_POINTER_IDS;<br><br>                    // Clean up earlier touch targets for this pointer id in case they<br>                    // have become out of sync.<br>                    removePointersFromTouchTargets(idBitsToAssign);<br><br>                    final int childrenCount = mChildrenCount;<br>                    if (childrenCount != 0) {<br>                        // Find a child that can receive the event.<br>                        // Scan children from front to back.<br>                        final View[] children = mChildren;<br>                        final float x = ev.getX(actionIndex);<br>                        final float y = ev.getY(actionIndex);<br><br>                        final boolean customOrder = isChildrenDrawingOrderEnabled();<br>                        for (int i = childrenCount - 1; i &gt;= 0; i–) {<br>                            final int childIndex = customOrder ?<br>                                    getChildDrawingOrder(childrenCount, i) : i;<br>                            final View child = children[childIndex];<br>                            if (!canViewReceivePointerEvents(child)<br>                                    || !isTransformedTouchPointInView(x, y, child, null)) {<br>                                continue;<br>                            }<br><br>                            newTouchTarget = getTouchTarget(child);<br>                            if (newTouchTarget != null) {<br>                                // Child is already receiving touch within its bounds.<br>                                // Give it the new pointer in addition to the ones it is handling.<br>                                newTouchTarget.pointerIdBits |= idBitsToAssign;<br>                                break;<br>                            }<br><br>                            resetCancelNextUpFlag(child);<br>                            if (dispatchTransformedTouchEvent(ev, false, child, idBitsToAssign)) {<br>                                // Child wants to receive touch within its bounds.<br>                                mLastTouchDownTime = ev.getDownTime();<br>                                mLastTouchDownIndex = childIndex;<br>                                mLastTouchDownX = ev.getX();<br>                                mLastTouchDownY = ev.getY();<br>                                newTouchTarget = addTouchTarget(child, idBitsToAssign);<br>                                alreadyDispatchedToNewTouchTarget = true;<br>                                break;<br>                            }<br>                        }<br>                    }<br><br>                    if (newTouchTarget == null &amp;&amp; mFirstTouchTarget != null) {<br>                        // Did not find a child to receive the event.<br>                        // Assign the pointer to the least recently added target.<br>                        newTouchTarget = mFirstTouchTarget;<br>                        while (newTouchTarget.next != null) {<br>                            newTouchTarget = newTouchTarget.next;<br>                        }<br>                        newTouchTarget.pointerIdBits |= idBitsToAssign;<br>                    }<br>                }<br>            }<br><br>            // Dispatch to touch targets.<br>            if (mFirstTouchTarget == null) {<br>                // No touch targets so treat this as an ordinary view.<br>                handled = dispatchTransformedTouchEvent(ev, canceled, null,<br>                        TouchTarget.ALL_POINTER_IDS);<br>            } else {<br>                // Dispatch to touch targets, excluding the new touch target if we already<br>                // dispatched to it.  Cancel touch targets if necessary.<br>                TouchTarget predecessor = null;<br>                TouchTarget target = mFirstTouchTarget;<br>                while (target != null) {<br>                    final TouchTarget next = target.next;<br>                    if (alreadyDispatchedToNewTouchTarget &amp;&amp; target == newTouchTarget) {<br>                        handled = true;<br>                    } else {<br>                        final boolean cancelChild = resetCancelNextUpFlag(target.child)<br>                        || intercepted;<br>                        if (dispatchTransformedTouchEvent(ev, cancelChild,<br>                                target.child, target.pointerIdBits)) {<br>                            handled = true;<br>                        }<br>                        if (cancelChild) {<br>                            if (predecessor == null) {<br>                                mFirstTouchTarget = next;<br>                            } else {<br>                                predecessor.next = next;<br>                            }<br>                            target.recycle();<br>                            target = next;<br>                            continue;<br>                        }<br>                    }<br>                    predecessor = target;<br>                    target = next;<br>                }<br>            }<br><br>            // Update list of touch targets for pointer up or cancel, if needed.<br>            if (canceled<br>                    || actionMasked == MotionEvent.ACTION_UP<br>                    || actionMasked == MotionEvent.ACTION_HOVER_MOVE) {<br>                resetTouchState();<br>            } else if (split &amp;&amp; actionMasked == MotionEvent.ACTION_POINTER_UP) {<br>                final int actionIndex = ev.getActionIndex();<br>                final int idBitsToRemove = 1 &lt;&lt; ev.getPointerId(actionIndex);<br>                removePointersFromTouchTargets(idBitsToRemove);<br>            }<br>        }<br><br>        if (!handled &amp;&amp; mInputEventConsistencyVerifier != null) {<br>            mInputEventConsistencyVerifier.onUnhandledEvent(ev, 1);<br>        }<br>        return handled;<br>    }</span></pre><span style="font-size:18px;"><br>可以看到标红的有两句(<span style="color:#ff0000;">intercepted = onInterceptTouchEvent(ev); &nbsp;&nbsp;</span>&nbsp;<span style="color:#ff0000;">if (!canceled &amp;&amp; !intercepted)&nbsp;&nbsp;</span>)，它会先调用&nbsp;intercepted = onInterceptTouchEvent(ev);然后通过if判断。</span></div><div><span style="font-size:18px;"><span style="font-family: 'Comic Sans MS';"></span></span><pre code_snippet_id="271353" snippet_file_name="blog_20140402_10_7489263" name="code" class="java"><span style="font-size:18px;">  public boolean onInterceptTouchEvent(MotionEvent ev) {<br>        return false;<br>    }</span></pre><span style="font-size:18px;"><br>它就一句话，默认false。也就是说这个谋士默认的意见是，<span style="color:#ff0000;"><strong>永远不拦截！！！！只要有孩子，就</strong></span>交给孩子们处理吧。下面给出实例说明，新建TestLinearLayout继承自Linearlayout。</span><pre code_snippet_id="271353" snippet_file_name="blog_20140402_11_6344211" name="code" class="java"><span style="font-size:18px;">package org.yanzi.ui;<br><br>import android.content.Context;<br>import android.util.AttributeSet;<br>import android.util.Log;<br>import android.view.MotionEvent;<br>import android.widget.LinearLayout;<br><br>public class TestLinearLayout extends LinearLayout{<br>    private final static String tag = &quot;yan&quot;;<br>    public TestLinearLayout(Context context, AttributeSet attrs) {<br>        super(context, attrs);<br>        // TODO Auto-generated constructor stub<br>    }<br><br>    @Override<br>    public boolean dispatchTouchEvent(MotionEvent ev) {<br>        // TODO Auto-generated method stub<br>        switch(ev.getAction()){<br>        case MotionEvent.ACTION_DOWN:<br>            Log.i(tag, &quot;TestLinearLayout-dispatchTouchEvent-ACTION_DOWN…&quot;);<br>            break;<br>        case MotionEvent.ACTION_UP:<br>            Log.i(tag, &quot;TestLinearLayout-dispatchTouchEvent-ACTION_UP…&quot;);<br>            break;<br>        default:break;<br>        }<br>        return super.dispatchTouchEvent(ev);<br>    }<br><br>    @Override<br>    public boolean onInterceptTouchEvent(MotionEvent ev) {<br>        // TODO Auto-generated method stub<br>        switch(ev.getAction()){<br>        case MotionEvent.ACTION_DOWN:<br>            Log.i(tag, &quot;TestLinearLayout-onInterceptTouchEvent-ACTION_DOWN…&quot;);<br>            break;<br>        case MotionEvent.ACTION_UP:<br>            Log.i(tag, &quot;TestLinearLayout-onInterceptTouchEvent-ACTION_UP…&quot;);<br>            break;<br>        default:break;<br>        }<br>        return super.onInterceptTouchEvent(ev);<br>    }<br><br>    @Override<br>    public boolean onTouchEvent(MotionEvent event) {<br>        // TODO Auto-generated method stub<br>        switch(event.getAction()){<br>        case MotionEvent.ACTION_DOWN:<br>            Log.i(tag, &quot;TestLinearLayout-onTouchEvent-ACTION_DOWN…&quot;);<br>            break;<br>        case MotionEvent.ACTION_UP:<br>            Log.i(tag, &quot;TestLinearLayout-onTouchEvent-ACTION_UP…&quot;);<br>            break;<br>        default:break;<br>        }<br>        return super.onTouchEvent(event);<br>    }<br><br><br>}<br></span></pre><span style="font-size:18px;">布局文件改成:</span></div><div><span style="font-size:18px;"><span style="font-family: 'Comic Sans MS';"></span></span><pre code_snippet_id="271353" snippet_file_name="blog_20140402_12_215670" name="code" class="html"><span style="font-size:18px;">&lt;RelativeLayout xmlns:android=&quot;<a href="http://schemas.android.com/apk/res/android&amp;quot" target="_blank" rel="external">http://schemas.android.com/apk/res/android&amp;quot</a>;<br>    xmlns:tools=&quot;<a href="http://schemas.android.com/tools&amp;quot" target="_blank" rel="external">http://schemas.android.com/tools&amp;quot</a>;<br>    android:layout_width=&quot;match_parent&quot;<br>    android:layout_height=&quot;match_parent&quot;<br>    android:paddingBottom=&quot;@dimen/activity_vertical_margin&quot;<br>    android:paddingLeft=&quot;@dimen/activity_horizontal_margin&quot;<br>    android:paddingRight=&quot;@dimen/activity_horizontal_margin&quot;<br>    android:paddingTop=&quot;@dimen/activity_vertical_margin&quot;<br>    tools:context=&quot;.MainActivity&quot; &gt;<br><br>    &lt;TextView<br>        android:layout_width=&quot;wrap_content&quot;<br>        android:layout_height=&quot;wrap_content&quot;<br>        android:text=&quot;@string/hello_world&quot; /&gt;<br><br>    &lt;org.yanzi.ui.TestLinearLayout<br>        android:id=&quot;@+id/linearlayout_test&quot;<br>        android:layout_width=&quot;200dip&quot;<br>        android:layout_height=&quot;200dip&quot; &gt;<br><br>        &lt;org.yanzi.ui.TestButton<br>            android:id=&quot;@+id/btn_test&quot;<br>            android:layout_width=&quot;wrap_content&quot;<br>            android:layout_height=&quot;wrap_content&quot;<br>            android:text=&quot;测试按钮&quot; /&gt;<br>    &lt;/org.yanzi.ui.TestLinearLayout&gt;<br><br>&lt;/RelativeLayout&gt;</span></pre><span style="font-size:18px;"><br>在Activity里给这个自定义LinearLayout也注册上onClick监听、onTouch监听。</span></div><div><span style="font-size:18px;"><span style="font-family: 'Comic Sans MS';"></span></span><pre code_snippet_id="271353" snippet_file_name="blog_20140402_13_9103636" name="code" class="java"><span style="font-size:18px;">testLinelayout = (TestLinearLayout)findViewById(R.id.linearlayout_test);<br>        testLinelayout.setOnTouchListener(new View.OnTouchListener() {<br><br>            @Override<br>            public boolean onTouch(View v, MotionEvent event) {<br>                // TODO Auto-generated method stub<br>                switch(event.getAction()){<br>                case MotionEvent.ACTION_DOWN:<br>                    Log.i(tag, &quot;testLinelayout-onTouch-ACTION_DOWN…&quot;);<br>                    break;<br>                case MotionEvent.ACTION_UP:<br>                    Log.i(tag, &quot;testLinelayout-onTouch-ACTION_UP…&quot;);<br>                    break;<br>                default:break;<br><br>                }<br>                return false;<br>            }<br>        });<br><br>        testLinelayout.setOnClickListener(new View.OnClickListener() {<br><br>            @Override<br>            public void onClick(View v) {<br>                // TODO Auto-generated method stub<br>                Log.i(tag, &quot;testLinelayout—onClick…&quot;);<br>            }<br>        });</span></pre><span style="font-size:18px;"><br>不复写事件传递里的 任何方法，流程如下:</span></div><div><span style="font-family: 'Comic Sans MS';"><span style="font-size:18px;"><span style="white-space:pre">    </span>Line 57: 01-08 15:29:42.167 I/yan &nbsp; &nbsp; ( 5826): MainActivity-dispatchTouchEvent-ACTION_DOWN…<br><span style="white-space:pre">    </span>Line 59: 01-08 15:29:42.169 I/yan &nbsp; &nbsp; ( 5826): TestLinearLayout-dispatchTouchEvent-ACTION_DOWN…<br><span style="white-space:pre">    </span>Line 61: 01-08 15:29:42.169 I/yan &nbsp; &nbsp; ( 5826): TestLinearLayout-onInterceptTouchEvent-ACTION_DOWN…<br><span style="white-space:pre">    </span>Line 63: 01-08 15:29:42.169 I/yan &nbsp; &nbsp; ( 5826): TestButton-dispatchTouchEvent-ACTION_DOWN…<br><span style="white-space:pre">    </span>Line 65: 01-08 15:29:42.170 I/yan &nbsp; &nbsp; ( 5826): testBtn-onTouch-ACTION_DOWN…<br><span style="white-space:pre">    </span>Line 67: 01-08 15:29:42.170 I/yan &nbsp; &nbsp; ( 5826): TestButton-onTouchEvent-ACTION_DOWN…</span></span></div><div><span style="font-family: 'Comic Sans MS';"><span style="font-size:18px;">—————————————————————————————————————————<br><span style="white-space:pre">    </span>Line 69: 01-08 15:29:42.279 I/yan &nbsp; &nbsp; ( 5826): MainActivity-dispatchTouchEvent-ACTION_UP…<br><span style="white-space:pre">    </span>Line 71: 01-08 15:29:42.280 I/yan &nbsp; &nbsp; ( 5826): TestLinearLayout-dispatchTouchEvent-ACTION_UP…<br><span style="white-space:pre">    </span>Line 73: 01-08 15:29:42.283 I/yan &nbsp; &nbsp; ( 5826): TestLinearLayout-onInterceptTouchEvent-ACTION_UP…<br><span style="white-space:pre">    </span>Line 75: 01-08 15:29:42.287 I/yan &nbsp; &nbsp; ( 5826): TestButton-dispatchTouchEvent-ACTION_UP…<br><span style="white-space:pre">    </span>Line 81: 01-08 15:29:42.298 I/yan &nbsp; &nbsp; ( 5826): testBtn-onTouch-ACTION_UP…<br><span style="white-space:pre">    </span>Line 83: 01-08 15:29:42.301 I/yan &nbsp; &nbsp; ( 5826): TestButton-onTouchEvent-ACTION_UP…<br><span style="white-space:pre">    </span>Line 85: 01-08 15:29:42.313 I/yan &nbsp; &nbsp; ( 5826): testBtn—onClick…<br></span></span></div><div><span style="font-family: 'Comic Sans MS';"><span style="font-size:18px;"><br></span></span></div><div><span style="font-family: 'Comic Sans MS';"><span style="font-size:18px;">由Activity的dispatchTouchEvent—-Linearlayout的dispatchTouchEvent————问问它的谋士要不要让孩子知道onInterceptTouchEvent———孩子的dispatchTouchEvent—–孩子的onTouch监听——孩子的onTouchEvent—-孩子的onClick监听。为了更清晰这个流程，下面作如下改动：</span></span></div><div><span style="font-family: 'Comic Sans MS';"><span style="font-size:18px;">1、如果事件传给了孩子们，但孩子没有onTouch和onClick监听怎么办？即将button的onclick和onTouch都注释掉:</span></span></div><div><span style="font-family: 'Comic Sans MS';"><span style="font-size:18px;">流程如下:</span></span></div><div><span style="font-family: 'Comic Sans MS';"><span style="font-size:18px;"><span style="white-space:pre">    </span>Line 131: 01-08 15:36:16.574 I/yan &nbsp; &nbsp; ( 6124): TestLinearLayout-dispatchTouchEvent-ACTION_DOWN…<br><span style="white-space:pre">    </span>Line 133: 01-08 15:36:16.574 I/yan &nbsp; &nbsp; ( 6124): TestLinearLayout-onInterceptTouchEvent-ACTION_DOWN…<br><span style="white-space:pre">    </span>Line 135: 01-08 15:36:16.574 I/yan &nbsp; &nbsp; ( 6124): TestButton-dispatchTouchEvent-ACTION_DOWN…<br><span style="white-space:pre">    </span>Line 137: 01-08 15:36:16.575 I/yan &nbsp; &nbsp; ( 6124): TestButton-onTouchEvent-ACTION_DOWN…<br><span style="white-space:pre">    </span>Line 143: 01-08 15:36:16.746 I/yan &nbsp; &nbsp; ( 6124): MainActivity-dispatchTouchEvent-ACTION_UP…<br><span style="white-space:pre">    </span>Line 145: 01-08 15:36:16.747 I/yan &nbsp; &nbsp; ( 6124): TestLinearLayout-dispatchTouchEvent-ACTION_UP…<br><span style="white-space:pre">    </span>Line 147: 01-08 15:36:16.747 I/yan &nbsp; &nbsp; ( 6124): TestLinearLayout-onInterceptTouchEvent-ACTION_UP…<br><span style="white-space:pre">    </span>Line 149: 01-08 15:36:16.748 I/yan &nbsp; &nbsp; ( 6124): TestButton-dispatchTouchEvent-ACTION_UP…<br><span style="white-space:pre">    </span>Line 151: 01-08 15:36:16.748 I/yan &nbsp; &nbsp; ( 6124): TestButton-onTouchEvent-ACTION_UP…<br></span></span></div><div><span style="font-family: 'Comic Sans MS';"><span style="font-size:18px;">因为事件给了孩子们，它没监听也关系不到父亲了，父亲的onClick和onTouch都没执行。</span></span></div><div><span style="font-family: 'Comic Sans MS';"><span style="font-size:18px;">2,如果将TestLinearlayout的onInterceptTouchEvent 改成return true，即不让孩子们知道。</span></span></div><div><span style="font-family: 'Comic Sans MS';"><span style="font-size:18px;"><span style="white-space:pre">    </span>Line 57: 01-08 15:40:06.832 I/yan &nbsp; &nbsp; ( 6640): MainActivity-dispatchTouchEvent-ACTION_DOWN…<br><span style="white-space:pre">    </span>Line 59: 01-08 15:40:06.835 I/yan &nbsp; &nbsp; ( 6640): TestLinearLayout-dispatchTouchEvent-ACTION_DOWN…<br><span style="white-space:pre">    </span>Line 61: 01-08 15:40:06.836 I/yan &nbsp; &nbsp; ( 6640): TestLinearLayout-onInterceptTouchEvent-ACTION_DOWN…<br><span style="white-space:pre">    </span>Line 63: 01-08 15:40:06.836 I/yan &nbsp; &nbsp; ( 6640): testLinelayout-onTouch-ACTION_DOWN…<br><span style="white-space:pre">    </span>Line 65: 01-08 15:40:06.836 I/yan &nbsp; &nbsp; ( 6640): TestLinearLayout-onTouchEvent-ACTION_DOWN…<br><span style="white-space:pre">    </span>Line 67: 01-08 15:40:07.016 I/yan &nbsp; &nbsp; ( 6640): MainActivity-dispatchTouchEvent-ACTION_UP…<br><span style="white-space:pre">    </span>Line 69: 01-08 15:40:07.017 I/yan &nbsp; &nbsp; ( 6640): TestLinearLayout-dispatchTouchEvent-ACTION_UP…<br><span style="white-space:pre">    </span>Line 73: 01-08 15:40:07.025 I/yan &nbsp; &nbsp; ( 6640): testLinelayout-onTouch-ACTION_UP…<br><span style="white-space:pre">    </span>Line 75: 01-08 15:40:07.026 I/yan &nbsp; &nbsp; ( 6640): TestLinearLayout-onTouchEvent-ACTION_UP…<br><span style="white-space:pre">    </span>Line 77: 01-08 15:40:07.052 I/yan &nbsp; &nbsp; ( 6640): testLinelayout—onClick…<br></span></span></div><div><span style="font-family: 'Comic Sans MS';"><span style="font-size:18px;"><span style="white-space:pre">    </span>果然事件就此打住，孩子们压根不知道，父亲执行了onClick和onTouch监听。可见父亲还是伟大的啊，只要谋士不拦截事件，那么事件就给孩子。</span></span></div><div><span style="font-family: 'Comic Sans MS';"><span style="font-size:18px;"><span style="white-space:pre">    </span>最后的结论:</span></span></div><div><span style="font-family: 'Comic Sans MS';"><span style="font-size:18px;">1、如果是自定义复合控件，如图片+文字，我再Activity里给你注册了onClick监听，期望点击它执行。那么最简单的方法就是将图片+文字的父布局，也即让其容器ViewGroup的秘书将事件拦下，这样父亲就可以执行onClick了。这时候的父亲就像一个独立的孩子一样了(View)，无官一身轻，再也不用管它的孩子了,可以正常onClick onTouch.</span></span></div><div><span style="font-family: 'Comic Sans MS';"><span style="font-size:18px;">2、如果希望一个View只onTouch而不onClick，在onTouch里return true就ok了。</span></span></div><div><span style="font-family: 'Comic Sans MS';"><span style="font-size:18px;">3、dispatch是为了onTouch监听，onTouchEvent是为了onClick监听。</span></span></div><div><span style="font-family: 'Comic Sans MS';"><span style="font-size:18px;">4、自定义布局时，一般情况下：</span></span></div><div><span style="font-family: 'Comic Sans MS';"><span style="font-size:18px;">@Override<br><span style="white-space:pre">    </span>public boolean onTouchEvent(MotionEvent event) {return super.onTouchEvent(event);} &nbsp;<br></span></span></div><div><span style="font-family: 'Comic Sans MS';"><span style="font-size:18px;"><br></span></span></div><div><span style="font-family: 'Comic Sans MS';"><span style="font-size:18px;">@Override<br><span style="white-space:pre">    </span>public boolean dispatchTouchEvent(MotionEvent event) {return super.dispatchTouchEvent(event);<br></span></span></div><div><span style="font-family: 'Comic Sans MS';"><span style="font-size:18px;"><span style="white-space:pre">    </span>我们可以复写，但是最后的super.<strong><em>是万万不能少滴。如果少了，表示连dispatch</em></strong> onTouchEvent压根就不调用了，事件就此打住。</span></span></div><div><span style="font-family: 'Comic Sans MS';"><span style="font-size:18px;"><span style="white-space:pre">    </span>貌似真相水落石出了，但究竟清楚了没有请看下篇根据自定义复合控件的监听问题再探讨下。</span></span></div><div><span style="font-family: 'Comic Sans MS';"><span style="font-size:18px;"><br></span></span></div><div><span style="font-family: 'Comic Sans MS';"><span style="font-size:18px;">参考: &nbsp;&nbsp;<a target="_blank" href="http://ryantang.me/blog/2014/01/02/android-event-dispatch/">链接1</a>&nbsp;(灰常感谢前辈的大作啊) &nbsp; &nbsp;<a target="_blank" href="http://www.cnblogs.com/xiaoQLu/archive/2012/04/28/2474443.html">链接2</a></span></span></div><div><span style="font-family: 'Comic Sans MS';"><span style="font-size:18px;">测试代码: &nbsp;<a target="_blank" href="http://download.csdn.net/detail/yanzi1225627/7121063">http://download.csdn.net/detail/yanzi1225627/7121063</a></span></span></div><div><span style="font-family: 'Comic Sans MS';"><span style="font-size:18px;"><br></span></span></div><div><span style="font-family: 'Comic Sans MS';"><span style="font-size:18px;">—————————本文系原创，转载注明作者:yanzi1225627<br></span></span><br></div><br></div>
+
+
+<hr>
+<p><strong>版权声明</strong></p>
+<p><a rel="external" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"></a><br>本网站如未注明，均由<a href="https://fengqingxiuyi.github.io/">青峰</a>创作并维护；本网站采用<a rel="external" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>进行许可。转载请注明作者及出处。</p>
+<p>本文永久链接：<a href="https://fengqingxiuyi.github.io/2016/08/11/Android/事件传递机制/细说Android事件传递机制(dispatchTouchEvent、onInterceptTouchEvent、onTouchEvent)/">https://fengqingxiuyi.github.io/2016/08/11/Android/事件传递机制/细说Android事件传递机制(dispatchTouchEvent、onInterceptTouchEvent、onTouchEvent)/</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/10/ShowJoy/View/View注意点/" rel="next" title="View注意点">
+                <i class="fa fa-chevron-left"></i> View注意点
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/08/11/Android/图片压缩/类微信图片压缩使用/" rel="prev" title="类微信图片压缩使用">
+                类微信图片压缩使用 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/08/11/Android/事件传递机制/细说Android事件传递机制(dispatchTouchEvent、onInterceptTouchEvent、onTouchEvent)/"
+           data-title="细说Android事件传递机制(dispatchTouchEvent、onInterceptTouchEvent、onTouchEvent)" data-url="https://fengqingxiuyi.github.io/2016/08/11/Android/事件传递机制/细说Android事件传递机制(dispatchTouchEvent、onInterceptTouchEvent、onTouchEvent)/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="青峰" />
+          <p class="site-author-name" itemprop="name">青峰</p>
+          <p class="site-description motion-element" itemprop="description">漆黑的夜行者->狂奔的蜗牛->风清袖一</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">22</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/fengqingxiuyi" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://blog.csdn.net/u012505400" target="_blank" title="CSDN">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  CSDN
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://blog.sina.com.cn/u/3858496160" target="_blank" title="新浪博客">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  新浪博客
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://notes.cribug.com/" title="Cribug" target="_blank">Cribug</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blog.csdn.net/smartbetter/" title="郭朝的博客" target="_blank">郭朝的博客</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blog.csdn.net/guolin_blog/" title="郭霖的专栏" target="_blank">郭霖的专栏</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">一、View的dispatchTouchEvent和onTouchEvent</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">二、ViewGroup的dispatchTouchEvent、onInterceptTouchEvent、onTouchEvent</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">青峰</span>
+</div>
+<!--
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+-->
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+本站总访问量 <span id="busuanzi_value_site_pv"></span> &nbsp&nbsp&nbsp
+您是第<span id="busuanzi_value_site_uv"></span>个来到的小伙伴
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"fengqingxiuyi"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("qFnJ1pQaEsIPYF2qGYgLWXNT-gzGzoHsz", "T4nQpf74BeGitOQmRVC7rSKM");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+</body>
+</html>
