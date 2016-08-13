@@ -53,13 +53,30 @@
     <link href="https://fengqingxiuyi.github.io/2016/08/13/Android/%E6%94%AF%E4%BB%98%E6%B5%81%E7%A8%8B/%E6%94%AF%E4%BB%98%E5%AE%9D/%E6%94%AF%E4%BB%98%E5%AE%9D%E6%94%AF%E4%BB%98-%E7%9B%B8%E5%85%B3%E7%BD%91%E5%9D%80/"/>
     <id>https://fengqingxiuyi.github.io/2016/08/13/Android/支付流程/支付宝/支付宝支付-相关网址/</id>
     <published>2016-08-13T01:30:33.000Z</published>
-    <updated>2016-08-13T01:57:06.000Z</updated>
+    <updated>2016-08-13T02:03:30.000Z</updated>
     
     <content type="html">&lt;p&gt;本文只是介绍一下关于&lt;code&gt;支付宝支付&lt;/code&gt;的相关网址信息，便于大家快速定位到指定位置。&lt;/p&gt;
 &lt;h1 id=&quot;资源下载&quot;&gt;&lt;a href=&quot;#资源下载&quot; class=&quot;headerlink&quot; title=&quot;资源下载&quot;&gt;&lt;/a&gt;资源下载&lt;/h1&gt;&lt;p&gt;网址：&lt;a href=&quot;https://doc.open.alipay.com/doc2/detail.htm?spm=a219a.7629140.0.0.FCGmVr&amp;amp;treeId=193&amp;amp;articleId=104509&amp;amp;docType=1&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;App支付DEMO&amp;amp;SDK&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;内容：&lt;/p&gt;
 &lt;h2 id=&quot;App支付DEMO-amp-SDK&quot;&gt;&lt;a href=&quot;#App支付DEMO-amp-SDK&quot; class=&quot;headerlink&quot; title=&quot;App支付DEMO&amp;amp;SDK&quot;&gt;&lt;/a&gt;App支付DEMO&amp;amp;SDK&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://doc.open.alipay.com/doc2/detail.htm?treeId=204&amp;amp;articleId=105051&amp;amp;docType=1&quot; target=&quot;_blank&quot;&gt;App支付功能&lt;/a&gt;（&lt;span style=&quot;background-color: #ffff00;&quot;&gt;&lt;strong&gt;支付产品全面升级，若您使用的是老接口，请移步&lt;a style=&quot;background-color: #ffff00;&quot; href=&quot;http://doc.open.alipay.com/doc2/detail?treeId=59&amp;amp;articleId=103563&amp;amp;docType=1&quot; target=&quot;_blank&quot;&gt;老版本移动支付文档&lt;/a&gt;。&lt;/strong&gt;&lt;/span&gt;）&lt;/p&gt;
-&lt;p&gt;&lt;table&gt;&lt;br&gt;    &lt;tr&gt;&lt;br&gt;     &lt;td width=&quot;65%&quot;&gt; &lt;p&gt;iOS&amp;amp;Android版资源&lt;/p&gt; &lt;p&gt;&lt;strong&gt;说明：&lt;span style=&quot;color: #404040; font-family: Helvetica;&quot;&gt;iOS&lt;/span&gt;&lt;span style=&quot;color: #404040; font-family: &#39;PingFang SC&#39;;&quot;&gt;版&lt;/span&gt;&lt;span style=&quot;color: #404040; font-family: Helvetica;&quot;&gt;SDK&lt;/span&gt;&lt;span style=&quot;color: #404040; font-family: &#39;PingFang SC&#39;;&quot;&gt;已支持&lt;/span&gt;&lt;span style=&quot;color: #404040; font-family: Helvetica;&quot;&gt;IPv6_only&lt;/span&gt;&lt;span style=&quot;color: #404040; font-family: &#39;PingFang SC&#39;;&quot;&gt;网络&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt; &lt;/td&gt;&lt;br&gt;     &lt;td class=&quot;second-td&quot; width=&quot;35%&quot;&gt;&lt;a href=&quot;http://aopsdkdownload.cn-hangzhou.alipay-pub.aliyun-inc.com/demo/WS_APP_PAY_SDK_BASE.zip&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;SDK&amp;amp;DEMO&lt;/a&gt;&lt;/td&gt;&lt;br&gt;    &lt;/tr&gt;&lt;br&gt;    &lt;tr&gt;&lt;br&gt;     &lt;td width=&quot;65%&quot;&gt;iOS&amp;amp;Android版资源（适用于集成了百川sdk，出现UTDID冲突）&lt;/td&gt;&lt;br&gt;     &lt;td class=&quot;second-td&quot; width=&quot;35%&quot;&gt;&lt;a href=&quot;http://aopsdkdownload.cn-hangzhou.alipay-pub.aliyun-inc.com/demo/AlipaySDK_No_UTDID.zip&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;SDK&lt;/a&gt;&lt;/td&gt;&lt;br&gt;    &lt;/tr&gt;&lt;br&gt;  &lt;/table&gt; &lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:left&quot;&gt;说明&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;链接&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;&lt;p&gt;iOS&amp;amp;Android版资源&lt;/p&gt; &lt;p&gt;&lt;strong&gt;说明：&lt;span style=&quot;color: #404040; font-family: Helvetica;&quot;&gt;iOS&lt;/span&gt;&lt;span style=&quot;color: #404040; font-family: &#39;PingFang SC&#39;;&quot;&gt;版&lt;/span&gt;&lt;span style=&quot;color: #404040; font-family: Helvetica;&quot;&gt;SDK&lt;/span&gt;&lt;span style=&quot;color: #404040; font-family: &#39;PingFang SC&#39;;&quot;&gt;已支持&lt;/span&gt;&lt;span style=&quot;color: #404040; font-family: Helvetica;&quot;&gt;IPv6_only&lt;/span&gt;&lt;span style=&quot;color: #404040; font-family: &#39;PingFang SC&#39;;&quot;&gt;网络&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;&lt;a href=&quot;http://aopsdkdownload.cn-hangzhou.alipay-pub.aliyun-inc.com/demo/WS_APP_PAY_SDK_BASE.zip&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;SDK&amp;amp;DEMO&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;iOS&amp;amp;Android版资源（适用于集成了百川sdk，出现UTDID冲突）&lt;/td&gt;
+&lt;td style=&quot;text-align:center&quot;&gt;&lt;a href=&quot;http://aopsdkdownload.cn-hangzhou.alipay-pub.aliyun-inc.com/demo/AlipaySDK_No_UTDID.zip&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;SDK&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 &lt;h1 id=&quot;支付调用&quot;&gt;&lt;a href=&quot;#支付调用&quot; class=&quot;headerlink&quot; title=&quot;支付调用&quot;&gt;&lt;/a&gt;支付调用&lt;/h1&gt;&lt;p&gt;网址：&lt;a href=&quot;https://doc.open.alipay.com/doc2/detail.htm?spm=a219a.7629140.0.0.o8hixH&amp;amp;treeId=204&amp;amp;articleId=105296&amp;amp;docType=1&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;App支付Android集成流程详解&lt;/a&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;&lt;strong&gt;版权声明&lt;/strong&gt;&lt;/p&gt;
