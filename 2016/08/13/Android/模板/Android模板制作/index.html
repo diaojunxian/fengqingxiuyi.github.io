@@ -132,11 +132,12 @@
 
 模板是什么个人理解：模板即为了帮助人们简化某些固定而繁琐的操作而制作的工具，用于快速实现这些固定而繁琐的操作。
 模板">
-<meta property="og:image" content="https://fengqingxiuyi.github.io/../../../../../../images/Android/模板/File-New.png">
+<meta property="og:image" content="https://fengqingxiuyi.github.io/../../../../../../images/Android/模板/工程右击-New.png">
 <meta property="og:image" content="https://fengqingxiuyi.github.io/../../../../../../images/Android/模板/Edit-File-Templates.png">
+<meta property="og:image" content="https://fengqingxiuyi.github.io/../../../../../../images/Android/模板/Edit-File-Templates-in.png">
 <meta property="og:image" content="https://fengqingxiuyi.github.io/../../../../../../images/Android/模板/AndroidStudio自带模板列表-suggest.gif">
 <meta property="og:image" content="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png">
-<meta property="og:updated_time" content="2016-08-13T09:50:08.000Z">
+<meta property="og:updated_time" content="2016-08-13T10:10:14.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android模板制作">
 <meta name="twitter:description" content="本文专门介绍和模板相关的知识，那么问题来了：
@@ -151,7 +152,7 @@
 
 模板是什么个人理解：模板即为了帮助人们简化某些固定而繁琐的操作而制作的工具，用于快速实现这些固定而繁琐的操作。
 模板">
-<meta name="twitter:image" content="https://fengqingxiuyi.github.io/../../../../../../images/Android/模板/File-New.png">
+<meta name="twitter:image" content="https://fengqingxiuyi.github.io/../../../../../../images/Android/模板/工程右击-New.png">
 
 
 
@@ -432,10 +433,12 @@
 <h1 id="警告"><a href="#警告" class="headerlink" title="警告"></a>警告</h1><font color="red">本文所有模板路径均为Mac下的路径，Windows用户也可以查看路径中的相关信息，进而快速定位。</font>
 
 <h1 id="模板是什么"><a href="#模板是什么" class="headerlink" title="模板是什么"></a>模板是什么</h1><p>个人理解：模板即为了帮助人们简化某些固定而繁琐的操作而制作的工具，用于快速实现这些固定而繁琐的操作。</p>
-<h1 id="模板使用位置"><a href="#模板使用位置" class="headerlink" title="模板使用位置"></a>模板使用位置</h1><p>当我们在使用AndroidStudio进行开发的时候，可以发现在菜单栏File-New下面看到很多AndroidStudio提供给我们的模板类别，例如：Activity、AIDL等。具体可看下图：</p>
-<p><img src="../../../../../../images/Android/模板/File-New.png" alt="File-New"></p>
-<p>细心的你会发现在这些模板的上面有一个选项，叫：Edit File Templates…，点开之后你就可以自定义模板了，其中内置的变量在页面下方都有解释，是不是很方便，但是它有一个致命的缺点：一次只能创建一个java文件。具体可看下图：</p>
+<h1 id="模板使用位置"><a href="#模板使用位置" class="headerlink" title="模板使用位置"></a>模板使用位置</h1><p>当我们在使用AndroidStudio进行开发的时候，将鼠标选中工程项目，然后右击可以在New选项下面看到很多AndroidStudio提供给我们的模板类别，例如：Activity、AIDL等。具体可看下图：</p>
+<p><img src="../../../../../../images/Android/模板/工程右击-New.png" alt="工程右击-New"></p>
+<p>细心的你会发现在这些模板的上面有一个选项，叫：Edit File Templates…，如下图所示：</p>
 <p><img src="../../../../../../images/Android/模板/Edit-File-Templates.png" alt="Edit-File-Templates"></p>
+<p>点击这个选项，会进入自定义模板页面，其中内置的变量在页面下方都有解释，是不是很方便，但是它有一个致命的缺点：一次只能创建一个java文件。具体可看下图：</p>
+<p><img src="../../../../../../images/Android/模板/Edit-File-Templates-in.png" alt="Edit-File-Templates-in"></p>
 <p>因为觉得这个很简单，所以我就不做过多阐述了，接下来我就仔细阐述一下，如何一次创建多个java文件，而且还可以选择是否包含xml文件。</p>
 <h1 id="模板如何创建-包含模板存放位置"><a href="#模板如何创建-包含模板存放位置" class="headerlink" title="模板如何创建(包含模板存放位置)"></a>模板如何创建(包含模板存放位置)</h1><h2 id="警告-1"><a href="#警告-1" class="headerlink" title="警告"></a>警告</h2><p>如果直接复制相关代码的话，请注意其中的注释，可能会带来一些问题，如果出现问题，可以把#开头的注释去除，再尝试！！！</p>
 <p>如果不懂上面这段话的意思的话，可以先行跳过。</p>
