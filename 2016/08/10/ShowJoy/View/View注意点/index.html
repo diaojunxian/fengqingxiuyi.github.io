@@ -115,7 +115,7 @@
 注意点1：凡是使用Fresco设置的图片，必须设置具体的宽高才可以正常显示例如：SHImageView
 模块地址：同级目录下的SHImageView.java文件或http://git.showjoy.net/android/showjoyandroid_i">
 <meta property="og:image" content="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png">
-<meta property="og:updated_time" content="2016-08-10T09:55:18.000Z">
+<meta property="og:updated_time" content="2016-08-13T16:11:58.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="View注意点">
 <meta name="twitter:description" content="Fresco图片框架注意点Fresco官方文档：http://fresco-cn.org/docs/getting-started.html
@@ -394,13 +394,13 @@
         <h1 id="Fresco图片框架注意点"><a href="#Fresco图片框架注意点" class="headerlink" title="Fresco图片框架注意点"></a>Fresco图片框架注意点</h1><p>Fresco官方文档：<a href="http://fresco-cn.org/docs/getting-started.html" target="_blank" rel="external">http://fresco-cn.org/docs/getting-started.html</a></p>
 <h2 id="注意点1：凡是使用Fresco设置的图片，必须设置具体的宽高才可以正常显示"><a href="#注意点1：凡是使用Fresco设置的图片，必须设置具体的宽高才可以正常显示" class="headerlink" title="注意点1：凡是使用Fresco设置的图片，必须设置具体的宽高才可以正常显示"></a>注意点1：凡是使用Fresco设置的图片，必须设置具体的宽高才可以正常显示</h2><p>例如：SHImageView</p>
 <p>模块地址：<br>同级目录下的SHImageView.java文件<br>或<br><a href="http://git.showjoy.net/android/showjoyandroid_image/tree/master" target="_blank" rel="external">http://git.showjoy.net/android/showjoyandroid_image/tree/master</a></p>
-<h2 id="注意点2：为Fresco图片设置圆形背景"><a href="#注意点2：为Fresco图片设置圆形背景" class="headerlink" title="注意点2：为Fresco图片设置圆形背景"></a>注意点2：为Fresco图片设置圆形背景</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 去除fresco:roundedCornerRadius="5dp"可预览</span></div><div class="line">&lt;com.showjoy.image.SHCircleImageView</div><div class="line">    android:id=<span class="string">"@+id/home_best_seller_img"</span></div><div class="line">    android:layout_width=<span class="string">"match_parent"</span></div><div class="line">    android:layout_height=<span class="string">"match_parent"</span></div><div class="line">    fresco:actualImageScaleType=<span class="string">"centerCrop"</span></div><div class="line">    fresco:backgroundImage=<span class="string">"@color/white"</span></div><div class="line">    fresco:roundedCornerRadius=<span class="string">"5dp"</span></div><div class="line">    fresco:roundingBorderColor=<span class="string">"@color/grey2"</span></div><div class="line">    fresco:roundingBorderWidth=<span class="string">"2dp"</span> /&gt;</div></pre></td></tr></table></figure>
+<h2 id="注意点2：为Fresco图片设置圆形背景"><a href="#注意点2：为Fresco图片设置圆形背景" class="headerlink" title="注意点2：为Fresco图片设置圆形背景"></a>注意点2：为Fresco图片设置圆形背景</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">// 去除fresco:roundedCornerRadius=<span class="string">"5dp"</span>可预览</div><div class="line">&lt;com.showjoy.image.SHCircleImageView</div><div class="line">    android:id=<span class="string">"@+id/home_best_seller_img"</span></div><div class="line">    android:layout_width=<span class="string">"match_parent"</span></div><div class="line">    android:layout_height=<span class="string">"match_parent"</span></div><div class="line">    fresco:actualImageScaleType=<span class="string">"centerCrop"</span></div><div class="line">    fresco:backgroundImage=<span class="string">"@color/white"</span></div><div class="line">    fresco:roundedCornerRadius=<span class="string">"5dp"</span></div><div class="line">    fresco:roundingBorderColor=<span class="string">"@color/grey2"</span></div><div class="line">    fresco:roundingBorderWidth=<span class="string">"2dp"</span> /&gt;</div></pre></td></tr></table></figure>
 <p>答：因为已经设置了round属性，所以已经是圆形了，这个时候，如果想要设置其圆形边框内的背景，需要通过这个属性backgroundImage设置背景才是圆形边框内的背景色</p>
 <h1 id="ShopEditText"><a href="#ShopEditText" class="headerlink" title="ShopEditText"></a>ShopEditText</h1><p>ShopEditText必须设置字体大小（注：已提供属性），否则字体显示特别小<br>模块地址：同级目录下ShopEditText文件夹下的ShopEditText.java文件</p>
 <h1 id="tools-Designtime-Attributes"><a href="#tools-Designtime-Attributes" class="headerlink" title="tools-Designtime Attributes"></a>tools-Designtime Attributes</h1><p>Google文档地址：<a href="http://tools.android.com/tips/layout-designtime-attributes" target="_blank" rel="external">http://tools.android.com/tips/layout-designtime-attributes</a></p>
 <p>中文翻译：这些属性用于渲染布局，而不会影响到程序运行。也就是说只在预览布局时出现，在程序运行时相当于该属性不存在。</p>
 <p>例子：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line">&lt;RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"</div><div class="line">    xmlns:tools="http://schemas.android.com/tools"</div><div class="line">    android:layout_width="match_parent"</div><div class="line">    android:layout_height="match_parent"&gt;</div><div class="line"></div><div class="line">    &lt;TextView</div><div class="line">        android:layout_width="match_parent"</div><div class="line">        android:layout_height="wrap_content"</div><div class="line">        tools:text="test"/&gt;</div><div class="line"></div><div class="line">&lt;/RelativeLayout&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"utf-8"</span>?&gt;</div><div class="line">&lt;RelativeLayout xmlns:android=<span class="string">"http://schemas.android.com/apk/res/android"</span></div><div class="line">    xmlns:tools=<span class="string">"http://schemas.android.com/tools"</span></div><div class="line">    android:layout_width=<span class="string">"match_parent"</span></div><div class="line">    android:layout_height=<span class="string">"match_parent"</span>&gt;</div><div class="line"></div><div class="line">    &lt;TextView</div><div class="line">        android:layout_width=<span class="string">"match_parent"</span></div><div class="line">        android:layout_height=<span class="string">"wrap_content"</span></div><div class="line">        tools:text=<span class="string">"test"</span>/&gt;</div><div class="line"></div><div class="line">&lt;/RelativeLayout&gt;</div></pre></td></tr></table></figure>
 <p>更加全面的tools详解：<a href="http://blog.csdn.net/zhengdan66/article/details/46960985" target="_blank" rel="external">http://blog.csdn.net/zhengdan66/article/details/46960985</a></p>
 <h1 id="android-paddingstart-paddingend"><a href="#android-paddingstart-paddingend" class="headerlink" title="android:paddingstart(paddingend)"></a>android:paddingstart(paddingend)</h1><p>android:paddingstart(paddingend)：左右对齐时使用。左对齐时：paddingstart对应paddingleft；paddingend对应paddingright；右对齐时则刚好相反；</p>
 <h1 id="附"><a href="#附" class="headerlink" title="附"></a>附</h1><font color="red">本文持续更新</font>
@@ -470,9 +470,26 @@
           
   <div class="comments" id="comments">
     
+      <!-- 多说评论框 start -->
       <div class="ds-thread" data-thread-key="2016/08/10/ShowJoy/View/View注意点/"
            data-title="View注意点" data-url="https://fengqingxiuyi.github.io/2016/08/10/ShowJoy/View/View注意点/">
       </div>
+      <!-- 多说评论框 end -->
+      <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+      <script type="text/javascript">
+      var duoshuoQuery = {short_name:"fengqingxiuyi"};
+        (function() {
+          var ds = document.createElement('script');
+          ds.type = 'text/javascript';ds.async = true;
+          ds.src = 'https://fengqingxiuyi.github.io/js/embed.js';
+          <!-- 上面是我自己的 embed.js 链接，请改为你自己的地址 -->
+
+          ds.charset = 'UTF-8';
+          (document.getElementsByTagName('head')[0] 
+           || document.getElementsByTagName('body')[0]).appendChild(ds);
+        })();
+        </script>
+      <!-- 多说公共JS代码 end -->
     
   </div>
 

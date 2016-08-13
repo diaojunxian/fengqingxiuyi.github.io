@@ -123,7 +123,7 @@
 <meta property="og:image" content="https://fengqingxiuyi.github.io/../../../../../../images/ShowJoy/Intent/Intent统一跳转协议-情况一.gif">
 <meta property="og:image" content="https://fengqingxiuyi.github.io/../../../../../../images/ShowJoy/Intent/Intent统一跳转协议-情况二.gif">
 <meta property="og:image" content="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png">
-<meta property="og:updated_time" content="2016-08-13T05:14:58.000Z">
+<meta property="og:updated_time" content="2016-08-13T16:13:14.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Intent统一跳转协议">
 <meta name="twitter:description" content="目的Intent统一跳转协议就是为了解决模块之间的耦合而存在的，不再以
@@ -411,7 +411,7 @@
 <h1 id="情况一：定义完整"><a href="#情况一：定义完整" class="headerlink" title="情况一：定义完整"></a>情况一：定义完整</h1><p>情况一：在清单文件中已经定义完整了data中的scheme、host和path后，一般不需要在Activity中接收处理，除非含有其他参数，例如<code>gougeli://page.sh/detail?userId=123456</code>。</p>
 <p>Intent统一跳转协议分为以下几步：</p>
 <p>（1）在Androidmanifest.xml文件中配置intent-filter，例如：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;activity</div><div class="line">    android:name=".module.detail.DetailActivity"</div><div class="line">    android:exported="true"</div><div class="line">    android:screenOrientation="portrait" &gt;</div><div class="line">    &lt;intent-filter&gt;</div><div class="line">        &lt;action android:name="android.intent.action.VIEW"/&gt;</div><div class="line">        &lt;category android:name="android.intent.category.DEFAULT"/&gt;</div><div class="line">        &lt;category android:name="android.intent.category.BROWSABLE"/&gt;</div><div class="line">        &lt;data android:scheme="gougeili"</div><div class="line">            android:host="page.sh"</div><div class="line">            android:path="/detail"/&gt;</div><div class="line">    &lt;/intent-filter&gt;</div><div class="line">&lt;/activity&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;activity</div><div class="line">    android:name=<span class="string">".module.detail.DetailActivity"</span></div><div class="line">    android:exported=<span class="string">"true"</span></div><div class="line">    android:screenOrientation=<span class="string">"portrait"</span> &gt;</div><div class="line">    &lt;intent-filter&gt;</div><div class="line">        &lt;action android:name=<span class="string">"android.intent.action.VIEW"</span>/&gt;</div><div class="line">        &lt;category android:name=<span class="string">"android.intent.category.DEFAULT"</span>/&gt;</div><div class="line">        &lt;category android:name=<span class="string">"android.intent.category.BROWSABLE"</span>/&gt;</div><div class="line">        &lt;data android:scheme=<span class="string">"gougeili"</span></div><div class="line">            android:host=<span class="string">"page.sh"</span></div><div class="line">            android:path=<span class="string">"/detail"</span>/&gt;</div><div class="line">    &lt;/intent-filter&gt;</div><div class="line">&lt;/activity&gt;</div></pre></td></tr></table></figure>
 <p>（2）新建一个枚举类型的文件ActivityType，定义名称为Androidmanifest.xml文件中的intent-filter字段下的data字段下的<font color="red">android:path</font>的值，例如：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">enum</span>  ActivityType &#123;</div><div class="line">    </div><div class="line">    DETAIL(<span class="string">"detail"</span>);</div><div class="line">    </div><div class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String text;</div><div class="line">    </div><div class="line">    ActivityType(<span class="keyword">final</span> String text) &#123;</div><div class="line">        <span class="keyword">this</span>.text = text;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> text;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>（3）编写SHIntent类，获取统一跳转所需的intent意图，通过之前设置的ActivityType实现路径的拼接，具体实现如下：</p>
@@ -423,7 +423,7 @@
 <h1 id="情况二：未定义完整"><a href="#情况二：未定义完整" class="headerlink" title="情况二：未定义完整"></a>情况二：未定义完整</h1><p>情况二：在清单文件中未定义完整data中的参数，例如只定义了scheme，那么就需要在该Activity中进行接收处理，例如：<code>gglapp://2836482321</code>。</p>
 <p>Intent统一跳转协议分为以下几步：</p>
 <p>（1）在Androidmanifest.xml文件中配置intent-filter，例如：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&lt;activity</div><div class="line">    android:name=".module.splash.StartActivity"</div><div class="line">    android:exported="true"</div><div class="line">    android:theme="@style/Theme.Activity.Start"</div><div class="line">    android:screenOrientation="portrait" &gt;</div><div class="line">    &lt;intent-filter&gt;</div><div class="line">        &lt;action android:name="android.intent.action.MAIN" /&gt;</div><div class="line"></div><div class="line">        &lt;category android:name="android.intent.category.LAUNCHER" /&gt;</div><div class="line">    &lt;/intent-filter&gt;</div><div class="line">     &lt;intent-filter&gt;  </div><div class="line">        &lt;action android:name="android.intent.action.VIEW"/&gt;     </div><div class="line">        &lt;category android:name="android.intent.category.DEFAULT"/&gt;               </div><div class="line">        &lt;category android:name="android.intent.category.BROWSABLE"/&gt;  </div><div class="line">        &lt;data android:scheme="gglapp"/&gt;</div><div class="line">    &lt;/intent-filter&gt;   </div><div class="line">&lt;/activity&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&lt;activity</div><div class="line">    android:name=<span class="string">".module.splash.StartActivity"</span></div><div class="line">    android:exported=<span class="string">"true"</span></div><div class="line">    android:theme=<span class="string">"@style/Theme.Activity.Start"</span></div><div class="line">    android:screenOrientation=<span class="string">"portrait"</span> &gt;</div><div class="line">    &lt;intent-filter&gt;</div><div class="line">        &lt;action android:name=<span class="string">"android.intent.action.MAIN"</span> /&gt;</div><div class="line"></div><div class="line">        &lt;category android:name=<span class="string">"android.intent.category.LAUNCHER"</span> /&gt;</div><div class="line">    &lt;/intent-filter&gt;</div><div class="line">     &lt;intent-filter&gt;  </div><div class="line">        &lt;action android:name=<span class="string">"android.intent.action.VIEW"</span>/&gt;     </div><div class="line">        &lt;category android:name=<span class="string">"android.intent.category.DEFAULT"</span>/&gt;               </div><div class="line">        &lt;category android:name=<span class="string">"android.intent.category.BROWSABLE"</span>/&gt;  </div><div class="line">        &lt;data android:scheme=<span class="string">"gglapp"</span>/&gt;</div><div class="line">    &lt;/intent-filter&gt;   </div><div class="line">&lt;/activity&gt;</div></pre></td></tr></table></figure>
 <p>（2）此处并未使用统一跳转协议，所以以详细情况为例：</p>
 <p><font color="red">问：</font>将购给利中的商品分享到微信后，用浏览器打开该链接，再点击其中的某个商品，只是跳转到客户端的首页，不能够跳转到购给利的商品详情页？</p>
 <p><font color="blue">答：</font>使用intent接收并传递数据时，使用的intent对象出现错误，导致uri为空。</p>
@@ -508,9 +508,26 @@
           
   <div class="comments" id="comments">
     
+      <!-- 多说评论框 start -->
       <div class="ds-thread" data-thread-key="2016/07/23/ShowJoy/Intent/Intent统一跳转协议/"
            data-title="Intent统一跳转协议" data-url="https://fengqingxiuyi.github.io/2016/07/23/ShowJoy/Intent/Intent统一跳转协议/">
       </div>
+      <!-- 多说评论框 end -->
+      <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+      <script type="text/javascript">
+      var duoshuoQuery = {short_name:"fengqingxiuyi"};
+        (function() {
+          var ds = document.createElement('script');
+          ds.type = 'text/javascript';ds.async = true;
+          ds.src = 'https://fengqingxiuyi.github.io/js/embed.js';
+          <!-- 上面是我自己的 embed.js 链接，请改为你自己的地址 -->
+
+          ds.charset = 'UTF-8';
+          (document.getElementsByTagName('head')[0] 
+           || document.getElementsByTagName('body')[0]).appendChild(ds);
+        })();
+        </script>
+      <!-- 多说公共JS代码 end -->
     
   </div>
 
