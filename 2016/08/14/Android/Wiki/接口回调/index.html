@@ -123,7 +123,7 @@
 接下来依次讲述一番他们的使用方法：
 狭义的接口情况一">
 <meta property="og:image" content="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png">
-<meta property="og:updated_time" content="2016-08-14T11:21:10.000Z">
+<meta property="og:updated_time" content="2016-08-14T11:24:12.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="接口回调">
 <meta name="twitter:description" content="注：本文属于工具类文章，可以直接使用；本文主要介绍接口回调的相关知识。
@@ -410,32 +410,20 @@
 <p>情况二：广义的接口：即为了给其他类调用而存在。</p>
 <p>接下来依次讲述一番他们的使用方法：</p>
 <h2 id="狭义的接口"><a href="#狭义的接口" class="headerlink" title="狭义的接口"></a>狭义的接口</h2><p>情况一：狭义的接口（本文所述为同步回调），即使用 interface 关键字来声明，通常需要经历以下几个步骤：</p>
-<ol>
-<li><p>定义接口 Callback ,包含回调方法 click()，该接口可以重新定义一个，也可以在其他类（如：adapter类）内部，具体代码如下：</p>
- <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Callback</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">click</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<ol>
-<li><p>在需要设置接口回调的类中“注册接口”，比如类名为Caller，具体代码如下：</p>
- <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> Callback callback;</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setCallback</span><span class="params">(Callback callback)</span> </span>&#123;</div><div class="line">	<span class="keyword">this</span>.callback = callback;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>在需要设置接口回调的位置，调用回调方法，例如，为了解耦，需要将adapter中得点击事件回调到外部activity进行操作，具体代码如下：</p>
- <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">adapterView.setOnClickListener(v -&gt; &#123;</div><div class="line">	<span class="keyword">if</span> (<span class="keyword">null</span> != callback) &#123;</div><div class="line">		callback.click();</div><div class="line">	&#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-</li>
-<li><p>在activity类中监听回调，具体代码如下：</p>
- <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> Caller().setCallback(<span class="keyword">new</span> Callback() &#123;</div><div class="line">	<span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">click</span><span class="params">()</span> </span>&#123;</div><div class="line">    	<span class="comment">// do something...</span></div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-</li>
-</ol>
+<p>（1）定义接口 Callback ,包含回调方法 click()，该接口可以重新定义一个，也可以在其他类（如：adapter类）内部，具体代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Callback</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">click</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>（2）在需要设置接口回调的类中“注册接口”，比如类名为Caller，具体代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> Callback callback;</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setCallback</span><span class="params">(Callback callback)</span> </span>&#123;</div><div class="line">	<span class="keyword">this</span>.callback = callback;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>（3）在需要设置接口回调的位置，调用回调方法，例如，为了解耦，需要将adapter中得点击事件回调到外部activity进行操作，具体代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">adapterView.setOnClickListener(v -&gt; &#123;</div><div class="line">	<span class="keyword">if</span> (<span class="keyword">null</span> != callback) &#123;</div><div class="line">		callback.click();</div><div class="line">	&#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>（4）在activity类中监听回调，具体代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> Caller().setCallback(<span class="keyword">new</span> Callback() &#123;</div><div class="line">	<span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">click</span><span class="params">()</span> </span>&#123;</div><div class="line">    	<span class="comment">// do something...</span></div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <h2 id="广义的接口"><a href="#广义的接口" class="headerlink" title="广义的接口"></a>广义的接口</h2><p>情况二：广义的接口：即为了给其他类调用而存在</p>
 <p>这种情况非常多，比如说，你自定义了一个View，但是缺少了给这个View设置颜色的方法，这个时候我们就可以定义一个公共的setColor方法，提供给外部调用，这就是一个接口，具体执行步骤如下所示：</p>
-<ol>
-<li><p>在自定义的View中定义如下方法：</p>
- <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setColor</span><span class="params">(<span class="keyword">int</span> color)</span> </span>&#123;</div><div class="line">	<span class="keyword">this</span>.setColor(context.getResources().getColor(color));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>在activity中调用该方法即可：</p>
- <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">activityView.setColor(android.R.color.black);</div></pre></td></tr></table></figure>
-</li>
-</ol>
+<p>（1）在自定义的View中定义如下方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setColor</span><span class="params">(<span class="keyword">int</span> color)</span> </span>&#123;</div><div class="line">	<span class="keyword">this</span>.setColor(context.getResources().getColor(color));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>（2）在activity中调用该方法即可：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">activityView.setColor(android.R.color.black);</div></pre></td></tr></table></figure>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>至此接口回调就讲完了，如果想要深入理解接口回调机制，可以查看以下文章：</p>
 <p><a href="http://blog.csdn.net/xiaanming/article/details/8703708" target="_blank" rel="external">一个经典例子让你彻彻底底理解java回调机制</a></p>
 <hr>
