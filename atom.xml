@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://fengqingxiuyi.github.io/"/>
-  <updated>2016-08-14T13:19:12.000Z</updated>
+  <updated>2016-08-14T13:48:44.000Z</updated>
   <id>https://fengqingxiuyi.github.io/</id>
   
   <author>
@@ -14,6 +14,43 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Mac+GitHub+Hexo+NexT使用注意点</title>
+    <link href="https://fengqingxiuyi.github.io/2016/08/14/MGHN/Mac+GitHub+Hexo+NexT%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E7%82%B9/"/>
+    <id>https://fengqingxiuyi.github.io/2016/08/14/MGHN/Mac+GitHub+Hexo+NexT使用注意点/</id>
+    <published>2016-08-14T13:23:19.000Z</published>
+    <updated>2016-08-14T13:48:44.000Z</updated>
+    
+    <content type="html">&lt;p&gt;注：本文专门用于记录在使用Hexo博客过程中遇到的一些（奇葩的）问题。&lt;/p&gt;
+&lt;h1 id=&quot;favicon不显示&quot;&gt;&lt;a href=&quot;#favicon不显示&quot; class=&quot;headerlink&quot; title=&quot;favicon不显示&quot;&gt;&lt;/a&gt;favicon不显示&lt;/h1&gt;&lt;p&gt;当我们在搭建Hexo博客的时候，必然会自定义favicon.ico，显示在网页选项卡的左上角，如图所示：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;设置favicon也很简单，只需要在&lt;code&gt;主题配置文件&lt;/code&gt;（_config.yml）中，进行如下操作即可：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;# Put your favicon.ico into `hexo-site/source/` directory.&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;favicon: /images/Blog/favicon.ico&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;如果favicon的路径设置正确，而且清除了缓存，刷新了页面好几次，但favicon仍然不显示的话，可以&lt;font color=&quot;red&quot;&gt;等待一段时间，再去刷新&lt;/font&gt;，可能就会显示了！&lt;/p&gt;
+&lt;h1 id=&quot;404问题&quot;&gt;&lt;a href=&quot;#404问题&quot; class=&quot;headerlink&quot; title=&quot;404问题&quot;&gt;&lt;/a&gt;404问题&lt;/h1&gt;&lt;p&gt;&lt;font color=&quot;00AF60&quot;&gt;&lt;strong&gt;&lt;em&gt;现象：&lt;/em&gt;&lt;/strong&gt;&lt;/font&gt;从首页点击某篇文章跳转到了404页面！&lt;/p&gt;
+&lt;p&gt;&lt;font color=&quot;00AF60&quot;&gt;&lt;strong&gt;&lt;em&gt;分析：&lt;/em&gt;&lt;/strong&gt;&lt;/font&gt;既然出现了404页面，那么必定是路径问题；仔细检查路径发现，原来是以前名为mou.md的文件，现在变成了Mou.md。所以在github上路径中文件夹的名字仍然是mou，而不是Mou。&lt;/p&gt;
+&lt;p&gt;&lt;font color=&quot;00AF60&quot;&gt;&lt;strong&gt;&lt;em&gt;解决：&lt;/em&gt;&lt;/strong&gt;&lt;/font&gt;本来以为只需要执行以下命令就可以了：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;Blog$ hexo clean &amp;amp;&amp;amp; hexo g &amp;amp;&amp;amp; hexo d&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;后来发现自己还是太年轻了，因为hexo clean的只是本地的文件，和github完全没有关系，之后想了半天也毫无头绪，于是另辟蹊径：&lt;font color=&quot;red&quot;&gt;将Mou.md文件再重命名一下，如Mou2.md，执行上述命令之后，再重命名回Mou.md，再执行上述命令就可以了。&lt;/font&gt;😄&lt;/p&gt;
+&lt;p&gt;&lt;font color=&quot;00AF60&quot;&gt;&lt;strong&gt;&lt;em&gt;总结：&lt;/em&gt;&lt;/strong&gt;&lt;/font&gt;当我在重命名md文件时，切忌不可只是进行了&lt;font color=&quot;red&quot;&gt;大小写转换&lt;/font&gt;，因为像这样把文章部署到github上之后，文件名对应的文件夹是不会发生变化的！！！&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;版权声明&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a rel=&quot;external&quot; href=&quot;http://creativecommons.org/licenses/by-nc-sa/4.0/&quot; target=&quot;_blank&quot;&gt;&lt;img alt=&quot;知识共享许可协议&quot; style=&quot;border-width:0&quot; src=&quot;https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png&quot;&gt;&lt;/a&gt;&lt;br&gt;本网站如未注明，均由&lt;a href=&quot;https://fengqingxiuyi.github.io/&quot;&gt;青峰&lt;/a&gt;创作并维护；本网站采用&lt;a rel=&quot;external&quot; href=&quot;http://creativecommons.org/licenses/by-nc-sa/4.0/&quot; target=&quot;_blank&quot;&gt;知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议&lt;/a&gt;进行许可。转载请注明作者及出处。&lt;/p&gt;
+&lt;p&gt;本文永久链接：&lt;a href=&quot;https://fengqingxiuyi.github.io/2016/08/14/MGHN/Mac+GitHub+Hexo+NexT使用注意点/&quot;&gt;https://fengqingxiuyi.github.io/2016/08/14/MGHN/Mac+GitHub+Hexo+NexT使用注意点/&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;注：本文专门用于记录在使用Hexo博客过程中遇到的一些（奇葩的）问题。&lt;/p&gt;
+&lt;h1 id=&quot;favicon不显示&quot;&gt;&lt;a href=&quot;#favicon不显示&quot; class=&quot;headerlink&quot; title=&quot;favicon不显示&quot;&gt;&lt;/a&gt;favicon不显示&lt;/h
+    
+    </summary>
+    
+      <category term="MGHN" scheme="https://fengqingxiuyi.github.io/categories/MGHN/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>ListView-Header</title>
@@ -41,38 +78,6 @@
     </summary>
     
       <category term="Android_View_ListView" scheme="https://fengqingxiuyi.github.io/categories/Android-View-ListView/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Mac+GitHub+Hexo+NexT使用注意点</title>
-    <link href="https://fengqingxiuyi.github.io/2016/08/14/MGHN/Mac+GitHub+Hexo+NexT%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E7%82%B9/"/>
-    <id>https://fengqingxiuyi.github.io/2016/08/14/MGHN/Mac+GitHub+Hexo+NexT使用注意点/</id>
-    <published>2016-08-14T11:23:19.000Z</published>
-    <updated>2016-08-14T13:38:16.000Z</updated>
-    
-    <content type="html">&lt;p&gt;注：本文专门用于记录在使用Hexo博客过程中遇到的一些（奇葩的）问题。&lt;/p&gt;
-&lt;h1 id=&quot;404问题&quot;&gt;&lt;a href=&quot;#404问题&quot; class=&quot;headerlink&quot; title=&quot;404问题&quot;&gt;&lt;/a&gt;404问题&lt;/h1&gt;&lt;p&gt;&lt;font color=&quot;00AF60&quot;&gt;&lt;strong&gt;&lt;em&gt;现象：&lt;/em&gt;&lt;/strong&gt;&lt;/font&gt;从首页点击某篇文章跳转到了404页面！&lt;/p&gt;
-&lt;p&gt;&lt;font color=&quot;00AF60&quot;&gt;&lt;strong&gt;&lt;em&gt;分析：&lt;/em&gt;&lt;/strong&gt;&lt;/font&gt;既然出现了404页面，那么必定是路径问题；仔细检查路径发现，原来是以前名为mou.md的文件，现在变成了Mou.md。所以在github上路径中文件夹的名字仍然是mou，而不是Mou。&lt;/p&gt;
-&lt;p&gt;&lt;font color=&quot;00AF60&quot;&gt;&lt;strong&gt;&lt;em&gt;解决：&lt;/em&gt;&lt;/strong&gt;&lt;/font&gt;本来以为只需要执行以下命令就可以了：&lt;/p&gt;
-&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;B&lt;span class=&quot;built_in&quot;&gt;log&lt;/span&gt;$ hexo clean &amp;amp;&amp;amp; hexo g &amp;amp;&amp;amp; hexo d&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;后来发现自己还是太年轻了，因为hexo clean的只是本地的文件，和github完全没有关系，之后想了半天也毫无头绪，于是另辟蹊径：&lt;font color=&quot;red&quot;&gt;将Mou.md文件再重命名一下，如Mou2.md，执行上述命令之后，再重命名回Mou.md，再执行上述命令就可以了。&lt;/font&gt;😄&lt;/p&gt;
-&lt;p&gt;&lt;font color=&quot;00AF60&quot;&gt;&lt;strong&gt;&lt;em&gt;总结：&lt;/em&gt;&lt;/strong&gt;&lt;/font&gt;当我在重命名md文件时，切忌不可只是进行了&lt;font color=&quot;red&quot;&gt;大小写转换&lt;/font&gt;，因为像这样把文章部署到github上之后，文件名对应的文件夹是不会发生变化的！！！&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;&lt;strong&gt;版权声明&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a rel=&quot;external&quot; href=&quot;http://creativecommons.org/licenses/by-nc-sa/4.0/&quot; target=&quot;_blank&quot;&gt;&lt;img alt=&quot;知识共享许可协议&quot; style=&quot;border-width:0&quot; src=&quot;https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png&quot;&gt;&lt;/a&gt;&lt;br&gt;本网站如未注明，均由&lt;a href=&quot;https://fengqingxiuyi.github.io/&quot;&gt;青峰&lt;/a&gt;创作并维护；本网站采用&lt;a rel=&quot;external&quot; href=&quot;http://creativecommons.org/licenses/by-nc-sa/4.0/&quot; target=&quot;_blank&quot;&gt;知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议&lt;/a&gt;进行许可。转载请注明作者及出处。&lt;/p&gt;
-&lt;p&gt;本文永久链接：&lt;a href=&quot;https://fengqingxiuyi.github.io/2016/08/14/MGHN/Mac+GitHub+Hexo+NexT使用注意点/&quot;&gt;https://fengqingxiuyi.github.io/2016/08/14/MGHN/Mac+GitHub+Hexo+NexT使用注意点/&lt;/a&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;注：本文专门用于记录在使用Hexo博客过程中遇到的一些（奇葩的）问题。&lt;/p&gt;
-&lt;h1 id=&quot;404问题&quot;&gt;&lt;a href=&quot;#404问题&quot; class=&quot;headerlink&quot; title=&quot;404问题&quot;&gt;&lt;/a&gt;404问题&lt;/h1&gt;&lt;p&gt;&lt;font color=&quot;00
-    
-    </summary>
-    
-      <category term="MGHN" scheme="https://fengqingxiuyi.github.io/categories/MGHN/"/>
     
     
   </entry>

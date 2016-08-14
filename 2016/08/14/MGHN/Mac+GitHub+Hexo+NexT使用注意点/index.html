@@ -105,28 +105,28 @@
 
 
 <meta name="description" content="注：本文专门用于记录在使用Hexo博客过程中遇到的一些（奇葩的）问题。
-404问题现象：从首页点击某篇文章跳转到了404页面！
-分析：既然出现了404页面，那么必定是路径问题；仔细检查路径发现，原来是以前名为mou.md的文件，现在变成了Mou.md。所以在github上路径中文件夹的名字仍然是mou，而不是Mou。
-解决：本来以为只需要执行以下命令就可以了：
-1Blog$ hexo clean">
+favicon不显示当我们在搭建Hexo博客的时候，必然会自定义favicon.ico，显示在网页选项卡的左上角，如图所示：
+
+设置favicon也很简单，只需要在主题配置文件（_config.yml）中，进行如下操作即可：
+12# Put your favicon.ico into `hexo-site/source/` d">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mac+GitHub+Hexo+NexT使用注意点">
 <meta property="og:url" content="https://fengqingxiuyi.github.io/2016/08/14/MGHN/Mac+GitHub+Hexo+NexT使用注意点/index.html">
 <meta property="og:site_name" content="风清袖一的博客">
 <meta property="og:description" content="注：本文专门用于记录在使用Hexo博客过程中遇到的一些（奇葩的）问题。
-404问题现象：从首页点击某篇文章跳转到了404页面！
-分析：既然出现了404页面，那么必定是路径问题；仔细检查路径发现，原来是以前名为mou.md的文件，现在变成了Mou.md。所以在github上路径中文件夹的名字仍然是mou，而不是Mou。
-解决：本来以为只需要执行以下命令就可以了：
-1Blog$ hexo clean">
+favicon不显示当我们在搭建Hexo博客的时候，必然会自定义favicon.ico，显示在网页选项卡的左上角，如图所示：
+
+设置favicon也很简单，只需要在主题配置文件（_config.yml）中，进行如下操作即可：
+12# Put your favicon.ico into `hexo-site/source/` d">
 <meta property="og:image" content="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png">
-<meta property="og:updated_time" content="2016-08-14T13:38:16.000Z">
+<meta property="og:updated_time" content="2016-08-14T13:48:44.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mac+GitHub+Hexo+NexT使用注意点">
 <meta name="twitter:description" content="注：本文专门用于记录在使用Hexo博客过程中遇到的一些（奇葩的）问题。
-404问题现象：从首页点击某篇文章跳转到了404页面！
-分析：既然出现了404页面，那么必定是路径问题；仔细检查路径发现，原来是以前名为mou.md的文件，现在变成了Mou.md。所以在github上路径中文件夹的名字仍然是mou，而不是Mou。
-解决：本来以为只需要执行以下命令就可以了：
-1Blog$ hexo clean">
+favicon不显示当我们在搭建Hexo博客的时候，必然会自定义favicon.ico，显示在网页选项卡的左上角，如图所示：
+
+设置favicon也很简单，只需要在主题配置文件（_config.yml）中，进行如下操作即可：
+12# Put your favicon.ico into `hexo-site/source/` d">
 <meta name="twitter:image" content="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png">
 
 
@@ -327,7 +327,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-14T19:23:19+08:00" content="2016-08-14">
+            <time itemprop="dateCreated" datetime="2016-08-14T21:23:19+08:00" content="2016-08-14">
               2016-08-14
             </time>
           </span>
@@ -398,10 +398,15 @@
 
       
         <p>注：本文专门用于记录在使用Hexo博客过程中遇到的一些（奇葩的）问题。</p>
+<h1 id="favicon不显示"><a href="#favicon不显示" class="headerlink" title="favicon不显示"></a>favicon不显示</h1><p>当我们在搭建Hexo博客的时候，必然会自定义favicon.ico，显示在网页选项卡的左上角，如图所示：</p>
+<p><img src="" alt=""></p>
+<p>设置favicon也很简单，只需要在<code>主题配置文件</code>（_config.yml）中，进行如下操作即可：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># Put your favicon.ico into `hexo-site/source/` directory.</div><div class="line">favicon: /images/Blog/favicon.ico</div></pre></td></tr></table></figure>
+<p>如果favicon的路径设置正确，而且清除了缓存，刷新了页面好几次，但favicon仍然不显示的话，可以<font color="red">等待一段时间，再去刷新</font>，可能就会显示了！</p>
 <h1 id="404问题"><a href="#404问题" class="headerlink" title="404问题"></a>404问题</h1><p><font color="00AF60"><strong><em>现象：</em></strong></font>从首页点击某篇文章跳转到了404页面！</p>
 <p><font color="00AF60"><strong><em>分析：</em></strong></font>既然出现了404页面，那么必定是路径问题；仔细检查路径发现，原来是以前名为mou.md的文件，现在变成了Mou.md。所以在github上路径中文件夹的名字仍然是mou，而不是Mou。</p>
 <p><font color="00AF60"><strong><em>解决：</em></strong></font>本来以为只需要执行以下命令就可以了：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">B<span class="built_in">log</span>$ hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Blog$ hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</div></pre></td></tr></table></figure>
 <p>后来发现自己还是太年轻了，因为hexo clean的只是本地的文件，和github完全没有关系，之后想了半天也毫无头绪，于是另辟蹊径：<font color="red">将Mou.md文件再重命名一下，如Mou2.md，执行上述命令之后，再重命名回Mou.md，再执行上述命令就可以了。</font>😄</p>
 <p><font color="00AF60"><strong><em>总结：</em></strong></font>当我在重命名md文件时，切忌不可只是进行了<font color="red">大小写转换</font>，因为像这样把文章部署到github上之后，文件名对应的文件夹是不会发生变化的！！！</p>
 <hr>
@@ -433,17 +438,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/08/14/Android/Wiki/TextView占位符/" rel="next" title="TextView占位符">
-                <i class="fa fa-chevron-left"></i> TextView占位符
+              <a href="/2016/08/14/Android/View/ListView/ListView-Header/" rel="next" title="ListView-Header">
+                <i class="fa fa-chevron-left"></i> ListView-Header
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/08/14/Android/View/ListView/ListView-Header/" rel="prev" title="ListView-Header">
-                ListView-Header <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -636,7 +637,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#404问题"><span class="nav-number">1.</span> <span class="nav-text">404问题</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#favicon不显示"><span class="nav-number">1.</span> <span class="nav-text">favicon不显示</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#404问题"><span class="nav-number">2.</span> <span class="nav-text">404问题</span></a></li></ol></div>
             
           </div>
         </section>
