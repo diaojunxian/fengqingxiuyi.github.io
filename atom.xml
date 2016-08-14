@@ -125,7 +125,7 @@
     <link href="https://fengqingxiuyi.github.io/2016/08/14/Android/Wiki/%E6%8E%A5%E5%8F%A3%E5%9B%9E%E8%B0%83/"/>
     <id>https://fengqingxiuyi.github.io/2016/08/14/Android/Wiki/接口回调/</id>
     <published>2016-08-14T10:40:23.000Z</published>
-    <updated>2016-08-14T11:24:12.000Z</updated>
+    <updated>2016-08-14T11:27:20.000Z</updated>
     
     <content type="html">&lt;p&gt;注：本文属于工具类文章，可以直接使用；本文主要介绍&lt;code&gt;接口回调&lt;/code&gt;的相关知识。&lt;/p&gt;
 &lt;h1 id=&quot;接口的概念&quot;&gt;&lt;a href=&quot;#接口的概念&quot; class=&quot;headerlink&quot; title=&quot;接口的概念&quot;&gt;&lt;/a&gt;接口的概念&lt;/h1&gt;&lt;p&gt;接口的概念：使用 interface 关键字来声明，可以看做是一种特殊的抽象类，可以指定一个类必须做什么，而不是规定它如何去做。&lt;/p&gt;
