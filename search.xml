@@ -16,6 +16,23 @@
     </entry>
     
     <entry>
+      <title><![CDATA[Mac+GitHub+Hexo+NexT使用注意点]]></title>
+      <url>https://fengqingxiuyi.github.io/2016/08/14/MGHN/Mac+GitHub+Hexo+NexT%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E7%82%B9/</url>
+      <content type="html"><![CDATA[<p>注：本文专门用于记录在使用Hexo博客过程中遇到的一些（奇葩的）问题。</p>
+<h1 id="404问题"><a href="#404问题" class="headerlink" title="404问题"></a>404问题</h1><p><font color="00AF60"><strong><em>现象：</em></strong></font>从首页点击某篇文章跳转到了404页面！</p>
+<p><font color="00AF60"><strong><em>分析：</em></strong></font>既然出现了404页面，那么必定是路径问题；仔细检查路径发现，原来是以前名为mou.md的文件，现在变成了Mou.md。所以在github上路径中文件夹的名字仍然是mou，而不是Mou。</p>
+<p><font color="00AF60"><strong><em>解决：</em></strong></font>本来以为只需要执行以下命令就可以了：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">B<span class="built_in">log</span>$ hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</div></pre></td></tr></table></figure>
+<p>后来发现自己还是太年轻了，因为hexo clean的只是本地的文件，和github完全没有关系，之后想了半天也毫无头绪，于是另辟蹊径：<font color="red">将Mou.md文件再重命名一下，如Mou2.md，执行上述命令之后，再重命名回Mou.md，再执行上述命令就可以了。</font>😄</p>
+<p><font color="00AF60"><strong><em>总结：</em></strong></font>当我在重命名md文件时，切忌不可只是进行了<font color="red">大小写转换</font>，因为像这样把文章部署到github上之后，文件名对应的文件夹是不会发生变化的！！！</p>
+<hr>
+<p><strong>版权声明</strong></p>
+<p><a rel="external" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"></a><br>本网站如未注明，均由<a href="https://fengqingxiuyi.github.io/">青峰</a>创作并维护；本网站采用<a rel="external" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>进行许可。转载请注明作者及出处。</p>
+<p>本文永久链接：<a href="https://fengqingxiuyi.github.io/2016/08/14/MGHN/Mac+GitHub+Hexo+NexT使用注意点/">https://fengqingxiuyi.github.io/2016/08/14/MGHN/Mac+GitHub+Hexo+NexT使用注意点/</a></p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[TextView占位符]]></title>
       <url>https://fengqingxiuyi.github.io/2016/08/14/Android/Wiki/TextView%E5%8D%A0%E4%BD%8D%E7%AC%A6/</url>
       <content type="html"><![CDATA[<p>注：本文属于工具类文章，可以直接使用；本文主要介绍如何简单使用TextView占位符。</p>
@@ -1141,7 +1158,7 @@ limitations under the License.
 <h4 id="Blockquotes"><a href="#Blockquotes" class="headerlink" title="Blockquotes"></a>Blockquotes</h4><blockquote>
 <p>Right angle brackets &gt; are used for block quotes.</p>
 </blockquote>
-<h4 id="Links-and-Email"><a href="#Links-and-Email" class="headerlink" title="Links and Email"></a>Links and Email</h4><p>An email <a href="&#x6d;&#97;&#105;&#x6c;&#x74;&#x6f;&#x3a;&#x65;&#x78;&#x61;&#109;&#x70;&#x6c;&#x65;&#x40;&#101;&#x78;&#97;&#109;&#112;&#108;&#x65;&#x2e;&#99;&#x6f;&#109;">&#x65;&#x78;&#x61;&#109;&#x70;&#x6c;&#x65;&#x40;&#101;&#x78;&#97;&#109;&#112;&#108;&#x65;&#x2e;&#99;&#x6f;&#109;</a> link.</p>
+<h4 id="Links-and-Email"><a href="#Links-and-Email" class="headerlink" title="Links and Email"></a>Links and Email</h4><p>An email <a href="&#109;&#97;&#105;&#108;&#x74;&#x6f;&#x3a;&#x65;&#x78;&#97;&#109;&#x70;&#108;&#x65;&#64;&#x65;&#x78;&#97;&#109;&#112;&#x6c;&#x65;&#46;&#x63;&#111;&#109;">&#x65;&#x78;&#97;&#109;&#x70;&#108;&#x65;&#64;&#x65;&#x78;&#97;&#109;&#112;&#x6c;&#x65;&#46;&#x63;&#111;&#109;</a> link.</p>
 <p>Simple inline link <a href="http://chenluois.com" target="_blank" rel="external">http://chenluois.com</a>, another inline link <a href="http://25.io/smaller/" target="_blank" rel="external">Smaller</a>, one more inline link with title <a href="http://resizesafari.com" title="a Safari extension" target="_blank" rel="external">Resize</a>.</p>
 <p>A <a href="http://25.io/mou/" title="Markdown editor on Mac OS X" target="_blank" rel="external">reference style</a> link. Input id, then anywhere in the doc, define the link with corresponding id:</p>
 <p>Titles ( or called tool tips ) in the links are optional.</p>
