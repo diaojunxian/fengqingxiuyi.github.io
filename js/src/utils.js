@@ -25,6 +25,7 @@ NexT.utils = NexT.$u = {
     });
 
     $('.fancybox').fancybox({
+      type: "image",
       helpers: {
         overlay: {
           locked: false
