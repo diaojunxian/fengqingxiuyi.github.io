@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://fengqingxiuyi.github.io/"/>
-  <updated>2016-08-15T06:49:22.000Z</updated>
+  <updated>2016-08-15T13:55:48.000Z</updated>
   <id>https://fengqingxiuyi.github.io/</id>
   
   <author>
@@ -14,6 +14,40 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Mac上Android相关环境变量的配置</title>
+    <link href="https://fengqingxiuyi.github.io/2016/08/15/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/Mac%E4%B8%8AAndroid%E7%9B%B8%E5%85%B3%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9A%84%E9%85%8D%E7%BD%AE/"/>
+    <id>https://fengqingxiuyi.github.io/2016/08/15/环境变量/Mac上Android相关环境变量的配置/</id>
+    <published>2016-08-15T13:51:19.000Z</published>
+    <updated>2016-08-15T13:55:48.000Z</updated>
+    
+    <content type="html">&lt;font color=&quot;red&quot;&gt;注：本文所述环境变量，只在Mac下有效&lt;/font&gt;
+
+&lt;p&gt;如果是针对当前用户进行环境变量的设置，只需要打开终端后，输入命令vi ~/.bash_profile即可自行配置环境变量（此处需要懂得vi的基本知识），如果没有.bash_profile文件则可以使用touch命令创建该文件：&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;touch ~/.bash_profile&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;自行配置环境变量不做过多阐述，根据例子即可明白：&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#配置JAVA_HOME，此处路径根据自己的版本填写&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;export&lt;/span&gt; JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_92:.jdk/Contents/Home&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#把JAVA添加到到环境变量PATH中&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;export&lt;/span&gt; PATH=.:&lt;span class=&quot;variable&quot;&gt;$PATH&lt;/span&gt;:&lt;span class=&quot;variable&quot;&gt;$JAVA_HOME&lt;/span&gt;/bin&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#配置CLASSPATH&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;export&lt;/span&gt; CLASSPATH=.:&lt;span class=&quot;variable&quot;&gt;$JAVA_HOME&lt;/span&gt;/lib/dt.jar:&lt;span class=&quot;variable&quot;&gt;$JAVA_HOME&lt;/span&gt;/lib/tools.jar&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#设置gradle的主目录&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;export&lt;/span&gt; GRADLE_HOME=&lt;span class=&quot;string&quot;&gt;&quot;/Applications/Android Studio.app/Contents/gradle/gradle-2.10/&quot;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#把JAVA添加到到环境变量PATH中&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;export&lt;/span&gt; PATH=&lt;span class=&quot;variable&quot;&gt;$PATH&lt;/span&gt;:&lt;span class=&quot;variable&quot;&gt;$GRADLE_HOME&lt;/span&gt;/bin&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#配置NDK环境变量&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;export&lt;/span&gt; PATH=&lt;span class=&quot;variable&quot;&gt;$PATH&lt;/span&gt;:/Volumes/MAIN/qingfeng/Software/sdk/platform-tools&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;export&lt;/span&gt; NDK_ROOT=/Volumes/MAIN/qingfeng/Software/android-ndk-r10e&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;export&lt;/span&gt; PATH=&lt;span class=&quot;variable&quot;&gt;$PATH&lt;/span&gt;:&lt;span class=&quot;variable&quot;&gt;$NDK_ROOT&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;配置完成后，使用以下命令即可使环境变量生效&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;source&lt;/span&gt; ~/.bash_profile&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;版权声明&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a rel=&quot;external&quot; href=&quot;http://creativecommons.org/licenses/by-nc-sa/4.0/&quot; target=&quot;_blank&quot;&gt;&lt;img alt=&quot;知识共享许可协议&quot; style=&quot;border-width:0&quot; src=&quot;https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png&quot;&gt;&lt;/a&gt;&lt;br&gt;本网站如未注明转载，均由&lt;a href=&quot;https://fengqingxiuyi.github.io/&quot;&gt;青峰&lt;/a&gt;创作并维护；本网站采用&lt;a rel=&quot;external&quot; href=&quot;http://creativecommons.org/licenses/by-nc-sa/4.0/&quot; target=&quot;_blank&quot;&gt;知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议&lt;/a&gt;进行许可。转载请注明作者及出处。&lt;/p&gt;
+&lt;p&gt;本文永久链接：&lt;a href=&quot;https://fengqingxiuyi.github.io/2016/08/15/环境变量/Mac上Android相关环境变量的配置/&quot;&gt;https://fengqingxiuyi.github.io/2016/08/15/环境变量/Mac上Android相关环境变量的配置/&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;font color=&quot;red&quot;&gt;注：本文所述环境变量，只在Mac下有效&lt;/font&gt;
+
+&lt;p&gt;如果是针对当前用户进行环境变量的设置，只需要打开终端后，输入命令vi ~/.bash_profile即可自行配置环境变量（此处需要懂得vi的基本知识），如果没有.bash_profi
+    
+    </summary>
+    
+      <category term="环境变量" scheme="https://fengqingxiuyi.github.io/categories/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>通用BaseAtapter</title>
@@ -953,44 +987,6 @@ limitations under the License.
     </summary>
     
       <category term="Android_事件传递机制" scheme="https://fengqingxiuyi.github.io/categories/Android-%E4%BA%8B%E4%BB%B6%E4%BC%A0%E9%80%92%E6%9C%BA%E5%88%B6/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>View注意点</title>
-    <link href="https://fengqingxiuyi.github.io/2016/08/10/ShowJoy/View/View%E6%B3%A8%E6%84%8F%E7%82%B9/"/>
-    <id>https://fengqingxiuyi.github.io/2016/08/10/ShowJoy/View/View注意点/</id>
-    <published>2016-08-10T09:38:15.000Z</published>
-    <updated>2016-08-13T16:11:58.000Z</updated>
-    
-    <content type="html">&lt;h1 id=&quot;Fresco图片框架注意点&quot;&gt;&lt;a href=&quot;#Fresco图片框架注意点&quot; class=&quot;headerlink&quot; title=&quot;Fresco图片框架注意点&quot;&gt;&lt;/a&gt;Fresco图片框架注意点&lt;/h1&gt;&lt;p&gt;Fresco官方文档：&lt;a href=&quot;http://fresco-cn.org/docs/getting-started.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://fresco-cn.org/docs/getting-started.html&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;注意点1：凡是使用Fresco设置的图片，必须设置具体的宽高才可以正常显示&quot;&gt;&lt;a href=&quot;#注意点1：凡是使用Fresco设置的图片，必须设置具体的宽高才可以正常显示&quot; class=&quot;headerlink&quot; title=&quot;注意点1：凡是使用Fresco设置的图片，必须设置具体的宽高才可以正常显示&quot;&gt;&lt;/a&gt;注意点1：凡是使用Fresco设置的图片，必须设置具体的宽高才可以正常显示&lt;/h2&gt;&lt;p&gt;例如：SHImageView&lt;/p&gt;
-&lt;p&gt;模块地址：&lt;br&gt;同级目录下的SHImageView.java文件&lt;br&gt;或&lt;br&gt;&lt;a href=&quot;http://git.showjoy.net/android/showjoyandroid_image/tree/master&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://git.showjoy.net/android/showjoyandroid_image/tree/master&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;注意点2：为Fresco图片设置圆形背景&quot;&gt;&lt;a href=&quot;#注意点2：为Fresco图片设置圆形背景&quot; class=&quot;headerlink&quot; title=&quot;注意点2：为Fresco图片设置圆形背景&quot;&gt;&lt;/a&gt;注意点2：为Fresco图片设置圆形背景&lt;/h2&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;// 去除fresco:roundedCornerRadius=&lt;span class=&quot;string&quot;&gt;&quot;5dp&quot;&lt;/span&gt;可预览&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;lt;com.showjoy.image.SHCircleImageView&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    android:id=&lt;span class=&quot;string&quot;&gt;&quot;@+id/home_best_seller_img&quot;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    android:layout_width=&lt;span class=&quot;string&quot;&gt;&quot;match_parent&quot;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    android:layout_height=&lt;span class=&quot;string&quot;&gt;&quot;match_parent&quot;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    fresco:actualImageScaleType=&lt;span class=&quot;string&quot;&gt;&quot;centerCrop&quot;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    fresco:backgroundImage=&lt;span class=&quot;string&quot;&gt;&quot;@color/white&quot;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    fresco:roundedCornerRadius=&lt;span class=&quot;string&quot;&gt;&quot;5dp&quot;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    fresco:roundingBorderColor=&lt;span class=&quot;string&quot;&gt;&quot;@color/grey2&quot;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    fresco:roundingBorderWidth=&lt;span class=&quot;string&quot;&gt;&quot;2dp&quot;&lt;/span&gt; /&amp;gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;答：因为已经设置了round属性，所以已经是圆形了，这个时候，如果想要设置其圆形边框内的背景，需要通过这个属性backgroundImage设置背景才是圆形边框内的背景色&lt;/p&gt;
-&lt;h1 id=&quot;ShopEditText&quot;&gt;&lt;a href=&quot;#ShopEditText&quot; class=&quot;headerlink&quot; title=&quot;ShopEditText&quot;&gt;&lt;/a&gt;ShopEditText&lt;/h1&gt;&lt;p&gt;ShopEditText必须设置字体大小（注：已提供属性），否则字体显示特别小&lt;br&gt;模块地址：同级目录下ShopEditText文件夹下的ShopEditText.java文件&lt;/p&gt;
-&lt;h1 id=&quot;tools-Designtime-Attributes&quot;&gt;&lt;a href=&quot;#tools-Designtime-Attributes&quot; class=&quot;headerlink&quot; title=&quot;tools-Designtime Attributes&quot;&gt;&lt;/a&gt;tools-Designtime Attributes&lt;/h1&gt;&lt;p&gt;Google文档地址：&lt;a href=&quot;http://tools.android.com/tips/layout-designtime-attributes&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://tools.android.com/tips/layout-designtime-attributes&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;中文翻译：这些属性用于渲染布局，而不会影响到程序运行。也就是说只在预览布局时出现，在程序运行时相当于该属性不存在。&lt;/p&gt;
-&lt;p&gt;例子：&lt;/p&gt;
-&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&amp;lt;?xml version=&lt;span class=&quot;string&quot;&gt;&quot;1.0&quot;&lt;/span&gt; encoding=&lt;span class=&quot;string&quot;&gt;&quot;utf-8&quot;&lt;/span&gt;?&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;lt;RelativeLayout xmlns:android=&lt;span class=&quot;string&quot;&gt;&quot;http://schemas.android.com/apk/res/android&quot;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    xmlns:tools=&lt;span class=&quot;string&quot;&gt;&quot;http://schemas.android.com/tools&quot;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    android:layout_width=&lt;span class=&quot;string&quot;&gt;&quot;match_parent&quot;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    android:layout_height=&lt;span class=&quot;string&quot;&gt;&quot;match_parent&quot;&lt;/span&gt;&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;lt;TextView&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        android:layout_width=&lt;span class=&quot;string&quot;&gt;&quot;match_parent&quot;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        android:layout_height=&lt;span class=&quot;string&quot;&gt;&quot;wrap_content&quot;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        tools:text=&lt;span class=&quot;string&quot;&gt;&quot;test&quot;&lt;/span&gt;/&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;lt;/RelativeLayout&amp;gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;更加全面的tools详解：&lt;a href=&quot;http://blog.csdn.net/zhengdan66/article/details/46960985&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://blog.csdn.net/zhengdan66/article/details/46960985&lt;/a&gt;&lt;/p&gt;
-&lt;h1 id=&quot;android-paddingstart-paddingend&quot;&gt;&lt;a href=&quot;#android-paddingstart-paddingend&quot; class=&quot;headerlink&quot; title=&quot;android:paddingstart(paddingend)&quot;&gt;&lt;/a&gt;android:paddingstart(paddingend)&lt;/h1&gt;&lt;p&gt;android:paddingstart(paddingend)：左右对齐时使用。左对齐时：paddingstart对应paddingleft；paddingend对应paddingright；右对齐时则刚好相反；&lt;/p&gt;
-&lt;h1 id=&quot;附&quot;&gt;&lt;a href=&quot;#附&quot; class=&quot;headerlink&quot; title=&quot;附&quot;&gt;&lt;/a&gt;附&lt;/h1&gt;&lt;font color=&quot;red&quot;&gt;本文持续更新&lt;/font&gt;
-
-&lt;hr&gt;
-&lt;p&gt;&lt;strong&gt;版权声明&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a rel=&quot;external&quot; href=&quot;http://creativecommons.org/licenses/by-nc-sa/4.0/&quot; target=&quot;_blank&quot;&gt;&lt;img alt=&quot;知识共享许可协议&quot; style=&quot;border-width:0&quot; src=&quot;https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png&quot;&gt;&lt;/a&gt;&lt;br&gt;本网站如未注明转载，均由&lt;a href=&quot;https://fengqingxiuyi.github.io/&quot;&gt;青峰&lt;/a&gt;创作并维护；本网站采用&lt;a rel=&quot;external&quot; href=&quot;http://creativecommons.org/licenses/by-nc-sa/4.0/&quot; target=&quot;_blank&quot;&gt;知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议&lt;/a&gt;进行许可。转载请注明作者及出处。&lt;/p&gt;
-&lt;p&gt;本文永久链接：&lt;a href=&quot;https://fengqingxiuyi.github.io/2016/08/10/ShowJoy/View/View注意点/&quot;&gt;https://fengqingxiuyi.github.io/2016/08/10/ShowJoy/View/View注意点/&lt;/a&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;Fresco图片框架注意点&quot;&gt;&lt;a href=&quot;#Fresco图片框架注意点&quot; class=&quot;headerlink&quot; title=&quot;Fresco图片框架注意点&quot;&gt;&lt;/a&gt;Fresco图片框架注意点&lt;/h1&gt;&lt;p&gt;Fresco官方文档：&lt;a href=&quot;http:/
-    
-    </summary>
-    
-      <category term="ShowJoy_View" scheme="https://fengqingxiuyi.github.io/categories/ShowJoy-View/"/>
     
     
   </entry>
