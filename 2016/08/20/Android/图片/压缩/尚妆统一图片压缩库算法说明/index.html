@@ -86,7 +86,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="图片压缩," />
+  <meta name="keywords" content="图片," />
 
 
 
@@ -104,27 +104,44 @@
 
 
 
-<meta name="description" content="原文出处：https://github.com/Curzibn/Luban/blob/master/README.md
-官方网址：https://github.com/Curzibn/Luban/
-LubanLuban(鲁班)——Android图片压缩工具，仿微信朋友圈压缩策略
-项目描述目前做app开发总绕不开图片这个元素。但是随着手机拍照分辨率的提升，图片的压缩成为一个很重要的问题。单纯对图片进">
+<meta name="description" content="项目地址尚妆统一图片压缩库
+算法序本图片压缩库的算法基于Luban算法步骤稍作改进。
+操作流程从网上下载的81张不同尺寸的图片，依次分享到微信朋友圈，再保存到手机上，然后进行数据统计。
+结论朋友圈图片压缩后比例变化
+朋友圈图片压缩后尺寸变化
+朋友圈图片压缩数据统计表朋友圈图片压缩数据统计表
+
+版权声明
+本网站如未注明转载，均由青峰创作并维护；本网站采用知识共享署名-非商业性使用-相同方式共享 4.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="类微信图片压缩使用">
-<meta property="og:url" content="https://fengqingxiuyi.github.io/2016/08/11/Android/图片压缩/类微信图片压缩使用/index.html">
+<meta property="og:title" content="尚妆统一图片压缩库算法说明">
+<meta property="og:url" content="https://fengqingxiuyi.github.io/2016/08/20/Android/图片/压缩/尚妆统一图片压缩库算法说明/index.html">
 <meta property="og:site_name" content="风清袖一的博客">
-<meta property="og:description" content="原文出处：https://github.com/Curzibn/Luban/blob/master/README.md
-官方网址：https://github.com/Curzibn/Luban/
-LubanLuban(鲁班)——Android图片压缩工具，仿微信朋友圈压缩策略
-项目描述目前做app开发总绕不开图片这个元素。但是随着手机拍照分辨率的提升，图片的压缩成为一个很重要的问题。单纯对图片进">
+<meta property="og:description" content="项目地址尚妆统一图片压缩库
+算法序本图片压缩库的算法基于Luban算法步骤稍作改进。
+操作流程从网上下载的81张不同尺寸的图片，依次分享到微信朋友圈，再保存到手机上，然后进行数据统计。
+结论朋友圈图片压缩后比例变化
+朋友圈图片压缩后尺寸变化
+朋友圈图片压缩数据统计表朋友圈图片压缩数据统计表
+
+版权声明
+本网站如未注明转载，均由青峰创作并维护；本网站采用知识共享署名-非商业性使用-相同方式共享 4.">
+<meta property="og:image" content="https://fengqingxiuyi.github.io/../../../../../../../images/Android/图片压缩/图片压缩比例变化.png">
+<meta property="og:image" content="https://fengqingxiuyi.github.io/../../../../../../../images/Android/图片压缩/图片压缩尺寸变化.png">
 <meta property="og:image" content="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png">
-<meta property="og:updated_time" content="2016-08-24T04:06:42.000Z">
+<meta property="og:updated_time" content="2016-09-20T12:30:16.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="类微信图片压缩使用">
-<meta name="twitter:description" content="原文出处：https://github.com/Curzibn/Luban/blob/master/README.md
-官方网址：https://github.com/Curzibn/Luban/
-LubanLuban(鲁班)——Android图片压缩工具，仿微信朋友圈压缩策略
-项目描述目前做app开发总绕不开图片这个元素。但是随着手机拍照分辨率的提升，图片的压缩成为一个很重要的问题。单纯对图片进">
-<meta name="twitter:image" content="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png">
+<meta name="twitter:title" content="尚妆统一图片压缩库算法说明">
+<meta name="twitter:description" content="项目地址尚妆统一图片压缩库
+算法序本图片压缩库的算法基于Luban算法步骤稍作改进。
+操作流程从网上下载的81张不同尺寸的图片，依次分享到微信朋友圈，再保存到手机上，然后进行数据统计。
+结论朋友圈图片压缩后比例变化
+朋友圈图片压缩后尺寸变化
+朋友圈图片压缩数据统计表朋友圈图片压缩数据统计表
+
+版权声明
+本网站如未注明转载，均由青峰创作并维护；本网站采用知识共享署名-非商业性使用-相同方式共享 4.">
+<meta name="twitter:image" content="https://fengqingxiuyi.github.io/../../../../../../../images/Android/图片压缩/图片压缩比例变化.png">
 
 
 
@@ -145,9 +162,9 @@ LubanLuban(鲁班)——Android图片压缩工具，仿微信朋友圈压缩策�
 
 
 
-  <link rel="canonical" href="https://fengqingxiuyi.github.io/2016/08/11/Android/图片压缩/类微信图片压缩使用/"/>
+  <link rel="canonical" href="https://fengqingxiuyi.github.io/2016/08/20/Android/图片/压缩/尚妆统一图片压缩库算法说明/"/>
 
-  <title> 类微信图片压缩使用 | 风清袖一的博客 </title>
+  <title> 尚妆统一图片压缩库算法说明 | 风清袖一的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -312,7 +329,7 @@ LubanLuban(鲁班)——Android图片压缩工具，仿微信朋友圈压缩策�
             
             
               
-                类微信图片压缩使用
+                尚妆统一图片压缩库算法说明
               
             
           </h1>
@@ -324,8 +341,8 @@ LubanLuban(鲁班)——Android图片压缩工具，仿微信朋友圈压缩策�
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-11T11:03:45+08:00" content="2016-08-11">
-              2016-08-11
+            <time itemprop="dateCreated" datetime="2016-08-20T11:19:35+08:00" content="2016-08-20">
+              2016-08-20
             </time>
           </span>
 
@@ -354,8 +371,8 @@ LubanLuban(鲁班)——Android图片压缩工具，仿微信朋友圈压缩策�
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/08/11/Android/图片压缩/类微信图片压缩使用/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/11/Android/图片压缩/类微信图片压缩使用/" itemprop="commentsCount"></span>
+                <a href="/2016/08/20/Android/图片/压缩/尚妆统一图片压缩库算法说明/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/20/Android/图片/压缩/尚妆统一图片压缩库算法说明/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -372,7 +389,7 @@ LubanLuban(鲁班)——Android图片压缩工具，仿微信朋友圈压缩策�
 
           
           
-             <span id="/2016/08/11/Android/图片压缩/类微信图片压缩使用/" class="leancloud_visitors" data-flag-title="类微信图片压缩使用">
+             <span id="/2016/08/20/Android/图片/压缩/尚妆统一图片压缩库算法说明/" class="leancloud_visitors" data-flag-title="尚妆统一图片压缩库算法说明">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -394,121 +411,16 @@ LubanLuban(鲁班)——Android图片压缩工具，仿微信朋友圈压缩策�
       
 
       
-        <p>原文出处：<a href="https://github.com/Curzibn/Luban/blob/master/README.md" target="_blank" rel="external">https://github.com/Curzibn/Luban/blob/master/README.md</a></p>
-<p>官方网址：<a href="https://github.com/Curzibn/Luban/" target="_blank" rel="external">https://github.com/Curzibn/Luban/</a></p>
-<h1 id="Luban"><a href="#Luban" class="headerlink" title="Luban"></a>Luban</h1><p>Luban(鲁班)——Android图片压缩工具，仿微信朋友圈压缩策略</p>
-<h1 id="项目描述"><a href="#项目描述" class="headerlink" title="项目描述"></a>项目描述</h1><p>目前做app开发总绕不开图片这个元素。但是随着手机拍照分辨率的提升，图片的压缩成为一个很重要的问题。单纯对图片进行裁切，压缩已经有很多文章介绍。但是裁切成多少，压缩成多少却很难控制好，裁切过头图片太小，质量压缩过头则显示效果太差。</p>
-<p>于是自然想到app巨头“微信”会是怎么处理，Luban(鲁班)就是通过在微信朋友圈发送近100张不同分辨率图片，对比原图与微信压缩后的图片逆向推算出来的压缩算法。</p>
-<p>因为有其他语言也想要实现 Luban，所以描述了一遍<a href="../类微信图片压缩算法/index.html">算法步骤</a> </p>
-<p>因为是逆向推算，效果还没法跟微信一模一样，但是已经很接近微信朋友圈压缩后的效果，具体看以下对比！</p>
-<h1 id="效果与对比"><a href="#效果与对比" class="headerlink" title="效果与对比"></a>效果与对比</h1><table>
-<thead>
-<tr>
-<th>内容</th>
-<th>原图</th>
-<th>Luban</th>
-<th>Wechat</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>截屏 720P</td>
-<td>720*1280,390k</td>
-<td>720*1280,87k</td>
-<td>720*1280,56k</td>
-</tr>
-<tr>
-<td>截屏 1080P</td>
-<td>1080*1920,2.21M</td>
-<td>1080*1920,104k</td>
-<td>1080*1920,112k</td>
-</tr>
-<tr>
-<td>拍照 13M(4:3)</td>
-<td>3096*4128,3.12M</td>
-<td>1548*2064,141k</td>
-<td>1548*2064,147k</td>
-</tr>
-<tr>
-<td>拍照 9.6M(16:9)</td>
-<td>4128*2322,4.64M</td>
-<td>1032*581,97k</td>
-<td>1032*581,74k</td>
-</tr>
-<tr>
-<td>滚动截屏</td>
-<td>1080*6433,1.56M</td>
-<td>1080*6433,351k</td>
-<td>1080*6433,482k</td>
-</tr>
-</tbody>
-</table>
-<h1 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h1><pre><code>compile &apos;io.reactivex:rxandroid:1.2.1&apos;
-compile &apos;io.reactivex:rxjava:1.1.6&apos;
-
-compile &apos;top.zibin:Luban:1.0.5&apos;
-</code></pre><h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><h2 id="Listener方式"><a href="#Listener方式" class="headerlink" title="Listener方式"></a>Listener方式</h2><p>Luban内部采用io线程进行图片压缩，外部调用只需设置好结果监听即可</p>
-<pre><code>Luban.get(this)
-    .load(File)                     //传人要压缩的图片
-    .putGear(Luban.THIRD_GEAR)      //设定压缩档次，默认三挡
-    .setCompressListener(new OnCompressListener() { //设置回调
-
-        @Override
-        public void onStart() {
-            //TODO 压缩开始前调用，可以在方法内启动 loading UI
-        }
-        @Override
-        public void onSuccess(File file) {
-            //TODO 压缩成功后调用，返回压缩后的图片文件
-        }
-
-        @Override
-        public void onError(Throwable e) {
-            //TODO 当压缩过去出现问题时调用
-        }
-    }).launch();    //启动压缩
-</code></pre><h2 id="RxJava方式"><a href="#RxJava方式" class="headerlink" title="RxJava方式"></a>RxJava方式</h2><p>RxJava 调用方式请自行随意控制线程</p>
-<pre><code>Luban.get(this)
-        .load(file)
-        .putGear(Luban.THIRD_GEAR)
-        .asObservable()
-        .subscribeOn(Schedulers.io())
-        .observeOn(AndroidSchedulers.mainThread())
-        .doOnError(new Action1&lt;Throwable&gt;() {
-            @Override
-            public void call(Throwable throwable) {
-                throwable.printStackTrace();
-            }
-        })
-        .onErrorResumeNext(new Func1&lt;Throwable, Observable&lt;? extends File&gt;&gt;() {
-            @Override
-            public Observable&lt;? extends File&gt; call(Throwable throwable) {
-                return Observable.empty();
-            }
-        })
-        .subscribe(new Action1&lt;File&gt;() {
-            @Override
-            public void call(File file) {
-                //TODO 压缩成功后调用，返回压缩后的图片文件
-            }
-        });
-</code></pre><h1 id="License"><a href="#License" class="headerlink" title="License"></a>License</h1><pre><code>Copyright 2016 Zheng Zibin
-
-Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-</code></pre><hr>
+        <h1 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h1><p><a href="http://git.showjoy.net/android/showjoyandroid_compress" target="_blank" rel="external">尚妆统一图片压缩库</a></p>
+<h1 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h1><h2 id="序"><a href="#序" class="headerlink" title="序"></a>序</h2><p>本图片压缩库的算法基于<a href="https://github.com/Curzibn/Luban/blob/master/DESCRIPTION.md" target="_blank" rel="external">Luban算法步骤</a>稍作改进。</p>
+<h2 id="操作流程"><a href="#操作流程" class="headerlink" title="操作流程"></a>操作流程</h2><p>从网上下载的81张不同尺寸的图片，依次分享到微信朋友圈，再保存到手机上，然后进行数据统计。</p>
+<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><h3 id="朋友圈图片压缩后比例变化"><a href="#朋友圈图片压缩后比例变化" class="headerlink" title="朋友圈图片压缩后比例变化"></a>朋友圈图片压缩后比例变化</h3><p><img src="../../../../../../../images/Android/图片压缩/图片压缩比例变化.png" alt="图片压缩比例变化"></p>
+<h3 id="朋友圈图片压缩后尺寸变化"><a href="#朋友圈图片压缩后尺寸变化" class="headerlink" title="朋友圈图片压缩后尺寸变化"></a>朋友圈图片压缩后尺寸变化</h3><p><img src="../../../../../../../images/Android/图片压缩/图片压缩尺寸变化.png" alt="图片压缩尺寸变化"></p>
+<h3 id="朋友圈图片压缩数据统计表"><a href="#朋友圈图片压缩数据统计表" class="headerlink" title="朋友圈图片压缩数据统计表"></a>朋友圈图片压缩数据统计表</h3><p><a href="../../../../../../../file/Android/图片压缩/朋友圈图片压缩数据统计表.xlsx">朋友圈图片压缩数据统计表</a></p>
+<hr>
 <p><strong>版权声明</strong></p>
 <p><a rel="external" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"></a><br>本网站如未注明转载，均由<a href="https://fengqingxiuyi.github.io/">青峰</a>创作并维护；本网站采用<a rel="external" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>进行许可。转载请注明作者及出处。</p>
-<p>本文永久链接：<a href="https://fengqingxiuyi.github.io/2016/08/11/Android/图片压缩/类微信图片压缩使用/">https://fengqingxiuyi.github.io/2016/08/11/Android/图片压缩/类微信图片压缩使用/</a></p>
+<p>本文永久链接：<a href="https://fengqingxiuyi.github.io/2016/08/20/Android/图片/压缩/尚妆统一图片压缩库算法说明/">https://fengqingxiuyi.github.io/2016/08/20/Android/图片/压缩/尚妆统一图片压缩库算法说明/</a></p>
 
       
     </div>
@@ -531,7 +443,7 @@ limitations under the License.
       
         <div class="post-tags">
           
-            <a href="/tags/图片压缩/" rel="tag">#图片压缩</a>
+            <a href="/tags/图片/" rel="tag">#图片</a>
           
         </div>
       
@@ -540,16 +452,16 @@ limitations under the License.
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/08/11/Android/事件传递机制/细说Android事件传递机制(dispatchTouchEvent、onInterceptTouchEvent、onTouchEvent)/" rel="next" title="细说Android事件传递机制(dispatchTouchEvent、onInterceptTouchEvent、onTouchEvent)">
-                <i class="fa fa-chevron-left"></i> 细说Android事件传递机制(dispatchTouchEvent、onInterceptTouchEvent、onTouchEvent)
+              <a href="/2016/08/15/命令/vi(vim)命令/" rel="next" title="vi(vim)命令">
+                <i class="fa fa-chevron-left"></i> vi(vim)命令
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/08/11/Android/图片压缩/类微信图片压缩算法/" rel="prev" title="类微信图片压缩算法">
-                类微信图片压缩算法 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/08/22/Android/Lint/浅谈Android自定义Lint规则的实现（一）/" rel="prev" title="浅谈Android自定义Lint规则的实现（一）">
+                浅谈Android自定义Lint规则的实现（一） <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -577,8 +489,8 @@ limitations under the License.
   <div class="comments" id="comments">
     
       <!-- 多说评论框 start -->
-      <div class="ds-thread" data-thread-key="2016/08/11/Android/图片压缩/类微信图片压缩使用/"
-           data-title="类微信图片压缩使用" data-url="https://fengqingxiuyi.github.io/2016/08/11/Android/图片压缩/类微信图片压缩使用/">
+      <div class="ds-thread" data-thread-key="2016/08/20/Android/图片/压缩/尚妆统一图片压缩库算法说明/"
+           data-title="尚妆统一图片压缩库算法说明" data-url="https://fengqingxiuyi.github.io/2016/08/20/Android/图片/压缩/尚妆统一图片压缩库算法说明/">
       </div>
       <!-- 多说评论框 end -->
       <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
@@ -751,7 +663,7 @@ limitations under the License.
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Luban"><span class="nav-number">1.</span> <span class="nav-text">Luban</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#项目描述"><span class="nav-number">2.</span> <span class="nav-text">项目描述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#效果与对比"><span class="nav-number">3.</span> <span class="nav-text">效果与对比</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#导入"><span class="nav-number">4.</span> <span class="nav-text">导入</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用"><span class="nav-number">5.</span> <span class="nav-text">使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Listener方式"><span class="nav-number">5.1.</span> <span class="nav-text">Listener方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RxJava方式"><span class="nav-number">5.2.</span> <span class="nav-text">RxJava方式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#License"><span class="nav-number">6.</span> <span class="nav-text">License</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#项目地址"><span class="nav-number">1.</span> <span class="nav-text">项目地址</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#算法"><span class="nav-number">2.</span> <span class="nav-text">算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#序"><span class="nav-number">2.1.</span> <span class="nav-text">序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#操作流程"><span class="nav-number">2.2.</span> <span class="nav-text">操作流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结论"><span class="nav-number">2.3.</span> <span class="nav-text">结论</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#朋友圈图片压缩后比例变化"><span class="nav-number">2.3.1.</span> <span class="nav-text">朋友圈图片压缩后比例变化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#朋友圈图片压缩后尺寸变化"><span class="nav-number">2.3.2.</span> <span class="nav-text">朋友圈图片压缩后尺寸变化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#朋友圈图片压缩数据统计表"><span class="nav-number">2.3.3.</span> <span class="nav-text">朋友圈图片压缩数据统计表</span></a></li></ol></li></ol></li></ol></div>
             
           </div>
         </section>
