@@ -123,7 +123,7 @@
 <meta property="og:image" content="https://fengqingxiuyi.github.io/../../../../../images/MGHN/查看hexo版本.png">
 <meta property="og:image" content="https://fengqingxiuyi.github.io/../../../../../images/MGHN/设置仓库地址.png">
 <meta property="og:image" content="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png">
-<meta property="og:updated_time" content="2016-08-13T05:05:10.000Z">
+<meta property="og:updated_time" content="2016-10-02T16:35:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mac+GitHub+Hexo+NexT（三）Hexo">
 <meta name="twitter:description" content="上文我们学会了如何安装Git和Node.js，接下来我们就需要开始真正的搭建Hexo博客框架了
@@ -457,7 +457,13 @@
 <h3 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h3><p>输入命令：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Blog $ hexo deploy</div></pre></td></tr></table></figure>
 <p>即可进行部署操作，如果输出内容为<code>ERROR Deployer not found: git</code>，则表明你的全局配置文件填写错误，或者是之前安装自动化部署插件时，所用的命令后面没有添加<code>-- save</code>，或者是其他原因，需要仔细排查。</p>
-<h3 id="浏览查看"><a href="#浏览查看" class="headerlink" title="浏览查看"></a>浏览查看</h3><p>如果成功部署到了GitHub之上，我们就可以在浏览器中查看我们自己的博客了，在浏览器中输入你的GitHub仓库名即可查看，如：<a href="https://fengqingxiuyi.github.io/">https://fengqingxiuyi.github.io/</a>，如果显示正确，并且与你在本地预览时的别效果一模一样，则表明部署成功！</p>
+<h3 id="浏览查看"><a href="#浏览查看" class="headerlink" title="浏览查看"></a>浏览查看</h3><p>如果成功部署到了GitHub之上，我们就可以在浏览器中查看我们自己的博客了，在浏览器中输入你的GitHub仓库名即可查看，如：<a href="https://fengqingxiuyi.github.io/">https://fengqingxiuyi.github.io/</a>，如果显示正确，并且与你在本地预览时的别效果一模一样，则表明部署成功！如果显示错误，比如：显示<font color="red">404</font>。</p>
+<ol>
+<li>打开网页<a href="https://github.com/fengqingxiuyi/fengqingxiuyi.github.io/settings" target="_blank" rel="external">https://github.com/fengqingxiuyi/fengqingxiuyi.github.io/settings</a></li>
+<li>如果你的<code>Repository name</code>，并不是按照<code>name.github.io</code>的格式，其中：除了大小写可以不同之外，<strong>name</strong>必须和<strong>Github’s Username</strong>一模一样；如果和前面所述规则不同，请即刻修改<code>Repository name</code>，否则会出现各种问题。</li>
+<li>在网页左侧点击<code>Options</code>选项，然后向下滚动到<code>GitHub Pages</code>子模块处，可以在<code>Source</code>发现<code>GitHub Pages is currently disabled.</code>的字样，具体表现为在<code>Select source</code>下拉菜单中默认选择的是<font color="red"><strong>None</strong></font>，这里我们选择<font color="red"><strong>master branch</strong></font>，然后点击<font color="red"><strong>Save</strong></font>按钮。</li>
+<li>第2步完成之后，会自动刷新页面，如果在页面顶部出现<code>GitHub Pages source saved.</code>的提示，则表明保存成功。继续向下滚动到<code>GitHub Pages</code>子模块处，可以发现提示<code>Your site is published at https://fengqingxiuyi.github.io/</code>，然后直接点击该链接即可访问你的专属博客。</li>
+</ol>
 <h1 id="命令简写"><a href="#命令简写" class="headerlink" title="命令简写"></a>命令简写</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">hexo n == hexo new</div><div class="line">hexo g == hexo generate</div><div class="line">hexo s == hexo server</div><div class="line">hexo d == hexo deploy</div></pre></td></tr></table></figure>
 <h1 id="附"><a href="#附" class="headerlink" title="附"></a>附</h1><p>至此，我们已经学会了博客的搭建与使用，接下来我们将要讲解如何使用NexT主题，美化我们的博客，当然你也可以使用其他主题美化，<a href="https://www.zhihu.com/question/24422335" target="_blank" rel="external">这里列举了一些好看的Hexo主题</a>。</p>
 <hr>
