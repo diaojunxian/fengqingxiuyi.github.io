@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://fengqingxiuyi.github.io/"/>
-  <updated>2016-11-02T08:29:06.000Z</updated>
+  <updated>2016-11-02T12:32:38.000Z</updated>
   <id>https://fengqingxiuyi.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://fengqingxiuyi.github.io/2016/11/02/ShowJoy/ShowJoy%E5%BC%80%E5%8F%91%E8%AE%B0%E5%BD%95/"/>
     <id>https://fengqingxiuyi.github.io/2016/11/02/ShowJoy/ShowJoy开发记录/</id>
     <published>2016-11-02T08:05:15.000Z</published>
-    <updated>2016-11-02T08:29:06.000Z</updated>
+    <updated>2016-11-02T12:32:38.000Z</updated>
     
     <content type="html"><![CDATA[<p><strong><em>未编写部分的地方都使用了 // TODO 来进行占位。</em></strong></p>
 <p>主要包括：常用命令、注意事项、杂七杂八。</p>
@@ -34,7 +34,7 @@
 <p>说明<code>dependencies.txt</code>文件的保存位置是：/Volumes/MAIN/qingfeng/Workspace/ShopAndroid/dependencies.txt</p>
 <h2 id="Adb"><a href="#Adb" class="headerlink" title="Adb"></a>Adb</h2><h3 id="adb-shell-dumpsys-activity-grep-mFocusedActivity"><a href="#adb-shell-dumpsys-activity-grep-mFocusedActivity" class="headerlink" title="adb shell dumpsys activity | grep mFocusedActivity"></a>adb shell dumpsys activity | grep mFocusedActivity</h3><p>作用：获取真机显示页面的Activity的名称。</p>
 <h3 id="adb-logcat-d-gt-logcat-txt"><a href="#adb-logcat-d-gt-logcat-txt" class="headerlink" title="adb logcat -d &gt; logcat.txt"></a>adb logcat -d &gt; logcat.txt</h3><p>作用：保存打印的logcat信息到当前目录下的logcat.txt文件中。</p>
-<h3 id="add-pull-sdcard-shop-crash"><a href="#add-pull-sdcard-shop-crash" class="headerlink" title="add pull sdcard/shop-crash"></a>add pull sdcard/shop-crash</h3><p>作用：将SD卡根目录下的shop-crash文件夹导出到当前目录中，当然也可以导出文件。</p>
+<h3 id="adb-pull-sdcard-shop-crash"><a href="#adb-pull-sdcard-shop-crash" class="headerlink" title="adb pull sdcard/shop-crash"></a>adb pull sdcard/shop-crash</h3><p>作用：将SD卡根目录下的shop-crash文件夹导出到当前目录中，当然也可以导出文件。</p>
 <p>例子：导出手机中的shop-crash文件：打开终端后，首先进入电脑桌面目录，即cd /Desktop，然后使用上述命令回车即可。</p>
 <h2 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h2><h3 id="find"><a href="#find" class="headerlink" title="find"></a>find</h3><p>使用格式：find [指定查找目录] [查找规则] [查找完后执行的action]</p>
 <p>相关网址：</p>

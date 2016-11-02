@@ -18,7 +18,7 @@
 <p>说明<code>dependencies.txt</code>文件的保存位置是：/Volumes/MAIN/qingfeng/Workspace/ShopAndroid/dependencies.txt</p>
 <h2 id="Adb"><a href="#Adb" class="headerlink" title="Adb"></a>Adb</h2><h3 id="adb-shell-dumpsys-activity-grep-mFocusedActivity"><a href="#adb-shell-dumpsys-activity-grep-mFocusedActivity" class="headerlink" title="adb shell dumpsys activity | grep mFocusedActivity"></a>adb shell dumpsys activity | grep mFocusedActivity</h3><p>作用：获取真机显示页面的Activity的名称。</p>
 <h3 id="adb-logcat-d-gt-logcat-txt"><a href="#adb-logcat-d-gt-logcat-txt" class="headerlink" title="adb logcat -d &gt; logcat.txt"></a>adb logcat -d &gt; logcat.txt</h3><p>作用：保存打印的logcat信息到当前目录下的logcat.txt文件中。</p>
-<h3 id="add-pull-sdcard-shop-crash"><a href="#add-pull-sdcard-shop-crash" class="headerlink" title="add pull sdcard/shop-crash"></a>add pull sdcard/shop-crash</h3><p>作用：将SD卡根目录下的shop-crash文件夹导出到当前目录中，当然也可以导出文件。</p>
+<h3 id="adb-pull-sdcard-shop-crash"><a href="#adb-pull-sdcard-shop-crash" class="headerlink" title="adb pull sdcard/shop-crash"></a>adb pull sdcard/shop-crash</h3><p>作用：将SD卡根目录下的shop-crash文件夹导出到当前目录中，当然也可以导出文件。</p>
 <p>例子：导出手机中的shop-crash文件：打开终端后，首先进入电脑桌面目录，即cd /Desktop，然后使用上述命令回车即可。</p>
 <h2 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h2><h3 id="find"><a href="#find" class="headerlink" title="find"></a>find</h3><p>使用格式：find [指定查找目录] [查找规则] [查找完后执行的action]</p>
 <p>相关网址：</p>
@@ -1859,7 +1859,7 @@ limitations under the License.
 <h4 id="Blockquotes"><a href="#Blockquotes" class="headerlink" title="Blockquotes"></a>Blockquotes</h4><blockquote>
 <p>Right angle brackets &gt; are used for block quotes.</p>
 </blockquote>
-<h4 id="Links-and-Email"><a href="#Links-and-Email" class="headerlink" title="Links and Email"></a>Links and Email</h4><p>An email <a href="&#x6d;&#97;&#x69;&#108;&#x74;&#111;&#58;&#x65;&#120;&#x61;&#109;&#x70;&#108;&#101;&#64;&#101;&#120;&#x61;&#109;&#112;&#108;&#x65;&#x2e;&#99;&#x6f;&#x6d;">&#x65;&#120;&#x61;&#109;&#x70;&#108;&#101;&#64;&#101;&#120;&#x61;&#109;&#112;&#108;&#x65;&#x2e;&#99;&#x6f;&#x6d;</a> link.</p>
+<h4 id="Links-and-Email"><a href="#Links-and-Email" class="headerlink" title="Links and Email"></a>Links and Email</h4><p>An email <a href="&#109;&#x61;&#105;&#108;&#x74;&#111;&#x3a;&#101;&#x78;&#97;&#x6d;&#112;&#x6c;&#101;&#64;&#101;&#120;&#x61;&#109;&#112;&#108;&#x65;&#46;&#x63;&#x6f;&#109;">&#101;&#x78;&#97;&#x6d;&#112;&#x6c;&#101;&#64;&#101;&#120;&#x61;&#109;&#112;&#108;&#x65;&#46;&#x63;&#x6f;&#109;</a> link.</p>
 <p>Simple inline link <a href="http://chenluois.com" target="_blank" rel="external">http://chenluois.com</a>, another inline link <a href="http://25.io/smaller/" target="_blank" rel="external">Smaller</a>, one more inline link with title <a href="http://resizesafari.com" title="a Safari extension" target="_blank" rel="external">Resize</a>.</p>
 <p>A <a href="http://25.io/mou/" title="Markdown editor on Mac OS X" target="_blank" rel="external">reference style</a> link. Input id, then anywhere in the doc, define the link with corresponding id:</p>
 <p>Titles ( or called tool tips ) in the links are optional.</p>
