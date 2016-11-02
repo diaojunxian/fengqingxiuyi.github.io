@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://fengqingxiuyi.github.io/"/>
-  <updated>2016-11-02T08:05:02.000Z</updated>
+  <updated>2016-11-02T08:21:08.000Z</updated>
   <id>https://fengqingxiuyi.github.io/</id>
   
   <author>
@@ -20,12 +20,12 @@
     <link href="https://fengqingxiuyi.github.io/2016/11/02/ShowJoy/ShowJoy%E5%BC%80%E5%8F%91%E8%AE%B0%E5%BD%95/"/>
     <id>https://fengqingxiuyi.github.io/2016/11/02/ShowJoy/ShowJoy开发记录/</id>
     <published>2016-11-02T08:05:15.000Z</published>
-    <updated>2016-11-02T08:05:02.000Z</updated>
+    <updated>2016-11-02T08:21:08.000Z</updated>
     
     <content type="html"><![CDATA[<p><strong><em>未编写部分的地方都使用了 // TODO 来进行占位。</em></strong></p>
 <p>主要包括：常用命令、注意事项、杂七杂八。</p>
 <h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1><h2 id="Gradle"><a href="#Gradle" class="headerlink" title="Gradle"></a>Gradle</h2><p>命令输入位置：AndroidStudio-Terminal</p>
-<h3 id="gradle-–stop"><a href="#gradle-–stop" class="headerlink" title="gradle –stop"></a>gradle –stop</h3><p>作用：可以快速停止 gradle 启动的进程。</p>
+<h3 id="gradle-stop"><a href="#gradle-stop" class="headerlink" title="gradle --stop"></a>gradle --stop</h3><p>作用：可以快速停止 gradle 启动的进程。</p>
 <h3 id="gradle-shopandroid-dependencies-gt-dependencies-txt"><a href="#gradle-shopandroid-dependencies-gt-dependencies-txt" class="headerlink" title="gradle shopandroid:dependencies &gt; dependencies.txt"></a>gradle shopandroid:dependencies &gt; dependencies.txt</h3><h4 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h4><p>shopandroid：想要查找依赖关系的模块名（ModuleName）</p>
 <p>dependencies.txt：要将输出的依赖关系保存的文件位置，包括文件名，如果只写文件名，表示保存在当前目录下的 该文件 中。</p>
 <h4 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h4><p>生成<code>shopandroid模块</code>的依赖关系，并保存在当前文件夹下的<code>dependencies.txt</code>中。</p>
