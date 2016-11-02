@@ -86,7 +86,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Wiki," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -104,29 +104,29 @@
 
 
 
-<meta name="description" content="注：本文属于工具类文章，可以直接使用；本文主要介绍如何将layout转换为Bitmap，以及遇到的一些注意点。
-（1）编写好要转换为图片的布局文件，必须设置根控件的id。
-（2）在要执行该业务的类中使用View.inflate的方式将布局转换为View。
-（3）转换为View之后，找到布局文件中的控件，并为其设置数据，如果无需设置可省略。
-（4）将View添加到要执行该业务的类的某个控件中，并将这">
+<meta name="description" content="未编写部分的地方都使用了 // TODO 来进行占位。
+主要包括：常用命令、注意事项、杂七杂八。
+常用命令Gradle命令输入位置：AndroidStudio-Terminal
+gradle –stop作用：可以快速停止 gradle 启动的进程。
+gradle shopandroid:dependencies &amp;gt; dependencies.txt解释shopandroid：想要查找依赖关系">
 <meta property="og:type" content="article">
-<meta property="og:title" content="将layout转换为Bitmap">
-<meta property="og:url" content="https://fengqingxiuyi.github.io/2016/08/14/Android/Wiki/将layout转换为Bitmap/index.html">
+<meta property="og:title" content="ShowJoy开发记录">
+<meta property="og:url" content="https://fengqingxiuyi.github.io/2016/11/02/ShowJoy/ShowJoy开发记录/index.html">
 <meta property="og:site_name" content="风清袖一的博客">
-<meta property="og:description" content="注：本文属于工具类文章，可以直接使用；本文主要介绍如何将layout转换为Bitmap，以及遇到的一些注意点。
-（1）编写好要转换为图片的布局文件，必须设置根控件的id。
-（2）在要执行该业务的类中使用View.inflate的方式将布局转换为View。
-（3）转换为View之后，找到布局文件中的控件，并为其设置数据，如果无需设置可省略。
-（4）将View添加到要执行该业务的类的某个控件中，并将这">
+<meta property="og:description" content="未编写部分的地方都使用了 // TODO 来进行占位。
+主要包括：常用命令、注意事项、杂七杂八。
+常用命令Gradle命令输入位置：AndroidStudio-Terminal
+gradle –stop作用：可以快速停止 gradle 启动的进程。
+gradle shopandroid:dependencies &amp;gt; dependencies.txt解释shopandroid：想要查找依赖关系">
 <meta property="og:image" content="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png">
-<meta property="og:updated_time" content="2016-08-24T04:10:32.000Z">
+<meta property="og:updated_time" content="2016-11-02T08:05:02.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="将layout转换为Bitmap">
-<meta name="twitter:description" content="注：本文属于工具类文章，可以直接使用；本文主要介绍如何将layout转换为Bitmap，以及遇到的一些注意点。
-（1）编写好要转换为图片的布局文件，必须设置根控件的id。
-（2）在要执行该业务的类中使用View.inflate的方式将布局转换为View。
-（3）转换为View之后，找到布局文件中的控件，并为其设置数据，如果无需设置可省略。
-（4）将View添加到要执行该业务的类的某个控件中，并将这">
+<meta name="twitter:title" content="ShowJoy开发记录">
+<meta name="twitter:description" content="未编写部分的地方都使用了 // TODO 来进行占位。
+主要包括：常用命令、注意事项、杂七杂八。
+常用命令Gradle命令输入位置：AndroidStudio-Terminal
+gradle –stop作用：可以快速停止 gradle 启动的进程。
+gradle shopandroid:dependencies &amp;gt; dependencies.txt解释shopandroid：想要查找依赖关系">
 <meta name="twitter:image" content="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png">
 
 
@@ -148,9 +148,9 @@
 
 
 
-  <link rel="canonical" href="https://fengqingxiuyi.github.io/2016/08/14/Android/Wiki/将layout转换为Bitmap/"/>
+  <link rel="canonical" href="https://fengqingxiuyi.github.io/2016/11/02/ShowJoy/ShowJoy开发记录/"/>
 
-  <title> 将layout转换为Bitmap | 风清袖一的博客 </title>
+  <title> ShowJoy开发记录 | 风清袖一的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -315,7 +315,7 @@
             
             
               
-                将layout转换为Bitmap
+                ShowJoy开发记录
               
             
           </h1>
@@ -327,8 +327,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-14T18:23:23+08:00" content="2016-08-14">
-              2016-08-14
+            <time itemprop="dateCreated" datetime="2016-11-02T16:05:15+08:00" content="2016-11-02">
+              2016-11-02
             </time>
           </span>
 
@@ -341,8 +341,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index">
-                    <span itemprop="name">Android</span>
+                  <a href="/categories/ShowJoy/" itemprop="url" rel="index">
+                    <span itemprop="name">ShowJoy</span>
                   </a>
                 </span>
 
@@ -357,8 +357,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/08/14/Android/Wiki/将layout转换为Bitmap/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/14/Android/Wiki/将layout转换为Bitmap/" itemprop="commentsCount"></span>
+                <a href="/2016/11/02/ShowJoy/ShowJoy开发记录/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/02/ShowJoy/ShowJoy开发记录/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -377,7 +377,7 @@
 
           
           
-             <span id="/2016/08/14/Android/Wiki/将layout转换为Bitmap/" class="leancloud_visitors" data-flag-title="将layout转换为Bitmap">
+             <span id="/2016/11/02/ShowJoy/ShowJoy开发记录/" class="leancloud_visitors" data-flag-title="ShowJoy开发记录">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -399,18 +399,73 @@
       
 
       
-        <p>注：本文属于工具类文章，可以直接使用；本文主要介绍如何将layout转换为Bitmap，以及遇到的一些注意点。</p>
-<p>（1）编写好要转换为图片的布局文件，必须设置根控件的id。</p>
-<p>（2）在要执行该业务的类中使用View.inflate的方式将布局转换为View。</p>
-<p>（3）转换为View之后，找到布局文件中的控件，并为其设置数据，如果无需设置可省略。</p>
-<p>（4）将View添加到要执行该业务的类的某个控件中，并将这个控件设置为invisible，便于<code>隐藏渲染</code>。<font color="red">注意：此控件的父控件应该为RealtiveLayout，避免出现空白区域，影响用户体验。</font></p>
-<p>（5）调用以下方法，将layout转换为Bitmap：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">layout2Bitmap</span><span class="params">(ViewGroup viewGroup)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> width = viewGroup.getMeasuredWidth();</div><div class="line">    <span class="keyword">int</span> height = viewGroup.getMeasuredHeight();</div><div class="line">    Bitmap b = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565);</div><div class="line">    Canvas canvas = <span class="keyword">new</span> Canvas(b);</div><div class="line">    viewGroup.draw(canvas);</div><div class="line">    img.setImageBitmap(b);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>（6）<font color="red">注意：执行完第4步后，不能立刻执行第5步，因为此时页面可能还没有渲染完毕，直接执行第5步会导致提示width和height必须大于0的异常发生，需要根据业务需要，在合适的地方执行。</font></p>
+        <p><strong><em>未编写部分的地方都使用了 // TODO 来进行占位。</em></strong></p>
+<p>主要包括：常用命令、注意事项、杂七杂八。</p>
+<h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1><h2 id="Gradle"><a href="#Gradle" class="headerlink" title="Gradle"></a>Gradle</h2><p>命令输入位置：AndroidStudio-Terminal</p>
+<h3 id="gradle-–stop"><a href="#gradle-–stop" class="headerlink" title="gradle –stop"></a>gradle –stop</h3><p>作用：可以快速停止 gradle 启动的进程。</p>
+<h3 id="gradle-shopandroid-dependencies-gt-dependencies-txt"><a href="#gradle-shopandroid-dependencies-gt-dependencies-txt" class="headerlink" title="gradle shopandroid:dependencies &gt; dependencies.txt"></a>gradle shopandroid:dependencies &gt; dependencies.txt</h3><h4 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h4><p>shopandroid：想要查找依赖关系的模块名（ModuleName）</p>
+<p>dependencies.txt：要将输出的依赖关系保存的文件位置，包括文件名，如果只写文件名，表示保存在当前目录下的 该文件 中。</p>
+<h4 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h4><p>生成<code>shopandroid模块</code>的依赖关系，并保存在当前文件夹下的<code>dependencies.txt</code>中。</p>
+<h4 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ gradle shopandroid:dependencies &gt; dependencies.txt</div><div class="line">$ <span class="built_in">pwd</span></div><div class="line">/Volumes/MAIN/qingfeng/Workspace/ShopAndroid</div><div class="line">$</div></pre></td></tr></table></figure>
+<p>说明<code>dependencies.txt</code>文件的保存位置是：/Volumes/MAIN/qingfeng/Workspace/ShopAndroid/dependencies.txt</p>
+<h2 id="Adb"><a href="#Adb" class="headerlink" title="Adb"></a>Adb</h2><h3 id="adb-shell-dumpsys-activity-grep-mFocusedActivity"><a href="#adb-shell-dumpsys-activity-grep-mFocusedActivity" class="headerlink" title="adb shell dumpsys activity | grep mFocusedActivity"></a>adb shell dumpsys activity | grep mFocusedActivity</h3><p>作用：获取真机显示页面的Activity的名称。</p>
+<h3 id="adb-logcat-d-gt-logcat-txt"><a href="#adb-logcat-d-gt-logcat-txt" class="headerlink" title="adb logcat -d &gt; logcat.txt"></a>adb logcat -d &gt; logcat.txt</h3><p>作用：保存打印的logcat信息到当前目录下的logcat.txt文件中。</p>
+<h3 id="add-pull-sdcard-shop-crash"><a href="#add-pull-sdcard-shop-crash" class="headerlink" title="add pull sdcard/shop-crash"></a>add pull sdcard/shop-crash</h3><p>作用：将SD卡根目录下的shop-crash文件夹导出到当前目录中，当然也可以导出文件。</p>
+<p>例子：导出手机中的shop-crash文件：打开终端后，首先进入电脑桌面目录，即cd /Desktop，然后使用上述命令回车即可。</p>
+<h2 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h2><h3 id="find"><a href="#find" class="headerlink" title="find"></a>find</h3><p>使用格式：find [指定查找目录] [查找规则] [查找完后执行的action]</p>
+<p>相关网址：</p>
+<ol>
+<li><a href="http://blog.chinaunix.net/uid-24648486-id-2998767" target="_blank" rel="external">linux下find（文件查找）命令的用法总结 </a></li>
+<li><a href="http://www.cnblogs.com/wanqieddy/archive/2011/06/09/2076785.html" target="_blank" rel="external">Linux find 用法示例</a></li>
+</ol>
+<h4 id="find-name-“-”-xargs-rm-rf"><a href="#find-name-“-”-xargs-rm-rf" class="headerlink" title="find . -name “._*” |xargs rm -rf"></a>find . -name “._*” |xargs rm -rf</h4><p>作用：快速删除当前目录下包含以<code>._</code>开头的所有文件</p>
+<p>解释：</p>
+<ol>
+<li>第一个<code>.</code>符号代表的是当前路径，所以该位置参数的意义是路径名；</li>
+<li><code>-name</code>符号代表的是根据文件名精确查找，如果想要忽略大小写，可以改为<code>-iname</code>；</li>
+<li><code>&quot;._*&quot;</code>符号代表的是找到所有以<code>._</code>开头的文件，<code>*</code>符号是通配符，所以该位置参数的意义是要寻找的文件的过滤规则；</li>
+<li><code>rm -rf</code>符号代表的是强制删除。</li>
+</ol>
+<h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h1><h2 id="混淆文件位置"><a href="#混淆文件位置" class="headerlink" title="混淆文件位置"></a>混淆文件位置</h2><p>以 CharityShopAndroid 项目为例：混淆文件<font color="red">仅</font>在主模块（charityshopandroid）的根目录下，如果是debug状态下，使用的混淆文件是debug_proguard-rules.pro；如果是release状态下，使用的混淆文件是proguard-rules.pro。</p>
+<h2 id="mapping-txt"><a href="#mapping-txt" class="headerlink" title="mapping.txt"></a>mapping.txt</h2><p>在友盟中查看错误日志时，因为混淆了，所以我们需要找到对应版本的mapping文件来解读，但是有时候由于在版本迭代过程中更改内容不是特别多，所以重新切出对应版本的release分支，这样会导致我们在Jenkins查找指定版本的mapping文件时，无法立刻找到。对于此问题，我们需要做以下操作：</p>
+<ol>
+<li>在Gitlab上找到指定版本对应的release分支，并记住推送到服务器的时间；</li>
+<li>在Jenkins中找到该release分支项目中，在构建历史中根据之前记住的服务器时间来查找。</li>
+</ol>
+<p>实际案例：ShopAndroid项目的1.3.0-1.3.5版本都是在release/1.3.0分支上构建的。</p>
+<p>Gitlab地址：<a href="http://git.showjoy.net/shopandroid/shopandroid/commits/release/1.3.0" target="_blank" rel="external">http://git.showjoy.net/shopandroid/shopandroid/commits/release/1.3.0</a></p>
+<p>Jenkins地址：<a href="https://wireless-build.showjoy.net/view/达人店/job/ShopAndroid-release-1.3.0/" target="_blank" rel="external">https://wireless-build.showjoy.net/view/达人店/job/ShopAndroid-release-1.3.0/</a></p>
+<h2 id="Gradle-Compile"><a href="#Gradle-Compile" class="headerlink" title="Gradle - Compile"></a>Gradle - Compile</h2><h3 id="例子-1"><a href="#例子-1" class="headerlink" title="例子"></a>例子</h3><p>比较下面两个语句块的不同</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">compile (<span class="string">'com.showjoy.shop:common:1.3.4'</span>)</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">compile (<span class="string">'com.showjoy.shop:common:1.3.4'</span>) &#123;</div><div class="line">    transitive <span class="keyword">false</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="简要解释"><a href="#简要解释" class="headerlink" title="简要解释"></a>简要解释</h4><ol>
+<li>com.showjoy.shop：即groupId：是项目或者组织的唯一标志，并且配置时生成的路径也是由此生成，如com.showjoy.shop生成的相对路径为：/com/showjoy/shop；</li>
+<li>common：即artifactId：项目的通用名称；</li>
+<li>1.3.4：即version：项目的版本。</li>
+</ol>
+<p>上述解释内容都是配置在maven仓库的pom配置文件中的，此模块配置文件地址：<a href="http://192.168.0.62:8081/repository/maven-releases/com/showjoy/shop/common/1.3.4/common-1.3.4.pom，因为是内网才可以访问的，这里我就展示一下主要部分：" target="_blank" rel="external">http://192.168.0.62:8081/repository/maven-releases/com/showjoy/shop/common/1.3.4/common-1.3.4.pom，因为是内网才可以访问的，这里我就展示一下主要部分：</a></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">xmlns</span>=<span class="string">"http://maven.apache.org/POM/4.0.0"</span> <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.showjoy.shop<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>common<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.3.4<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">packaging</span>&gt;</span>aar<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>shopandroid_common<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">description</span>&gt;</span>Uploads all artifacts belonging to configuration ':shopandroid_common:archives'<span class="tag">&lt;/<span class="name">description</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.showjoy.android<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>storage<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0.8<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">scope</span>&gt;</span>compile<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.showjoy.network<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>library<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.1.14<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">scope</span>&gt;</span>compile<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">exclusions</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">exclusion</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>support-annotations<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.android.support<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">                <span class="tag">&lt;/<span class="name">exclusion</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">exclusion</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>utils-log<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.showjoy.android<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">                <span class="tag">&lt;/<span class="name">exclusion</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">exclusions</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line">        ...</div><div class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>备注：exclusions是可选的，在上述文件中可知：storage模块没有排除任何依赖；library模块排除了support-annotations模块和utils-log模块。</p>
+<p>字段详细解释可以查看该网址：<a href="http://zyl.iteye.com/blog/41754" target="_blank" rel="external">http://zyl.iteye.com/blog/41754</a></p>
+<p>字段详细解释：// TODO</p>
+<h3 id="解答"><a href="#解答" class="headerlink" title="解答"></a>解答</h3><p>前者：当我们依赖了common模块的时候，还会传递依赖common所依赖的模块。</p>
+<p>后者：当我们依赖了common模块的时候，不会传递依赖common所依赖的<font color="red">所有</font>模块。</p>
+<h3 id="疑问"><a href="#疑问" class="headerlink" title="疑问"></a>疑问</h3><p>如果我们并不想要排除所有的common所依赖的模块，只想要依赖排除<font color="red">某个或者某几个</font>common所依赖的模块，又该如何呢？</p>
+<h3 id="解答-1"><a href="#解答-1" class="headerlink" title="解答"></a>解答</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">compile (<span class="string">'com.showjoy.shop:common:1.3.4'</span>) &#123;</div><div class="line">    exclude group: <span class="string">'com.showjoy.shop'</span>, <span class="keyword">module</span>: <span class="string">'viewgroup'</span></div><div class="line">    exclude group: <span class="string">'com.showjoy.shop'</span>, <span class="keyword">module</span>: <span class="string">'share'</span></div><div class="line">    ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如上所示：</p>
+<p>如果想要排除common依赖的viewgroup模块，只需要写这么一句话就行了：exclude group: ‘com.showjoy.shop’, module: ‘viewgroup’；</p>
+<p>如果还想要排除share，也可以依样画葫芦，<font color="red">注意填写正确的groupId和moduleName</font>。</p>
+<h3 id="为什么要排除依赖"><a href="#为什么要排除依赖" class="headerlink" title="为什么要排除依赖"></a>为什么要排除依赖</h3><p>我们从上往下看：</p>
+<ol>
+<li>对于某一个模块，一个项目只允许存在一个版本；</li>
+<li>一个项目可能依赖很多个模块，每个模块可能依赖相同的子模块，但是版本号可能不同；</li>
+<li>如果不管不顾，就会有版本冲突，因为第1点，所以需要排除依赖，最终只留下一个版本。</li>
+</ol>
+<h1 id="杂七杂八"><a href="#杂七杂八" class="headerlink" title="杂七杂八"></a>杂七杂八</h1><p>KPI中要求的输出文档位置：<a href="http://git.showjoy.net/showjoywireless/showjoywireless_doc/tree/master/android" target="_blank" rel="external">http://git.showjoy.net/showjoywireless/showjoywireless_doc/tree/master/android</a></p>
 <hr>
 <p><strong>版权声明</strong></p>
 <p><a rel="external" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"></a><br>本网站如未注明转载，均由<a href="https://fengqingxiuyi.github.io/">青峰</a>创作并维护；本网站采用<a rel="external" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>进行许可。转载请注明作者及出处。</p>
-<p>本文永久链接：<a href="https://fengqingxiuyi.github.io/2016/08/14/Android/Wiki/将layout转换为Bitmap/">https://fengqingxiuyi.github.io/2016/08/14/Android/Wiki/将layout转换为Bitmap/</a></p>
+<p>本文永久链接：<a href="https://fengqingxiuyi.github.io/2016/11/02/ShowJoy/ShowJoy开发记录/">https://fengqingxiuyi.github.io/2016/11/02/ShowJoy/ShowJoy开发记录/</a></p>
 
       
     </div>
@@ -431,28 +486,18 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/Wiki/" rel="tag">#Wiki</a>
-          
-        </div>
-      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/08/14/Android/Wiki/获取指定包名下的Activity/" rel="next" title="获取指定包名下的Activity">
-                <i class="fa fa-chevron-left"></i> 获取指定包名下的Activity
+              <a href="/2016/10/05/Android/Wiki/输入法的显示与隐藏/" rel="next" title="输入法的显示与隐藏">
+                <i class="fa fa-chevron-left"></i> 输入法的显示与隐藏
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/08/14/Android/Wiki/接口回调/" rel="prev" title="接口回调">
-                接口回调 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -479,8 +524,8 @@
   <div class="comments" id="comments">
     
       <!-- 多说评论框 start -->
-      <div class="ds-thread" data-thread-key="2016/08/14/Android/Wiki/将layout转换为Bitmap/"
-           data-title="将layout转换为Bitmap" data-url="https://fengqingxiuyi.github.io/2016/08/14/Android/Wiki/将layout转换为Bitmap/">
+      <div class="ds-thread" data-thread-key="2016/11/02/ShowJoy/ShowJoy开发记录/"
+           data-title="ShowJoy开发记录" data-url="https://fengqingxiuyi.github.io/2016/11/02/ShowJoy/ShowJoy开发记录/">
       </div>
       <!-- 多说评论框 end -->
       <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
@@ -653,7 +698,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#常用命令"><span class="nav-number">1.</span> <span class="nav-text">常用命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Gradle"><span class="nav-number">1.1.</span> <span class="nav-text">Gradle</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#gradle-–stop"><span class="nav-number">1.1.1.</span> <span class="nav-text">gradle –stop</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gradle-shopandroid-dependencies-gt-dependencies-txt"><span class="nav-number">1.1.2.</span> <span class="nav-text">gradle shopandroid:dependencies > dependencies.txt</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#解释"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">解释</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#作用"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">作用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#例子"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">例子</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Adb"><span class="nav-number">1.2.</span> <span class="nav-text">Adb</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#adb-shell-dumpsys-activity-grep-mFocusedActivity"><span class="nav-number">1.2.1.</span> <span class="nav-text">adb shell dumpsys activity | grep mFocusedActivity</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#adb-logcat-d-gt-logcat-txt"><span class="nav-number">1.2.2.</span> <span class="nav-text">adb logcat -d > logcat.txt</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#add-pull-sdcard-shop-crash"><span class="nav-number">1.2.3.</span> <span class="nav-text">add pull sdcard/shop-crash</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux"><span class="nav-number">1.3.</span> <span class="nav-text">Linux</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#find"><span class="nav-number">1.3.1.</span> <span class="nav-text">find</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#find-name-“-”-xargs-rm-rf"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">find . -name “._*” |xargs rm -rf</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#注意事项"><span class="nav-number">2.</span> <span class="nav-text">注意事项</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#混淆文件位置"><span class="nav-number">2.1.</span> <span class="nav-text">混淆文件位置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mapping-txt"><span class="nav-number">2.2.</span> <span class="nav-text">mapping.txt</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Gradle-Compile"><span class="nav-number">2.3.</span> <span class="nav-text">Gradle - Compile</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#例子-1"><span class="nav-number">2.3.1.</span> <span class="nav-text">例子</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#简要解释"><span class="nav-number">2.3.1.1.</span> <span class="nav-text">简要解释</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解答"><span class="nav-number">2.3.2.</span> <span class="nav-text">解答</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#疑问"><span class="nav-number">2.3.3.</span> <span class="nav-text">疑问</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解答-1"><span class="nav-number">2.3.4.</span> <span class="nav-text">解答</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么要排除依赖"><span class="nav-number">2.3.5.</span> <span class="nav-text">为什么要排除依赖</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#杂七杂八"><span class="nav-number">3.</span> <span class="nav-text">杂七杂八</span></a></li></ol></div>
             
           </div>
         </section>
