@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://fengqingxiuyi.github.io/"/>
-  <updated>2016-11-08T02:56:00.000Z</updated>
+  <updated>2016-11-08T07:39:36.000Z</updated>
   <id>https://fengqingxiuyi.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://fengqingxiuyi.github.io/2016/11/02/ShowJoy/ShowJoy%E5%BC%80%E5%8F%91%E8%AE%B0%E5%BD%95/"/>
     <id>https://fengqingxiuyi.github.io/2016/11/02/ShowJoy/ShowJoy开发记录/</id>
     <published>2016-11-02T08:05:15.000Z</published>
-    <updated>2016-11-08T02:56:00.000Z</updated>
+    <updated>2016-11-08T07:39:36.000Z</updated>
     
     <content type="html"><![CDATA[<p><strong><em>未编写部分的地方都使用了 // TODO 来进行占位。</em></strong></p>
 <p>主要包括：常用命令、注意事项、杂七杂八。</p>
@@ -59,6 +59,9 @@
 <p>实际案例：ShopAndroid项目的1.3.0-1.3.5版本都是在release/1.3.0分支上构建的。</p>
 <p>Gitlab地址：<a href="http://git.showjoy.net/shopandroid/shopandroid/commits/release/1.3.0" target="_blank" rel="external">http://git.showjoy.net/shopandroid/shopandroid/commits/release/1.3.0</a></p>
 <p>Jenkins地址：<a href="https://wireless-build.showjoy.net/view/达人店/job/ShopAndroid-release-1.3.0/" target="_blank" rel="external">https://wireless-build.showjoy.net/view/达人店/job/ShopAndroid-release-1.3.0/</a></p>
+<h2 id="Instant-Run"><a href="#Instant-Run" class="headerlink" title="Instant Run"></a>Instant Run</h2><p>因为 Instant Run 不支持混淆，所以在调试运行的时候，生成APK内包含的方法数就很有很大几率超过65536。</p>
+<p>这个时候可以在 AndroidStudio 的设置页面关闭 Instant Run ，即不勾选enable，再调试运行，就会混淆代码，从而减少方法数。</p>
+<p>如果即使混淆了，方法数还是超过65536，这个时候，就需要dex分包处理了。</p>
 <h2 id="修改子模块流程"><a href="#修改子模块流程" class="headerlink" title="修改子模块流程"></a>修改子模块流程</h2><ol>
 <li>子模块新拉分支A</li>
 <li>子模块依赖改为本地模块</li>
