@@ -359,9 +359,8 @@
           
 
           
-            &nbsp; | &nbsp;
             <span id="/2016/08/13/Android/支付宝/支付宝支付-注意点/"class="leancloud_visitors" data-flag-title="支付宝支付-注意点">
-              &nbsp;阅读次数
+              &nbsp; | &nbsp; 阅读次数
             </span>
           
 
@@ -1040,13 +1039,13 @@ function showTime(Counter) {
         query.find({
             success: function(results) {
                 if (results.length == 0) {
-                    var content = '0 ' + $(document.getElementById(url)).text();
+                    var content = $(document.getElementById(url)).text() + ': 0';
                     $(document.getElementById(url)).text(content);
                     return;
                 }
                 for (var i = 0; i < results.length; i++) {
                     var object = results[i];
-                    var content = object.get('time') + ' ' + $(document.getElementById(url)).text();
+                    var content = $(document.getElementById(url)).text() + ': ' + object.get('time');
                     $(document.getElementById(url)).text(content);
                 }
             },
@@ -1054,10 +1053,8 @@ function showTime(Counter) {
                 console.log("Error: " + error.code + " " + error.message);
             }
         });
-
     });
 }
-
 function addCount(Counter) {
     var Counter = AV.Object.extend("Counter");
     url = $(".leancloud_visitors").attr('id').trim();
@@ -1072,7 +1069,7 @@ function addCount(Counter) {
                 counter.increment("time");
                 counter.save(null, {
                     success: function(counter) {
-                        var content =  counter.get('time') + ' ' + $(document.getElementById(url)).text();
+                        var content = $(document.getElementById(url)).text() + ': ' + counter.get('time');
                         $(document.getElementById(url)).text(content);
                     },
                     error: function(counter, error) {
@@ -1087,7 +1084,7 @@ function addCount(Counter) {
                 newcounter.save(null, {
                     success: function(newcounter) {
                         console.log("newcounter.get('time')="+newcounter.get('time'));
-                        var content = newcounter.get('time') + ' ' + $(document.getElementById(url)).text();
+                        var content = $(document.getElementById(url)).text() + ': ' + newcounter.get('time');
                         $(document.getElementById(url)).text(content);
                     },
                     error: function(newcounter, error) {

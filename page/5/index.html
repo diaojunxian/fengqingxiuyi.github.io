@@ -355,9 +355,8 @@
           
 
           
-            &nbsp; | &nbsp;
             <span id="/2016/08/13/Android/支付宝/支付宝支付-注意点/"class="leancloud_visitors" data-flag-title="支付宝支付-注意点">
-              &nbsp;阅读次数
+              &nbsp; | &nbsp; 阅读次数
             </span>
           
 
@@ -498,9 +497,8 @@
           
 
           
-            &nbsp; | &nbsp;
             <span id="/2016/08/13/Android/支付宝/支付宝支付-相关网址/"class="leancloud_visitors" data-flag-title="支付宝支付-相关网址">
-              &nbsp;阅读次数
+              &nbsp; | &nbsp; 阅读次数
             </span>
           
 
@@ -652,9 +650,8 @@ iOS&amp;And
           
 
           
-            &nbsp; | &nbsp;
             <span id="/2016/08/13/Android/微信/支付/微信支付-相关网址/"class="leancloud_visitors" data-flag-title="微信支付-相关网址">
-              &nbsp;阅读次数
+              &nbsp; | &nbsp; 阅读次数
             </span>
           
 
@@ -797,9 +794,8 @@ Android资源下载
           
 
           
-            &nbsp; | &nbsp;
             <span id="/2016/08/11/Android/图片/压缩/类微信图片压缩算法/"class="leancloud_visitors" data-flag-title="类微信图片压缩算法">
-              &nbsp;阅读次数
+              &nbsp; | &nbsp; 阅读次数
             </span>
           
 
@@ -940,9 +936,8 @@ Android资源下载
           
 
           
-            &nbsp; | &nbsp;
             <span id="/2016/08/11/Android/图片/压缩/类微信图片压缩使用/"class="leancloud_visitors" data-flag-title="类微信图片压缩使用">
-              &nbsp;阅读次数
+              &nbsp; | &nbsp; 阅读次数
             </span>
           
 
@@ -1084,9 +1079,8 @@ LubanLuban(鲁班)——Android图片压缩工具，仿微信朋友圈压缩策�
           
 
           
-            &nbsp; | &nbsp;
             <span id="/2016/08/11/Android/事件传递机制/细说Android事件传递机制(dispatchTouchEvent、onInterceptTouchEvent、onTouchEvent)/"class="leancloud_visitors" data-flag-title="细说Android事件传递机制(dispatchTouchEvent、onInterceptTouchEvent、onTouchEvent)">
-              &nbsp;阅读次数
+              &nbsp; | &nbsp; 阅读次数
             </span>
           
 
@@ -1227,9 +1221,8 @@ LubanLuban(鲁班)——Android图片压缩工具，仿微信朋友圈压缩策�
           
 
           
-            &nbsp; | &nbsp;
             <span id="/2016/08/10/ShowJoy/View/View注意点/"class="leancloud_visitors" data-flag-title="View注意点">
-              &nbsp;阅读次数
+              &nbsp; | &nbsp; 阅读次数
             </span>
           
 
@@ -1370,9 +1363,8 @@ LubanLuban(鲁班)——Android图片压缩工具，仿微信朋友圈压缩策�
           
 
           
-            &nbsp; | &nbsp;
             <span id="/2016/08/10/ShowJoy/View/ShopEditText/"class="leancloud_visitors" data-flag-title="ShopEditText">
-              &nbsp;阅读次数
+              &nbsp; | &nbsp; 阅读次数
             </span>
           
 
@@ -1512,9 +1504,8 @@ LubanLuban(鲁班)——Android图片压缩工具，仿微信朋友圈压缩策�
           
 
           
-            &nbsp; | &nbsp;
             <span id="/2016/08/10/ShowJoy/View/SHImageView/"class="leancloud_visitors" data-flag-title="SHImageView">
-              &nbsp;阅读次数
+              &nbsp; | &nbsp; 阅读次数
             </span>
           
 
@@ -1655,9 +1646,8 @@ LubanLuban(鲁班)——Android图片压缩工具，仿微信朋友圈压缩策�
           
 
           
-            &nbsp; | &nbsp;
             <span id="/2016/08/10/ShowJoy/View/Android-Relativelayout属性总结/"class="leancloud_visitors" data-flag-title="Android-Relativelayout属性总结">
-              &nbsp;阅读次数
+              &nbsp; | &nbsp; 阅读次数
             </span>
           
 
@@ -2264,13 +2254,13 @@ function showTime(Counter) {
         query.find({
             success: function(results) {
                 if (results.length == 0) {
-                    var content = '0 ' + $(document.getElementById(url)).text();
+                    var content = $(document.getElementById(url)).text() + ': 0';
                     $(document.getElementById(url)).text(content);
                     return;
                 }
                 for (var i = 0; i < results.length; i++) {
                     var object = results[i];
-                    var content = object.get('time') + ' ' + $(document.getElementById(url)).text();
+                    var content = $(document.getElementById(url)).text() + ': ' + object.get('time');
                     $(document.getElementById(url)).text(content);
                 }
             },
@@ -2278,10 +2268,8 @@ function showTime(Counter) {
                 console.log("Error: " + error.code + " " + error.message);
             }
         });
-
     });
 }
-
 function addCount(Counter) {
     var Counter = AV.Object.extend("Counter");
     url = $(".leancloud_visitors").attr('id').trim();
@@ -2296,7 +2284,7 @@ function addCount(Counter) {
                 counter.increment("time");
                 counter.save(null, {
                     success: function(counter) {
-                        var content =  counter.get('time') + ' ' + $(document.getElementById(url)).text();
+                        var content = $(document.getElementById(url)).text() + ': ' + counter.get('time');
                         $(document.getElementById(url)).text(content);
                     },
                     error: function(counter, error) {
@@ -2311,7 +2299,7 @@ function addCount(Counter) {
                 newcounter.save(null, {
                     success: function(newcounter) {
                         console.log("newcounter.get('time')="+newcounter.get('time'));
-                        var content = newcounter.get('time') + ' ' + $(document.getElementById(url)).text();
+                        var content = $(document.getElementById(url)).text() + ': ' + newcounter.get('time');
                         $(document.getElementById(url)).text(content);
                     },
                     error: function(newcounter, error) {

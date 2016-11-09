@@ -355,9 +355,8 @@
           
 
           
-            &nbsp; | &nbsp;
             <span id="/2016/08/14/Android/View/自定义View/属性/属性的设置与使用/"class="leancloud_visitors" data-flag-title="属性的设置与使用">
-              &nbsp;阅读次数
+              &nbsp; | &nbsp; 阅读次数
             </span>
           
 
@@ -497,9 +496,8 @@
           
 
           
-            &nbsp; | &nbsp;
             <span id="/2016/08/14/MGHN/Mac+GitHub+Hexo+NexT使用注意点/"class="leancloud_visitors" data-flag-title="Mac+GitHub+Hexo+NexT使用注意点">
-              &nbsp;阅读次数
+              &nbsp; | &nbsp; 阅读次数
             </span>
           
 
@@ -642,9 +640,8 @@ favicon不显示当我们在搭建Hexo博客的时候，必然会自定义favico
           
 
           
-            &nbsp; | &nbsp;
             <span id="/2016/08/14/Android/View/ListView/ListView-Header/"class="leancloud_visitors" data-flag-title="ListView-Header">
-              &nbsp;阅读次数
+              &nbsp; | &nbsp; 阅读次数
             </span>
           
 
@@ -787,9 +784,8 @@ favicon不显示当我们在搭建Hexo博客的时候，必然会自定义favico
           
 
           
-            &nbsp; | &nbsp;
             <span id="/2016/08/14/Android/Wiki/TextView占位符/"class="leancloud_visitors" data-flag-title="TextView占位符">
-              &nbsp;阅读次数
+              &nbsp; | &nbsp; 阅读次数
             </span>
           
 
@@ -931,9 +927,8 @@ favicon不显示当我们在搭建Hexo博客的时候，必然会自定义favico
           
 
           
-            &nbsp; | &nbsp;
             <span id="/2016/08/14/Android/Wiki/ImageView引用图片上下方空白/"class="leancloud_visitors" data-flag-title="ImageView引用图片上下方空白">
-              &nbsp;阅读次数
+              &nbsp; | &nbsp; 阅读次数
             </span>
           
 
@@ -1074,9 +1069,8 @@ favicon不显示当我们在搭建Hexo博客的时候，必然会自定义favico
           
 
           
-            &nbsp; | &nbsp;
             <span id="/2016/08/14/Android/Wiki/设置Hint字体大小/"class="leancloud_visitors" data-flag-title="设置Hint字体大小">
-              &nbsp;阅读次数
+              &nbsp; | &nbsp; 阅读次数
             </span>
           
 
@@ -1218,9 +1212,8 @@ favicon不显示当我们在搭建Hexo博客的时候，必然会自定义favico
           
 
           
-            &nbsp; | &nbsp;
             <span id="/2016/08/14/Android/Wiki/接口回调/"class="leancloud_visitors" data-flag-title="接口回调">
-              &nbsp;阅读次数
+              &nbsp; | &nbsp; 阅读次数
             </span>
           
 
@@ -1363,9 +1356,8 @@ favicon不显示当我们在搭建Hexo博客的时候，必然会自定义favico
           
 
           
-            &nbsp; | &nbsp;
             <span id="/2016/08/14/Android/Wiki/将layout转换为Bitmap/"class="leancloud_visitors" data-flag-title="将layout转换为Bitmap">
-              &nbsp;阅读次数
+              &nbsp; | &nbsp; 阅读次数
             </span>
           
 
@@ -1507,9 +1499,8 @@ favicon不显示当我们在搭建Hexo博客的时候，必然会自定义favico
           
 
           
-            &nbsp; | &nbsp;
             <span id="/2016/08/14/Android/Wiki/获取指定包名下的Activity/"class="leancloud_visitors" data-flag-title="获取指定包名下的Activity">
-              &nbsp;阅读次数
+              &nbsp; | &nbsp; 阅读次数
             </span>
           
 
@@ -1649,9 +1640,8 @@ Activity类文件12345678910111213141516171819202122232425262728public void getA
           
 
           
-            &nbsp; | &nbsp;
             <span id="/2016/08/13/Android/模板/Android模板制作/"class="leancloud_visitors" data-flag-title="Android模板制作">
-              &nbsp;阅读次数
+              &nbsp; | &nbsp; 阅读次数
             </span>
           
 
@@ -2267,13 +2257,13 @@ function showTime(Counter) {
         query.find({
             success: function(results) {
                 if (results.length == 0) {
-                    var content = '0 ' + $(document.getElementById(url)).text();
+                    var content = $(document.getElementById(url)).text() + ': 0';
                     $(document.getElementById(url)).text(content);
                     return;
                 }
                 for (var i = 0; i < results.length; i++) {
                     var object = results[i];
-                    var content = object.get('time') + ' ' + $(document.getElementById(url)).text();
+                    var content = $(document.getElementById(url)).text() + ': ' + object.get('time');
                     $(document.getElementById(url)).text(content);
                 }
             },
@@ -2281,10 +2271,8 @@ function showTime(Counter) {
                 console.log("Error: " + error.code + " " + error.message);
             }
         });
-
     });
 }
-
 function addCount(Counter) {
     var Counter = AV.Object.extend("Counter");
     url = $(".leancloud_visitors").attr('id').trim();
@@ -2299,7 +2287,7 @@ function addCount(Counter) {
                 counter.increment("time");
                 counter.save(null, {
                     success: function(counter) {
-                        var content =  counter.get('time') + ' ' + $(document.getElementById(url)).text();
+                        var content = $(document.getElementById(url)).text() + ': ' + counter.get('time');
                         $(document.getElementById(url)).text(content);
                     },
                     error: function(counter, error) {
@@ -2314,7 +2302,7 @@ function addCount(Counter) {
                 newcounter.save(null, {
                     success: function(newcounter) {
                         console.log("newcounter.get('time')="+newcounter.get('time'));
-                        var content = newcounter.get('time') + ' ' + $(document.getElementById(url)).text();
+                        var content = $(document.getElementById(url)).text() + ': ' + newcounter.get('time');
                         $(document.getElementById(url)).text(content);
                     },
                     error: function(newcounter, error) {
