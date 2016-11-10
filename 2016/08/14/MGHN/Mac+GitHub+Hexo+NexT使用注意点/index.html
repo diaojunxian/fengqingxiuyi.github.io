@@ -294,6 +294,8 @@ favicon不显示当我们在搭建Hexo博客的时候，必然会自定义favico
             
 
   <div id="posts" class="posts-expand">
+    #render方法第二个参数is_index为是否为首页
+    #第三个参数is_pv为我们刚才设置的是否显示计数
     
 
   
@@ -364,11 +366,11 @@ favicon不显示当我们在搭建Hexo博客的时候，必然会自定义favico
           
 
           
-
-          
-            <span id="/2016/08/14/MGHN/Mac+GitHub+Hexo+NexT使用注意点/"class="leancloud_visitors" data-flag-title="Mac+GitHub+Hexo+NexT使用注意点">
-              &nbsp; | &nbsp; 阅读次数
+            <span>&nbsp; | &nbsp;
+              <span id="busuanzi_value_page_pv" ></span>次阅读
             </span>
+          
+
           
 
           
@@ -663,7 +665,10 @@ favicon不显示当我们在搭建Hexo博客的时候，必然会自定义favico
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+<div class="copyright" >
   
   &copy; 
   <span itemprop="copyrightYear">2016</span>
@@ -683,6 +688,16 @@ favicon不显示当我们在搭建Hexo博客的时候，必然会自定义favico
     NexT.Mist
   </a>
 </div>
+
+<span id="busuanzi_container_site_pv">
+    本站总访问量<span id="busuanzi_value_site_pv"></span>&nbsp;&nbsp;
+</span>
+
+<span id="busuanzi_container_site_uv">
+  您是第<span id="busuanzi_value_site_uv"></span>个来到的小伙伴
+</span>
+
+
 
         
 
@@ -924,9 +939,6 @@ favicon不显示当我们在搭建Hexo博客的时候，必然会自定义favico
   
 
   
-
-  
-    
 
   
   <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
