@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://fengqingxiuyi.github.io/"/>
-  <updated>2016-11-10T08:40:02.000Z</updated>
+  <updated>2016-11-10T09:56:16.000Z</updated>
   <id>https://fengqingxiuyi.github.io/</id>
   
   <author>
@@ -14,6 +14,22 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Sublime Text 3折腾记录</title>
+    <link href="https://fengqingxiuyi.github.io/2016/11/10/%E5%9F%BA%E6%9C%AC%E5%B7%A5%E5%85%B7/Sublime/Sublime%20Text%203%E6%8A%98%E8%85%BE%E8%AE%B0%E5%BD%95/"/>
+    <id>https://fengqingxiuyi.github.io/2016/11/10/基本工具/Sublime/Sublime Text 3折腾记录/</id>
+    <published>2016-11-10T09:55:19.000Z</published>
+    <updated>2016-11-10T09:56:16.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+      <category term="基本工具" scheme="https://fengqingxiuyi.github.io/categories/%E5%9F%BA%E6%9C%AC%E5%B7%A5%E5%85%B7/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>tinypng的使用</title>
@@ -48,6 +64,40 @@
   </entry>
   
   <entry>
+    <title>模块版本更新流程</title>
+    <link href="https://fengqingxiuyi.github.io/2016/11/10/ShowJoy/%E6%A8%A1%E5%9D%97/%E6%A8%A1%E5%9D%97%E7%89%88%E6%9C%AC%E6%9B%B4%E6%96%B0%E6%B5%81%E7%A8%8B/"/>
+    <id>https://fengqingxiuyi.github.io/2016/11/10/ShowJoy/模块/模块版本更新流程/</id>
+    <published>2016-11-10T08:12:15.000Z</published>
+    <updated>2016-11-10T08:17:26.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>案例持续更新…</p>
+<h1 id="案例1"><a href="#案例1" class="headerlink" title="案例1"></a>案例1</h1><p>工程中包含<code>主模块</code>、<code>子模块A</code>、<code>子模块B</code>，其中<code>主模块</code>依赖<code>子模块A</code>和<code>子模块B</code>，<code>子模块A</code>也依赖<code>子模块B</code>。现在<code>子模块B</code>发现了Bug，需要解决Bug并更新版本。</p>
+<h2 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h2><p>当<code>子模块B</code>更新版本后，提交到Gitlab，并使用Jenkins成功构建后，<strong><em>我们不需要更新 子模块A 中 子模块B 的版本，只需要更新 主模块 中 子模块B 的版本，如果出现版本冲突，比如说现在 主模块 依赖 子模块A ，主模块 又依赖了 新子模块B 的版本，只需要把不必要的版本依赖 剔除 即可</em></strong></p>
+<h2 id="主要原理"><a href="#主要原理" class="headerlink" title="主要原理"></a>主要原理</h2><p>工程 Build 后，一个模块只会存在一个版本，否则就会出现版本<font color="red">依赖冲突</font>！！！</p>
+<h1 id="案例2"><a href="#案例2" class="headerlink" title="案例2"></a>案例2</h1><p>工程中包含<code>主模块</code>、<code>子模块A</code>、<code>子模块B</code>，其中<code>主模块</code>依赖<code>子模块A</code>和<code>子模块B</code>，<code>子模块B</code>又依赖<code>子模块A</code>。此时<code>子模块A</code>改变了内容，需要版本更新，同时也涉及到了<code>子模块B</code>中的某些改动。</p>
+<h2 id="注意点-1"><a href="#注意点-1" class="headerlink" title="注意点"></a>注意点</h2><p>此时当<code>子模块A</code>更新版本后，同时需要更改<code>子模块B</code>依赖的<code>子模块A</code>的版本，同时也需要更新<code>子模块B</code>的版本，并进行项目构建。</p>
+<h2 id="主要原理-1"><a href="#主要原理-1" class="headerlink" title="主要原理"></a>主要原理</h2><p>如果不更改<code>子模块B</code>依赖的<code>子模块A</code>的版本，那么<code>子模块B</code>将编译不过。</p>
+<hr>
+<p><strong>版权声明</strong></p>
+<p><a rel="external" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"></a><br>本网站如未注明转载，均由<a href="https://fengqingxiuyi.github.io/">青峰</a>创作并维护；本网站采用<a rel="external" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>进行许可。转载请注明作者及出处。</p>
+<p>本文永久链接：<a href="https://fengqingxiuyi.github.io/2016/11/10/ShowJoy/模块/模块版本更新流程/">https://fengqingxiuyi.github.io/2016/11/10/ShowJoy/模块/模块版本更新流程/</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;案例持续更新…&lt;/p&gt;
+&lt;h1 id=&quot;案例1&quot;&gt;&lt;a href=&quot;#案例1&quot; class=&quot;headerlink&quot; title=&quot;案例1&quot;&gt;&lt;/a&gt;案例1&lt;/h1&gt;&lt;p&gt;工程中包含&lt;code&gt;主模块&lt;/code&gt;、&lt;code&gt;子模块A&lt;/code&gt;、&lt;code&gt;子模块B&lt;
+    
+    </summary>
+    
+      <category term="ShowJoy" scheme="https://fengqingxiuyi.github.io/categories/ShowJoy/"/>
+    
+    
+      <category term="模块" scheme="https://fengqingxiuyi.github.io/tags/%E6%A8%A1%E5%9D%97/"/>
+    
+  </entry>
+  
+  <entry>
     <title>抽离模块注意点</title>
     <link href="https://fengqingxiuyi.github.io/2016/11/10/ShowJoy/%E6%A8%A1%E5%9D%97/%E6%8A%BD%E7%A6%BB%E6%A8%A1%E5%9D%97%E6%B3%A8%E6%84%8F%E7%82%B9/"/>
     <id>https://fengqingxiuyi.github.io/2016/11/10/ShowJoy/模块/抽离模块注意点/</id>
@@ -72,40 +122,6 @@
     
       &lt;p&gt;注意点持续更新…&lt;/p&gt;
 &lt;h1 id=&quot;注意点1&quot;&gt;&lt;a href=&quot;#注意点1&quot; class=&quot;headerlink&quot; title=&quot;注意点1&quot;&gt;&lt;/a&gt;注意点1&lt;/h1&gt;&lt;p&gt;模块抽离，除了要删除不需要的文件外，最重要的是不要更改【java文件root路径】，一旦修改
-    
-    </summary>
-    
-      <category term="ShowJoy" scheme="https://fengqingxiuyi.github.io/categories/ShowJoy/"/>
-    
-    
-      <category term="模块" scheme="https://fengqingxiuyi.github.io/tags/%E6%A8%A1%E5%9D%97/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>模块版本更新流程</title>
-    <link href="https://fengqingxiuyi.github.io/2016/11/10/ShowJoy/%E6%A8%A1%E5%9D%97/%E6%A8%A1%E5%9D%97%E7%89%88%E6%9C%AC%E6%9B%B4%E6%96%B0%E6%B5%81%E7%A8%8B/"/>
-    <id>https://fengqingxiuyi.github.io/2016/11/10/ShowJoy/模块/模块版本更新流程/</id>
-    <published>2016-11-10T08:12:15.000Z</published>
-    <updated>2016-11-10T08:17:26.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>案例持续更新…</p>
-<h1 id="案例1"><a href="#案例1" class="headerlink" title="案例1"></a>案例1</h1><p>工程中包含<code>主模块</code>、<code>子模块A</code>、<code>子模块B</code>，其中<code>主模块</code>依赖<code>子模块A</code>和<code>子模块B</code>，<code>子模块A</code>也依赖<code>子模块B</code>。现在<code>子模块B</code>发现了Bug，需要解决Bug并更新版本。</p>
-<h2 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h2><p>当<code>子模块B</code>更新版本后，提交到Gitlab，并使用Jenkins成功构建后，<strong><em>我们不需要更新 子模块A 中 子模块B 的版本，只需要更新 主模块 中 子模块B 的版本，如果出现版本冲突，比如说现在 主模块 依赖 子模块A ，主模块 又依赖了 新子模块B 的版本，只需要把不必要的版本依赖 剔除 即可</em></strong></p>
-<h2 id="主要原理"><a href="#主要原理" class="headerlink" title="主要原理"></a>主要原理</h2><p>工程 Build 后，一个模块只会存在一个版本，否则就会出现版本<font color="red">依赖冲突</font>！！！</p>
-<h1 id="案例2"><a href="#案例2" class="headerlink" title="案例2"></a>案例2</h1><p>工程中包含<code>主模块</code>、<code>子模块A</code>、<code>子模块B</code>，其中<code>主模块</code>依赖<code>子模块A</code>和<code>子模块B</code>，<code>子模块B</code>又依赖<code>子模块A</code>。此时<code>子模块A</code>改变了内容，需要版本更新，同时也涉及到了<code>子模块B</code>中的某些改动。</p>
-<h2 id="注意点-1"><a href="#注意点-1" class="headerlink" title="注意点"></a>注意点</h2><p>此时当<code>子模块A</code>更新版本后，同时需要更改<code>子模块B</code>依赖的<code>子模块A</code>的版本，同时也需要更新<code>子模块B</code>的版本，并进行项目构建。</p>
-<h2 id="主要原理-1"><a href="#主要原理-1" class="headerlink" title="主要原理"></a>主要原理</h2><p>如果不更改<code>子模块B</code>依赖的<code>子模块A</code>的版本，那么<code>子模块B</code>将编译不过。</p>
-<hr>
-<p><strong>版权声明</strong></p>
-<p><a rel="external" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"></a><br>本网站如未注明转载，均由<a href="https://fengqingxiuyi.github.io/">青峰</a>创作并维护；本网站采用<a rel="external" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>进行许可。转载请注明作者及出处。</p>
-<p>本文永久链接：<a href="https://fengqingxiuyi.github.io/2016/11/10/ShowJoy/模块/模块版本更新流程/">https://fengqingxiuyi.github.io/2016/11/10/ShowJoy/模块/模块版本更新流程/</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;案例持续更新…&lt;/p&gt;
-&lt;h1 id=&quot;案例1&quot;&gt;&lt;a href=&quot;#案例1&quot; class=&quot;headerlink&quot; title=&quot;案例1&quot;&gt;&lt;/a&gt;案例1&lt;/h1&gt;&lt;p&gt;工程中包含&lt;code&gt;主模块&lt;/code&gt;、&lt;code&gt;子模块A&lt;/code&gt;、&lt;code&gt;子模块B&lt;
     
     </summary>
     
@@ -731,49 +747,6 @@
     
     
       <category term="Python基础" scheme="https://fengqingxiuyi.github.io/tags/Python%E5%9F%BA%E7%A1%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Gradle命令</title>
-    <link href="https://fengqingxiuyi.github.io/2016/08/24/%E5%91%BD%E4%BB%A4/Gradle%E5%91%BD%E4%BB%A4/"/>
-    <id>https://fengqingxiuyi.github.io/2016/08/24/命令/Gradle命令/</id>
-    <published>2016-08-24T03:50:49.000Z</published>
-    <updated>2016-08-24T03:54:36.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="序"><a href="#序" class="headerlink" title="序"></a>序</h1><ol>
-<li>本文仅用作记录，持续更新</li>
-<li>所有命令都在AndroidStudio的Terminal中执行，Terminal默认打开位置为当前Project的根目录</li>
-</ol>
-<h1 id="官方文档"><a href="#官方文档" class="headerlink" title="官方文档"></a>官方文档</h1><p><a href="https://docs.gradle.org/current/userguide/userguide_single.html" target="_blank" rel="external">Gradle User Guide</a>不仅包含了Gradle的安装与命令行的使用，更有其他各种知识的介绍，它的一级目录如下所示：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">I. About Gradle</div><div class="line"></div><div class="line">II. Working with existing builds</div><div class="line"></div><div class="line">III. Writing Gradle build scripts</div><div class="line"></div><div class="line">IV. Extending the build</div><div class="line"></div><div class="line">V. Building JVM projects</div><div class="line"></div><div class="line">VI. The Software model - Next generation Gradle builds</div><div class="line"></div><div class="line">VII. Appendix</div><div class="line"></div><div class="line">List of Examples</div></pre></td></tr></table></figure>
-<h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1><h2 id="Listing-projects"><a href="#Listing-projects" class="headerlink" title="Listing projects"></a>Listing projects</h2><p>Running gradle projects gives you a list of the sub-projects of the selected project, displayed in a hierarchy. Here is an example:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">$ gradle -q projects</div><div class="line"></div><div class="line">------------------------------------------------------------</div><div class="line">Root project</div><div class="line">------------------------------------------------------------</div><div class="line"></div><div class="line">Root project <span class="string">'projectReports'</span></div><div class="line">+--- Project <span class="string">':api'</span> - The shared API <span class="keyword">for</span> the application</div><div class="line">\--- Project <span class="string">':webapp'</span> - The Web application implementation</div><div class="line"></div><div class="line">To see a list of the tasks of a project, run gradle &lt;project-path&gt;:tasks</div><div class="line">For example, try running gradle :api:tasks</div></pre></td></tr></table></figure>
-<h2 id="Listing-project-dependencies"><a href="#Listing-project-dependencies" class="headerlink" title="Listing project dependencies"></a>Listing project dependencies</h2><p>Running gradle dependencies gives you a list of the dependencies of the selected project, broken down by configuration. For each configuration, the direct and transitive dependencies of that configuration are shown in a tree. Below is an example of this report:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">$ gradle -q dependencies api:dependencies webapp:dependencies</div><div class="line"></div><div class="line">------------------------------------------------------------</div><div class="line">Root project</div><div class="line">------------------------------------------------------------</div><div class="line"></div><div class="line">No configurations</div><div class="line"></div><div class="line">------------------------------------------------------------</div><div class="line">Project :api - The shared API <span class="keyword">for</span> the application</div><div class="line">------------------------------------------------------------</div><div class="line"></div><div class="line">compile</div><div class="line">\--- org.codehaus.groovy:groovy-all:2.4.7</div><div class="line"></div><div class="line"><span class="built_in">test</span>Compile</div><div class="line">\--- junit:junit:4.12</div><div class="line">     \--- org.hamcrest:hamcrest-core:1.3</div><div class="line"></div><div class="line">------------------------------------------------------------</div><div class="line">Project :webapp - The Web application implementation</div><div class="line">------------------------------------------------------------</div><div class="line"></div><div class="line">compile</div><div class="line">+--- project :api</div><div class="line">|    \--- org.codehaus.groovy:groovy-all:2.4.7</div><div class="line">\--- commons-io:commons-io:1.2</div><div class="line"></div><div class="line"><span class="built_in">test</span>Compile</div><div class="line">No dependencies</div></pre></td></tr></table></figure>
-<h3 id="Filtering-dependency-report-by-configuration"><a href="#Filtering-dependency-report-by-configuration" class="headerlink" title="Filtering dependency report by configuration"></a>Filtering dependency report by configuration</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$ gradle -q api:dependencies --configuration <span class="built_in">test</span>Compile</div><div class="line"></div><div class="line">------------------------------------------------------------</div><div class="line">Project :api - The shared API <span class="keyword">for</span> the application</div><div class="line">------------------------------------------------------------</div><div class="line"></div><div class="line"><span class="built_in">test</span>Compile</div><div class="line">\--- junit:junit:4.12</div><div class="line">     \--- org.hamcrest:hamcrest-core:1.3</div></pre></td></tr></table></figure>
-<h2 id="Listing-project-properties"><a href="#Listing-project-properties" class="headerlink" title="Listing project properties"></a>Listing project properties</h2><p>Running gradle properties gives you a list of the properties of the selected project. This is a snippet from the output:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">$ gradle -q api:properties</div><div class="line"></div><div class="line">------------------------------------------------------------</div><div class="line">Project :api - The shared API <span class="keyword">for</span> the application</div><div class="line">------------------------------------------------------------</div><div class="line"></div><div class="line">allprojects: [project <span class="string">':api'</span>]</div><div class="line">ant: org.gradle.api.internal.project.DefaultAntBuilder@12345</div><div class="line">antBuilderFactory: org.gradle.api.internal.project.DefaultAntBuilderFactory@12345</div><div class="line">artifacts: org.gradle.api.internal.artifacts.dsl.DefaultArtifactHandler_Decorated@12345</div><div class="line">asDynamicObject: DynamicObject <span class="keyword">for</span> project <span class="string">':api'</span></div><div class="line">baseClassLoaderScope: org.gradle.api.internal.initialization.DefaultClassLoaderScope@12345</div><div class="line">buildDir: /home/user/gradle/samples/userguide/tutorial/projectReports/api/build</div><div class="line">buildFile: /home/user/gradle/samples/userguide/tutorial/projectReports/api/build.gradle</div></pre></td></tr></table></figure>
-<h2 id="打包命令"><a href="#打包命令" class="headerlink" title="打包命令"></a>打包命令</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ gradle assembleRelease</div></pre></td></tr></table></figure>
-<p>注意：使用以上命令打包时，如果未用签名文件，使用debug mode的debug签名，那只会在<code>build/outputs/apk/</code>下生成一个debug签名的apk；如果使用了签名文件，则会在<code>build/outputs/apk/</code>下生成未签名的apk和已经签名的apk。</p>
-<h1 id="将命令输出内容写入文件"><a href="#将命令输出内容写入文件" class="headerlink" title="将命令输出内容写入文件"></a>将命令输出内容写入文件</h1><p>本人未全部测试，根据测试的一部分+猜测，所有的gradle命令输出内容均可以由以下方式写入文件中</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ gradle 具体命令 &gt; 输出文件路径</div><div class="line"></div><div class="line">例如：</div><div class="line"></div><div class="line">gradle app:dependencies &gt; dependencies.txt</div></pre></td></tr></table></figure>
-<hr>
-<p><strong>版权声明</strong></p>
-<p><a rel="external" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"></a><br>本网站如未注明转载，均由<a href="https://fengqingxiuyi.github.io/">青峰</a>创作并维护；本网站采用<a rel="external" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>进行许可。转载请注明作者及出处。</p>
-<p>本文永久链接：<a href="https://fengqingxiuyi.github.io/2016/08/24/命令/Gradle命令/">https://fengqingxiuyi.github.io/2016/08/24/命令/Gradle命令/</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;序&quot;&gt;&lt;a href=&quot;#序&quot; class=&quot;headerlink&quot; title=&quot;序&quot;&gt;&lt;/a&gt;序&lt;/h1&gt;&lt;ol&gt;
-&lt;li&gt;本文仅用作记录，持续更新&lt;/li&gt;
-&lt;li&gt;所有命令都在AndroidStudio的Terminal中执行，Terminal默认打开位置
-    
-    </summary>
-    
-      <category term="命令" scheme="https://fengqingxiuyi.github.io/categories/%E5%91%BD%E4%BB%A4/"/>
-    
     
   </entry>
   
