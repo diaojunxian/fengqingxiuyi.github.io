@@ -105,6 +105,7 @@
 
 
 <meta name="description" content="未编写部分的地方都使用了 // TODO 来进行占位。
+
 主要包括：常用命令、注意事项、杂七杂八。
 常用命令Gradle命令输入位置：AndroidStudio-Terminal
 gradle –stop标题中的命令错误：应该为gradle --stop，注意是两个-符号！！！
@@ -115,16 +116,18 @@ gradle shopandroid:dependencies &amp;gt;">
 <meta property="og:url" content="https://fengqingxiuyi.github.io/2016/11/02/ShowJoy/ShowJoy开发记录/index.html">
 <meta property="og:site_name" content="风清袖一的博客">
 <meta property="og:description" content="未编写部分的地方都使用了 // TODO 来进行占位。
+
 主要包括：常用命令、注意事项、杂七杂八。
 常用命令Gradle命令输入位置：AndroidStudio-Terminal
 gradle –stop标题中的命令错误：应该为gradle --stop，注意是两个-符号！！！
 作用：可以快速停止 gradle 启动的进程。
 gradle shopandroid:dependencies &amp;gt;">
 <meta property="og:image" content="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png">
-<meta property="og:updated_time" content="2016-11-08T07:39:36.000Z">
+<meta property="og:updated_time" content="2016-11-10T07:59:26.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ShowJoy开发记录">
 <meta name="twitter:description" content="未编写部分的地方都使用了 // TODO 来进行占位。
+
 主要包括：常用命令、注意事项、杂七杂八。
 常用命令Gradle命令输入位置：AndroidStudio-Terminal
 gradle –stop标题中的命令错误：应该为gradle --stop，注意是两个-符号！！！
@@ -395,7 +398,8 @@ gradle shopandroid:dependencies &amp;gt;">
       
 
       
-        <p><strong><em>未编写部分的地方都使用了 // TODO 来进行占位。</em></strong></p>
+        <font color="red"><strong><em>未编写部分的地方都使用了 // TODO 来进行占位。</em></strong></font>
+
 <p>主要包括：常用命令、注意事项、杂七杂八。</p>
 <h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1><h2 id="Gradle"><a href="#Gradle" class="headerlink" title="Gradle"></a>Gradle</h2><p>命令输入位置：AndroidStudio-Terminal</p>
 <h3 id="gradle-–stop"><a href="#gradle-–stop" class="headerlink" title="gradle –stop"></a>gradle –stop</h3><p>标题中的命令错误：应该为<code>gradle --stop</code>，注意是两个<code>-</code>符号！！！</p>
@@ -442,7 +446,7 @@ gradle shopandroid:dependencies &amp;gt;">
 <li>上传代码到分支A</li>
 <li>告诉评审人员 分支A名称 进行评审</li>
 <li>评审有问题，回到第3步</li>
-<li>评审通过后，将代码合并到master分支（合并的方法是，先合并master代码到分支A, 自测成功。再将分支A的代码合并到master）</li>
+<li>评审通过后，将代码<font color="red">合并</font>到master分支，而不是<font color="blue">拉取</font>（合并的方法是，先合并master代码到分支A, 自测成功。再将分支A的代码合并到master）</li>
 <li>修改master分支的版本，Jenkins项目构建，打tag并push</li>
 </ol>
 <h2 id="Gradle-Compile"><a href="#Gradle-Compile" class="headerlink" title="Gradle - Compile"></a>Gradle - Compile</h2><h3 id="例子-1"><a href="#例子-1" class="headerlink" title="例子"></a>例子</h3><p>比较下面两个语句块的不同</p>
@@ -457,7 +461,7 @@ gradle shopandroid:dependencies &amp;gt;">
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">xmlns</span>=<span class="string">"http://maven.apache.org/POM/4.0.0"</span> <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.showjoy.shop<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>common<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.3.4<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">packaging</span>&gt;</span>aar<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>shopandroid_common<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">description</span>&gt;</span>Uploads all artifacts belonging to configuration ':shopandroid_common:archives'<span class="tag">&lt;/<span class="name">description</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.showjoy.android<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>storage<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0.8<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">scope</span>&gt;</span>compile<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.showjoy.network<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>library<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.1.14<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">scope</span>&gt;</span>compile<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">exclusions</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">exclusion</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>support-annotations<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.android.support<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">                <span class="tag">&lt;/<span class="name">exclusion</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">exclusion</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>utils-log<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.showjoy.android<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">                <span class="tag">&lt;/<span class="name">exclusion</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">exclusions</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line">        ...</div><div class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>备注：exclusions是可选的，在上述文件中可知：storage模块没有排除任何依赖；library模块排除了support-annotations模块和utils-log模块。</p>
 <p>字段详细解释可以查看该网址：<a href="http://zyl.iteye.com/blog/41754" target="_blank" rel="external">http://zyl.iteye.com/blog/41754</a></p>
-<p>字段详细解释：// TODO</p>
+<p>字段详细解释：<font color="red"><strong><em>// TODO</em></strong></font></p>
 <h3 id="解答"><a href="#解答" class="headerlink" title="解答"></a>解答</h3><p>前者：当我们依赖了common模块的时候，还会传递依赖common所依赖的模块。</p>
 <p>后者：当我们依赖了common模块的时候，不会传递依赖common所依赖的<font color="red">所有</font>模块。</p>
 <h3 id="疑问"><a href="#疑问" class="headerlink" title="疑问"></a>疑问</h3><p>如果我们并不想要排除所有的common所依赖的模块，只想要依赖排除<font color="red">某个或者某几个</font>common所依赖的模块，又该如何呢？</p>
