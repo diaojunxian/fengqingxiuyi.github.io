@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://fengqingxiuyi.github.io/"/>
-  <updated>2016-11-10T11:03:32.000Z</updated>
+  <updated>2016-11-16T01:18:28.000Z</updated>
   <id>https://fengqingxiuyi.github.io/</id>
   
   <author>
@@ -14,6 +14,139 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Dialog使用注意点</title>
+    <link href="https://fengqingxiuyi.github.io/2016/11/16/Android/View/Dialog%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E7%82%B9/"/>
+    <id>https://fengqingxiuyi.github.io/2016/11/16/Android/View/Dialog使用注意点/</id>
+    <published>2016-11-16T01:13:21.000Z</published>
+    <updated>2016-11-16T01:18:28.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="New-amp-Show"><a href="#New-amp-Show" class="headerlink" title="New&amp;Show"></a>New&amp;Show</h1><p>dialog new的时候只创建了构造方法，show的时候才创建了view。</p>
+<h1 id="赋值"><a href="#赋值" class="headerlink" title="赋值"></a>赋值</h1><p>内部定义</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">InviteConfirmDialog</span> <span class="keyword">extends</span> <span class="title">BaseDialogFragment</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> TextView inviteShopName;</div><div class="line"></div><div class="line">    String shopName;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getContentView</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> R.layout.invite_confirm_dialog;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">initView</span><span class="params">(View view)</span> </span>&#123;</div><div class="line">        inviteShopName = (TextView) findViewById(R.id.invite_shop_name);</div><div class="line"></div><div class="line">        inviteShopName.setText(shopName);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setInfo</span><span class="params">(String shopName)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.shopName = shopName;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (<span class="keyword">null</span> != inviteShopName) &#123;</div><div class="line">            inviteShopName.setText(shopName);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>外部调用</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">inviteConfirmDialog.setInfo(inviteShopInfo.shop.name);</div></pre></td></tr></table></figure>
+<p>问：为什么在上述代码中inviteShopName设置文本设置了两次？</p>
+<p>解答：因为在外部调用的时候，dialog show的时机不确定，所以存在两种情况：</p>
+<p>情况一：dialog先显示再赋值</p>
+<p>因为dialog在调用了show方法之后，会先调用initView方法，这个时候initView方法中的setText方法是无用的；然后之后再赋值，就可以正确显示了。</p>
+<p>情况二：dialog先赋值再显示</p>
+<p>因为dialog在调用了show方法之后，才会调用initView方法，所以先赋值的话inviteShopName == null，所以只是把值保存在成员变量之中；等到show的时候调用initView方法，再在initView方法中调用setText方法即可正确赋值。</p>
+<p>使用场景：外部灵活调用。</p>
+<hr>
+<p><strong>版权声明</strong></p>
+<p><a rel="external" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"></a><br>本网站如未注明转载，均由<a href="https://fengqingxiuyi.github.io/">青峰</a>创作并维护；本网站采用<a rel="external" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>进行许可。转载请注明作者及出处。</p>
+<p>本文永久链接：<a href="https://fengqingxiuyi.github.io/2016/11/16/Android/View/Dialog使用注意点/">https://fengqingxiuyi.github.io/2016/11/16/Android/View/Dialog使用注意点/</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;New-amp-Show&quot;&gt;&lt;a href=&quot;#New-amp-Show&quot; class=&quot;headerlink&quot; title=&quot;New&amp;amp;Show&quot;&gt;&lt;/a&gt;New&amp;amp;Show&lt;/h1&gt;&lt;p&gt;dialog new的时候只创建了构造方法，show的时候才
+    
+    </summary>
+    
+      <category term="Android" scheme="https://fengqingxiuyi.github.io/categories/Android/"/>
+    
+    
+      <category term="View" scheme="https://fengqingxiuyi.github.io/tags/View/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>mapping文件查看</title>
+    <link href="https://fengqingxiuyi.github.io/2016/11/16/Android/Android%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/mapping%E6%96%87%E4%BB%B6%E6%9F%A5%E7%9C%8B/"/>
+    <id>https://fengqingxiuyi.github.io/2016/11/16/Android/Android开发工具/mapping文件查看/</id>
+    <published>2016-11-16T00:56:23.000Z</published>
+    <updated>2016-11-16T01:08:14.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="错误日志"><a href="#错误日志" class="headerlink" title="错误日志"></a>错误日志</h1><p>从手机中的crash文件夹中获得 或者 从友盟后台获得，此处属于前者。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line">SUPPORTED_64_BIT_ABIS=[Ljava.lang.String;@d28f72d</div><div class="line">versionCode=7</div><div class="line">BOARD=MSM8974</div><div class="line">BOOTLOADER=unknown</div><div class="line">TYPE=user</div><div class="line">ID=MMB29M</div><div class="line">TIME=1471425647000</div><div class="line">BRAND=Xiaomi</div><div class="line">TAG=Build</div><div class="line">SERIAL=5396ac39</div><div class="line">HARDWARE=qcom</div><div class="line">SUPPORTED_ABIS=[Ljava.lang.String;@f8f2462</div><div class="line">CPU_ABI=armeabi-v7a</div><div class="line">RADIO=unknown</div><div class="line">IS_DEBUGGABLE=false</div><div class="line">MANUFACTURER=Xiaomi</div><div class="line">SUPPORTED_32_BIT_ABIS=[Ljava.lang.String;@e0c7a44</div><div class="line">TAGS=release-keys</div><div class="line">CPU_ABI2=armeabi</div><div class="line">UNKNOWN=unknown</div><div class="line">USER=builder</div><div class="line">FINGERPRINT=Xiaomi/cancro_wc_lte/cancro:6.0.1/MMB29M/V8.0.2.0.MXDCNDG:user/release-keys</div><div class="line">HOST=c3-miui-ota-bd32.bj</div><div class="line">PRODUCT=cancro_wc_lte</div><div class="line">versionName=1.3.0</div><div class="line">DISPLAY=MMB29M</div><div class="line">MODEL=MI 4LTE</div><div class="line">DEVICE=cancro</div><div class="line">java.lang.NullPointerException: key == null || value == null</div><div class="line">    at android.util.LruCache.put(LruCache.java:166)</div><div class="line">    at com.showjoy.b.d.a.a(SourceFile:77)</div><div class="line">    at com.showjoy.b.d.a.a(SourceFile:152)</div><div class="line">    at com.showjoy.shop.common.user.b.e(SourceFile:122)</div><div class="line">    at com.showjoy.shop.common.user.b.a(SourceFile:206)</div><div class="line">    at com.showjoy.shop.module.login.account.b.a(SourceFile:152)</div><div class="line">    at com.showjoy.shop.module.login.account.a.a(SourceFile:27)</div><div class="line">    at com.showjoy.shop.common.base.b.b(SourceFile:73)</div><div class="line">    at com.showjoy.shop.common.base.b$1.a(SourceFile:40)</div><div class="line">    at com.showjoy.shop.common.base.b$1.a(SourceFile:32)</div><div class="line">    at com.showjoy.network.base.c$1.a(SourceFile:160)</div><div class="line">    at com.showjoy.network.base.d.b(SourceFile:131)</div><div class="line">    at com.android.volley.d$a.run(SourceFile:99)</div><div class="line">    at android.os.Handler.handleCallback(Handler.java:739)</div><div class="line">    at android.os.Handler.dispatchMessage(Handler.java:95)</div><div class="line">    at android.os.Looper.loop(Looper.java:148)</div><div class="line">    at android.app.ActivityThread.main(ActivityThread.java:5438)</div><div class="line">    at java.lang.reflect.Method.invoke(Native Method)</div><div class="line">    at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:739)</div><div class="line">    at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:629)</div></pre></td></tr></table></figure>
+<p>因为代码被混淆，所以我们无法直观知道出错位置，必须依靠mapping文件进行查找。</p>
+<h1 id="mapping文件位置"><a href="#mapping文件位置" class="headerlink" title="mapping文件位置"></a>mapping文件位置</h1><p>此处以<a href="https://wireless-build.showjoy.net/view/达人店/job/ShopAndroid-release-1.3.0-test/lastSuccessfulBuild/artifact/outputs/mapping/forTest/mapping.txt" target="_blank" rel="external">ShopAndroid-release-1.3.0-test</a>为例。</p>
+<h1 id="查找错误位置心得"><a href="#查找错误位置心得" class="headerlink" title="查找错误位置心得"></a>查找错误位置心得</h1><p>首先需要找到错误出现的入口，比如（错误任务栈信息第5行）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">at com.showjoy.shop.common.user.b.e(SourceFile:122)</div></pre></td></tr></table></figure>
+<p>打开文件后，搜索<code>com.showjoy.shop.common.user.b</code>，找到以下相关信息：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">com.showjoy.shop.common.user.UserDataManager -&gt; com.showjoy.shop.common.user.b:</div><div class="line">    com.showjoy.shop.common.user.entities.UserResult userResult -&gt; a</div><div class="line">    26:27:void setBuyer(boolean) -&gt; a</div><div class="line">    30:30:boolean isLogin() -&gt; a</div><div class="line">    34:35:void setLogin(boolean) -&gt; b</div><div class="line">    38:38:boolean hasShop() -&gt; b</div><div class="line">    42:43:void setShopOpened(boolean) -&gt; c</div><div class="line">    46:46:int getShopId() -&gt; c</div><div class="line">    50:51:void setShopId(int) -&gt; a</div><div class="line">    54:54:int getUserId() -&gt; d</div><div class="line">    58:59:void setUserId(int) -&gt; b</div><div class="line">    62:62:boolean isBindWeixin() -&gt; e</div><div class="line">    66:67:void bindWeixin(boolean) -&gt; d</div><div class="line">    75:75:java.lang.String getUserEd() -&gt; f</div><div class="line">    79:80:void setUserEd(java.lang.String) -&gt; a</div><div class="line">    83:83:java.lang.String getPhone() -&gt; g</div><div class="line">    87:88:void setPhone(java.lang.String) -&gt; b</div><div class="line">    91:91:java.lang.String getNick() -&gt; h</div><div class="line">    95:96:void setNick(java.lang.String) -&gt; c</div><div class="line">    104:105:void setShopName(java.lang.String) -&gt; d</div><div class="line">    113:113:java.lang.String getShopPortrait() -&gt; i</div><div class="line">    122:123:void setPortrait(java.lang.String) -&gt; e</div><div class="line">    131:131:java.lang.String getPortrait() -&gt; j</div><div class="line">    140:141:void setShopPortrait(java.lang.String) -&gt; f</div><div class="line">    149:149:java.lang.String getShopName() -&gt; k</div><div class="line">    158:159:void setPaid(boolean) -&gt; e</div><div class="line">    176:177:void setPosition(int) -&gt; c</div><div class="line">    189:209:void saveShopInfo(com.showjoy.shop.common.user.entities.ShopInfo) -&gt; a</div><div class="line">    217:224:com.showjoy.shop.common.user.entities.UserResult getUser() -&gt; l</div><div class="line">    233:235:void setUser(com.showjoy.shop.common.user.entities.UserResult) -&gt; a</div><div class="line">    238:257:void logOut() -&gt; m</div></pre></td></tr></table></figure>
+<p>然后继续查找<code>e</code>方法，发现有好几个，不过没关系，入口错误信息还括出了出现错误信息的位置，即<code>122</code>行，继续查找<code>e</code>方法对应的其实是<code>setPortrait</code>方法。最后在进入<code>工程</code>查看源码就可以了，如果还是没有发现关键位置，可以继续向下查找。</p>
+<hr>
+<p><strong>版权声明</strong></p>
+<p><a rel="external" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"></a><br>本网站如未注明转载，均由<a href="https://fengqingxiuyi.github.io/">青峰</a>创作并维护；本网站采用<a rel="external" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>进行许可。转载请注明作者及出处。</p>
+<p>本文永久链接：<a href="https://fengqingxiuyi.github.io/2016/11/16/Android/Android开发工具/mapping文件查看/">https://fengqingxiuyi.github.io/2016/11/16/Android/Android开发工具/mapping文件查看/</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;错误日志&quot;&gt;&lt;a href=&quot;#错误日志&quot; class=&quot;headerlink&quot; title=&quot;错误日志&quot;&gt;&lt;/a&gt;错误日志&lt;/h1&gt;&lt;p&gt;从手机中的crash文件夹中获得 或者 从友盟后台获得，此处属于前者。&lt;/p&gt;
+&lt;figure class=&quot;highlig
+    
+    </summary>
+    
+      <category term="Android" scheme="https://fengqingxiuyi.github.io/categories/Android/"/>
+    
+    
+      <category term="Android开发工具" scheme="https://fengqingxiuyi.github.io/tags/Android%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SourceTree使用注意</title>
+    <link href="https://fengqingxiuyi.github.io/2016/11/16/Android/Android%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/SourceTree%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F/"/>
+    <id>https://fengqingxiuyi.github.io/2016/11/16/Android/Android开发工具/SourceTree使用注意/</id>
+    <published>2016-11-16T00:53:23.000Z</published>
+    <updated>2016-11-16T00:55:48.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Tag标记"><a href="#Tag标记" class="headerlink" title="Tag标记"></a>Tag标记</h1><p>子模块 更新版本 后，需要在sourceTree中选中对应的条目右击添加Tag进行标记，并push；如果标记位置出错，可以在正确的条目处右击添加同名的Tag，就会提示你是否需要迁移Tag。</p>
+<h1 id="代码改动较多时"><a href="#代码改动较多时" class="headerlink" title="代码改动较多时"></a>代码改动较多时</h1><p>代码改动较多时需要严格按照此流程执行：从develop拉个新的功能分支开发，开发自测通过后，将develop合并到新分支中，测试通过后再合并到develop中。</p>
+<hr>
+<p><strong>版权声明</strong></p>
+<p><a rel="external" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"></a><br>本网站如未注明转载，均由<a href="https://fengqingxiuyi.github.io/">青峰</a>创作并维护；本网站采用<a rel="external" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>进行许可。转载请注明作者及出处。</p>
+<p>本文永久链接：<a href="https://fengqingxiuyi.github.io/2016/11/16/Android/Android开发工具/SourceTree使用注意/">https://fengqingxiuyi.github.io/2016/11/16/Android/Android开发工具/SourceTree使用注意/</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Tag标记&quot;&gt;&lt;a href=&quot;#Tag标记&quot; class=&quot;headerlink&quot; title=&quot;Tag标记&quot;&gt;&lt;/a&gt;Tag标记&lt;/h1&gt;&lt;p&gt;子模块 更新版本 后，需要在sourceTree中选中对应的条目右击添加Tag进行标记，并push；如果标记位置出错
+    
+    </summary>
+    
+      <category term="Android" scheme="https://fengqingxiuyi.github.io/categories/Android/"/>
+    
+    
+      <category term="Android开发工具" scheme="https://fengqingxiuyi.github.io/tags/Android%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>AndroidStudio开发注意点</title>
+    <link href="https://fengqingxiuyi.github.io/2016/11/16/Android/Android%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/AndroidStudio%E5%BC%80%E5%8F%91%E6%B3%A8%E6%84%8F%E7%82%B9/"/>
+    <id>https://fengqingxiuyi.github.io/2016/11/16/Android/Android开发工具/AndroidStudio开发注意点/</id>
+    <published>2016-11-16T00:48:23.000Z</published>
+    <updated>2016-11-16T00:51:52.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="AS反编译失败，显示Compiled-Code"><a href="#AS反编译失败，显示Compiled-Code" class="headerlink" title="AS反编译失败，显示Compiled Code"></a>AS反编译失败，显示Compiled Code</h1><p>插件：jd-intellij-0.6.zip</p>
+<p>下载地址：<a href="https://plugins.jetbrains.com/files/7100/15663/jd-intellij-0.6.zip" target="_blank" rel="external">https://plugins.jetbrains.com/files/7100/15663/jd-intellij-0.6.zip</a></p>
+<p>问题：安装了上述插件后，不能查看jar包中的源码，方法内部显示 /* Compiled Code */。</p>
+<p>例子：/Volumes/MAIN/qingfeng/Workspace/CharityShopAndroid/shopandroid_detail/build/intermediates/exploded-aar/com.showjoy.analytics/analytics/1.0.6/jars/classes.jar</p>
+<p>解决：经过一番思考，发现是因为装了插件jd-intellij-0.6.zip，导致和AS的反编译插件冲突了，所以看不到源码了，所以解决办法就是卸载插件。</p>
+<hr>
+<p><strong>版权声明</strong></p>
+<p><a rel="external" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"></a><br>本网站如未注明转载，均由<a href="https://fengqingxiuyi.github.io/">青峰</a>创作并维护；本网站采用<a rel="external" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>进行许可。转载请注明作者及出处。</p>
+<p>本文永久链接：<a href="https://fengqingxiuyi.github.io/2016/11/16/Android/Android开发工具/AndroidStudio开发注意点/">https://fengqingxiuyi.github.io/2016/11/16/Android/Android开发工具/AndroidStudio开发注意点/</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;AS反编译失败，显示Compiled-Code&quot;&gt;&lt;a href=&quot;#AS反编译失败，显示Compiled-Code&quot; class=&quot;headerlink&quot; title=&quot;AS反编译失败，显示Compiled Code&quot;&gt;&lt;/a&gt;AS反编译失败，显示Compile
+    
+    </summary>
+    
+      <category term="Android" scheme="https://fengqingxiuyi.github.io/categories/Android/"/>
+    
+    
+      <category term="Android开发工具" scheme="https://fengqingxiuyi.github.io/tags/Android%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"/>
+    
+  </entry>
   
   <entry>
     <title>Sublime Text 3折腾记录</title>
@@ -192,7 +325,7 @@
     <link href="https://fengqingxiuyi.github.io/2016/11/02/ShowJoy/ShowJoy%E5%BC%80%E5%8F%91%E8%AE%B0%E5%BD%95/"/>
     <id>https://fengqingxiuyi.github.io/2016/11/02/ShowJoy/ShowJoy开发记录/</id>
     <published>2016-11-02T08:05:15.000Z</published>
-    <updated>2016-11-10T07:59:26.000Z</updated>
+    <updated>2016-11-11T10:07:08.000Z</updated>
     
     <content type="html"><![CDATA[<font color="red"><strong><em>未编写部分的地方都使用了 // TODO 来进行占位。</em></strong></font>
 
@@ -245,6 +378,7 @@
 <li>评审通过后，将代码<font color="red">合并</font>到master分支，而不是<font color="blue">拉取</font>（合并的方法是，先合并master代码到分支A, 自测成功。再将分支A的代码合并到master）</li>
 <li>修改master分支的版本，Jenkins项目构建，打tag并push</li>
 </ol>
+<h2 id="开发自测流程"><a href="#开发自测流程" class="headerlink" title="开发自测流程"></a>开发自测流程</h2><p>以“图片压缩支持webp”为例，项目开发完成之后，需要测试压缩成webp格式的图片 和 原先的图片 在 大小和体验上有没有向好的方向转化：如果有的话，告诉评审人员，通过后提交并合并到master；如果没有的话，告诉评审人员，通过的话直接Revert就行了。</p>
 <h2 id="Gradle-Compile"><a href="#Gradle-Compile" class="headerlink" title="Gradle - Compile"></a>Gradle - Compile</h2><h3 id="例子-1"><a href="#例子-1" class="headerlink" title="例子"></a>例子</h3><p>比较下面两个语句块的不同</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">compile (<span class="string">'com.showjoy.shop:common:1.3.4'</span>)</div></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">compile (<span class="string">'com.showjoy.shop:common:1.3.4'</span>) &#123;</div><div class="line">    transitive <span class="keyword">false</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -540,7 +674,7 @@
     <link href="https://fengqingxiuyi.github.io/2016/10/02/Android/Android%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Gradle/%E5%A4%96%E7%BD%91%E6%97%A0%E6%B3%95%E7%BC%96%E8%AF%91/"/>
     <id>https://fengqingxiuyi.github.io/2016/10/02/Android/Android开发工具/Gradle/外网无法编译/</id>
     <published>2016-10-02T04:22:23.000Z</published>
-    <updated>2016-11-11T05:58:26.000Z</updated>
+    <updated>2016-11-16T00:49:24.000Z</updated>
     
     <content type="html"><![CDATA[<p>大部分情况下，我们开发项目都是在公司中完成的，但是总会有需要在家里开发的时候。这个时候，如果你们公司的项目需要连接公司专有的maven仓库等链接地址，那么久可能会遇到无法编译的问题，具体表现为：<font color="red">一直处于编译中，无法正常停止。</font>然后我们就可以配置选项来解决这个问题，具体看下图：</p>
 <p><img src="../../../../../../../images/Android/Android开发工具/Gradle/外网无法编译.png" alt="外网无法编译"></p>
@@ -560,7 +694,7 @@
       <category term="Android" scheme="https://fengqingxiuyi.github.io/categories/Android/"/>
     
     
-      <category term="AndroidStudio" scheme="https://fengqingxiuyi.github.io/tags/AndroidStudio/"/>
+      <category term="Android开发工具" scheme="https://fengqingxiuyi.github.io/tags/Android%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"/>
     
   </entry>
   
@@ -594,185 +728,6 @@
     
     
       <category term="微信" scheme="https://fengqingxiuyi.github.io/tags/%E5%BE%AE%E4%BF%A1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>保存图片到相册</title>
-    <link href="https://fengqingxiuyi.github.io/2016/09/21/Android/%E5%9B%BE%E7%89%87/%E7%9B%B8%E5%86%8C/%E4%BF%9D%E5%AD%98%E5%9B%BE%E7%89%87%E5%88%B0%E7%9B%B8%E5%86%8C/"/>
-    <id>https://fengqingxiuyi.github.io/2016/09/21/Android/图片/相册/保存图片到相册/</id>
-    <published>2016-09-21T06:28:25.000Z</published>
-    <updated>2016-09-21T06:29:36.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="序"><a href="#序" class="headerlink" title="序"></a>序</h1><p>本文讲述如何<code>保存图片到相册</code>：</p>
-<p>其本质上并没有把图片保存到相册中，实际上是保存在SD卡下自定义的文件夹中，目的只是让<code>QQ</code>和<code>微信</code>在选择照片的时候立刻显示，<font color="red">注：其实<code>QQ</code>和<code>微信</code>也是这样做的</font>。</p>
-<p>另外：这里参数只接受<code>File</code>类型，对于<code>Bitmap</code>类型，可以自行转化，如下代码：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">File file = <span class="keyword">new</span> File(parentDir, fileName);</div><div class="line">FileOutputStream fos = <span class="keyword">null</span>;</div><div class="line"><span class="keyword">try</span> &#123;</div><div class="line">    fos = <span class="keyword">new</span> FileOutputStream(file);</div><div class="line">    bmp.compress(Bitmap.CompressFormat.JPEG, <span class="number">100</span>, fos);</div><div class="line">    fos.flush();</div><div class="line">&#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">    LogUtils.e(e);</div><div class="line">&#125; <span class="keyword">finally</span> &#123;</div><div class="line">    <span class="comment">// 回收bitmap</span></div><div class="line">    bmp.recycle();</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (<span class="keyword">null</span> != fos) &#123;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            fos.close();</div><div class="line">        &#125; <span class="keyword">catch</span> (IOException e1) &#123;</div><div class="line">            e1.printStackTrace();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h1 id="保存方式"><a href="#保存方式" class="headerlink" title="保存方式"></a>保存方式</h1><h2 id="方式1-扫描文件通知相册更新"><a href="#方式1-扫描文件通知相册更新" class="headerlink" title="方式1-扫描文件通知相册更新"></a>方式1-扫描文件通知相册更新</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 通知相册更新</span></div><div class="line">Intent intent = <span class="keyword">new</span> Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);</div><div class="line">Uri uri = Uri.fromFile(file);</div><div class="line">intent.setData(uri);</div><div class="line">context.sendBroadcast(intent);</div></pre></td></tr></table></figure>
-<h2 id="方式1-错误操作"><a href="#方式1-错误操作" class="headerlink" title="方式1-错误操作"></a>方式1-错误操作</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">MediaStore.Images.Media.insertImage(context.getContentResolver(), file.getAbsolutePath(), <span class="string">"name"</span>, <span class="string">"description"</span>);</div><div class="line"></div><div class="line"><span class="comment">// 通知相册更新</span></div><div class="line">Intent intent = <span class="keyword">new</span> Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);</div><div class="line">Uri uri = Uri.fromFile(file);</div><div class="line">intent.setData(uri);</div><div class="line">context.sendBroadcast(intent);</div></pre></td></tr></table></figure>
-<p>对比 方式1 和 错误方式 ，我们可以发现其实就是多了一行<code>insertImage</code>的代码，然后就不能被<code>QQ</code>和<code>微信</code>立刻识别了，好伤心~~</p>
-<p>这里我稍微研究了一下，然而没有发现本质原因，不过做了以下<font color="red">猜测</font>，有兴趣的可以自行研究源码。</p>
-<p>因为在使用<code>ACTION_MEDIA_SCANNER_SCAN_FILE</code>方式通知相册更新时，也需要执行类似<code>insertImage</code>方法内部的某些操作，可能和<code>ContentProvider</code>相关的数据库有关，所以如果你先执行了<code>insertImage</code>方法，那么它在接收到这个<code>ACTION_MEDIA_SCANNER_SCAN_FILE</code>广播的时候，做了如下判断：如果已经执行了<code>insertImage</code>方法，那么<code>return;</code>，所以不会执行再<code>通知相册更新</code>了。</p>
-<h2 id="方式2-完整操作"><a href="#方式2-完整操作" class="headerlink" title="方式2-完整操作"></a>方式2-完整操作</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 插入file数据到相册</span></div><div class="line">ContentValues values = <span class="keyword">new</span> ContentValues(<span class="number">9</span>);</div><div class="line">values.put(MediaStore.Images.Media.TITLE, <span class="string">"Camera"</span>);</div><div class="line">values.put(MediaStore.Images.Media.DISPLAY_NAME, filename);</div><div class="line">values.put(MediaStore.Images.Media.DATE_TAKEN, System.currentTimeMillis());</div><div class="line">values.put(MediaStore.Images.Media.MIME_TYPE, <span class="string">"image/jpeg"</span>);</div><div class="line">values.put(MediaStore.Images.Media.ORIENTATION, <span class="number">0</span>);</div><div class="line">values.put(MediaStore.Images.Media.DATA, file.getAbsolutePath());</div><div class="line">values.put(MediaStore.Images.Media.SIZE, file.length());</div><div class="line">Uri uri = context.getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);</div><div class="line"><span class="comment">// 通知相册更新</span></div><div class="line">context.sendBroadcast(<span class="keyword">new</span> Intent(<span class="string">"com.android.camera.NEW_PICTURE"</span>, uri));</div></pre></td></tr></table></figure>
-<h2 id="方式2-简单操作"><a href="#方式2-简单操作" class="headerlink" title="方式2-简单操作"></a>方式2-简单操作</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 插入file数据到相册</span></div><div class="line">ContentValues values = <span class="keyword">new</span> ContentValues();</div><div class="line">values.put(MediaStore.Images.Media.DATA, file.getAbsolutePath());</div><div class="line">values.put(MediaStore.Images.Media.MIME_TYPE, <span class="string">"image/jpeg"</span>);</div><div class="line">Uri uri = context.getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);</div><div class="line"><span class="comment">// 通知相册更新</span></div><div class="line">context.sendBroadcast(<span class="keyword">new</span> Intent(<span class="string">"com.android.camera.NEW_PICTURE"</span>, uri));</div></pre></td></tr></table></figure>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>对于<code>Google</code>和<code>百度</code>出来的<code>Android保存图片到相册</code>表示无奈，90%以上都是一样的，这个时候如果我们还是依靠<code>搜索</code>，消耗的成本是很大的，如果你能够从<code>源码</code>入手，可能就会给你提供一些思路，例如：上述所说的<code>方式2</code>就是从<code>insertImage</code>方法中得出的，源码如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * Insert an image and create a thumbnail for it.</div><div class="line"> *</div><div class="line"> * <span class="doctag">@param</span> cr The content resolver to use</div><div class="line"> * <span class="doctag">@param</span> source The stream to use for the image</div><div class="line"> * <span class="doctag">@param</span> title The name of the image</div><div class="line"> * <span class="doctag">@param</span> description The description of the image</div><div class="line"> * <span class="doctag">@return</span> The URL to the newly created image, or &lt;code&gt;null&lt;/code&gt; if the image failed to be stored</div><div class="line"> *              for any reason.</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String <span class="title">insertImage</span><span class="params">(ContentResolver cr, Bitmap source,</span></span></div><div class="line">                                       String title, String description) &#123;</div><div class="line">    ContentValues values = <span class="keyword">new</span> ContentValues();</div><div class="line">    values.put(Images.Media.TITLE, title);</div><div class="line">    values.put(Images.Media.DESCRIPTION, description);</div><div class="line">    values.put(Images.Media.MIME_TYPE, <span class="string">"image/jpeg"</span>);</div><div class="line"></div><div class="line">    Uri url = <span class="keyword">null</span>;</div><div class="line">    String stringUrl = <span class="keyword">null</span>;    <span class="comment">/* value to be returned */</span></div><div class="line"></div><div class="line">    <span class="keyword">try</span> &#123;</div><div class="line">        url = cr.insert(EXTERNAL_CONTENT_URI, values);</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (source != <span class="keyword">null</span>) &#123;</div><div class="line">            OutputStream imageOut = cr.openOutputStream(url);</div><div class="line">            <span class="keyword">try</span> &#123;</div><div class="line">                source.compress(Bitmap.CompressFormat.JPEG, <span class="number">50</span>, imageOut);</div><div class="line">            &#125; <span class="keyword">finally</span> &#123;</div><div class="line">                imageOut.close();</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="keyword">long</span> id = ContentUris.parseId(url);</div><div class="line">            <span class="comment">// Wait until MINI_KIND thumbnail is generated.</span></div><div class="line">            Bitmap miniThumb = Images.Thumbnails.getThumbnail(cr, id,</div><div class="line">                    Images.Thumbnails.MINI_KIND, <span class="keyword">null</span>);</div><div class="line">            <span class="comment">// This is for backward compatibility.</span></div><div class="line">            Bitmap microThumb = StoreThumbnail(cr, miniThumb, id, <span class="number">50F</span>, <span class="number">50F</span>,</div><div class="line">                    Images.Thumbnails.MICRO_KIND);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            Log.e(TAG, <span class="string">"Failed to create thumbnail, removing original"</span>);</div><div class="line">            cr.delete(url, <span class="keyword">null</span>, <span class="keyword">null</span>);</div><div class="line">            url = <span class="keyword">null</span>;</div><div class="line">        &#125;</div><div class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">        Log.e(TAG, <span class="string">"Failed to insert image"</span>, e);</div><div class="line">        <span class="keyword">if</span> (url != <span class="keyword">null</span>) &#123;</div><div class="line">            cr.delete(url, <span class="keyword">null</span>, <span class="keyword">null</span>);</div><div class="line">            url = <span class="keyword">null</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (url != <span class="keyword">null</span>) &#123;</div><div class="line">        stringUrl = url.toString();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> stringUrl;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<hr>
-<p><strong>版权声明</strong></p>
-<p><a rel="external" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"></a><br>本网站如未注明转载，均由<a href="https://fengqingxiuyi.github.io/">青峰</a>创作并维护；本网站采用<a rel="external" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>进行许可。转载请注明作者及出处。</p>
-<p>本文永久链接：<a href="https://fengqingxiuyi.github.io/2016/09/21/Android/图片/相册/保存图片到相册/">https://fengqingxiuyi.github.io/2016/09/21/Android/图片/相册/保存图片到相册/</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;序&quot;&gt;&lt;a href=&quot;#序&quot; class=&quot;headerlink&quot; title=&quot;序&quot;&gt;&lt;/a&gt;序&lt;/h1&gt;&lt;p&gt;本文讲述如何&lt;code&gt;保存图片到相册&lt;/code&gt;：&lt;/p&gt;
-&lt;p&gt;其本质上并没有把图片保存到相册中，实际上是保存在SD卡下自定义的文件夹中，目的
-    
-    </summary>
-    
-      <category term="Android" scheme="https://fengqingxiuyi.github.io/categories/Android/"/>
-    
-    
-      <category term="图片" scheme="https://fengqingxiuyi.github.io/tags/%E5%9B%BE%E7%89%87/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>adb无线连接</title>
-    <link href="https://fengqingxiuyi.github.io/2016/08/30/Android/Wiki/adb%E6%97%A0%E7%BA%BF%E8%BF%9E%E6%8E%A5/"/>
-    <id>https://fengqingxiuyi.github.io/2016/08/30/Android/Wiki/adb无线连接/</id>
-    <published>2016-08-30T10:14:21.000Z</published>
-    <updated>2016-10-05T01:36:16.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>注：本文属于工具类文章，可以直接使用；文中所述的<code>5555</code>为自定义的端口号，可自行配置，注意需要在各个地方保持统一。</p>
-<h1 id="情况"><a href="#情况" class="headerlink" title="情况"></a>情况</h1><p>1.如果已经可以用usb连接adb，那么可以通过以下命令切换到无线连接方式。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">adb tcpip 5555 <span class="comment"># 5555为一个自定义的端口，只要与下一行命令的端口保持统一即可</span></div><div class="line">adb connect 192.168.0.101:5555 <span class="comment"># 192.168.0.101为手机无线网络的ip地址</span></div></pre></td></tr></table></figure>
-<p>通过下面的命令可以切换回usb方式。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">adb usb</div></pre></td></tr></table></figure>
-<p>2.如果无法通过usb方式连接，比如因为没有驱动或没有数据线，那么可以在设备上执行以下命令，切换到无线连接方式。<font color="red">注意此方式需要root权限。</font></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">setprop service.adb.tcp.port 5555</div><div class="line">stop adbd</div><div class="line">start adbd</div></pre></td></tr></table></figure>
-<p>通过以下命令切换回usb方式。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">setprop service.adb.tcp.port -1</div><div class="line">stop adbd</div><div class="line">start adbd</div></pre></td></tr></table></figure>
-<p>3.有一些第三方工具，把第二种方法做成了app，只要点一个按钮，就可以完成切换。比如<a href="https://market.android.com/search?q=adbWireless&amp;so=1&amp;c=apps" target="_blank" rel="external">adbWireless</a>。<font color="red">此工具同样需要root权限。</font></p>
-<hr>
-<p><strong>版权声明</strong></p>
-<p><a rel="external" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"></a><br>本网站如未注明转载，均由<a href="https://fengqingxiuyi.github.io/">青峰</a>创作并维护；本网站采用<a rel="external" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>进行许可。转载请注明作者及出处。</p>
-<p>本文永久链接：<a href="https://fengqingxiuyi.github.io/2016/08/30/Android/Wiki/adb无线连接/">https://fengqingxiuyi.github.io/2016/08/30/Android/Wiki/adb无线连接/</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;注：本文属于工具类文章，可以直接使用；文中所述的&lt;code&gt;5555&lt;/code&gt;为自定义的端口号，可自行配置，注意需要在各个地方保持统一。&lt;/p&gt;
-&lt;h1 id=&quot;情况&quot;&gt;&lt;a href=&quot;#情况&quot; class=&quot;headerlink&quot; title=&quot;情况&quot;&gt;&lt;/a&gt;情况
-    
-    </summary>
-    
-      <category term="Android" scheme="https://fengqingxiuyi.github.io/categories/Android/"/>
-    
-    
-      <category term="Wiki" scheme="https://fengqingxiuyi.github.io/tags/Wiki/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>模块封装流程</title>
-    <link href="https://fengqingxiuyi.github.io/2016/08/25/ShowJoy/%E6%A8%A1%E5%9D%97/%E6%A8%A1%E5%9D%97%E5%B0%81%E8%A3%85%E6%B5%81%E7%A8%8B/"/>
-    <id>https://fengqingxiuyi.github.io/2016/08/25/ShowJoy/模块/模块封装流程/</id>
-    <published>2016-08-25T09:43:15.000Z</published>
-    <updated>2016-11-10T08:11:58.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>1、打开<a href="http://git.showjoy.net/" target="_blank" rel="external">http://git.showjoy.net/</a>页面，点击右边<code>Projects</code>选项卡下的绿色按钮<code>&quot;+ New project&quot;</code>，如果没有该按钮需要申请权限。</p>
-<p>2、点击<code>&quot;+ New project&quot;</code>按钮后会进入<a href="http://git.showjoy.net/projects/new" target="_blank" rel="external">http://git.showjoy.net/projects/new</a>页面，填写必要的<code>Project name（如：test）</code>，可选的<code>Description</code>，选择正确的<code>Namespace（如：qingfeng）</code>，最后点击<code>&quot;Create project&quot;</code>按钮。</p>
-<p>3、点击<code>&quot;Create project&quot;</code>按钮后会进入<a href="http://git.showjoy.net/qingfeng/test" target="_blank" rel="external">http://git.showjoy.net/qingfeng/test</a>页面，该页面会告诉你如何配置git参数，创建仓库以及代码的提交与推送。</p>
-<p>这里我个人觉得<a href="http://git.showjoy.net/qingfeng/test" target="_blank" rel="external">http://git.showjoy.net/qingfeng/test</a>页面描述的不够清晰，所以再简要描述一下操作流程：</p>
-<p>3.1、安装git，可以查看这篇文章<a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/00137396287703354d8c6c01c904c7d9ff056ae23da865a000" target="_blank" rel="external">廖雪峰 git教程</a></p>
-<p>3.2、打开终端，cd到Android Studio中某个已经存在的想要将某个（某些）模块push到远程仓库的工程根目录下，然后再cd到某个想要push到远程仓库的模块目录下。</p>
-<p>3.3、输入以下命令，初始化git：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git init</div></pre></td></tr></table></figure>
-<p>3.4、输入以下命令，查看git配置文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git config --list</div></pre></td></tr></table></figure>
-<p>3.4.1、配置<code>user.name</code>和<code>user.email</code></p>
-<p>如果没有配置<code>user.name</code>和<code>user.email</code>，或者想要修改这两个参数的，都可以执行以下命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git config --global user.name <span class="string">"your name"</span></div><div class="line">git config --global user.email <span class="string">"your email"</span></div></pre></td></tr></table></figure>
-<p>3.4.2、配置<code>remote.origin.url</code></p>
-<p>如果没有<code>remote.origin.url</code>，可以使用以下命令，将本地仓库和远程仓库进行关联：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote add origin git@git.showjoy.net:qingfeng/test.git</div></pre></td></tr></table></figure>
-<p>注意：<code>git@git.showjoy.net:qingfeng/test.git</code>在<a href="http://git.showjoy.net/qingfeng/test" target="_blank" rel="external">http://git.showjoy.net/qingfeng/test</a>页面右上角</p>
-<p>如果想要修改<code>remote.origin.url</code>的值，可以使用以下命令，重新赋值：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">git remte origin <span class="built_in">set</span>-url newUrl</div><div class="line">或</div><div class="line">git remote rm origin </div><div class="line">git remote add origin newUrl</div><div class="line">或</div><div class="line">直接修改config文件</div></pre></td></tr></table></figure>
-<p>3.5、输入以下命令，将本地已经存在的文件添加到git，并推送到远程仓库：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git add .</div><div class="line">git commit -m <span class="string">'first commit'</span></div><div class="line">git push -u origin master</div></pre></td></tr></table></figure>
-<p>3.6、为该模块添加<code>README.md</code>文件：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">touch README.md</div><div class="line">git add README.md</div><div class="line">git commit -m <span class="string">'新增说明文档'</span></div><div class="line">git push -u origin master</div></pre></td></tr></table></figure>
-<p>3.7、全部正确执行后，就可以在Android Studio中正常开发了！</p>
-<ol>
-<li>因为我们的模块最终是要给其他模块提供坐标依赖（compile）的，所以需要在Jenkins上进行模块的构建，在模块构建之前我们需要配置一些参数：</li>
-</ol>
-<p>4.1、工程参数配置</p>
-<font color="blue"><strong><em>build.gradle文件：</em></strong></font>
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">// Top-level build file <span class="built_in">where</span> you can add configuration options common to all sub-projects/modules.</div><div class="line"></div><div class="line">buildscript &#123;</div><div class="line">    repositories &#123;</div><div class="line">        jcenter()</div><div class="line">    &#125;</div><div class="line">    dependencies &#123;</div><div class="line">        classpath <span class="string">'com.android.tools.build:gradle:2.1.2'</span></div><div class="line"></div><div class="line">        // NOTE: Do not place your application dependencies here; they belong</div><div class="line">        // <span class="keyword">in</span> the individual module build.gradle files</div><div class="line">        //支持java8的lambda</div><div class="line">        classpath <span class="string">'me.tatarka:gradle-retrolambda:3.2.5'</span></div><div class="line">        classpath <span class="string">'com.getkeepsafe.dexcount:dexcount-gradle-plugin:0.5.5'</span></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">allprojects &#123;</div><div class="line">    repositories &#123;</div><div class="line">        //新增公司的maven库</div><div class="line">        maven &#123;url <span class="string">'http://192.168.0.62:8081/repository/maven-snapshots/'</span>&#125;</div><div class="line">        maven &#123;url <span class="string">'http://192.168.0.62:8081/repository/maven-releases/'</span>&#125;</div><div class="line">        jcenter()</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">task clean(<span class="built_in">type</span>: Delete) &#123;</div><div class="line">    delete rootProject.buildDir</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<font color="blue"><strong><em>gradle.properties文件：</em></strong></font>
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Project-wide Gradle settings.</span></div><div class="line"></div><div class="line"><span class="comment"># IDE (e.g. Android Studio) users:</span></div><div class="line"><span class="comment"># Gradle settings configured through the IDE *will override*</span></div><div class="line"><span class="comment"># any settings specified in this file.</span></div><div class="line"></div><div class="line"><span class="comment"># For more details on how to configure your build environment visit</span></div><div class="line"><span class="comment"># http://www.gradle.org/docs/current/userguide/build_environment.html</span></div><div class="line"></div><div class="line"><span class="comment"># Specifies the JVM arguments used for the daemon process.</span></div><div class="line"><span class="comment"># The setting is particularly useful for tweaking memory settings.</span></div><div class="line"><span class="comment"># Default value: -Xmx10248m -XX:MaxPermSize=256m</span></div><div class="line"><span class="comment"># org.gradle.jvmargs=-Xmx2048m -XX:MaxPermSize=512m -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8</span></div><div class="line"></div><div class="line"><span class="comment"># When configured, Gradle will run in incubating parallel mode.</span></div><div class="line"><span class="comment"># This option should only be used with decoupled projects. More details, visit</span></div><div class="line"><span class="comment"># http://www.gradle.org/docs/current/userguide/multi_project_builds.html#sec:decoupled_projects</span></div><div class="line"><span class="comment"># org.gradle.parallel=true</span></div><div class="line">systemProp.minSdkVersion=14</div><div class="line">org.gradle.jvmargs=-XX\:MaxPermSize\=512m</div><div class="line">systemProp.targetSdkVersion=21</div><div class="line">org.gradle.daemon=<span class="literal">true</span></div><div class="line">systemProp.compileSdkVersion=23</div><div class="line">org.gradle.parallel=<span class="literal">true</span></div><div class="line">android.useDeprecatedNdk=<span class="literal">true</span></div><div class="line">systemProp.buildToolsVersion=23.0.2</div><div class="line">org.gradle.configureondemand=<span class="literal">true</span></div></pre></td></tr></table></figure>
-<p>4.2、模块参数配置</p>
-<font color="blue"><strong><em>build.gradle文件：</em></strong></font>
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">apply plugin: <span class="string">'com.android.library'</span></div><div class="line"></div><div class="line">dependencies &#123;</div><div class="line">    compile fileTree(dir: <span class="string">'libs'</span>, include: [<span class="string">'*.jar'</span>])</div><div class="line">    compile <span class="string">'com.android.support:appcompat-v7:23.4.0'</span></div><div class="line"></div><div class="line">    compile <span class="string">'io.reactivex:rxjava:1.1.6'</span></div><div class="line">    compile <span class="string">'io.reactivex:rxandroid:1.1.0'</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">version=<span class="string">'1.0.2'</span></div><div class="line">description = <span class="string">'showjoy compress library'</span></div><div class="line">ext.pom_packaging = <span class="string">'aar'</span></div><div class="line">ext.pom_groupId = <span class="string">'com.showjoy.image'</span></div><div class="line">ext.pom_artifactId = <span class="string">'compress'</span></div><div class="line">ext.pom_name = <span class="string">'showjoy_compress'</span></div><div class="line">ext.pom_snapshot = <span class="literal">false</span></div><div class="line"></div><div class="line"></div><div class="line">apply from :<span class="string">'http://git.showjoy.net/android/mvn-repo/raw/master/library.gradle'</span></div></pre></td></tr></table></figure>
-<p>5、根据业务需要更新模块代码，并执行commit和push等操作即可，完成模块的制作后，我们就可以在Jenkins上进行项目构建了，具体可以参考这篇文章：<a href="https://fengqingxiuyi.github.io/2016/07/19/ShowJoy/Jenkins/Jenkins项目构建过程详解/">Jenkins项目构建过程详解</a></p>
-<hr>
-<p><strong>版权声明</strong></p>
-<p><a rel="external" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"></a><br>本网站如未注明转载，均由<a href="https://fengqingxiuyi.github.io/">青峰</a>创作并维护；本网站采用<a rel="external" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>进行许可。转载请注明作者及出处。</p>
-<p>本文永久链接：<a href="https://fengqingxiuyi.github.io/2016/08/25/ShowJoy/模块/模块封装流程/">https://fengqingxiuyi.github.io/2016/08/25/ShowJoy/模块/模块封装流程/</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;1、打开&lt;a href=&quot;http://git.showjoy.net/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://git.showjoy.net/&lt;/a&gt;页面，点击右边&lt;code&gt;Projects&lt;/code&gt;选项卡下的绿色按钮&lt;cod
-    
-    </summary>
-    
-      <category term="ShowJoy" scheme="https://fengqingxiuyi.github.io/categories/ShowJoy/"/>
-    
-    
-      <category term="模块" scheme="https://fengqingxiuyi.github.io/tags/%E6%A8%A1%E5%9D%97/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>yield浅析</title>
-    <link href="https://fengqingxiuyi.github.io/2016/08/24/Python/yield%E6%B5%85%E6%9E%90/"/>
-    <id>https://fengqingxiuyi.github.io/2016/08/24/Python/yield浅析/</id>
-    <published>2016-08-24T06:32:57.000Z</published>
-    <updated>2016-11-10T05:56:02.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="相关文档"><a href="#相关文档" class="headerlink" title="相关文档"></a>相关文档</h1><p><a href="https://docs.python.org/3.5/reference/expressions.html?#yield-expressions" target="_blank" rel="external">官方文档-Yield expressions</a><br><a href="https://www.ibm.com/developerworks/cn/opensource/os-cn-python-yield/" target="_blank" rel="external">廖雪峰-Python yield 使用浅析</a></p>
-<h1 id="个人理解"><a href="#个人理解" class="headerlink" title="个人理解"></a>个人理解</h1><p>转载自：<a href="http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/001432090171191d05dae6e129940518d1d6cf6eeaaa969000#0" target="_blank" rel="external">Python教程</a>中用户<code>逝去的9211 Created at 8-3 17:43, Last updated at 8-3 17:43</code>的评论。</p>
-<p>注：以下讲的next()都是object的前后双下划线next方法</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">yield</span> &lt;expression&gt;</div></pre></td></tr></table></figure>
-<p>解释器在遇到这个语句时，先计算expression，然后将结果返回给上一个调用者。而在第二次调用next()时，会从yield的下个语句开始执行。</p>
-<p>而讲到send()和next()的区别：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">consumer</span><span class="params">()</span>:</span></div><div class="line">    r = <span class="string">'here'</span></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> xrange(<span class="number">3</span>):</div><div class="line">        <span class="keyword">yield</span> r</div><div class="line">        r = <span class="string">'200 OK'</span>+ str(i)</div><div class="line"></div><div class="line">c = consumer()</div><div class="line">n1 = c.next()</div><div class="line">n2 = c.next()</div><div class="line">n3 = c.next()</div></pre></td></tr></table></figure>
-<p>对于普通的生成器，第一个next 调用，相当于启动生成器，会从生成器的第一行代码开始执行，直到第一次执行完yield语句（第4行），然后跳出生成器函数。<br>然后第二个next 调用，从yield语句的下一句语句执行（第5行），然后重新运行到yield语句，执行后跳出，后面的以此类推。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">consumer</span><span class="params">()</span>:</span></div><div class="line">    r = <span class="string">'here'</span></div><div class="line">    <span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line">        n1 = <span class="keyword">yield</span> r</div><div class="line">        <span class="keyword">if</span> <span class="keyword">not</span> n1:</div><div class="line">            <span class="keyword">return</span></div><div class="line">        print(<span class="string">'[CONSUMER] Consuming %s...'</span> % n1)</div><div class="line">        r = <span class="string">'200 OK'</span>+str(n1)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">produce</span><span class="params">(c)</span>:</span></div><div class="line">    aa = c.send(<span class="keyword">None</span>)</div><div class="line">    n = <span class="number">0</span></div><div class="line">    <span class="keyword">while</span> n &lt; <span class="number">5</span>:</div><div class="line">        n = n + <span class="number">1</span></div><div class="line">        print(<span class="string">'[PRODUCER] Producing %s...'</span> % n)</div><div class="line">        r1 = c.send(n)</div><div class="line">        print(<span class="string">'[PRODUCER] Consumer return: %s'</span> % r1)</div><div class="line">    c.close()</div><div class="line"></div><div class="line">c = consumer()</div><div class="line">produce(c)</div></pre></td></tr></table></figure>
-<p>send(msg)和next()在一定程度上是类似的，区别是send()可以传递yield表达式的值进去，而next()不能，只能传递None进去。我们可以看做next()和send(None)是一致的。<br>注意：第一次调用时，使用next()或send(None),不能使用send发送一个非None的值，否则会报错，因为没有python yield语句来接收这个值。<br>第一次执行send(None)(11行)，启动生成器，第一行代码执行到yield后，跳出生成器函数，此时，n1一直没有定义。<br>下面运行到c.send(1)，进入生成器函数，从第4行开始执行，先把1赋值给n1,但是并不执行yield语句部分。<br>下面继续从yield的下一语句继续执行，然后重新运行到yield语句，执行后，跳出生成器。</p>
-<p>综上，send和next 相比，多了一次赋值的动作，其他的流程是相同的。</p>
-<hr>
-<p><strong>版权声明</strong></p>
-<p><a rel="external" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"></a><br>本网站如未注明转载，均由<a href="https://fengqingxiuyi.github.io/">青峰</a>创作并维护；本网站采用<a rel="external" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>进行许可。转载请注明作者及出处。</p>
-<p>本文永久链接：<a href="https://fengqingxiuyi.github.io/2016/08/24/Python/yield浅析/">https://fengqingxiuyi.github.io/2016/08/24/Python/yield浅析/</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;相关文档&quot;&gt;&lt;a href=&quot;#相关文档&quot; class=&quot;headerlink&quot; title=&quot;相关文档&quot;&gt;&lt;/a&gt;相关文档&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://docs.python.org/3.5/reference/expressions.htm
-    
-    </summary>
-    
-      <category term="Python" scheme="https://fengqingxiuyi.github.io/categories/Python/"/>
-    
-    
-      <category term="Python基础" scheme="https://fengqingxiuyi.github.io/tags/Python%E5%9F%BA%E7%A1%80/"/>
     
   </entry>
   
