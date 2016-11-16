@@ -122,10 +122,9 @@
     <link href="https://fengqingxiuyi.github.io/2016/11/16/Android/Android%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/AndroidStudio%E5%BC%80%E5%8F%91%E6%B3%A8%E6%84%8F%E7%82%B9/"/>
     <id>https://fengqingxiuyi.github.io/2016/11/16/Android/Android开发工具/AndroidStudio开发注意点/</id>
     <published>2016-11-16T00:48:23.000Z</published>
-    <updated>2016-11-16T00:51:52.000Z</updated>
+    <updated>2016-11-16T02:18:34.000Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="AS反编译失败，显示Compiled-Code"><a href="#AS反编译失败，显示Compiled-Code" class="headerlink" title="AS反编译失败，显示Compiled Code"></a>AS反编译失败，显示Compiled Code</h1><p>插件：jd-intellij-0.6.zip</p>
-<p>下载地址：<a href="https://plugins.jetbrains.com/files/7100/15663/jd-intellij-0.6.zip" target="_blank" rel="external">https://plugins.jetbrains.com/files/7100/15663/jd-intellij-0.6.zip</a></p>
+    <content type="html"><![CDATA[<h1 id="AS反编译失败，显示Compiled-Code"><a href="#AS反编译失败，显示Compiled-Code" class="headerlink" title="AS反编译失败，显示Compiled Code"></a>AS反编译失败，显示Compiled Code</h1><p>插件：<a href="https://plugins.jetbrains.com/files/7100/15663/jd-intellij-0.6.zip" target="_blank" rel="external">jd-intellij-0.6.zip</a></p>
 <p>问题：安装了上述插件后，不能查看jar包中的源码，方法内部显示 /* Compiled Code */。</p>
 <p>例子：/Volumes/MAIN/qingfeng/Workspace/CharityShopAndroid/shopandroid_detail/build/intermediates/exploded-aar/com.showjoy.analytics/analytics/1.0.6/jars/classes.jar</p>
 <p>解决：经过一番思考，发现是因为装了插件jd-intellij-0.6.zip，导致和AS的反编译插件冲突了，所以看不到源码了，所以解决办法就是卸载插件。</p>
@@ -547,7 +546,7 @@
     <link href="https://fengqingxiuyi.github.io/2016/10/04/Android/View/ScrollView/scrollbarStyle%E8%AF%A6%E8%A7%A3/"/>
     <id>https://fengqingxiuyi.github.io/2016/10/04/Android/View/ScrollView/scrollbarStyle详解/</id>
     <published>2016-10-04T10:20:21.000Z</published>
-    <updated>2016-10-04T10:36:02.000Z</updated>
+    <updated>2016-11-16T02:22:10.000Z</updated>
     
     <content type="html"><![CDATA[<p>android:scrollbarStyle属性及滚动条和分割线覆盖问题</p>
 <p>android:scrollbarStyle可以定义滚动条的样式和位置，可选值有insideOverlay、insideInset、outsideOverlay、outsideInset四种。</p>
@@ -556,7 +555,7 @@
 <p>insideInset：表示在padding区域内并且插入在view后面</p>
 <p>outsideOverlay：表示在padding区域外并且覆盖在view上，推荐这个</p>
 <p>outsideInset：表示在padding区域外并且插入在view后面</p>
-<p>分别对应效果如下图：<img src="../../../../../../../images/Android/View/ScrollView/scrollbarStyle详解.jpg" alt="scrollbarStyle详解"></p>
+<p>分别对应效果如下图：<img src="http://ogpp825dm.bkt.clouddn.com/images/Android/View/ScrollView/scrollbarStyle%E8%AF%A6%E8%A7%A3.jpg" alt="scrollbarStyle详解"></p>
 <hr>
 <p><strong>版权声明</strong></p>
 <p><a rel="external" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"></a><br>本网站如未注明转载，均由<a href="https://fengqingxiuyi.github.io/">青峰</a>创作并维护；本网站采用<a rel="external" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>进行许可。转载请注明作者及出处。</p>
@@ -674,10 +673,10 @@
     <link href="https://fengqingxiuyi.github.io/2016/10/02/Android/Android%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Gradle/%E5%A4%96%E7%BD%91%E6%97%A0%E6%B3%95%E7%BC%96%E8%AF%91/"/>
     <id>https://fengqingxiuyi.github.io/2016/10/02/Android/Android开发工具/Gradle/外网无法编译/</id>
     <published>2016-10-02T04:22:23.000Z</published>
-    <updated>2016-11-16T00:49:24.000Z</updated>
+    <updated>2016-11-16T02:19:24.000Z</updated>
     
     <content type="html"><![CDATA[<p>大部分情况下，我们开发项目都是在公司中完成的，但是总会有需要在家里开发的时候。这个时候，如果你们公司的项目需要连接公司专有的maven仓库等链接地址，那么久可能会遇到无法编译的问题，具体表现为：<font color="red">一直处于编译中，无法正常停止。</font>然后我们就可以配置选项来解决这个问题，具体看下图：</p>
-<p><img src="../../../../../../../images/Android/Android开发工具/Gradle/外网无法编译.png" alt="外网无法编译"></p>
+<p><img src="http://ogpp825dm.bkt.clouddn.com/images/Android/Android%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Gradle/%E5%A4%96%E7%BD%91%E6%97%A0%E6%B3%95%E7%BC%96%E8%AF%91.png" alt="外网无法编译"></p>
 <p>如果你也是因为这个原因导致这样的问题的话，那就幸运了！如果不是，那我只能Good Luck！</p>
 <hr>
 <p><strong>版权声明</strong></p>
@@ -703,7 +702,7 @@
     <link href="https://fengqingxiuyi.github.io/2016/10/02/Android/%E5%BE%AE%E4%BF%A1/%E5%88%86%E4%BA%AB/%E5%BE%AE%E4%BF%A1%E5%88%86%E4%BA%AB-%E9%94%99%E8%AF%AF%E9%94%A6%E9%9B%86/"/>
     <id>https://fengqingxiuyi.github.io/2016/10/02/Android/微信/分享/微信分享-错误锦集/</id>
     <published>2016-10-02T04:14:35.000Z</published>
-    <updated>2016-10-02T04:46:12.000Z</updated>
+    <updated>2016-11-16T02:20:10.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="微信分享-分享链接"><a href="#微信分享-分享链接" class="headerlink" title="微信分享-分享链接"></a>微信分享-分享链接</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">WXWebpageObject webpage = <span class="keyword">new</span> WXWebpageObject();</div><div class="line">webpage.webpageUrl = result.link;</div><div class="line">WXMediaMessage msg = <span class="keyword">new</span> WXMediaMessage(webpage);</div><div class="line">msg.title = result.title;</div><div class="line">msg.description = result.desc;</div><div class="line">msg.thumbData = thumbData;</div><div class="line"></div><div class="line">SendMessageToWX.Req req = <span class="keyword">new</span> SendMessageToWX.Req();</div><div class="line">req.transaction = buildTransaction(<span class="string">"webpage"</span>);</div><div class="line">req.message = msg;</div><div class="line"><span class="keyword">if</span> (share2WX) &#123;</div><div class="line">  req.scene = SendMessageToWX.Req.WXSceneSession;  <span class="comment">// 分享到微信</span></div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">  req.scene = SendMessageToWX.Req.WXSceneTimeline; <span class="comment">// 分享到朋友圈</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">IWXAPI msgApi = getApi(context, APP_ID);</div><div class="line"></div><div class="line">msgApi.sendReq(req);</div></pre></td></tr></table></figure>
 <p><strong><em>注意：</em></strong>sendReq方法是有返回值的，返回值类型为boolean，如果返回false，则表明分享失败，返回true，则表明分享成功。</p>

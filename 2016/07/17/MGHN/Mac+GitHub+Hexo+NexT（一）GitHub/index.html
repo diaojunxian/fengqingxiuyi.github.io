@@ -97,7 +97,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/images/Blog/favicon.ico?v=5.0.1" />
+  <link rel="shortcut icon" type="image/x-icon" href="http://ogpp825dm.bkt.clouddn.com/images/Blog/favicon.ico?v=5.0.1" />
 
 
 
@@ -116,21 +116,21 @@
 首先进行相关重要说明，请仔细阅读：
 
 本人是在Mac搭建博客的，所以不会包含和Windows相关的内容，操作系统参数如下：MacBook Pro OS X EI Capitan 10.11">
-<meta property="og:image" content="https://fengqingxiuyi.github.io/../../../../../images/MGHN/注册github步骤1.png">
-<meta property="og:image" content="https://fengqingxiuyi.github.io/../../../../../images/MGHN/注册github步骤2.png">
-<meta property="og:image" content="https://fengqingxiuyi.github.io/../../../../../images/MGHN/配置相关信息.png">
-<meta property="og:image" content="https://fengqingxiuyi.github.io/../../../../../images/MGHN/创建仓库.png">
-<meta property="og:image" content="https://fengqingxiuyi.github.io/../../../../../images/MGHN/设置SSH-key.png">
-<meta property="og:image" content="https://fengqingxiuyi.github.io/../../../../../images/MGHN/设置SSH.png">
+<meta property="og:image" content="http://ogpp825dm.bkt.clouddn.com/images/MGHN/%E6%B3%A8%E5%86%8Cgithub%E6%AD%A5%E9%AA%A41.png">
+<meta property="og:image" content="http://ogpp825dm.bkt.clouddn.com/images/MGHN/%E6%B3%A8%E5%86%8Cgithub%E6%AD%A5%E9%AA%A42.png">
+<meta property="og:image" content="http://ogpp825dm.bkt.clouddn.com/images/MGHN/%E9%85%8D%E7%BD%AE%E7%9B%B8%E5%85%B3%E4%BF%A1%E6%81%AF.png">
+<meta property="og:image" content="http://ogpp825dm.bkt.clouddn.com/images/MGHN/%E5%88%9B%E5%BB%BA%E4%BB%93%E5%BA%93.png">
+<meta property="og:image" content="http://ogpp825dm.bkt.clouddn.com/images/MGHN/%E8%AE%BE%E7%BD%AESSH-key.png">
+<meta property="og:image" content="http://ogpp825dm.bkt.clouddn.com/images/MGHN/%E8%AE%BE%E7%BD%AESSH.png">
 <meta property="og:image" content="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png">
-<meta property="og:updated_time" content="2016-10-03T13:45:40.000Z">
+<meta property="og:updated_time" content="2016-11-16T02:29:14.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mac+GitHub+Hexo+NexT（一）GitHub">
 <meta name="twitter:description" content="无意中发现了一篇博客，感觉好高大上的样纸，然后发现大家都在用这个搭建博客，我也算是out了，于是自己搭着也玩了玩。网上的搭建教程各式各样，不一定有适合自己的，或多或少都需要改动，下面就讲解一下我的博客搭建之旅。
 首先进行相关重要说明，请仔细阅读：
 
 本人是在Mac搭建博客的，所以不会包含和Windows相关的内容，操作系统参数如下：MacBook Pro OS X EI Capitan 10.11">
-<meta name="twitter:image" content="https://fengqingxiuyi.github.io/../../../../../images/MGHN/注册github步骤1.png">
+<meta name="twitter:image" content="http://ogpp825dm.bkt.clouddn.com/images/MGHN/%E6%B3%A8%E5%86%8Cgithub%E6%AD%A5%E9%AA%A41.png">
 
 
 
@@ -407,13 +407,13 @@
 </ol>
 <p>由于内容比较多，在这里我就分章节进行讲解，本文将要讲解的是GitHub的创建和SSH的配置。</p>
 <h1 id="GitHub的创建"><a href="#GitHub的创建" class="headerlink" title="GitHub的创建"></a>GitHub的创建</h1><h2 id="创建GitHub账号"><a href="#创建GitHub账号" class="headerlink" title="创建GitHub账号"></a>创建GitHub账号</h2><h3 id="Step1-Set-up-a-personal-account"><a href="#Step1-Set-up-a-personal-account" class="headerlink" title="Step1 Set up a personal account"></a>Step1 Set up a personal account</h3><p>首先在浏览器中输入网址：<a href="https://github.com/join?source=header-home" target="_blank" rel="external">https://github.com/join?source=header-home</a>，然后填写用户名、邮箱、密码，<code>注意：该邮箱地址在之后的SSH配置中有重要作用</code>，最后点击<code>Create an account</code>按钮，界面如下图所示：</p>
-<p><img src="../../../../../images/MGHN/注册github步骤1.png" alt="注册github步骤1"></p>
+<p><img src="http://ogpp825dm.bkt.clouddn.com/images/MGHN/%E6%B3%A8%E5%86%8Cgithub%E6%AD%A5%E9%AA%A41.png" alt="注册github步骤1"></p>
 <h3 id="Step2-Choose-your-plan"><a href="#Step2-Choose-your-plan" class="headerlink" title="Step2 Choose your plan"></a>Step2 Choose your plan</h3><p>默认选择即可，直接点击<code>Continue</code>按钮，进入下一步进行邮箱验证，界面如下图所示：</p>
-<p><img src="../../../../../images/MGHN/注册github步骤2.png" alt="注册github步骤2"></p>
+<p><img src="http://ogpp825dm.bkt.clouddn.com/images/MGHN/%E6%B3%A8%E5%86%8Cgithub%E6%AD%A5%E9%AA%A42.png" alt="注册github步骤2"></p>
 <h3 id="Step3-Tailor-your-experinece"><a href="#Step3-Tailor-your-experinece" class="headerlink" title="Step3 Tailor your experinece"></a>Step3 Tailor your experinece</h3><p>登录自己设置的邮箱，点击<code>验证邮箱</code>之类的按钮后会进入<a href="https://github.com/" target="_blank" rel="external">该网页</a>，如果在其左上角有<code>Your email was verified.</code>这样的文案表明邮箱验证成功。</p>
 <h2 id="配置GitHub相关信息"><a href="#配置GitHub相关信息" class="headerlink" title="配置GitHub相关信息"></a>配置GitHub相关信息</h2><p>接下来就可以进行创建工程、偏好设置等工作了：</p>
 <h3 id="创建工程"><a href="#创建工程" class="headerlink" title="创建工程"></a>创建工程</h3><p>如图所示：</p>
-<p><img src="../../../../../images/MGHN/配置相关信息.png" alt="配置相关信息"></p>
+<p><img src="http://ogpp825dm.bkt.clouddn.com/images/MGHN/%E9%85%8D%E7%BD%AE%E7%9B%B8%E5%85%B3%E4%BF%A1%E6%81%AF.png" alt="配置相关信息"></p>
 <p>如果你从未使用过GitHub，可以点击<a href="https://guides.github.com/activities/hello-world/" target="_blank" rel="external">Read the guide</a>按钮学习如何创建工程并使用。</p>
 <p>如果你知道如何创建GitHub工程的话，那就简单了，我们直接点击<code>Start a project</code>按钮就可以开始工程的创建，当然也可以从<a href="https://github.com/new" target="_blank" rel="external">该网页</a>进入。依次填写仓库名、描述信息、初始化README文件，最后点击<code>Create repository</code>按钮，就成功创建一个工程了。但是因为该工程是为了给我们搭建博客用的，所以有以下几个注意点：</p>
 <ol>
@@ -421,7 +421,7 @@
 <li>描述信息和是否初始化README文件完全看个人兴趣，但是我的建议是需要的，因为这样能直截了当的明白这个工程是干嘛用的。</li>
 </ol>
 <p>例如下图所示：</p>
-<p><img src="../../../../../images/MGHN/创建仓库.png" alt="创建仓库"></p>
+<p><img src="http://ogpp825dm.bkt.clouddn.com/images/MGHN/%E5%88%9B%E5%BB%BA%E4%BB%93%E5%BA%93.png" alt="创建仓库"></p>
 <h3 id="偏好设置"><a href="#偏好设置" class="headerlink" title="偏好设置"></a>偏好设置</h3><p>如果你熟悉GitHub，则可以进行一些偏好设置，即个性化设置，如上传头像。这些都是非常简单的，所示就不做阐述了，我们直接进入正题——配置SSH。</p>
 <h3 id="配置SSH"><a href="#配置SSH" class="headerlink" title="配置SSH"></a>配置SSH</h3><ol>
 <li><p>打开终端，输入命令：</p>
@@ -431,7 +431,7 @@
 <li><p>继续输入命令：</p>
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh-keygen -C &quot;Your primary GitHub email address”</div></pre></td></tr></table></figure>
 <p> 切记必须修改命令中的邮箱地址，该邮箱地址即为你注册GitHub时所填写的邮箱地址。输入成功之后会依行出现如下图所示提示：</p>
-<p> <img src="../../../../../images/MGHN/设置SSH-key.png" alt="设置SSH-key"></p>
+<p> <img src="http://ogpp825dm.bkt.clouddn.com/images/MGHN/%E8%AE%BE%E7%BD%AESSH-key.png" alt="设置SSH-key"></p>
 <p> 分别表示为文件名、密码和确认密码，输入正确后会给出重要的配置信息。</p>
 </li>
 <li><p>继续输入命令：</p>
@@ -439,7 +439,7 @@
 <p> 该命令中pub文件的文件名即为上一步中设置的文件名，由于该命令中包含pbcopy关键字，所以该命令可以将pub文件中的内容直接复制到剪切板中，以防之后再网页中配置SSH信息时发生不必要的错误。</p>
 </li>
 <li><p>打开<a href="https://github.com/settings/keys" target="_blank" rel="external">配置SSH</a>的网页，点击右上角的<code>New SSH key</code>按钮，如下图所示：</p>
-<p> <img src="../../../../../images/MGHN/设置SSH.png" alt="设置SSH"></p>
+<p> <img src="http://ogpp825dm.bkt.clouddn.com/images/MGHN/%E8%AE%BE%E7%BD%AESSH.png" alt="设置SSH"></p>
 <p> 然后将pub文件中的内容粘贴到Key表示的文本框中，然后在Title表示的文本框中随便命名一个名字，最后点击<code>Add SSH key</code>按钮即可添加SSH key。</p>
 </li>
 <li><p>虽然已经成功添加了SSH key，但是这并不代表着SSH配置成功了，我们继续在终端输入命令：</p>
@@ -571,7 +571,7 @@
       <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
-               src="/images/Blog/avatar.png"
+               src="http://ogpp825dm.bkt.clouddn.com/images/Blog/avatar.png"
                alt="青峰" />
           <p class="site-author-name" itemprop="name">青峰</p>
           <p class="site-description motion-element" itemprop="description">我这一生就是为了追寻自己所爱的而存在</p>

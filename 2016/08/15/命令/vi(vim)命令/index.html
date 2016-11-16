@@ -97,7 +97,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/images/Blog/favicon.ico?v=5.0.1" />
+  <link rel="shortcut icon" type="image/x-icon" href="http://ogpp825dm.bkt.clouddn.com/images/Blog/favicon.ico?v=5.0.1" />
 
 
 
@@ -112,14 +112,14 @@
 <meta property="og:site_name" content="风清袖一的博客">
 <meta property="og:description" content="注：已经忘记转载自哪里了，表示抱歉，查了很多文章，都不是完全一样。本文仅用作记录，持续更新。
 介绍vi（vim）是上Linux非常常用的编辑器，很多Linux发行版都默认安装了vi(vim)。vi(vim)命令繁多但是如果使用灵活之后将会大大提高效率。vi是“visual interface”的缩写，vim是vi IMproved(增强版的vi)。在一般的系统管理维护中vi就够用，如果想使用代码加">
-<meta property="og:image" content="https://fengqingxiuyi.github.io/../../../../../images/命令/vi(vim">
+<meta property="og:image" content="http://ogpp825dm.bkt.clouddn.com/images/%E5%91%BD%E4%BB%A4/vi%28vim%29%E5%91%BD%E4%BB%A4.jpg">
 <meta property="og:image" content="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png">
-<meta property="og:updated_time" content="2016-08-24T03:57:46.000Z">
+<meta property="og:updated_time" content="2016-11-16T02:11:10.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vi(vim)命令">
 <meta name="twitter:description" content="注：已经忘记转载自哪里了，表示抱歉，查了很多文章，都不是完全一样。本文仅用作记录，持续更新。
 介绍vi（vim）是上Linux非常常用的编辑器，很多Linux发行版都默认安装了vi(vim)。vi(vim)命令繁多但是如果使用灵活之后将会大大提高效率。vi是“visual interface”的缩写，vim是vi IMproved(增强版的vi)。在一般的系统管理维护中vi就够用，如果想使用代码加">
-<meta name="twitter:image" content="https://fengqingxiuyi.github.io/../../../../../images/命令/vi(vim">
+<meta name="twitter:image" content="http://ogpp825dm.bkt.clouddn.com/images/%E5%91%BD%E4%BB%A4/vi%28vim%29%E5%91%BD%E4%BB%A4.jpg">
 
 
 
@@ -378,7 +378,7 @@
         <p>注：已经忘记转载自哪里了，表示抱歉，查了很多文章，都不是完全一样。本文仅用作记录，持续更新。</p>
 <h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>vi（vim）是上Linux非常常用的编辑器，很多Linux发行版都默认安装了vi(vim)。vi(vim)命令繁多但是如果使用灵活之后将会大大提高效率。vi是“visual interface”的缩写，vim是vi IMproved(增强版的vi)。在一般的系统管理维护中vi就够用，如果想使用代码加亮的话可以使用vim。</p>
 <h1 id="vi的3个模式"><a href="#vi的3个模式" class="headerlink" title="vi的3个模式"></a>vi的3个模式</h1><p>1）插入模式：在此模式下可以输入字符，按ESC将回到命令模式。<br>2）命令模式：可以移动光标、删除字符等。<br>3）低行模式：可以保存文件、退出vi、设置vi、查找等功能(低行模式也可以看作是命令模式里的)。</p>
-<h1 id="vi命令大全"><a href="#vi命令大全" class="headerlink" title="vi命令大全"></a>vi命令大全</h1><p><img src="../../../../../images/命令/vi(vim" alt="vi(vim)命令.jpg">命令.jpg)</p>
+<h1 id="vi命令大全"><a href="#vi命令大全" class="headerlink" title="vi命令大全"></a>vi命令大全</h1><p><img src="http://ogpp825dm.bkt.clouddn.com/images/%E5%91%BD%E4%BB%A4/vi%28vim%29%E5%91%BD%E4%BB%A4.jpg" alt="vi(vim)命令.jpg"></p>
 <h1 id="进入vi的命令"><a href="#进入vi的命令" class="headerlink" title="进入vi的命令"></a>进入vi的命令</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">vi filename :打开或新建文件，并将光标置于第一行首</div><div class="line">vi +n filename ：打开文件，并将光标置于第n行首</div><div class="line">vi + filename ：打开文件，并将光标置于最后一行首</div><div class="line">vi +/pattern filename：打开文件，并将光标置于第一个与pattern匹配的串处</div><div class="line">vi -r filename ：在上次正用vi编辑时发生系统崩溃，恢复filename</div><div class="line">vi -o/O filename1 filename2 ... ：打开多个文件，依次进行编辑</div></pre></td></tr></table></figure>
 <h1 id="vi-关闭文件"><a href="#vi-关闭文件" class="headerlink" title="vi 关闭文件"></a>vi 关闭文件</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">:w       //保存文件</div><div class="line">:w vpser.net //保存至vpser.net文件</div><div class="line">:q          //退出编辑器，如果文件已修改请使用下面的命令</div><div class="line">:q!        //退出编辑器，且不保存</div><div class="line">:wq         //退出编辑器，且保存文件</div></pre></td></tr></table></figure>
 <h1 id="移动光标类命令"><a href="#移动光标类命令" class="headerlink" title="移动光标类命令"></a>移动光标类命令</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">h ：光标左移一个字符</div><div class="line">l ：光标右移一个字符</div><div class="line">space：光标右移一个字符</div><div class="line">Backspace：光标左移一个字符</div><div class="line">k或Ctrl+p：光标上移一行</div><div class="line">j或Ctrl+n ：光标下移一行</div><div class="line">Enter ：光标下移一行</div><div class="line">w或W ：光标右移一个字至字首</div><div class="line">b或B ：光标左移一个字至字首</div><div class="line">e或E ：光标右移一个字至字尾</div><div class="line">) ：光标移至句尾</div><div class="line">( ：光标移至句首</div><div class="line">&#125;：光标移至段落开头</div><div class="line">&#123;：光标移至段落结尾</div><div class="line">nG：光标移至第n行首</div><div class="line">n+：光标下移n行</div><div class="line">n-：光标上移n行</div><div class="line">n$：光标移至第n行尾</div><div class="line">H ：光标移至屏幕顶行</div><div class="line">M ：光标移至屏幕中间行</div><div class="line">L ：光标移至屏幕最后行</div><div class="line">0：（注意是数字零）光标移至当前行首</div><div class="line">$：光标移至当前行尾</div><div class="line">n+        //向下跳n行</div><div class="line">n-         //向上跳n行</div><div class="line">nG        //跳到行号为n的行</div><div class="line">G           //跳至文件的底部</div></pre></td></tr></table></figure>
@@ -487,7 +487,7 @@
       <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
-               src="/images/Blog/avatar.png"
+               src="http://ogpp825dm.bkt.clouddn.com/images/Blog/avatar.png"
                alt="青峰" />
           <p class="site-author-name" itemprop="name">青峰</p>
           <p class="site-description motion-element" itemprop="description">我这一生就是为了追寻自己所爱的而存在</p>
