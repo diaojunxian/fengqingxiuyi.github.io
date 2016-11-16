@@ -1,0 +1,1147 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="baidu-site-verification" content="sQIpO6j0Q6" />
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="模板," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="风清袖一的博客" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="http://ogpp825dm.bkt.clouddn.com/images/Blog/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="本文专门介绍和模板相关的知识，那么问题来了：
+
+模板是什么
+模板使用位置
+模板如何创建(包含模板存放位置)
+模板如何使用
+
+接下来，我就按照以上顺序为大家解读看起来高大上的模板。
+警告本文所有模板路径均为Mac下的路径，Windows用户也可以查看路径中的相关信息，进而快速定位。
+
+模板是什么个人理解：模板即为了帮助人们简化某些固定而繁琐的操作而制作的工具，用于快速实现这些固定而繁琐的操作。
+模板">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android模板制作">
+<meta property="og:url" content="https://fengqingxiuyi.github.io/Android/模板/Android模板制作.html">
+<meta property="og:site_name" content="风清袖一的博客">
+<meta property="og:description" content="本文专门介绍和模板相关的知识，那么问题来了：
+
+模板是什么
+模板使用位置
+模板如何创建(包含模板存放位置)
+模板如何使用
+
+接下来，我就按照以上顺序为大家解读看起来高大上的模板。
+警告本文所有模板路径均为Mac下的路径，Windows用户也可以查看路径中的相关信息，进而快速定位。
+
+模板是什么个人理解：模板即为了帮助人们简化某些固定而繁琐的操作而制作的工具，用于快速实现这些固定而繁琐的操作。
+模板">
+<meta property="og:image" content="http://ogpp825dm.bkt.clouddn.com/images/Android/%E6%A8%A1%E6%9D%BF/%E5%B7%A5%E7%A8%8B%E5%8F%B3%E5%87%BB-New.png">
+<meta property="og:image" content="http://ogpp825dm.bkt.clouddn.com/images/Android/%E6%A8%A1%E6%9D%BF/Edit-File-Templates.png">
+<meta property="og:image" content="http://ogpp825dm.bkt.clouddn.com/images/Android/%E6%A8%A1%E6%9D%BF/Edit-File-Templates-in.png">
+<meta property="og:image" content="http://ogpp825dm.bkt.clouddn.com/images/Android/%E6%A8%A1%E6%9D%BF/AndroidStudio%E8%87%AA%E5%B8%A6%E6%A8%A1%E6%9D%BF%E5%88%97%E8%A1%A8-suggest.gif">
+<meta property="og:image" content="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png">
+<meta property="og:updated_time" content="2016-11-16T02:14:24.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android模板制作">
+<meta name="twitter:description" content="本文专门介绍和模板相关的知识，那么问题来了：
+
+模板是什么
+模板使用位置
+模板如何创建(包含模板存放位置)
+模板如何使用
+
+接下来，我就按照以上顺序为大家解读看起来高大上的模板。
+警告本文所有模板路径均为Mac下的路径，Windows用户也可以查看路径中的相关信息，进而快速定位。
+
+模板是什么个人理解：模板即为了帮助人们简化某些固定而繁琐的操作而制作的工具，用于快速实现这些固定而繁琐的操作。
+模板">
+<meta name="twitter:image" content="http://ogpp825dm.bkt.clouddn.com/images/Android/%E6%A8%A1%E6%9D%BF/%E5%B7%A5%E7%A8%8B%E5%8F%B3%E5%87%BB-New.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 6307371788401640000,
+      author: '风清袖一'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="https://fengqingxiuyi.github.io/Android/模板/Android模板制作.html"/>
+
+
+  <title> Android模板制作 | 风清袖一的博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">风清袖一的博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    <!--render方法第二个参数is_index为是否为首页-->
+    <!--第三个参数is_pv为我们刚才设置的是否显示计数-->
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Android模板制作
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-13T13:01:25+08:00" content="2016-08-13">
+              2016-08-13
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/Android/模板/Android模板制作.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="Android/模板/Android模板制作.html" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+
+          
+          
+             <span id="/Android/模板/Android模板制作.html" class="leancloud_visitors" data-flag-title="Android模板制作">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>本文专门介绍和<code>模板</code>相关的知识，那么问题来了：</p>
+<ol>
+<li>模板是什么</li>
+<li>模板使用位置</li>
+<li>模板如何创建(包含模板存放位置)</li>
+<li>模板如何使用</li>
+</ol>
+<p>接下来，我就按照以上顺序为大家解读看起来高大上的<code>模板</code>。</p>
+<h1 id="警告"><a href="#警告" class="headerlink" title="警告"></a>警告</h1><font color="red">本文所有模板路径均为Mac下的路径，Windows用户也可以查看路径中的相关信息，进而快速定位。</font>
+
+<h1 id="模板是什么"><a href="#模板是什么" class="headerlink" title="模板是什么"></a>模板是什么</h1><p>个人理解：模板即为了帮助人们简化某些固定而繁琐的操作而制作的工具，用于快速实现这些固定而繁琐的操作。</p>
+<h1 id="模板使用位置"><a href="#模板使用位置" class="headerlink" title="模板使用位置"></a>模板使用位置</h1><p>当我们在使用AndroidStudio进行开发的时候，将鼠标选中工程项目，然后右击可以在New选项下面看到很多AndroidStudio提供给我们的模板类别，例如：Activity、AIDL等。具体可看下图：</p>
+<p><img src="http://ogpp825dm.bkt.clouddn.com/images/Android/%E6%A8%A1%E6%9D%BF/%E5%B7%A5%E7%A8%8B%E5%8F%B3%E5%87%BB-New.png" alt="工程右击-New"></p>
+<p>细心的你会发现在这些模板的上面有一个选项，叫：Edit File Templates…，如下图所示：</p>
+<p><img src="http://ogpp825dm.bkt.clouddn.com/images/Android/%E6%A8%A1%E6%9D%BF/Edit-File-Templates.png" alt="Edit-File-Templates"></p>
+<p>点击这个选项，会进入自定义模板页面，其中内置的变量在页面下方都有解释，是不是很方便，但是它有一个致命的缺点：一次只能创建一个java文件。具体可看下图：</p>
+<p><img src="http://ogpp825dm.bkt.clouddn.com/images/Android/%E6%A8%A1%E6%9D%BF/Edit-File-Templates-in.png" alt="Edit-File-Templates-in"></p>
+<p>因为觉得这个很简单，所以我就不做过多阐述了，接下来我就仔细阐述一下，如何一次创建多个java文件，而且还可以选择是否包含xml文件。</p>
+<h1 id="模板如何创建-包含模板存放位置"><a href="#模板如何创建-包含模板存放位置" class="headerlink" title="模板如何创建(包含模板存放位置)"></a>模板如何创建(包含模板存放位置)</h1><h2 id="警告-1"><a href="#警告-1" class="headerlink" title="警告"></a>警告</h2><p>如果直接复制相关代码的话，请注意其中的注释，可能会带来一些问题，如果出现问题，可以把#开头的注释去除，再尝试！！！</p>
+<p>如果不懂上面这段话的意思的话，可以先行跳过。</p>
+<h2 id="FreeMarker"><a href="#FreeMarker" class="headerlink" title="FreeMarker"></a>FreeMarker</h2><p>AndroidStudio的模板是使用<code>FreeMarker</code>模板引擎制作的，有兴趣的可以了解一下。</p>
+<p>本文参考：<a href="http://www.i-programmer.info/professional-programmer/resources-and-tools/6845-android-adt-template-format-document.html" target="_blank" rel="external">http://www.i-programmer.info/professional-programmer/resources-and-tools/6845-android-adt-template-format-document.html</a></p>
+<h2 id="案例-amp-解答"><a href="#案例-amp-解答" class="headerlink" title="案例&amp;解答"></a>案例&amp;解答</h2><font color="00AF60"><strong><em>案例：</em></strong></font>
+
+<p>由于现在的项目使用的是<code>类MVP架构</code>，所以基本上每个模块都需要entity、request、activity、presenter、viewmodel这五个类，无论是登录注册模块，还是商品详情页、首页、收益页面等模块，都无法摆脱这几个类，因此准备为这个<code>类MVP架构</code>制作一个通用模板。</p>
+<font color="00AF60"><strong><em>解答：</em></strong></font>
+
+<p>制作好模板之后，我想说，其实很简单，只是把会变化的部分用<code>${...}</code>替换罢了，不过在这里我们还是老老实实的从头开始吧！</p>
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="模板存放位置"><a href="#模板存放位置" class="headerlink" title="模板存放位置"></a>模板存放位置</h3><p>首页我们进入AndroidStudio安装目录下的<code>/plugins/android/lib/templates</code>文件夹，这就是AndroidStudio模板文件的目录了，到这里你可能还有所迷惑，因为你没有发现像我刚开始所说的Activity、AIDL等模板文件，没关系，你再进入<code>activities</code>文件夹下面就可以看到Activity的相关模板了，进入<code>other</code>文件夹就可以看到AIDL的相关模板了。</p>
+<h3 id="模板副本"><a href="#模板副本" class="headerlink" title="模板副本"></a>模板副本</h3><p>这里我们选择<code>activities</code>文件夹，然后你是不是觉得手足无措，不知道如何下手？其实一开始我也不知道怎么做，但是没关系，AndroidStudio不是已经提供给我们这么多模板了么，为了简单起见，我们在这里拷贝一份<code>EmptyActivity</code>，并将其重命名为<code>MVPActivity</code>，<font color="red"><strong><em>放在当前目录下</em></strong></font>。</p>
+<h3 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h3><p>打开文件夹后，我们看到以下目录结构：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">EmptyActivity</div><div class="line">  |----globals.xml.ftl <span class="comment"># 全局变量文件</span></div><div class="line">  |----recipe.xml.ftl  <span class="comment"># 配置要引用的模板路径以及生成文件的路径</span></div><div class="line">  |----root</div><div class="line">    |----src</div><div class="line">      |----app_package</div><div class="line">        |----SimpleActivity.java.ftl <span class="comment"># 模板文件</span></div><div class="line">  |----template_blank_activity.png   <span class="comment"># 创建模板时界面左边的预览图</span></div><div class="line">  |----template.xml <span class="comment"># 模板的配置信息以及要输入的参数</span></div></pre></td></tr></table></figure>
+<p>接下我们可以根据目录结构顺序（建议按以下顺序看），打开看一下，这里大致介绍一下：</p>
+<h4 id="globals-xml-ftl"><a href="#globals-xml-ftl" class="headerlink" title="globals.xml.ftl"></a>globals.xml.ftl</h4><p><code>globals.xml.ftl</code>中都是类似</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;global id=<span class="string">"hasNoActionBar"</span> <span class="built_in">type</span>=<span class="string">"boolean"</span> value=<span class="string">"false"</span> /&gt;</div></pre></td></tr></table></figure>
+<p>这样的语句，显然它的意思就是我定义了一个全局变量hasNoActionBar，它的类型是boolean，默认值为false。</p>
+<h4 id="recipe-xml-ftl"><a href="#recipe-xml-ftl" class="headerlink" title="recipe.xml.ftl"></a>recipe.xml.ftl</h4><p><code>recipe.xml.ftl</code>稍微有些复杂，这里讲解以下instantiate、open等几个重要参数：</p>
+<p><font color="00AF60"><strong><em>copy</em></strong></font>：复制–将from中的文件复制到to路径下，但并不会将ftl中得变量进行转换，即如果源文件中的类名为${activityClass}，复制过后类名还是${activityClass}转换为我们需要的类名。</p>
+<p><font color="00AF60"><strong><em>merge</em></strong></font>：合并–将from中的文件合并到to路径下的文件中。</p>
+<p><font color="00AF60"><strong><em>instantiate</em></strong></font>：和copy类似，也是将from中的文件复制到to路径下，但是它会将${activityClass}转换为我们需要的类名。其实有这样一个过程：<font color="red">ftl-&gt;freemarker process -&gt; java</font>。</p>
+<p><font color="00AF60"><strong><em>open</em></strong></font>：代码生成后，打开file中指定的文件。</p>
+<h4 id="SimpleActivity-java-ftl"><a href="#SimpleActivity-java-ftl" class="headerlink" title="SimpleActivity.java.ftl"></a>SimpleActivity.java.ftl</h4><p>打开<code>SimpleActivity.java.ftl</code>文件，会发现和我们创建Activity类后及其类似，只是把包名、类名、布局名等用<code>${...}</code>替换了，其实<code>${...}</code>中得内容都是id名，这里不做过多阐述，我们继续往下看。</p>
+<h4 id="template-xml"><a href="#template-xml" class="headerlink" title="template.xml"></a>template.xml</h4><p><code>template.xml</code>：打开以后你会发现这个文件好长，看来是重头戏了！！！是的，我们来详细解读一下：</p>
+<p>一眼看去是不是和AndroidManifest.xml中得Application节点中的内容结构很相似（包括Application节点）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=<span class="string">"1.0"</span>?&gt;</div><div class="line">&lt;template</div><div class="line">    format=<span class="string">"5"</span>   <span class="comment"># The template format version that this template adheres to. Should be 3</span></div><div class="line">    revision=<span class="string">"5"</span> <span class="comment"># 可选，当你想更新模板的时候可以以整数的形式增加此模板的版本号	</span></div><div class="line">    name=<span class="string">"Empty Activity"</span> <span class="comment"># 模板显示的名字</span></div><div class="line">    minApi=<span class="string">"7"</span>   <span class="comment"># 可选，模板所需的最小API值，IDE将确保在实例化模板之前，目标工程的minSdkVersion不低于这个值</span></div><div class="line">    minBuildApi=<span class="string">"14"</span>      <span class="comment"># 可选，模板所需的最小编译API，值为API级别，IDE将确保在实例化模板之前，项目工程的API等级大于或等于这个值</span></div><div class="line">    description=<span class="string">"Creates a new empty activity"</span>&gt; <span class="comment"># 模板的描述信息</span></div><div class="line"></div><div class="line">    &lt;category value=<span class="string">"Activity"</span> /&gt; <span class="comment"># 模板类型，用于在菜单栏File-New下显示，如Activity、AIDL等</span></div><div class="line">    &lt;formfactor value=<span class="string">"Mobile"</span> /&gt; <span class="comment"># 如同我们在创建module时所显示的类型，如：Wear、TV等。</span></div><div class="line"></div><div class="line">    &lt;parameter</div><div class="line">        id=<span class="string">"activityClass"</span>   <span class="comment"># 唯一标示，在ftl文件中可以用$&#123;activityClass&#125;获取参数值</span></div><div class="line">        name=<span class="string">"Activity Name"</span> <span class="comment"># 创建模板时在文本框左边显示的该文本框名称</span></div><div class="line">        <span class="built_in">type</span>=<span class="string">"string"</span>        <span class="comment"># 这个参数的类型，如：string, boolean, enum等</span></div><div class="line">        constraints=<span class="string">"class|unique|nonempty"</span>       <span class="comment"># 可选，这个参数的约束类型，可用|符号联合使用，constraints值类型大全请看4.5</span></div><div class="line">        suggest=<span class="string">"<span class="variable">$&#123;layoutToActivity(layoutName)&#125;</span>"</span> <span class="comment"># 可选，自动提示，比如输入layout的值可以自动生成activityClass</span></div><div class="line">        default=<span class="string">"MainActivity"</span> <span class="comment"># 可选，参数默认值，创建模板时在文本框中显示，相当于hint</span></div><div class="line">        <span class="built_in">help</span>=<span class="string">"The name of the activity class to create"</span> /&gt; <span class="comment"># 创建模板时，选中文本框后，在底部显示的关于该文本框的帮助信息</span></div><div class="line"></div><div class="line">    &lt;!-- 128x128 thumbnails relative to template.xml --&gt;</div><div class="line">    &lt;thumbs&gt;</div><div class="line">        &lt;!-- default thumbnail is required --&gt;</div><div class="line">        &lt;thumb&gt;template_blank_activity.png&lt;/thumb&gt; <span class="comment"># 可选，用于创建模板时，在左边显示名为template_blank_activity的预览图片</span></div><div class="line">    &lt;/thumbs&gt;</div><div class="line"></div><div class="line">    &lt;globals file=<span class="string">"globals.xml.ftl"</span> /&gt; <span class="comment"># 可选，将工程定义的全局变量包含进来</span></div><div class="line">    &lt;execute file=<span class="string">"recipe.xml.ftl"</span> /&gt;  <span class="comment"># 开始执行模板渲染</span></div><div class="line"></div><div class="line">&lt;/template&gt;</div></pre></td></tr></table></figure>
+<h4 id="constraints值类型大全"><a href="#constraints值类型大全" class="headerlink" title="constraints值类型大全"></a>constraints值类型大全</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">Valid constraint types are:</div><div class="line">	nonempty — the value must not be empty</div><div class="line">	apilevel — the value should represent a numeric API level</div><div class="line">	package — the value should represent a valid Java package name</div><div class="line">	class — the value should represent a valid Java class name</div><div class="line">	activity — the value should represent a fully-qualified activity class name</div><div class="line">	layout — the value should represent a valid layout resource name</div><div class="line">	drawable — the value should represent a valid drawable resource name</div><div class="line">	string — the value should represent a valid string resource name</div><div class="line">	id — the value should represent a valid id resource name</div><div class="line">	unique — the value must be unique; this constraint only makes sense when other constraints are specified, such as layout, <span class="built_in">which</span> would mean that the value should not represent an existing layout resource name</div><div class="line">	exists — the value must already exist; this constraint only makes sense when other constraints are specified, such as layout, <span class="built_in">which</span> would mean that the value should represent an existing layout resource name</div></pre></td></tr></table></figure>
+<h3 id="template-xml制作"><a href="#template-xml制作" class="headerlink" title="template.xml制作"></a>template.xml制作</h3><p>到这里相信大家对template.xml文件有了一定的了解了，好了，让我们来大干一场吧！</p>
+<h4 id="MVP版template-xml"><a href="#MVP版template-xml" class="headerlink" title="MVP版template.xml"></a>MVP版template.xml</h4><p>既然这里详细的讲解了template.xml文件，我们先从template.xml文件入手吧，这里我就不一个个细说了，直接上完整代码：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=<span class="string">"1.0"</span>?&gt;</div><div class="line">&lt;template</div><div class="line">    format=<span class="string">"2"</span>          <span class="comment"># 可修改，此处已修改</span></div><div class="line">    revision=<span class="string">"2"</span>        <span class="comment"># 可修改，此处已修改</span></div><div class="line">    name=<span class="string">"MVP Activity"</span> <span class="comment"># 需要修改</span></div><div class="line">    minApi=<span class="string">"7"</span>          <span class="comment"># 可修改</span></div><div class="line">    minBuildApi=<span class="string">"14"</span>    <span class="comment"># 可修改</span></div><div class="line">    description=<span class="string">"Creates a new MVP activity"</span>&gt; <span class="comment"># 需要修改</span></div><div class="line"></div><div class="line">    &lt;category value=<span class="string">"AAShowJoyMVP"</span> /&gt; <span class="comment"># 可修改，此处已修改</span></div><div class="line">    &lt;formfactor value=<span class="string">"Mobile"</span> /&gt;     <span class="comment"># 一般不修改</span></div><div class="line"></div><div class="line">    &lt;parameter          <span class="comment"># Activity类</span></div><div class="line">        id=<span class="string">"activityClass"</span>   <span class="comment"># 可修改</span></div><div class="line">        name=<span class="string">"Activity Name"</span> <span class="comment"># 可修改</span></div><div class="line">        <span class="built_in">type</span>=<span class="string">"string"</span>        <span class="comment"># 一般不修改</span></div><div class="line">        constraints=<span class="string">"class|unique|nonempty"</span> <span class="comment"># 一般不修改</span></div><div class="line">        default=<span class="string">"TestActivity"</span> <span class="comment"># 可修改，此处已修改</span></div><div class="line">        <span class="built_in">help</span>=<span class="string">"The name of the activity class to create"</span> /&gt; <span class="comment"># 可修改，此处未修改</span></div><div class="line"></div><div class="line">    &lt;parameter          <span class="comment"># Activity类的布局文件</span></div><div class="line">        id=<span class="string">"layoutName"</span></div><div class="line">        name=<span class="string">"Layout Name"</span></div><div class="line">        <span class="built_in">type</span>=<span class="string">"string"</span></div><div class="line">        constraints=<span class="string">"layout|unique|nonempty"</span></div><div class="line">        suggest=<span class="string">"<span class="variable">$&#123;classToResource(activityClass)&#125;</span>_activity"</span> <span class="comment"># 可修改，此处已修改，若不明白可以跳过，之后会有详解！！！</span></div><div class="line">        default=<span class="string">"test_activity"</span></div><div class="line">        <span class="built_in">help</span>=<span class="string">"The name of the layout to create for the activity"</span> /&gt;</div><div class="line"></div><div class="line">    &lt;parameter          <span class="comment"># 是否作为启动Activity</span></div><div class="line">        id=<span class="string">"isLauncher"</span></div><div class="line">        name=<span class="string">"Launcher Activity"</span></div><div class="line">        <span class="built_in">type</span>=<span class="string">"boolean"</span></div><div class="line">        default=<span class="string">"false"</span> <span class="comment"># 默认非启动Activity</span></div><div class="line">        <span class="built_in">help</span>=<span class="string">"If true, this activity will have a CATEGORY_LAUNCHER intent filter, making it visible in the launcher"</span> /&gt;</div><div class="line"></div><div class="line">    &lt;parameter          <span class="comment"># 包名</span></div><div class="line">        id=<span class="string">"packageName"</span></div><div class="line">        name=<span class="string">"Package name"</span></div><div class="line">        <span class="built_in">type</span>=<span class="string">"string"</span></div><div class="line">        constraints=<span class="string">"package"</span></div><div class="line">        default=<span class="string">"com.showjoy.shop"</span> /&gt;</div><div class="line"></div><div class="line">    &lt;parameter          <span class="comment"># viewModel类</span></div><div class="line">        id=<span class="string">"viewModelClass"</span></div><div class="line">        name=<span class="string">"View Model Name"</span></div><div class="line">        <span class="built_in">type</span>=<span class="string">"string"</span></div><div class="line">        constraints=<span class="string">"class|nonempty|unique"</span></div><div class="line">        default=<span class="string">"TestViewModel"</span></div><div class="line">        suggest=<span class="string">"<span class="variable">$&#123;underscoreToCamelCase(classToResource(activityClass))&#125;</span>ViewModel"</span> <span class="comment"># 此类同布局文件，之后会有详解！！！</span></div><div class="line">        <span class="built_in">help</span>=<span class="string">"The name of the ViewModel to create"</span> /&gt;</div><div class="line"></div><div class="line">    &lt;parameter          <span class="comment"># presenter类</span></div><div class="line">        id=<span class="string">"presenterClass"</span></div><div class="line">        name=<span class="string">"Presenter Name"</span></div><div class="line">        <span class="built_in">type</span>=<span class="string">"string"</span></div><div class="line">        constraints=<span class="string">"class|nonempty|unique"</span></div><div class="line">        default=<span class="string">"TestPresenter"</span></div><div class="line">        suggest=<span class="string">"<span class="variable">$&#123;underscoreToCamelCase(classToResource(activityClass))&#125;</span>Presenter"</span></div><div class="line">        <span class="built_in">help</span>=<span class="string">"The name of the Presenter to create"</span> /&gt;</div><div class="line"></div><div class="line">    &lt;parameter          <span class="comment"># request类</span></div><div class="line">        id=<span class="string">"requestClass"</span></div><div class="line">        name=<span class="string">"Request Name"</span></div><div class="line">        <span class="built_in">type</span>=<span class="string">"string"</span></div><div class="line">        constraints=<span class="string">"class|nonempty|unique"</span></div><div class="line">        default=<span class="string">"TestRequest"</span></div><div class="line">        suggest=<span class="string">"<span class="variable">$&#123;underscoreToCamelCase(classToResource(activityClass))&#125;</span>Request"</span></div><div class="line">        <span class="built_in">help</span>=<span class="string">"The name of the Request to create"</span> /&gt;</div><div class="line"></div><div class="line">    &lt;parameter          <span class="comment"># entity类</span></div><div class="line">        id=<span class="string">"entityClass"</span></div><div class="line">        name=<span class="string">"Entity Name"</span></div><div class="line">        <span class="built_in">type</span>=<span class="string">"string"</span></div><div class="line">        constraints=<span class="string">"class|nonempty|unique"</span></div><div class="line">        default=<span class="string">"TestEntity"</span></div><div class="line">        suggest=<span class="string">"<span class="variable">$&#123;underscoreToCamelCase(classToResource(activityClass))&#125;</span>Entity"</span></div><div class="line">        <span class="built_in">help</span>=<span class="string">"The name of the Entity to create"</span> /&gt;</div><div class="line">       </div><div class="line"></div><div class="line">    &lt;globals file=<span class="string">"globals.xml.ftl"</span> /&gt; <span class="comment"># 一般不修改</span></div><div class="line">    &lt;execute file=<span class="string">"recipe.xml.ftl"</span> /&gt;  <span class="comment"># 一般不修改</span></div><div class="line"></div><div class="line">&lt;/template&gt;</div></pre></td></tr></table></figure>
+<p>template.xml文件的使用到这里就结束了，还是比较简单的，以下阐述之前所留下的两个问题：</p>
+<p>（1）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">suggest=<span class="string">"<span class="variable">$&#123;classToResource(activityClass)&#125;</span>_activity"</span></div></pre></td></tr></table></figure>
+<p>classToResource(activityClass)：这句话的意思是，当我们在创建该模板后，在activityClass对应的文本框中输入某个值，比如：test，它会直接在layoutName对应的文本框中显示，即：test，所以以完整的语句（1）而言，此时layoutName对应的文本框中显示的应该是test_activity。</p>
+<p>（2）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">suggest=<span class="string">"<span class="variable">$&#123;underscoreToCamelCase(classToResource(activityClass))&#125;</span>ViewModel"</span></div></pre></td></tr></table></figure>
+<p>classToResource(activityClass)在（1）中描述的已经很清楚了，即为test，那么underscoreToCamelCase又是什么意思呢？其实就是将test转换为驼峰命名的方法，即Test。所以以完整的语句（2）而言，此时viewModelClass对应的文本框中显示的应该是TestViewModel。</p>
+<p>如果你觉得文字描述过于繁琐，仍然看不懂的话，可以查看以下gif：</p>
+<p><img src="http://ogpp825dm.bkt.clouddn.com/images/Android/%E6%A8%A1%E6%9D%BF/AndroidStudio%E8%87%AA%E5%B8%A6%E6%A8%A1%E6%9D%BF%E5%88%97%E8%A1%A8-suggest.gif" alt="AndroidStudio自带模板列表-suggest"></p>
+<h4 id="MVP版目录结构"><a href="#MVP版目录结构" class="headerlink" title="MVP版目录结构"></a>MVP版目录结构</h4><p>接下来我们就可以把要制作成模板的类，拷贝到相应的文件夹中，此时的目录结构为：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">MVPActivity</div><div class="line">  |----globals.xml.filter</div><div class="line">  |----recipe.xml.ftl</div><div class="line">  |----activity_layout_recipe.xml.filter <span class="comment"># 此文件与recipe类似，只是因为解耦思想，所以将class和layout分别引入</span></div><div class="line">  |----root</div><div class="line">    |----src</div><div class="line">      |----app_package</div><div class="line">        |----classes</div><div class="line">          |----Activity.java.ftl</div><div class="line">          |----Entity.java.ftl</div><div class="line">          |----Presenter.java.ftl</div><div class="line">          |----Request.java.ftl</div><div class="line">          |----ViewModel.java.ftl</div><div class="line">        |----layout</div><div class="line">          |----activity_layout.xml.ftl</div><div class="line">  |----template.xml</div></pre></td></tr></table></figure>
+<h4 id="Request-java-ftl"><a href="#Request-java-ftl" class="headerlink" title="Request.java.ftl"></a>Request.java.ftl</h4><p>为了方便而又全面的进行讲解，此处我们以Request.java.ftl文件为例，这里我就直接上全部代码了：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">package <span class="variable">$&#123;packageName&#125;</span>.request;                <span class="comment"># $&#123;packageName&#125;对应的是template.xml文件中id为packageName的参数设置的字符串，如果该类不在包名根目录下，可以在后面添加相应的module名。</span></div><div class="line"></div><div class="line">import android.support.annotation.NonNull;     <span class="comment"># 如果包名中未涉及到在创建模板时设置的包名和类名，则无需修改</span></div><div class="line">import <span class="variable">$&#123;packageName&#125;</span>.entities.<span class="variable">$&#123;entityClass&#125;</span>; <span class="comment"># 如果包名中涉及到在创建模板时设置的包名和类名，则只需相对应的进行修改即可</span></div><div class="line"></div><div class="line">/**</div><div class="line"> * 将以下涉及到在创建模板时设置的包名和类名，进行如下相对应的替换即可，布局文件也是这样替换的！！！</div><div class="line"> */</div><div class="line">public class <span class="variable">$&#123;requestClass&#125;</span> extends SHGetRequest&lt;<span class="variable">$&#123;entityClass&#125;</span>&gt; &#123;</div><div class="line">    @Override</div><div class="line">    protected Class&lt;<span class="variable">$&#123;entityClass&#125;</span>&gt; <span class="function"><span class="title">getDataClass</span></span>() &#123;</div><div class="line">        <span class="built_in">return</span> <span class="variable">$&#123;entityClass&#125;</span>.class;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    protected TypeReference&lt;<span class="variable">$&#123;entityClass&#125;</span>&gt; <span class="function"><span class="title">getDataTypeReference</span></span>() &#123;</div><div class="line">        <span class="built_in">return</span> null;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @NonNull</div><div class="line">    @Override</div><div class="line">    protected String <span class="function"><span class="title">getRequestUrl</span></span>() &#123;</div><div class="line">        <span class="built_in">return</span> null;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="布局文件"><a href="#布局文件" class="headerlink" title="布局文件"></a>布局文件</h4><p>接下来我们来看一下布局文件的替换：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"utf-8"</span>?&gt;</div><div class="line">&lt;RelativeLayout</div><div class="line">    xmlns:android=<span class="string">"http://schemas.android.com/apk/res/android"</span></div><div class="line">    xmlns:tools=<span class="string">"http://schemas.android.com/tools"</span></div><div class="line">    android:layout_width=<span class="string">"match_parent"</span></div><div class="line">    android:layout_height=<span class="string">"match_parent"</span></div><div class="line">    tools:context=<span class="string">"<span class="variable">$&#123;relativePackage&#125;</span>.<span class="variable">$&#123;activityClass&#125;</span>"</span>&gt;</div><div class="line"></div><div class="line">&lt;/RelativeLayout&gt;</div></pre></td></tr></table></figure>
+<p>虽然说tools命名空间一般都是可有可无的，这里为了全面，也讲述以下，你应该发现了一个从未见过的id：relativePackage，不用迷惑，估计你也想到了，其实我就是在globals.xml.ftl文件中定义了一个全局变量而已，它的值默认为包名，具体代码如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;global id=<span class="string">"relativePackage"</span> <span class="built_in">type</span>=<span class="string">"string"</span> value=<span class="string">"<span class="variable">$&#123;packageName&#125;</span>"</span>/&gt;</div></pre></td></tr></table></figure>
+<h4 id="globals-xml-ftl-1"><a href="#globals-xml-ftl-1" class="headerlink" title="globals.xml.ftl"></a>globals.xml.ftl</h4><p>既然说到了globals.xml.ftl文件，我们就去看看好了：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=<span class="string">"1.0"</span>?&gt;</div><div class="line">&lt;globals&gt;</div><div class="line">    &lt;global id=<span class="string">"hasNoActionBar"</span> <span class="built_in">type</span>=<span class="string">"boolean"</span> value=<span class="string">"false"</span> /&gt;</div><div class="line">    &lt;global id=<span class="string">"parentActivityClass"</span> value=<span class="string">""</span> /&gt;</div><div class="line">    &lt;global id=<span class="string">"simpleLayoutName"</span> value=<span class="string">"<span class="variable">$&#123;layoutName&#125;</span>"</span> /&gt;</div><div class="line">    &lt;global id=<span class="string">"excludeMenu"</span> <span class="built_in">type</span>=<span class="string">"boolean"</span> value=<span class="string">"true"</span> /&gt;</div><div class="line">    &lt;global id=<span class="string">"generateActivityTitle"</span> <span class="built_in">type</span>=<span class="string">"boolean"</span> value=<span class="string">"false"</span> /&gt;</div><div class="line">    &lt;global id=<span class="string">"relativePackage"</span> <span class="built_in">type</span>=<span class="string">"string"</span> value=<span class="string">"<span class="variable">$&#123;packageName&#125;</span>"</span>/&gt;</div><div class="line">    &lt;<span class="comment">#include "../common/common_globals.xml.ftl" /&gt;</span></div><div class="line">&lt;/globals&gt;</div></pre></td></tr></table></figure>
+<p>其实并没有什么，global代表的都是全局变量，#include代表的是引用的文件，相当于继承。</p>
+<h4 id="recipe-xml-ftl-1"><a href="#recipe-xml-ftl-1" class="headerlink" title="recipe.xml.ftl"></a>recipe.xml.ftl</h4><p>然后就只有recipe.xml.ftl文件了，也快结束了：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=<span class="string">"1.0"</span>?&gt;</div><div class="line">&lt;recipe&gt;</div><div class="line">    &lt;<span class="comment">#include "../common/recipe_manifest.xml.ftl" /&gt;</span></div><div class="line"></div><div class="line">    <span class="comment"># 引入同级目录中的activity_layout_recipe.xml.ftl文件，其内容会在下一节中讲述</span></div><div class="line">    &lt;<span class="comment">#include "activity_layout_recipe.xml.ftl" /&gt;	</span></div><div class="line"></div><div class="line">    &lt;instantiate from=<span class="string">"src/app_package/classes/Activity.java.ftl"</span></div><div class="line">      to=<span class="string">"<span class="variable">$&#123;escapeXmlAttribute(srcOut)&#125;</span>/<span class="variable">$&#123;activityClass&#125;</span>.java"</span> /&gt;</div><div class="line"></div><div class="line">    &lt;instantiate from=<span class="string">"src/app_package/classes/ViewModel.java.ftl"</span></div><div class="line">      to=<span class="string">"<span class="variable">$&#123;escapeXmlAttribute(srcOut)&#125;</span>/<span class="variable">$&#123;viewModelClass&#125;</span>.java"</span> /&gt;</div><div class="line"></div><div class="line">    &lt;instantiate from=<span class="string">"src/app_package/classes/Entity.java.ftl"</span></div><div class="line">      to=<span class="string">"<span class="variable">$&#123;escapeXmlAttribute(srcOut)&#125;</span>/entities/<span class="variable">$&#123;entityClass&#125;</span>.java"</span> /&gt;</div><div class="line"></div><div class="line">    &lt;instantiate from=<span class="string">"src/app_package/classes/Presenter.java.ftl"</span></div><div class="line">      to=<span class="string">"<span class="variable">$&#123;escapeXmlAttribute(srcOut)&#125;</span>/<span class="variable">$&#123;presenterClass&#125;</span>.java"</span> /&gt;</div><div class="line"></div><div class="line">    &lt;instantiate from=<span class="string">"src/app_package/classes/Request.java.ftl"</span></div><div class="line">      to=<span class="string">"<span class="variable">$&#123;escapeXmlAttribute(srcOut)&#125;</span>/request/<span class="variable">$&#123;requestClass&#125;</span>.java"</span> /&gt;</div><div class="line"></div><div class="line">    &lt;open file=<span class="string">"<span class="variable">$&#123;escapeXmlAttribute(srcOut)&#125;</span>/<span class="variable">$&#123;viewModelClass&#125;</span>.java"</span> /&gt;</div><div class="line">    </div><div class="line">    &lt;open file=<span class="string">"<span class="variable">$&#123;escapeXmlAttribute(resOut)&#125;</span>/layout/<span class="variable">$&#123;layoutName&#125;</span>.xml"</span> /&gt;</div><div class="line">    </div><div class="line">&lt;/recipe&gt;</div></pre></td></tr></table></figure>
+<p><code>instantiate</code>的作用在上面已经讲的很清楚了，简单来说就是将ftl文件转换为java文件，而<code>open</code>指的是在创建模板成功后，打开指定的文件，很简单吧，这里只有一个注意点：<font color="red"><strong><em>路径</em></strong></font> 不要写错了！！！</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$&#123;escapeXmlAttribute(srcOut)&#125;</span>代表的即为包名所代表的路径</div><div class="line"><span class="variable">$&#123;escapeXmlAttribute(resOut)&#125;</span>代表的是res根目录</div></pre></td></tr></table></figure>
+<h4 id="activity-layout-recipe-xml-ftl"><a href="#activity-layout-recipe-xml-ftl" class="headerlink" title="activity_layout_recipe.xml.ftl"></a>activity_layout_recipe.xml.ftl</h4><p>之前因为解耦思想，所以把布局文件的recipe文件单独处理了，即为activity_layout_recipe.xml.ftl，打开文件，其实很简单：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;recipe&gt;</div><div class="line"></div><div class="line">    &lt;instantiate from=<span class="string">"src/app_package/layout/activity_layout.xml.ftl"</span></div><div class="line">                 to=<span class="string">"<span class="variable">$&#123;escapeXmlAttribute(resOut)&#125;</span>/layout/<span class="variable">$&#123;layoutName&#125;</span>.xml"</span> /&gt;</div><div class="line"></div><div class="line">&lt;/recipe&gt;</div></pre></td></tr></table></figure>
+<p>这里就不做阐述了，大家看上一节就明白了。</p>
+<h1 id="模板如何使用"><a href="#模板如何使用" class="headerlink" title="模板如何使用"></a>模板如何使用</h1><p>模板创建好之后，我们首先需要的是验证是否能够正确创建出我们需要的部分，且没有错误发生，这个过程其实就是模板使用的过程，具体可以参考<code>第2章模板使用位置</code>。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>至此，Android模板制作已经全部完成了，本文篇幅还是比较长的，如果有什么疑问可以评论，我会尽力解决每一个问题的，谢谢，码字好累额！！！</p>
+<hr>
+<p><strong>版权声明</strong></p>
+<p><a rel="external" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"></a><br>本网站如未注明转载，均由<a href="https://fengqingxiuyi.github.io/">青峰</a>创作并维护；本网站采用<a rel="external" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>进行许可。转载请注明作者及出处。</p>
+<p>本文永久链接：<a href="https://fengqingxiuyi.github.io/Android/模板/Android模板制作.html">https://fengqingxiuyi.github.io/Android/模板/Android模板制作.html</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/模板/" rel="tag">#模板</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/Android/支付宝/支付宝支付-注意点.html" rel="next" title="支付宝支付-注意点">
+                <i class="fa fa-chevron-left"></i> 支付宝支付-注意点
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/Android/Wiki/获取指定包名下的Activity.html" rel="prev" title="获取指定包名下的Activity">
+                获取指定包名下的Activity <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <!-- 多说评论框 start -->
+      <div class="ds-thread" data-thread-key="Android/模板/Android模板制作.html"
+           data-title="Android模板制作" data-url="https://fengqingxiuyi.github.io/Android/模板/Android模板制作.html">
+      </div>
+      <!-- 多说评论框 end -->
+      <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+      <script type="text/javascript">
+      var duoshuoQuery = {short_name:"fengqingxiuyi"};
+        (function() {
+          var ds = document.createElement('script');
+          ds.type = 'text/javascript';ds.async = true;
+          ds.src = 'https://fengqingxiuyi.github.io/js/embed.js';
+          <!-- 上面是我自己的 embed.js 链接，请改为你自己的地址 -->
+
+          ds.charset = 'UTF-8';
+          (document.getElementsByTagName('head')[0] 
+           || document.getElementsByTagName('body')[0]).appendChild(ds);
+        })();
+        </script>
+      <!-- 多说公共JS代码 end -->
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://ogpp825dm.bkt.clouddn.com/images/Blog/avatar.png"
+               alt="青峰" />
+          <p class="site-author-name" itemprop="name">青峰</p>
+          <p class="site-description motion-element" itemprop="description">我这一生就是为了追寻自己所爱的而存在</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">74</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/fengqingxiuyi" target="_blank" title="GitHub" rel="external nofollow">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://blog.csdn.net/u012505400" target="_blank" title="CSDN" rel="external nofollow">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  CSDN
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://blog.sina.com.cn/u/3858496160" target="_blank" title="新浪博客" rel="external nofollow">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  新浪博客
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blog.csdn.net/luoshengyang/" title="老罗的Andrid之旅" target="_blank" rel="external nofollow">老罗的Andrid之旅</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blog.csdn.net/lmj623565791/" title="Hongyang" target="_blank" rel="external nofollow">Hongyang</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blog.csdn.net/guolin_blog/" title="郭霖的专栏" target="_blank" rel="external nofollow">郭霖的专栏</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://notes.cribug.com/" title="Cribug" target="_blank" rel="external nofollow">Cribug</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://duanyuzhen.github.io/" title="一袖清风的博客" target="_blank" rel="external nofollow">一袖清风的博客</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#警告"><span class="nav-number">1.</span> <span class="nav-text">警告</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#模板是什么"><span class="nav-number">2.</span> <span class="nav-text">模板是什么</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#模板使用位置"><span class="nav-number">3.</span> <span class="nav-text">模板使用位置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#模板如何创建-包含模板存放位置"><span class="nav-number">4.</span> <span class="nav-text">模板如何创建(包含模板存放位置)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#警告-1"><span class="nav-number">4.1.</span> <span class="nav-text">警告</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FreeMarker"><span class="nav-number">4.2.</span> <span class="nav-text">FreeMarker</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#案例-amp-解答"><span class="nav-number">4.3.</span> <span class="nav-text">案例&解答</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#步骤"><span class="nav-number">4.4.</span> <span class="nav-text">步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#模板存放位置"><span class="nav-number">4.4.1.</span> <span class="nav-text">模板存放位置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模板副本"><span class="nav-number">4.4.2.</span> <span class="nav-text">模板副本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#目录结构"><span class="nav-number">4.4.3.</span> <span class="nav-text">目录结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#globals-xml-ftl"><span class="nav-number">4.4.3.1.</span> <span class="nav-text">globals.xml.ftl</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#recipe-xml-ftl"><span class="nav-number">4.4.3.2.</span> <span class="nav-text">recipe.xml.ftl</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SimpleActivity-java-ftl"><span class="nav-number">4.4.3.3.</span> <span class="nav-text">SimpleActivity.java.ftl</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#template-xml"><span class="nav-number">4.4.3.4.</span> <span class="nav-text">template.xml</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#constraints值类型大全"><span class="nav-number">4.4.3.5.</span> <span class="nav-text">constraints值类型大全</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#template-xml制作"><span class="nav-number">4.4.4.</span> <span class="nav-text">template.xml制作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#MVP版template-xml"><span class="nav-number">4.4.4.1.</span> <span class="nav-text">MVP版template.xml</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MVP版目录结构"><span class="nav-number">4.4.4.2.</span> <span class="nav-text">MVP版目录结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Request-java-ftl"><span class="nav-number">4.4.4.3.</span> <span class="nav-text">Request.java.ftl</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#布局文件"><span class="nav-number">4.4.4.4.</span> <span class="nav-text">布局文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#globals-xml-ftl-1"><span class="nav-number">4.4.4.5.</span> <span class="nav-text">globals.xml.ftl</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#recipe-xml-ftl-1"><span class="nav-number">4.4.4.6.</span> <span class="nav-text">recipe.xml.ftl</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#activity-layout-recipe-xml-ftl"><span class="nav-number">4.4.4.7.</span> <span class="nav-text">activity_layout_recipe.xml.ftl</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#模板如何使用"><span class="nav-number">5.</span> <span class="nav-text">模板如何使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">6.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+<div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">青峰</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io" rel="external nofollow">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next" rel="external nofollow">
+    NexT.Mist
+  </a>
+</div>
+
+<span id="busuanzi_container_site_pv">
+  | 本站总访问量<span id="busuanzi_value_site_pv"></span>&nbsp;&nbsp;
+</span>
+
+<span id="busuanzi_container_site_uv">
+  | 您是第<span id="busuanzi_value_site_uv"></span>个来到的小伙伴
+</span>
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"fengqingxiuyi"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("qFnJ1pQaEsIPYF2qGYgLWXNT-gzGzoHsz", "T4nQpf74BeGitOQmRVC7rSKM");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+</body>
+</html>
