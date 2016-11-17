@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://fengqingxiuyi.github.io/"/>
-  <updated>2016-11-16T01:18:28.000Z</updated>
+  <updated>2016-11-17T06:29:00.000Z</updated>
   <id>https://fengqingxiuyi.github.io/</id>
   
   <author>
@@ -16,9 +16,41 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>类型转换注意点</title>
+    <link href="https://fengqingxiuyi.github.io/Android/Wiki/%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E6%B3%A8%E6%84%8F%E7%82%B9.html"/>
+    <id>https://fengqingxiuyi.github.io/Android/Wiki/类型转换注意点.html</id>
+    <published>2016-11-17T06:28:21.000Z</published>
+    <updated>2016-11-17T06:29:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>注：本文属于工具类文章，可以直接使用；本文主要介绍一些关于类型转换的注意点。</p>
+<p>Object转换为Boolean: Object.booleanVaule()</p>
+<p>String转换为Boolean: Boolean.parseBoolean(String);</p>
+<p>String转换为Color: Color.parseColor(String);</p>
+<hr>
+<p><strong>版权声明</strong></p>
+<p><a rel="external" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"></a><br>本网站如未注明转载，均由<a href="https://fengqingxiuyi.github.io/">青峰</a>创作并维护；本网站采用<a rel="external" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>进行许可。转载请注明作者及出处。</p>
+<p>本文永久链接：<a href="https://fengqingxiuyi.github.io/Android/Wiki/类型转换注意点.html">https://fengqingxiuyi.github.io/Android/Wiki/类型转换注意点.html</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;注：本文属于工具类文章，可以直接使用；本文主要介绍一些关于类型转换的注意点。&lt;/p&gt;
+&lt;p&gt;Object转换为Boolean: Object.booleanVaule()&lt;/p&gt;
+&lt;p&gt;String转换为Boolean: Boolean.parseBoolean(Strin
+    
+    </summary>
+    
+      <category term="Android" scheme="https://fengqingxiuyi.github.io/categories/Android/"/>
+    
+    
+      <category term="Wiki" scheme="https://fengqingxiuyi.github.io/tags/Wiki/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Dialog使用注意点</title>
-    <link href="https://fengqingxiuyi.github.io/Android/View/Dialog%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E7%82%B9.html"/>
-    <id>https://fengqingxiuyi.github.io/Android/View/Dialog使用注意点.html</id>
+    <link href="https://fengqingxiuyi.github.io/Android/View/Dialog/Dialog%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E7%82%B9.html"/>
+    <id>https://fengqingxiuyi.github.io/Android/View/Dialog/Dialog使用注意点.html</id>
     <published>2016-11-16T01:13:21.000Z</published>
     <updated>2016-11-16T01:18:28.000Z</updated>
     
@@ -37,7 +69,7 @@
 <hr>
 <p><strong>版权声明</strong></p>
 <p><a rel="external" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"></a><br>本网站如未注明转载，均由<a href="https://fengqingxiuyi.github.io/">青峰</a>创作并维护；本网站采用<a rel="external" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>进行许可。转载请注明作者及出处。</p>
-<p>本文永久链接：<a href="https://fengqingxiuyi.github.io/Android/View/Dialog使用注意点.html">https://fengqingxiuyi.github.io/Android/View/Dialog使用注意点.html</a></p>
+<p>本文永久链接：<a href="https://fengqingxiuyi.github.io/Android/View/Dialog/Dialog使用注意点.html">https://fengqingxiuyi.github.io/Android/View/Dialog/Dialog使用注意点.html</a></p>
 ]]></content>
     
     <summary type="html">
@@ -694,39 +726,6 @@
     
     
       <category term="Android开发工具" scheme="https://fengqingxiuyi.github.io/tags/Android%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>微信分享-错误锦集</title>
-    <link href="https://fengqingxiuyi.github.io/Android/%E5%BE%AE%E4%BF%A1/%E5%88%86%E4%BA%AB/%E5%BE%AE%E4%BF%A1%E5%88%86%E4%BA%AB-%E9%94%99%E8%AF%AF%E9%94%A6%E9%9B%86.html"/>
-    <id>https://fengqingxiuyi.github.io/Android/微信/分享/微信分享-错误锦集.html</id>
-    <published>2016-10-02T04:14:35.000Z</published>
-    <updated>2016-11-16T02:20:10.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="微信分享-分享链接"><a href="#微信分享-分享链接" class="headerlink" title="微信分享-分享链接"></a>微信分享-分享链接</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">WXWebpageObject webpage = <span class="keyword">new</span> WXWebpageObject();</div><div class="line">webpage.webpageUrl = result.link;</div><div class="line">WXMediaMessage msg = <span class="keyword">new</span> WXMediaMessage(webpage);</div><div class="line">msg.title = result.title;</div><div class="line">msg.description = result.desc;</div><div class="line">msg.thumbData = thumbData;</div><div class="line"></div><div class="line">SendMessageToWX.Req req = <span class="keyword">new</span> SendMessageToWX.Req();</div><div class="line">req.transaction = buildTransaction(<span class="string">"webpage"</span>);</div><div class="line">req.message = msg;</div><div class="line"><span class="keyword">if</span> (share2WX) &#123;</div><div class="line">  req.scene = SendMessageToWX.Req.WXSceneSession;  <span class="comment">// 分享到微信</span></div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">  req.scene = SendMessageToWX.Req.WXSceneTimeline; <span class="comment">// 分享到朋友圈</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">IWXAPI msgApi = getApi(context, APP_ID);</div><div class="line"></div><div class="line">msgApi.sendReq(req);</div></pre></td></tr></table></figure>
-<p><strong><em>注意：</em></strong>sendReq方法是有返回值的，返回值类型为boolean，如果返回false，则表明分享失败，返回true，则表明分享成功。</p>
-<p><strong><em>案例：</em></strong>达人店1.0.2.2版本 分享店铺-分享到微信好友 经常调不出微信页面，导致分享失败，但是 商品详情页-分享商品 正常。</p>
-<p><strong><em>分析：</em></strong>经过对比发现，只有 thumbData 即 图片 有 大小 的差异，经过Logcat发现 前者 分享图片是用户头像，浏览器打开显示图片大小约为700k，后者 分享图片是商品图，浏览器打开显示图片大小约为150k，所以可以得出分享到微信是图片大小限制的。注意：浏览器打开显示图片的大小并非为thumbData的大小。</p>
-<p><strong><em>解决：</em></strong>通过 谷歌 百度 得知 thumbData 不能大于 32k，我们只要以此压缩图片就行了。</p>
-<p><font color="red">相关链接：</font><br><strong><em>官方FAQ：</em></strong><a href="https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&amp;t=resource/res_list&amp;verify=1&amp;id=open1419318060&amp;token=&amp;lang=zh_CN" target="_blank" rel="external">https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&amp;t=resource/res_list&amp;verify=1&amp;id=open1419318060&amp;token=&amp;lang=zh_CN</a></p>
-<p><strong><em>解决微信分享图片，网址失效的Bug – 不完美解决：</em></strong><a href="http://blog.csdn.net/h3c4lenovo/article/details/10103057" target="_blank" rel="external">http://blog.csdn.net/h3c4lenovo/article/details/10103057</a></p>
-<hr>
-<p><strong>版权声明</strong></p>
-<p><a rel="external" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"></a><br>本网站如未注明转载，均由<a href="https://fengqingxiuyi.github.io/">青峰</a>创作并维护；本网站采用<a rel="external" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>进行许可。转载请注明作者及出处。</p>
-<p>本文永久链接：<a href="https://fengqingxiuyi.github.io/Android/微信/分享/微信分享-错误锦集.html">https://fengqingxiuyi.github.io/Android/微信/分享/微信分享-错误锦集.html</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;微信分享-分享链接&quot;&gt;&lt;a href=&quot;#微信分享-分享链接&quot; class=&quot;headerlink&quot; title=&quot;微信分享-分享链接&quot;&gt;&lt;/a&gt;微信分享-分享链接&lt;/h1&gt;&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td
-    
-    </summary>
-    
-      <category term="Android" scheme="https://fengqingxiuyi.github.io/categories/Android/"/>
-    
-    
-      <category term="微信" scheme="https://fengqingxiuyi.github.io/tags/%E5%BE%AE%E4%BF%A1/"/>
     
   </entry>
   

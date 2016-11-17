@@ -4,6 +4,106 @@
 
     
   <url>
+    <loc>https://fengqingxiuyi.github.io/Android/View/EditText/%E8%AE%BE%E7%BD%AEHint%E5%AD%97%E4%BD%93%E5%A4%A7%E5%B0%8F.html</loc>
+    <lastmod>2016-11-17T06:35:14.000Z</lastmod>
+    <data>
+        <display>
+        <title>设置Hint字体大小</title>
+        <pubTime>2016-08-14T10:47:21.000Z</pubTime>
+        
+        <tag>View</tag>
+         
+         
+           
+             
+              <breadCrumb title="Android" url="https://fengqingxiuyi.github.io/categories/Android/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://fengqingxiuyi.github.io/Android/View/Bitmap/%E5%B0%86layout%E8%BD%AC%E6%8D%A2%E4%B8%BABitmap.html</loc>
+    <lastmod>2016-11-17T06:34:04.000Z</lastmod>
+    <data>
+        <display>
+        <title>将layout转换为Bitmap</title>
+        <pubTime>2016-08-14T10:23:23.000Z</pubTime>
+        
+        <tag>View</tag>
+         
+         
+           
+             
+              <breadCrumb title="Android" url="https://fengqingxiuyi.github.io/categories/Android/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://fengqingxiuyi.github.io/Android/View/ImageView/ImageView%E5%BC%95%E7%94%A8%E5%9B%BE%E7%89%87%E4%B8%8A%E4%B8%8B%E6%96%B9%E7%A9%BA%E7%99%BD.html</loc>
+    <lastmod>2016-11-17T06:32:30.000Z</lastmod>
+    <data>
+        <display>
+        <title>ImageView引用图片上下方空白</title>
+        <pubTime>2016-08-14T10:57:21.000Z</pubTime>
+        
+        <tag>View</tag>
+         
+         
+           
+             
+              <breadCrumb title="Android" url="https://fengqingxiuyi.github.io/categories/Android/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://fengqingxiuyi.github.io/Android/View/TextView/TextView%E5%8D%A0%E4%BD%8D%E7%AC%A6.html</loc>
+    <lastmod>2016-11-17T06:31:52.000Z</lastmod>
+    <data>
+        <display>
+        <title>TextView占位符</title>
+        <pubTime>2016-08-14T11:15:21.000Z</pubTime>
+        
+        <tag>View</tag>
+         
+         
+           
+             
+              <breadCrumb title="Android" url="https://fengqingxiuyi.github.io/categories/Android/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://fengqingxiuyi.github.io/Android/Wiki/%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E6%B3%A8%E6%84%8F%E7%82%B9.html</loc>
+    <lastmod>2016-11-17T06:29:00.000Z</lastmod>
+    <data>
+        <display>
+        <title>类型转换注意点</title>
+        <pubTime>2016-11-17T06:28:21.000Z</pubTime>
+        
+        <tag>Wiki</tag>
+         
+         
+           
+             
+              <breadCrumb title="Android" url="https://fengqingxiuyi.github.io/categories/Android/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://fengqingxiuyi.github.io/Android/Android%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/mapping%E6%96%87%E4%BB%B6%E6%9F%A5%E7%9C%8B.html</loc>
     <lastmod>2016-11-16T06:28:10.000Z</lastmod>
     <data>
@@ -351,7 +451,7 @@
 
     
   <url>
-    <loc>https://fengqingxiuyi.github.io/Android/View/Dialog%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E7%82%B9.html</loc>
+    <loc>https://fengqingxiuyi.github.io/Android/View/Dialog/Dialog%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E7%82%B9.html</loc>
     <lastmod>2016-11-16T01:18:28.000Z</lastmod>
     <data>
         <display>
@@ -927,92 +1027,12 @@
 
     
   <url>
-    <loc>https://fengqingxiuyi.github.io/Android/Wiki/TextView%E5%8D%A0%E4%BD%8D%E7%AC%A6.html</loc>
-    <lastmod>2016-08-24T04:11:12.000Z</lastmod>
-    <data>
-        <display>
-        <title>TextView占位符</title>
-        <pubTime>2016-08-14T11:15:21.000Z</pubTime>
-        
-        <tag>Wiki</tag>
-         
-         
-           
-             
-              <breadCrumb title="Android" url="https://fengqingxiuyi.github.io/categories/Android/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://fengqingxiuyi.github.io/Android/Wiki/ImageView%E5%BC%95%E7%94%A8%E5%9B%BE%E7%89%87%E4%B8%8A%E4%B8%8B%E6%96%B9%E7%A9%BA%E7%99%BD.html</loc>
-    <lastmod>2016-08-24T04:11:04.000Z</lastmod>
-    <data>
-        <display>
-        <title>ImageView引用图片上下方空白</title>
-        <pubTime>2016-08-14T10:57:21.000Z</pubTime>
-        
-        <tag>Wiki</tag>
-         
-         
-           
-             
-              <breadCrumb title="Android" url="https://fengqingxiuyi.github.io/categories/Android/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://fengqingxiuyi.github.io/Android/Wiki/%E8%AE%BE%E7%BD%AEHint%E5%AD%97%E4%BD%93%E5%A4%A7%E5%B0%8F.html</loc>
-    <lastmod>2016-08-24T04:10:48.000Z</lastmod>
-    <data>
-        <display>
-        <title>设置Hint字体大小</title>
-        <pubTime>2016-08-14T10:47:21.000Z</pubTime>
-        
-        <tag>Wiki</tag>
-         
-         
-           
-             
-              <breadCrumb title="Android" url="https://fengqingxiuyi.github.io/categories/Android/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://fengqingxiuyi.github.io/Android/Wiki/%E6%8E%A5%E5%8F%A3%E5%9B%9E%E8%B0%83.html</loc>
     <lastmod>2016-08-24T04:10:40.000Z</lastmod>
     <data>
         <display>
         <title>接口回调</title>
         <pubTime>2016-08-14T10:40:23.000Z</pubTime>
-        
-        <tag>Wiki</tag>
-         
-         
-           
-             
-              <breadCrumb title="Android" url="https://fengqingxiuyi.github.io/categories/Android/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://fengqingxiuyi.github.io/Android/Wiki/%E5%B0%86layout%E8%BD%AC%E6%8D%A2%E4%B8%BABitmap.html</loc>
-    <lastmod>2016-08-24T04:10:32.000Z</lastmod>
-    <data>
-        <display>
-        <title>将layout转换为Bitmap</title>
-        <pubTime>2016-08-14T10:23:23.000Z</pubTime>
         
         <tag>Wiki</tag>
          
