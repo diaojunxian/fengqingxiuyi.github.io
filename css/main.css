@@ -1237,6 +1237,7 @@ pre .javascript .function {
   }
 }
 .menu .menu-item a {
+  color: #f00;
   display: block;
   font-size: 13px;
   text-transform: capitalize;
@@ -1945,7 +1946,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff7cab;
+  background: #ff47ff;
 }
 .links-of-blogroll {
   font-size: 13px;
