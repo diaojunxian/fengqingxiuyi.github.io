@@ -1,0 +1,668 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>风清袖一的博客</title>
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://fengqingxiuyi.xyz/"/>
+  <updated>2016-11-26T15:03:19.000Z</updated>
+  <id>http://fengqingxiuyi.xyz/</id>
+  
+  <author>
+    <name>青峰</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>类型转换注意点</title>
+    <link href="http://fengqingxiuyi.xyz/Android/Wiki/%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E6%B3%A8%E6%84%8F%E7%82%B9.html"/>
+    <id>http://fengqingxiuyi.xyz/Android/Wiki/类型转换注意点.html</id>
+    <published>2016-11-17T06:28:21.000Z</published>
+    <updated>2016-11-26T15:03:19.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>注：本文所属Android-Wiki，本文主要介绍一些关于类型转换的注意点。</p>
+<a id="more"></a>
+<p>Object转换为Boolean: Object.booleanVaule()</p>
+<p>String转换为Boolean: Boolean.parseBoolean(String);</p>
+<p>String转换为Color: Color.parseColor(String);</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;注：本文所属Android-Wiki，本文主要介绍一些关于类型转换的注意点。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Android" scheme="http://fengqingxiuyi.xyz/categories/Android/"/>
+    
+    
+      <category term="Wiki" scheme="http://fengqingxiuyi.xyz/tags/Wiki/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Dialog使用注意点</title>
+    <link href="http://fengqingxiuyi.xyz/Android/View/Dialog/Dialog%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E7%82%B9.html"/>
+    <id>http://fengqingxiuyi.xyz/Android/View/Dialog/Dialog使用注意点.html</id>
+    <published>2016-11-16T01:13:21.000Z</published>
+    <updated>2016-11-26T13:43:12.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>注：本文所属Android-View-Dialog，用于记录在使用Dialog过程中遇到的一些坑，当然页包括DialogFragment，本文持续更新…</p>
+<a id="more"></a>
+<h1 id="New-amp-Show"><a href="#New-amp-Show" class="headerlink" title="New&amp;Show"></a>New&amp;Show</h1><p>dialog new的时候只创建了构造方法，show的时候才创建了view。</p>
+<h1 id="赋值"><a href="#赋值" class="headerlink" title="赋值"></a>赋值</h1><p>内部定义</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">InviteConfirmDialog</span> <span class="keyword">extends</span> <span class="title">BaseDialogFragment</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> TextView inviteShopName;</div><div class="line"></div><div class="line">    String shopName;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getContentView</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> R.layout.invite_confirm_dialog;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">initView</span><span class="params">(View view)</span> </span>&#123;</div><div class="line">        inviteShopName = (TextView) findViewById(R.id.invite_shop_name);</div><div class="line"></div><div class="line">        inviteShopName.setText(shopName);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setInfo</span><span class="params">(String shopName)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.shopName = shopName;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (<span class="keyword">null</span> != inviteShopName) &#123;</div><div class="line">            inviteShopName.setText(shopName);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>外部调用</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">inviteConfirmDialog.setInfo(inviteShopInfo.shop.name);</div></pre></td></tr></table></figure>
+<p>问：为什么在上述代码中inviteShopName设置文本设置了两次？</p>
+<p>解答：因为在外部调用的时候，dialog show的时机不确定，所以存在两种情况：</p>
+<p>情况一：dialog先显示再赋值</p>
+<p>因为dialog在调用了show方法之后，会先调用initView方法，这个时候initView方法中的setText方法是无用的；然后之后再赋值，就可以正确显示了。</p>
+<p>情况二：dialog先赋值再显示</p>
+<p>因为dialog在调用了show方法之后，才会调用initView方法，所以先赋值的话inviteShopName == null，所以只是把值保存在成员变量之中；等到show的时候调用initView方法，再在initView方法中调用setText方法即可正确赋值。</p>
+<p>使用场景：外部灵活调用。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;注：本文所属Android-View-Dialog，用于记录在使用Dialog过程中遇到的一些坑，当然页包括DialogFragment，本文持续更新…&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Android" scheme="http://fengqingxiuyi.xyz/categories/Android/"/>
+    
+    
+      <category term="View" scheme="http://fengqingxiuyi.xyz/tags/View/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>mapping文件查看</title>
+    <link href="http://fengqingxiuyi.xyz/Android/Android%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/mapping%E6%96%87%E4%BB%B6%E6%9F%A5%E7%9C%8B.html"/>
+    <id>http://fengqingxiuyi.xyz/Android/Android开发工具/mapping文件查看.html</id>
+    <published>2016-11-16T00:56:23.000Z</published>
+    <updated>2016-11-26T13:30:28.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>注：本文所属Android-Android开发工具，用于介绍自己在使用mapping文件定位错误的心得。</p>
+<a id="more"></a>
+<h1 id="错误日志"><a href="#错误日志" class="headerlink" title="错误日志"></a>错误日志</h1><p>从手机中的crash文件夹中获得 或者 从友盟后台获得，此处属于前者。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line">SUPPORTED_64_BIT_ABIS=[Ljava.lang.String;@d28f72d</div><div class="line">versionCode=7</div><div class="line">BOARD=MSM8974</div><div class="line">BOOTLOADER=unknown</div><div class="line">TYPE=user</div><div class="line">ID=MMB29M</div><div class="line">TIME=1471425647000</div><div class="line">BRAND=Xiaomi</div><div class="line">TAG=Build</div><div class="line">SERIAL=5396ac39</div><div class="line">HARDWARE=qcom</div><div class="line">SUPPORTED_ABIS=[Ljava.lang.String;@f8f2462</div><div class="line">CPU_ABI=armeabi-v7a</div><div class="line">RADIO=unknown</div><div class="line">IS_DEBUGGABLE=false</div><div class="line">MANUFACTURER=Xiaomi</div><div class="line">SUPPORTED_32_BIT_ABIS=[Ljava.lang.String;@e0c7a44</div><div class="line">TAGS=release-keys</div><div class="line">CPU_ABI2=armeabi</div><div class="line">UNKNOWN=unknown</div><div class="line">USER=builder</div><div class="line">FINGERPRINT=Xiaomi/cancro_wc_lte/cancro:6.0.1/MMB29M/V8.0.2.0.MXDCNDG:user/release-keys</div><div class="line">HOST=c3-miui-ota-bd32.bj</div><div class="line">PRODUCT=cancro_wc_lte</div><div class="line">versionName=1.3.0</div><div class="line">DISPLAY=MMB29M</div><div class="line">MODEL=MI 4LTE</div><div class="line">DEVICE=cancro</div><div class="line">java.lang.NullPointerException: key == null || value == null</div><div class="line">    at android.util.LruCache.put(LruCache.java:166)</div><div class="line">    at com.showjoy.b.d.a.a(SourceFile:77)</div><div class="line">    at com.showjoy.b.d.a.a(SourceFile:152)</div><div class="line">    at com.showjoy.shop.common.user.b.e(SourceFile:122)</div><div class="line">    at com.showjoy.shop.common.user.b.a(SourceFile:206)</div><div class="line">    at com.showjoy.shop.module.login.account.b.a(SourceFile:152)</div><div class="line">    at com.showjoy.shop.module.login.account.a.a(SourceFile:27)</div><div class="line">    at com.showjoy.shop.common.base.b.b(SourceFile:73)</div><div class="line">    at com.showjoy.shop.common.base.b$1.a(SourceFile:40)</div><div class="line">    at com.showjoy.shop.common.base.b$1.a(SourceFile:32)</div><div class="line">    at com.showjoy.network.base.c$1.a(SourceFile:160)</div><div class="line">    at com.showjoy.network.base.d.b(SourceFile:131)</div><div class="line">    at com.android.volley.d$a.run(SourceFile:99)</div><div class="line">    at android.os.Handler.handleCallback(Handler.java:739)</div><div class="line">    at android.os.Handler.dispatchMessage(Handler.java:95)</div><div class="line">    at android.os.Looper.loop(Looper.java:148)</div><div class="line">    at android.app.ActivityThread.main(ActivityThread.java:5438)</div><div class="line">    at java.lang.reflect.Method.invoke(Native Method)</div><div class="line">    at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:739)</div><div class="line">    at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:629)</div></pre></td></tr></table></figure>
+<p>因为代码被混淆，所以我们无法直观知道出错位置，必须依靠mapping文件进行查找。</p>
+<h1 id="mapping文件位置"><a href="#mapping文件位置" class="headerlink" title="mapping文件位置"></a>mapping文件位置</h1><p>此处以<a href="https://wireless-build.showjoy.net/view/达人店/job/ShopAndroid-release-1.3.0-test/lastSuccessfulBuild/artifact/outputs/mapping/forTest/mapping.txt" target="_blank" rel="external">ShopAndroid-release-1.3.0-test</a>为例。</p>
+<h1 id="查找错误位置心得"><a href="#查找错误位置心得" class="headerlink" title="查找错误位置心得"></a>查找错误位置心得</h1><p>首先需要找到错误出现的入口，比如（错误任务栈信息第5行）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">at com.showjoy.shop.common.user.b.e(SourceFile:122)</div></pre></td></tr></table></figure>
+<p>打开文件后，搜索<code>com.showjoy.shop.common.user.b</code>，找到以下相关信息：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">com.showjoy.shop.common.user.UserDataManager -&gt; com.showjoy.shop.common.user.b:</div><div class="line">    com.showjoy.shop.common.user.entities.UserResult userResult -&gt; a</div><div class="line">    26:27:void setBuyer(boolean) -&gt; a</div><div class="line">    30:30:boolean isLogin() -&gt; a</div><div class="line">    34:35:void setLogin(boolean) -&gt; b</div><div class="line">    38:38:boolean hasShop() -&gt; b</div><div class="line">    42:43:void setShopOpened(boolean) -&gt; c</div><div class="line">    46:46:int getShopId() -&gt; c</div><div class="line">    50:51:void setShopId(int) -&gt; a</div><div class="line">    54:54:int getUserId() -&gt; d</div><div class="line">    58:59:void setUserId(int) -&gt; b</div><div class="line">    62:62:boolean isBindWeixin() -&gt; e</div><div class="line">    66:67:void bindWeixin(boolean) -&gt; d</div><div class="line">    75:75:java.lang.String getUserEd() -&gt; f</div><div class="line">    79:80:void setUserEd(java.lang.String) -&gt; a</div><div class="line">    83:83:java.lang.String getPhone() -&gt; g</div><div class="line">    87:88:void setPhone(java.lang.String) -&gt; b</div><div class="line">    91:91:java.lang.String getNick() -&gt; h</div><div class="line">    95:96:void setNick(java.lang.String) -&gt; c</div><div class="line">    104:105:void setShopName(java.lang.String) -&gt; d</div><div class="line">    113:113:java.lang.String getShopPortrait() -&gt; i</div><div class="line">    122:123:void setPortrait(java.lang.String) -&gt; e</div><div class="line">    131:131:java.lang.String getPortrait() -&gt; j</div><div class="line">    140:141:void setShopPortrait(java.lang.String) -&gt; f</div><div class="line">    149:149:java.lang.String getShopName() -&gt; k</div><div class="line">    158:159:void setPaid(boolean) -&gt; e</div><div class="line">    176:177:void setPosition(int) -&gt; c</div><div class="line">    189:209:void saveShopInfo(com.showjoy.shop.common.user.entities.ShopInfo) -&gt; a</div><div class="line">    217:224:com.showjoy.shop.common.user.entities.UserResult getUser() -&gt; l</div><div class="line">    233:235:void setUser(com.showjoy.shop.common.user.entities.UserResult) -&gt; a</div><div class="line">    238:257:void logOut() -&gt; m</div></pre></td></tr></table></figure>
+<p>然后继续查找<code>e</code>方法，发现有好几个，不过没关系，入口错误信息还括出了出现错误信息的位置，即<code>122</code>行，继续查找<code>e</code>方法对应的其实是<code>setPortrait</code>方法。最后在进入<code>工程</code>查看源码就可以了，如果还是没有发现关键位置，可以继续向下查找。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;注：本文所属Android-Android开发工具，用于介绍自己在使用mapping文件定位错误的心得。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Android" scheme="http://fengqingxiuyi.xyz/categories/Android/"/>
+    
+    
+      <category term="Android开发工具" scheme="http://fengqingxiuyi.xyz/tags/Android%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SourceTree使用注意</title>
+    <link href="http://fengqingxiuyi.xyz/Android/Android%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/SourceTree%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F.html"/>
+    <id>http://fengqingxiuyi.xyz/Android/Android开发工具/SourceTree使用注意.html</id>
+    <published>2016-11-16T00:53:23.000Z</published>
+    <updated>2016-11-26T13:32:13.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>注：本文所属Android-Android开发工具，用于记录使用SourceTree管理Git过程中遇到的坑，持续更新…</p>
+<a id="more"></a>
+<h1 id="Tag标记"><a href="#Tag标记" class="headerlink" title="Tag标记"></a>Tag标记</h1><p>子模块 更新版本 后，需要在sourceTree中选中对应的条目右击添加Tag进行标记，并push；如果标记位置出错，可以在正确的条目处右击添加同名的Tag，就会提示你是否需要迁移Tag。</p>
+<h1 id="代码改动较多时"><a href="#代码改动较多时" class="headerlink" title="代码改动较多时"></a>代码改动较多时</h1><p>代码改动较多时需要严格按照此流程执行：从develop拉个新的功能分支开发，开发自测通过后，将develop合并到新分支中，测试通过后再合并到develop中。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;注：本文所属Android-Android开发工具，用于记录使用SourceTree管理Git过程中遇到的坑，持续更新…&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Android" scheme="http://fengqingxiuyi.xyz/categories/Android/"/>
+    
+    
+      <category term="Android开发工具" scheme="http://fengqingxiuyi.xyz/tags/Android%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>AndroidStudio开发注意点</title>
+    <link href="http://fengqingxiuyi.xyz/Android/Android%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/AndroidStudio%E5%BC%80%E5%8F%91%E6%B3%A8%E6%84%8F%E7%82%B9.html"/>
+    <id>http://fengqingxiuyi.xyz/Android/Android开发工具/AndroidStudio开发注意点.html</id>
+    <published>2016-11-16T00:48:23.000Z</published>
+    <updated>2016-11-26T13:32:29.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>注：本文所属Android-Android开发工具，用于记录在使用AndroidStudio开发过程中遇到的一些坑，持续更新…</p>
+<a id="more"></a>
+<h1 id="AS反编译失败，显示Compiled-Code"><a href="#AS反编译失败，显示Compiled-Code" class="headerlink" title="AS反编译失败，显示Compiled Code"></a>AS反编译失败，显示Compiled Code</h1><p>插件：<a href="https://plugins.jetbrains.com/files/7100/15663/jd-intellij-0.6.zip" target="_blank" rel="external">jd-intellij-0.6.zip</a></p>
+<p>问题：安装了上述插件后，不能查看jar包中的源码，方法内部显示 /* Compiled Code */。</p>
+<p>例子：/Volumes/MAIN/qingfeng/Workspace/CharityShopAndroid/shopandroid_detail/build/intermediates/exploded-aar/com.showjoy.analytics/analytics/1.0.6/jars/classes.jar</p>
+<p>解决：经过一番思考，发现是因为装了插件jd-intellij-0.6.zip，导致和AS的反编译插件冲突了，所以看不到源码了，所以解决办法就是卸载插件。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;注：本文所属Android-Android开发工具，用于记录在使用AndroidStudio开发过程中遇到的一些坑，持续更新…&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Android" scheme="http://fengqingxiuyi.xyz/categories/Android/"/>
+    
+    
+      <category term="Android开发工具" scheme="http://fengqingxiuyi.xyz/tags/Android%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Sublime Text 3折腾记录</title>
+    <link href="http://fengqingxiuyi.xyz/%E5%9F%BA%E6%9C%AC%E5%B7%A5%E5%85%B7/Sublime/Sublime%20Text%203%E6%8A%98%E8%85%BE%E8%AE%B0%E5%BD%95.html"/>
+    <id>http://fengqingxiuyi.xyz/基本工具/Sublime/Sublime Text 3折腾记录.html</id>
+    <published>2016-11-10T09:55:19.000Z</published>
+    <updated>2016-11-27T04:03:27.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>注：本文所属基本工具-Sublime，本文介绍Sublime的LICENSE／重置／安装Package Control的方法。</p>
+<a id="more"></a>
+<h1 id="LICENSE"><a href="#LICENSE" class="headerlink" title="LICENSE"></a>LICENSE</h1><p>提供网上流传已久的注册码，自我感觉是通用的，不过还是说明一下自己的版本：<font color="red">Build 3114</font></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">—– BEGIN LICENSE —–</div><div class="line">Anthony Sansone</div><div class="line">Single User License</div><div class="line">EA7E-878563</div><div class="line">28B9A648 42B99D8A F2E3E9E0 16DE076E</div><div class="line">E218B3DC F3606379 C33C1526 E8B58964</div><div class="line">B2CB3F63 BDF901BE D31424D2 082891B5</div><div class="line">F7058694 55FA46D8 EFC11878 0868F093</div><div class="line">B17CAFE7 63A78881 86B78E38 0F146238</div><div class="line">BAE22DBB D4EC71A1 0EC2E701 C7F9C648</div><div class="line">5CF29CA3 1CB14285 19A46991 E9A98676</div><div class="line">14FD4777 2D8A0AB6 A444EE0D CA009B54</div><div class="line">—— END LICENSE ——</div><div class="line"></div><div class="line">或者</div><div class="line"></div><div class="line">—– BEGIN LICENSE —–</div><div class="line">Alexey Plutalov</div><div class="line">Single User License</div><div class="line">EA7E-860776</div><div class="line">3DC19CC1 134CDF23 504DC871 2DE5CE55</div><div class="line">585DC8A6 253BB0D9 637C87A2 D8D0BA85</div><div class="line">AAE574AD BA7D6DA9 2B9773F2 324C5DEF</div><div class="line">17830A4E FBCF9D1D 182406E9 F883EA87</div><div class="line">E585BBA1 2538C270 E2E857C2 194283CA</div><div class="line">7234FF9E D0392F93 1D16E021 F1914917</div><div class="line">63909E12 203C0169 3F08FFC8 86D06EA8</div><div class="line">73DDAEF0 AC559F30 A6A67947 B60104C6</div><div class="line">—— END LICENSE ——</div></pre></td></tr></table></figure>
+<h1 id="重置"><a href="#重置" class="headerlink" title="重置"></a>重置</h1><p>网址：<a href="http://www.sublimetext.com/docs/3/revert.html" target="_blank" rel="external">http://www.sublimetext.com/docs/3/revert.html</a></p>
+<p>内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">SUBLIME TEXT 3 DOCUMENTATION</div><div class="line">Reverting to a Freshly Installed State</div><div class="line">Sublime Text can be reverted to a freshly installed state by removing your data folder. Depending on your operating system, this folder is located in:</div><div class="line"></div><div class="line">OS X: ~/Library/Application Support/Sublime Text 3</div><div class="line">Windows: %APPDATA%\Sublime Text 3</div><div class="line">Linux: ~/.config/sublime-text-3</div><div class="line">To revert to a freshly installed state, you can:</div><div class="line"></div><div class="line">Exit Sublime Text</div><div class="line">Move the data folder to a backup location</div><div class="line">Start Sublime Text</div><div class="line">When restarted, a fresh data folder will be created, just as it was the first time you ran Sublime Text. Keep in mind that this will also remove all of your settings and packages. The backup copy of your data folder can be used to retrieve configuration, or custom packages that can not be reinstalled.</div><div class="line"></div><div class="line">OS X</div><div class="line">On OS X, the ~/Library folder is hidden by default. To navigate there, select the Go ▸ Go to Folder menu item in Finder, and type in ~/Library.</div><div class="line"></div><div class="line">鼠标点击Finder后，按快捷键control+shift+g，在出现的弹框中输入正确的完整路径即可直接到达</div><div class="line"></div><div class="line">Windows</div><div class="line">In Windows, cache files are stored in a separate location, %LOCALAPPDATA%\Sublime Text 3, to improve performance with roaming profiles.</div></pre></td></tr></table></figure>
+<h1 id="安装Package-Control"><a href="#安装Package-Control" class="headerlink" title="安装Package Control"></a>安装Package Control</h1><h2 id="自动安装"><a href="#自动安装" class="headerlink" title="自动安装"></a>自动安装</h2><p>使用快捷键control+`或通过菜单选项View &gt; Show Console进入控制台Console（再进行一次同样的操作，可以退出控制台Console）。</p>
+<p>复制其中一个命令，粘贴到控制台中，回车运行，如果失败就换另一个，如果都失败，请选择<code>手动安装</code>方式。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">import urllib.request,os,hashlib; h = &apos;7183a2d3e96f11eeadd761d777e62404e330c659d4bb41d3bdf022e94cab3cd0&apos;; pf = &apos;Package Control.sublime-package&apos;; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( &apos;http://sublime.wbond.net/&apos; + pf.replace(&apos; &apos;, &apos;%20&apos;)).read(); dh = hashlib.sha256(by).hexdigest(); print(&apos;Error validating download (got %s instead of %s), please try manual install&apos; % (dh, h)) if dh != h else open(os.path.join( ipp, pf), &apos;wb&apos; ).write(by)</div><div class="line"></div><div class="line">或者</div><div class="line"></div><div class="line">import  urllib.request,os;pf=&apos;Package Control.sublime-package&apos;;ipp=sublime.installed_packages_path();urllib.request.install_opener(urllib.request.build_opener(urllib.request.ProxyHandler()));open(os.path.join(ipp,pf),&apos;wb&apos;).write(urllib.request.urlopen(&apos;http://sublime.wbond.net/&apos;+pf.replace(&apos; &apos;,&apos;%20&apos;)).read())</div></pre></td></tr></table></figure>
+<h2 id="手动安装"><a href="#手动安装" class="headerlink" title="手动安装"></a>手动安装</h2><ol>
+<li>打开网址：<a href="https://sublime.wbond.net/Package%20Control.sublime-package，会自动下载名为Package%20Control.sublime-package的文件。" target="_blank" rel="external">https://sublime.wbond.net/Package%20Control.sublime-package，会自动下载名为Package%20Control.sublime-package的文件。</a></li>
+<li>打开Sublime Text 3，选择菜单Preferences-&gt;Browse Packages… 打开安装目录</li>
+<li>此时会进入到一个叫做Packages的目录下，点击进入上一层目录Sublime Text 3，在此目录下有一个文件夹叫做Installed Packages，把刚才下载的文件放到这里就可以了。</li>
+<li>重启sublime text3，观察Preferences菜单最下边是否有Package Settings 和Package Control两个选项，如果有，则代表安装成功了。</li>
+<li>此时使用快捷键control+shift+p，输入ip，选择Package Control: Install Package，回车，等一会，之后想安装什么插件，在里面搜索名字就可以了。</li>
+</ol>
+<font color="red"><strong><em>注意点：</em></strong></font>
+
+<p>需要注意的一点是，经常会出现网络联不通的情况，不要着急，这个很正常，如果出现，隔一会再弄，一般都会好的。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;注：本文所属基本工具-Sublime，本文介绍Sublime的LICENSE／重置／安装Package Control的方法。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="基本工具" scheme="http://fengqingxiuyi.xyz/categories/%E5%9F%BA%E6%9C%AC%E5%B7%A5%E5%85%B7/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>tinypng的使用</title>
+    <link href="http://fengqingxiuyi.xyz/%E5%9F%BA%E6%9C%AC%E5%B7%A5%E5%85%B7/%E5%9B%BE%E7%89%87%E5%8E%8B%E7%BC%A9/tinypng/tinypng%E7%9A%84%E4%BD%BF%E7%94%A8.html"/>
+    <id>http://fengqingxiuyi.xyz/基本工具/图片压缩/tinypng/tinypng的使用.html</id>
+    <published>2016-11-10T08:32:19.000Z</published>
+    <updated>2016-11-27T04:01:59.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>注：本文所属基本工具-图片压缩-tinypng，本文介绍一个在使用tinypng过程中的小技巧。</p>
+<a id="more"></a>
+<p><strong>类型：</strong>在线压缩png图片，当然也支持jpg图片的压缩。</p>
+<p><strong>网址：</strong><a href="https://tinypng.com/" target="_blank" rel="external">https://tinypng.com/</a></p>
+<p><strong>压缩方式：</strong></p>
+<ol>
+<li>普通压缩方式：根据页面的提示 Drop 或 Open</li>
+<li>压缩技巧：首先执行 普通压缩方式 一次，然后如果想要持续压缩，不需要将图片下载下来，再执行 普通压缩方式 ，只需要 鼠标悬浮在含有下划线的download字样上，变成手势模样，垂直向下拖拽1厘米即可再次压缩，具体使用看图：<img src="http://ogpp825dm.bkt.clouddn.com/images/%E5%9F%BA%E6%9C%AC%E5%B7%A5%E5%85%B7/%E5%9B%BE%E7%89%87%E5%8E%8B%E7%BC%A9/tinypng/tinypng%E7%9A%84%E4%BD%BF%E7%94%A8.gif" alt="tinypng的使用"></li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;注：本文所属基本工具-图片压缩-tinypng，本文介绍一个在使用tinypng过程中的小技巧。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="基本工具" scheme="http://fengqingxiuyi.xyz/categories/%E5%9F%BA%E6%9C%AC%E5%B7%A5%E5%85%B7/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>抽离模块注意点</title>
+    <link href="http://fengqingxiuyi.xyz/ShowJoy/%E6%A8%A1%E5%9D%97/%E6%8A%BD%E7%A6%BB%E6%A8%A1%E5%9D%97%E6%B3%A8%E6%84%8F%E7%82%B9.html"/>
+    <id>http://fengqingxiuyi.xyz/ShowJoy/模块/抽离模块注意点.html</id>
+    <published>2016-11-10T08:12:15.000Z</published>
+    <updated>2016-11-27T04:19:44.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>注：本文所属ShowJoy-模块，本文讲述在将主模块或者是子模块的抽离流程，注意点持续更新…</p>
+<a id="more"></a>
+<h1 id="注意点1"><a href="#注意点1" class="headerlink" title="注意点1"></a>注意点1</h1><p>模块抽离，除了要删除不需要的文件外，最重要的是不要更改【java文件root路径】，一旦修改了，一定要记得修改Androidmanifest.xml中引用的Activity等基本组件的路径</p>
+<p>例如：</p>
+<p>Guide模块</p>
+<p>包名：com.showjoy.shop.guide<br>java文件root路径：com.showjoy.shop.module.guide</p>
+<p>—————我是分割线—————</p>
+<p>主模块</p>
+<p>包名：com.showjoy.shop<br>Androidmanifest.xml中GuideActivity的引用路径为：.module.guide.GuideActivity</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;注：本文所属ShowJoy-模块，本文讲述在将主模块或者是子模块的抽离流程，注意点持续更新…&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="ShowJoy" scheme="http://fengqingxiuyi.xyz/categories/ShowJoy/"/>
+    
+    
+      <category term="模块" scheme="http://fengqingxiuyi.xyz/tags/%E6%A8%A1%E5%9D%97/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>模块版本更新流程</title>
+    <link href="http://fengqingxiuyi.xyz/ShowJoy/%E6%A8%A1%E5%9D%97/%E6%A8%A1%E5%9D%97%E7%89%88%E6%9C%AC%E6%9B%B4%E6%96%B0%E6%B5%81%E7%A8%8B.html"/>
+    <id>http://fengqingxiuyi.xyz/ShowJoy/模块/模块版本更新流程.html</id>
+    <published>2016-11-10T08:12:15.000Z</published>
+    <updated>2016-11-27T04:18:24.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>注：本文所属ShowJoy-模块，本文讲述在将主模块或者是子模块的版本更新流程，案例持续更新…</p>
+<a id="more"></a>
+<h1 id="案例1"><a href="#案例1" class="headerlink" title="案例1"></a>案例1</h1><p>工程中包含<code>主模块</code>、<code>子模块A</code>、<code>子模块B</code>，其中<code>主模块</code>依赖<code>子模块A</code>和<code>子模块B</code>，<code>子模块A</code>也依赖<code>子模块B</code>。现在<code>子模块B</code>发现了Bug，需要解决Bug并更新版本。</p>
+<h2 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h2><p>当<code>子模块B</code>更新版本后，提交到Gitlab，并使用Jenkins成功构建后，<strong><em>我们不需要更新 子模块A 中 子模块B 的版本，只需要更新 主模块 中 子模块B 的版本，如果出现版本冲突，比如说现在 主模块 依赖 子模块A ，主模块 又依赖了 新子模块B 的版本，只需要把不必要的版本依赖 剔除 即可</em></strong></p>
+<h2 id="主要原理"><a href="#主要原理" class="headerlink" title="主要原理"></a>主要原理</h2><p>工程 Build 后，一个模块只会存在一个版本，否则就会出现版本<font color="red">依赖冲突</font>！！！</p>
+<h1 id="案例2"><a href="#案例2" class="headerlink" title="案例2"></a>案例2</h1><p>工程中包含<code>主模块</code>、<code>子模块A</code>、<code>子模块B</code>，其中<code>主模块</code>依赖<code>子模块A</code>和<code>子模块B</code>，<code>子模块B</code>又依赖<code>子模块A</code>。此时<code>子模块A</code>改变了内容，需要版本更新，同时也涉及到了<code>子模块B</code>中的某些改动。</p>
+<h2 id="注意点-1"><a href="#注意点-1" class="headerlink" title="注意点"></a>注意点</h2><p>此时当<code>子模块A</code>更新版本后，同时需要更改<code>子模块B</code>依赖的<code>子模块A</code>的版本，同时也需要更新<code>子模块B</code>的版本，并进行项目构建。</p>
+<h2 id="主要原理-1"><a href="#主要原理-1" class="headerlink" title="主要原理"></a>主要原理</h2><p>如果不更改<code>子模块B</code>依赖的<code>子模块A</code>的版本，那么<code>子模块B</code>将编译不过。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;注：本文所属ShowJoy-模块，本文讲述在将主模块或者是子模块的版本更新流程，案例持续更新…&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="ShowJoy" scheme="http://fengqingxiuyi.xyz/categories/ShowJoy/"/>
+    
+    
+      <category term="模块" scheme="http://fengqingxiuyi.xyz/tags/%E6%A8%A1%E5%9D%97/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Iterable和Iterator的区别</title>
+    <link href="http://fengqingxiuyi.xyz/Python/Iterable%E5%92%8CIterator%E7%9A%84%E5%8C%BA%E5%88%AB.html"/>
+    <id>http://fengqingxiuyi.xyz/Python/Iterable和Iterator的区别.html</id>
+    <published>2016-11-10T05:56:57.000Z</published>
+    <updated>2016-11-27T03:56:08.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>注：本文所属Python，本文转载自教程<a href="http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/00143178254193589df9c612d2449618ea460e7a672a366000" target="_blank" rel="external">廖雪峰-Python教程-迭代器</a></p>
+<a id="more"></a>
+<div class="x-wiki-content"><br>        <p>我们已经知道，可以直接作用于<code>for</code>循环的数据类型有以下几种：</p><br><p>一类是集合数据类型，如<code>list</code>、<code>tuple</code>、<code>dict</code>、<code>set</code>、<code>str</code>等；</p><br><p>一类是<code>generator</code>，包括生成器和带<code>yield</code>的generator function。</p><br><p>这些可以直接作用于<code>for&lt;<br>/code&gt;循环的对象统称为可迭代对象：<code>Iterable</code>。</code></p><br><p>可以使用<code>isinstance()</code>判断一个对象是否是<code>Iterable</code>对象：</p><br><pre><code>&gt;&gt;&gt; from collections import Iterable<br>&gt;&gt;&gt; isinstance([], Iterable)<br>True<br>&gt;&gt;&gt; isinstance({}, Iterable)<br>True<br>&gt;&gt;&gt; isinstance(&#39;abc&#39;, Iterable)<br>True<br>&gt;&gt;&gt; isinstance((x for x in range(10)), Iterable)<br>True<br>&gt;&gt;&gt; isinstance(100, Iterable)<br>False<br></code></pre><p>而生成器不但可以作用于<code>for</code>循环，还可以被<code>next()</code>函数不断调用并返回下一个值，直到最后抛出<code>StopIteration</code>错误表示无法继续返回下一个值了。</p><br><p>可以被<code>next()</code>函数调用并不断返回下一个值的对象称为迭代器：<code>Iterator</code>。</p><br><p>可以使用<code>isinstance()</code>判断一个对象是否是<code>Iterator</code>对象：</p><br><pre><code>&gt;&gt;&gt; from collections import Iterator<br>&gt;&gt;&gt; isinstance((x for x in range(10)), Iterator)<br>True<br>&gt;&gt;&gt; isinstance([], Iterator)<br>False<br>&gt;&gt;&gt; isinstance({}, Iterator)<br>False<br>&gt;&gt;&gt; isinstance(&#39;abc&#39;, Iterator)<br>False<br></code></pre><p>生成器都是<code>Iterator</code>对象，但<code>list</code>、<code>dict</code>、<code>str</code>虽然是<code>Iterable</code>，却不是<code>Iterator</code>。</p><br><p>把<code>list</code>、<code>dict</code>、<code>str</code>等<code>Iterable</code>变成<code>Iterator</code>可以使用<code>iter()</code>函数：</p><br><pre><code>&gt;&gt;&gt; isinstance(iter([]), Iterator)<br>True<br>&gt;&gt;&gt; isinstance(iter(&#39;abc&#39;), Iterator)<br>True<br></code></pre><p>你可能会问，为什么<code>list</code>、<code>dict</code>、<code>str</code>等数据类型不是<code>Iterator</code>？</p><br><p>这是因为Python的<code>Iterator</code>对象表示的是一个数据流，Iterator对象可以被<code>next()</code>函数调用并不断返回下一个数据，直到没有数据时抛出<code>StopIteration</code>错误。可以把这个数据流看做是一个有序序列，但我们却不能提前知道序列的长度，只能不断通过<code>next()</code>函数实现按需计算下一个数据，所以<code>Iterator</code>的计算是惰性的，只有在需要返回下一个数据时它才会计算。</p><br><p><code>Iterator</code>甚至可以表示一个无限大的数据流，例如全体自然数。而使用list是永远不可能存储全体自然数的。</p><br><h3 id="-">小结</h3><br><p>凡是可作用于<code>for</code>循环的对象都是<code>Iterable</code>类型；</p><br><p>凡是可作用于<code>next()</code>函数的对象都是<code>Iterator</code>类型，它们表示一个惰性计算的序列；</p><br><p>集合数据类型如<code>list</code>、<code>dict</code>、<code>str</code>等是<code>Iterable</code>但不是<code>Iterator</code>，不过可以通过<code>iter()</code>函数获得一个<code>Iterator</code>对象。</p><br><p>Python的<code>for</code>循环本质上就是通过不断调用<code>next()</code>函数实现的，例如：</p><br><pre><code>for x in [1, 2, 3, 4, 5]:<br>    pass<br></code></pre><p>实际上完全等价于：</p><br><pre><code># 首先获得Iterator对象:<br>it = iter([1, 2, 3, 4, 5])<br># 循环:<br>while True:<br>    try:<br>        # 获得下一个值:<br>        x = next(it)<br>    except StopIteration:<br>        # 遇到StopIteration就退出循环<br>        break<br></code></pre><h3 id="-">参考源码</h3><br><p><a href="https://github.com/michaelliao/learn-python3/blob/master/samples/advance/do_iter.py" target="_blank" rel="external">do_iter.py</a></p><br><br>    </div>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;注：本文所属Python，本文转载自教程&lt;a href=&quot;http://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/00143178254193589df9c612d2449618ea460e7a672a366000&quot;&gt;廖雪峰-Python教程-迭代器&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="http://fengqingxiuyi.xyz/categories/Python/"/>
+    
+    
+      <category term="Python基础" scheme="http://fengqingxiuyi.xyz/tags/Python%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ShowJoy开发记录</title>
+    <link href="http://fengqingxiuyi.xyz/ShowJoy/ShowJoy%E5%BC%80%E5%8F%91%E8%AE%B0%E5%BD%95.html"/>
+    <id>http://fengqingxiuyi.xyz/ShowJoy/ShowJoy开发记录.html</id>
+    <published>2016-11-02T08:05:15.000Z</published>
+    <updated>2016-11-27T04:09:06.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>注：本文所属ShowJoy，本文主要介绍自己在尚妆网公司开发过程中遇到的值得注重的部分，本文持续更新…</p>
+<a id="more"></a>
+<font color="red"><strong><em>未编写部分的地方都使用了 // TODO 来进行占位。</em></strong></font>
+
+<p>主要包括：常用命令、注意事项、杂七杂八。</p>
+<h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1><h2 id="Gradle"><a href="#Gradle" class="headerlink" title="Gradle"></a>Gradle</h2><p>命令输入位置：AndroidStudio-Terminal</p>
+<h3 id="gradle-–stop"><a href="#gradle-–stop" class="headerlink" title="gradle –stop"></a>gradle –stop</h3><p>标题中的命令错误：应该为<code>gradle --stop</code>，注意是两个<code>-</code>符号！！！</p>
+<p>作用：可以快速停止 gradle 启动的进程。</p>
+<h3 id="gradle-shopandroid-dependencies-gt-dependencies-txt"><a href="#gradle-shopandroid-dependencies-gt-dependencies-txt" class="headerlink" title="gradle shopandroid:dependencies &gt; dependencies.txt"></a>gradle shopandroid:dependencies &gt; dependencies.txt</h3><h4 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h4><p>shopandroid：想要查找依赖关系的模块名（ModuleName）</p>
+<p>dependencies.txt：要将输出的依赖关系保存的文件位置，包括文件名，如果只写文件名，表示保存在当前目录下的 该文件 中。</p>
+<h4 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h4><p>生成<code>shopandroid模块</code>的依赖关系，并保存在当前文件夹下的<code>dependencies.txt</code>中。</p>
+<h4 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ gradle shopandroid:dependencies &gt; dependencies.txt</div><div class="line">$ <span class="built_in">pwd</span></div><div class="line">/Volumes/MAIN/qingfeng/Workspace/ShopAndroid</div><div class="line">$</div></pre></td></tr></table></figure>
+<p>说明<code>dependencies.txt</code>文件的保存位置是：/Volumes/MAIN/qingfeng/Workspace/ShopAndroid/dependencies.txt</p>
+<h2 id="Adb"><a href="#Adb" class="headerlink" title="Adb"></a>Adb</h2><h3 id="adb-shell-dumpsys-activity-grep-mFocusedActivity"><a href="#adb-shell-dumpsys-activity-grep-mFocusedActivity" class="headerlink" title="adb shell dumpsys activity | grep mFocusedActivity"></a>adb shell dumpsys activity | grep mFocusedActivity</h3><p>作用：获取真机显示页面的Activity的名称。</p>
+<h3 id="adb-logcat-d-gt-logcat-txt"><a href="#adb-logcat-d-gt-logcat-txt" class="headerlink" title="adb logcat -d &gt; logcat.txt"></a>adb logcat -d &gt; logcat.txt</h3><p>作用：保存打印的logcat信息到当前目录下的logcat.txt文件中。</p>
+<h3 id="adb-pull-sdcard-shop-crash"><a href="#adb-pull-sdcard-shop-crash" class="headerlink" title="adb pull sdcard/shop-crash"></a>adb pull sdcard/shop-crash</h3><p>作用：将SD卡根目录下的shop-crash文件夹导出到当前目录中，当然也可以导出文件。</p>
+<p>例子：导出手机中的shop-crash文件：打开终端后，首先进入电脑桌面目录，即cd /Desktop，然后使用上述命令回车即可。</p>
+<h2 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h2><h3 id="find"><a href="#find" class="headerlink" title="find"></a>find</h3><p>使用格式：find [指定查找目录] [查找规则] [查找完后执行的action]</p>
+<p>相关网址：</p>
+<ol>
+<li><a href="http://blog.chinaunix.net/uid-24648486-id-2998767" target="_blank" rel="external">linux下find（文件查找）命令的用法总结 </a></li>
+<li><a href="http://www.cnblogs.com/wanqieddy/archive/2011/06/09/2076785.html" target="_blank" rel="external">Linux find 用法示例</a></li>
+</ol>
+<h4 id="find-name-“-”-xargs-rm-rf"><a href="#find-name-“-”-xargs-rm-rf" class="headerlink" title="find . -name “._*” |xargs rm -rf"></a>find . -name “._*” |xargs rm -rf</h4><p>作用：快速删除当前目录下包含以<code>._</code>开头的所有文件</p>
+<p>解释：</p>
+<ol>
+<li>第一个<code>.</code>符号代表的是当前路径，所以该位置参数的意义是路径名；</li>
+<li><code>-name</code>符号代表的是根据文件名精确查找，如果想要忽略大小写，可以改为<code>-iname</code>；</li>
+<li><code>&quot;._*&quot;</code>符号代表的是找到所有以<code>._</code>开头的文件，<code>*</code>符号是通配符，所以该位置参数的意义是要寻找的文件的过滤规则；</li>
+<li><code>rm -rf</code>符号代表的是强制删除。</li>
+</ol>
+<h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h1><h2 id="混淆文件位置"><a href="#混淆文件位置" class="headerlink" title="混淆文件位置"></a>混淆文件位置</h2><p>以 CharityShopAndroid 项目为例：混淆文件<font color="red">仅</font>在主模块（charityshopandroid）的根目录下，如果是debug状态下，使用的混淆文件是debug_proguard-rules.pro；如果是release状态下，使用的混淆文件是proguard-rules.pro。</p>
+<h2 id="mapping-txt"><a href="#mapping-txt" class="headerlink" title="mapping.txt"></a>mapping.txt</h2><p>在友盟中查看错误日志时，因为混淆了，所以我们需要找到对应版本的mapping文件来解读，但是有时候由于在版本迭代过程中更改内容不是特别多，所以重新切出对应版本的release分支，这样会导致我们在Jenkins查找指定版本的mapping文件时，无法立刻找到。对于此问题，我们需要做以下操作：</p>
+<ol>
+<li>在Gitlab上找到指定版本对应的release分支，并记住推送到服务器的时间；</li>
+<li>在Jenkins中找到该release分支项目中，在构建历史中根据之前记住的服务器时间来查找。</li>
+</ol>
+<p>实际案例：ShopAndroid项目的1.3.0-1.3.5版本都是在release/1.3.0分支上构建的。</p>
+<p>Gitlab地址：<a href="http://git.showjoy.net/shopandroid/shopandroid/commits/release/1.3.0" target="_blank" rel="external">http://git.showjoy.net/shopandroid/shopandroid/commits/release/1.3.0</a></p>
+<p>Jenkins地址：<a href="https://wireless-build.showjoy.net/view/达人店/job/ShopAndroid-release-1.3.0/" target="_blank" rel="external">https://wireless-build.showjoy.net/view/达人店/job/ShopAndroid-release-1.3.0/</a></p>
+<h2 id="Instant-Run"><a href="#Instant-Run" class="headerlink" title="Instant Run"></a>Instant Run</h2><p>因为 Instant Run 不支持混淆，所以在调试运行的时候，生成APK内包含的方法数就很有很大几率超过65536。</p>
+<p>这个时候可以在 AndroidStudio 的设置页面关闭 Instant Run ，即不勾选enable，再调试运行，就会混淆代码，从而减少方法数。</p>
+<p>如果即使混淆了，方法数还是超过65536，这个时候，就需要dex分包处理了。</p>
+<h2 id="修改子模块流程"><a href="#修改子模块流程" class="headerlink" title="修改子模块流程"></a>修改子模块流程</h2><ol>
+<li>子模块新拉分支A</li>
+<li>子模块依赖改为本地模块</li>
+<li>编写代码，自测成功</li>
+<li>上传代码到分支A</li>
+<li>告诉评审人员 分支A名称 进行评审</li>
+<li>评审有问题，回到第3步</li>
+<li>评审通过后，将代码<font color="red">合并</font>到master分支，而不是<font color="blue">拉取</font>（合并的方法是，先合并master代码到分支A, 自测成功。再将分支A的代码合并到master）</li>
+<li>修改master分支的版本，Jenkins项目构建，打tag并push</li>
+</ol>
+<h2 id="开发自测流程"><a href="#开发自测流程" class="headerlink" title="开发自测流程"></a>开发自测流程</h2><p>以“图片压缩支持webp”为例，项目开发完成之后，需要测试压缩成webp格式的图片 和 原先的图片 在 大小和体验上有没有向好的方向转化：如果有的话，告诉评审人员，通过后提交并合并到master；如果没有的话，告诉评审人员，通过的话直接Revert就行了。</p>
+<h2 id="Gradle-Compile"><a href="#Gradle-Compile" class="headerlink" title="Gradle - Compile"></a>Gradle - Compile</h2><h3 id="例子-1"><a href="#例子-1" class="headerlink" title="例子"></a>例子</h3><p>比较下面两个语句块的不同</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">compile (<span class="string">'com.showjoy.shop:common:1.3.4'</span>)</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">compile (<span class="string">'com.showjoy.shop:common:1.3.4'</span>) &#123;</div><div class="line">    transitive <span class="keyword">false</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="简要解释"><a href="#简要解释" class="headerlink" title="简要解释"></a>简要解释</h4><ol>
+<li>com.showjoy.shop：即groupId：是项目或者组织的唯一标志，并且配置时生成的路径也是由此生成，如com.showjoy.shop生成的相对路径为：/com/showjoy/shop；</li>
+<li>common：即artifactId：项目的通用名称；</li>
+<li>1.3.4：即version：项目的版本。</li>
+</ol>
+<p>上述解释内容都是配置在maven仓库的pom配置文件中的，此模块配置文件地址：<a href="http://192.168.0.62:8081/repository/maven-releases/com/showjoy/shop/common/1.3.4/common-1.3.4.pom，因为是内网才可以访问的，这里我就展示一下主要部分：" target="_blank" rel="external">http://192.168.0.62:8081/repository/maven-releases/com/showjoy/shop/common/1.3.4/common-1.3.4.pom，因为是内网才可以访问的，这里我就展示一下主要部分：</a></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">xmlns</span>=<span class="string">"http://maven.apache.org/POM/4.0.0"</span> <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.showjoy.shop<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>common<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.3.4<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">packaging</span>&gt;</span>aar<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>shopandroid_common<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">description</span>&gt;</span>Uploads all artifacts belonging to configuration ':shopandroid_common:archives'<span class="tag">&lt;/<span class="name">description</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.showjoy.android<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>storage<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0.8<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">scope</span>&gt;</span>compile<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.showjoy.network<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>library<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.1.14<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">scope</span>&gt;</span>compile<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">exclusions</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">exclusion</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>support-annotations<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.android.support<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">                <span class="tag">&lt;/<span class="name">exclusion</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">exclusion</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>utils-log<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.showjoy.android<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">                <span class="tag">&lt;/<span class="name">exclusion</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">exclusions</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line">        ...</div><div class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>备注：exclusions是可选的，在上述文件中可知：storage模块没有排除任何依赖；library模块排除了support-annotations模块和utils-log模块。</p>
+<p>字段详细解释可以查看该网址：<a href="http://zyl.iteye.com/blog/41754" target="_blank" rel="external">http://zyl.iteye.com/blog/41754</a></p>
+<p>字段详细解释：<font color="red"><strong><em>// TODO</em></strong></font></p>
+<h3 id="解答"><a href="#解答" class="headerlink" title="解答"></a>解答</h3><p>前者：当我们依赖了common模块的时候，还会传递依赖common所依赖的模块。</p>
+<p>后者：当我们依赖了common模块的时候，不会传递依赖common所依赖的<font color="red">所有</font>模块。</p>
+<h3 id="疑问"><a href="#疑问" class="headerlink" title="疑问"></a>疑问</h3><p>如果我们并不想要排除所有的common所依赖的模块，只想要依赖排除<font color="red">某个或者某几个</font>common所依赖的模块，又该如何呢？</p>
+<h3 id="解答-1"><a href="#解答-1" class="headerlink" title="解答"></a>解答</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">compile (<span class="string">'com.showjoy.shop:common:1.3.4'</span>) &#123;</div><div class="line">    exclude group: <span class="string">'com.showjoy.shop'</span>, <span class="keyword">module</span>: <span class="string">'viewgroup'</span></div><div class="line">    exclude group: <span class="string">'com.showjoy.shop'</span>, <span class="keyword">module</span>: <span class="string">'share'</span></div><div class="line">    ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如上所示：</p>
+<p>如果想要排除common依赖的viewgroup模块，只需要写这么一句话就行了：exclude group: ‘com.showjoy.shop’, module: ‘viewgroup’；</p>
+<p>如果还想要排除share，也可以依样画葫芦，<font color="red">注意填写正确的groupId和moduleName</font>。</p>
+<h3 id="为什么要排除依赖"><a href="#为什么要排除依赖" class="headerlink" title="为什么要排除依赖"></a>为什么要排除依赖</h3><p>我们从上往下看：</p>
+<ol>
+<li>对于某一个模块，一个项目只允许存在一个版本；</li>
+<li>一个项目可能依赖很多个模块，每个模块可能依赖相同的子模块，但是版本号可能不同；</li>
+<li>如果不管不顾，就会有版本冲突，因为第1点，所以需要排除依赖，最终只留下一个版本。</li>
+</ol>
+<h1 id="杂七杂八"><a href="#杂七杂八" class="headerlink" title="杂七杂八"></a>杂七杂八</h1><p>KPI中要求的输出文档位置：<a href="http://git.showjoy.net/showjoywireless/showjoywireless_doc/tree/master/android" target="_blank" rel="external">http://git.showjoy.net/showjoywireless/showjoywireless_doc/tree/master/android</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;注：本文所属ShowJoy，本文主要介绍自己在尚妆网公司开发过程中遇到的值得注重的部分，本文持续更新…&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="ShowJoy" scheme="http://fengqingxiuyi.xyz/categories/ShowJoy/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>输入法的显示与隐藏</title>
+    <link href="http://fengqingxiuyi.xyz/Android/Wiki/%E8%BE%93%E5%85%A5%E6%B3%95%E7%9A%84%E6%98%BE%E7%A4%BA%E4%B8%8E%E9%9A%90%E8%97%8F.html"/>
+    <id>http://fengqingxiuyi.xyz/Android/Wiki/输入法的显示与隐藏.html</id>
+    <published>2016-10-05T01:57:21.000Z</published>
+    <updated>2016-11-26T15:04:52.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>注：本文所属Android-Wiki，本文主要介绍关于<code>输入法的显示与隐藏</code>相关方法与判断方式。</p>
+<a id="more"></a>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> android.content.Context;</div><div class="line"><span class="keyword">import</span> android.view.inputmethod.InputMethodManager;</div><div class="line"><span class="keyword">import</span> android.widget.EditText;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by qingfeng on 16/9/19.</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">InputMethodUtils</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 切换软键盘的状态</div><div class="line">     * 如当前为收起变为弹出,若当前为弹出变为收起</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">toggleInput</span><span class="params">(EditText edittext)</span> </span>&#123;</div><div class="line">        InputMethodManager inputMethodManager = (InputMethodManager)</div><div class="line">                edittext.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);</div><div class="line">        inputMethodManager.toggleSoftInput(<span class="number">0</span>, InputMethodManager.HIDE_NOT_ALWAYS);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 强制隐藏输入法键盘</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">hideInput</span><span class="params">(EditText edittext)</span> </span>&#123;</div><div class="line">        InputMethodManager inputMethodManager = (InputMethodManager)</div><div class="line">                edittext.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);</div><div class="line">        <span class="keyword">if</span> (inputMethodManager.isActive()) &#123;</div><div class="line">            inputMethodManager.hideSoftInputFromWindow(edittext.getWindowToken(), <span class="number">0</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 强制显示输入法键盘</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">showInput</span><span class="params">(EditText edittext)</span> </span>&#123;</div><div class="line">        InputMethodManager inputMethodManager = (InputMethodManager)</div><div class="line">                edittext.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);</div><div class="line">        inputMethodManager.showSoftInput(edittext, InputMethodManager.SHOW_FORCED);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 输入法是否显示</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isShow</span><span class="params">(EditText edittext)</span> </span>&#123;</div><div class="line">        <span class="keyword">boolean</span> bool = <span class="keyword">false</span>;</div><div class="line">        InputMethodManager inputMethodManager = (InputMethodManager)</div><div class="line">                edittext.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);</div><div class="line">        <span class="keyword">if</span> (inputMethodManager.isActive()) &#123;</div><div class="line">            bool = <span class="keyword">true</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> bool;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;注：本文所属Android-Wiki，本文主要介绍关于&lt;code&gt;输入法的显示与隐藏&lt;/code&gt;相关方法与判断方式。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Android" scheme="http://fengqingxiuyi.xyz/categories/Android/"/>
+    
+    
+      <category term="Wiki" scheme="http://fengqingxiuyi.xyz/tags/Wiki/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>复制粘贴文本的三种类型</title>
+    <link href="http://fengqingxiuyi.xyz/Android/Wiki/%E5%A4%8D%E5%88%B6%E7%B2%98%E8%B4%B4%E6%96%87%E6%9C%AC%E7%9A%84%E4%B8%89%E7%A7%8D%E7%B1%BB%E5%9E%8B.html"/>
+    <id>http://fengqingxiuyi.xyz/Android/Wiki/复制粘贴文本的三种类型.html</id>
+    <published>2016-10-05T01:56:21.000Z</published>
+    <updated>2016-11-26T15:01:23.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>注：本文所属Android-Wiki，本文主要介绍<code>复制粘贴文本的三种类型</code>：text／Uri／Intent。</p>
+<a id="more"></a>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> android.content.ClipData;</div><div class="line"><span class="keyword">import</span> android.content.ClipDescription;</div><div class="line"><span class="keyword">import</span> android.content.ClipboardManager;</div><div class="line"><span class="keyword">import</span> android.content.Context;</div><div class="line"><span class="keyword">import</span> android.content.Intent;</div><div class="line"><span class="keyword">import</span> android.net.Uri;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by qingfeng on 16/9/8.</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SHTextUtils</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 复制 -&gt; 类型一: text</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">copy</span><span class="params">(Context context, String text)</span> </span>&#123;</div><div class="line">        ClipboardManager clipboard = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);</div><div class="line">        ClipData textCd = ClipData.newPlainText(<span class="string">"text"</span>, text);</div><div class="line">        clipboard.setPrimaryClip(textCd);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 粘贴 -&gt; 类型一: text</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> CharSequence <span class="title">pasteText</span><span class="params">(Context context)</span> </span>&#123;</div><div class="line">        ClipboardManager clipboard = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);</div><div class="line">        <span class="keyword">if</span> (clipboard.getPrimaryClipDescription().hasMimeType(ClipDescription.MIMETYPE_TEXT_PLAIN)) &#123;</div><div class="line">            ClipData cdText = clipboard.getPrimaryClip();</div><div class="line">            <span class="comment">// 此处是 text</span></div><div class="line">            ClipData.Item item = cdText.getItemAt(<span class="number">0</span>);</div><div class="line">            <span class="keyword">return</span> item.getText();</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 复制 -&gt; 类型二: Uri</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">copy</span><span class="params">(Context context, Uri uri)</span> </span>&#123;</div><div class="line">        ClipboardManager clipboard = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);</div><div class="line">        ClipData clipUri = ClipData.newUri(context.getContentResolver(), <span class="string">"Uri"</span>, uri);</div><div class="line">        clipboard.setPrimaryClip(clipUri);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 粘贴 -&gt; 类型二: Uri</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Uri <span class="title">pasteUri</span><span class="params">(Context context)</span> </span>&#123;</div><div class="line">        ClipboardManager clipboard = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);</div><div class="line">        <span class="keyword">if</span> (clipboard.getPrimaryClipDescription().hasMimeType(ClipDescription.MIMETYPE_TEXT_URILIST)) &#123;</div><div class="line">            ClipData cdUri = clipboard.getPrimaryClip();</div><div class="line">            <span class="comment">// 此处是 Uri</span></div><div class="line">            ClipData.Item item = cdUri.getItemAt(<span class="number">0</span>);</div><div class="line">            <span class="keyword">return</span> item.getUri();</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 复制 -&gt; 类型三: Intent</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">copy</span><span class="params">(Context context, Intent intent)</span> </span>&#123;</div><div class="line">        ClipboardManager clipboard = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);</div><div class="line">        ClipData clipIntent = ClipData.newIntent(<span class="string">"Intent"</span>, intent);</div><div class="line">        clipboard.setPrimaryClip(clipIntent);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 粘贴 -&gt; 类型三: Intent</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Intent <span class="title">pasteIntent</span><span class="params">(Context context)</span> </span>&#123;</div><div class="line">        ClipboardManager clipboard = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);</div><div class="line">        <span class="keyword">if</span> (clipboard.getPrimaryClipDescription().hasMimeType(ClipDescription.MIMETYPE_TEXT_INTENT)) &#123;</div><div class="line">            ClipData cdIntent = clipboard.getPrimaryClip();</div><div class="line">            <span class="comment">// 此处是 Intent</span></div><div class="line">            ClipData.Item item = cdIntent.getItemAt(<span class="number">0</span>);</div><div class="line">            <span class="keyword">return</span> item.getIntent();</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;注：本文所属Android-Wiki，本文主要介绍&lt;code&gt;复制粘贴文本的三种类型&lt;/code&gt;：text／Uri／Intent。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Android" scheme="http://fengqingxiuyi.xyz/categories/Android/"/>
+    
+    
+      <category term="Wiki" scheme="http://fengqingxiuyi.xyz/tags/Wiki/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>摄像头是否可用</title>
+    <link href="http://fengqingxiuyi.xyz/Android/Wiki/%E6%91%84%E5%83%8F%E5%A4%B4%E6%98%AF%E5%90%A6%E5%8F%AF%E7%94%A8.html"/>
+    <id>http://fengqingxiuyi.xyz/Android/Wiki/摄像头是否可用.html</id>
+    <published>2016-10-05T01:52:21.000Z</published>
+    <updated>2016-11-26T15:02:21.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>注：本文所属Android-Wiki，本文主要介绍如何判断<code>摄像头是否可用</code>，并兼容处理MX5的某些bug。</p>
+<a id="more"></a>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> android.hardware.Camera;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by qingfeng on 16/9/19.</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CameraUtils</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 判断摄像头是否可用</div><div class="line">     *</div><div class="line">     * <span class="doctag">@return</span></div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isCameraCanUse</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">boolean</span> canUse = <span class="keyword">true</span>;</div><div class="line"></div><div class="line">        Camera mCamera = <span class="keyword">null</span>;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            mCamera = Camera.open();</div><div class="line">            <span class="comment">// setParameters 是针对魅族MX5 做的。MX5 通过Camera.open() 拿到的Camera</span></div><div class="line">            <span class="comment">// 对象不为null</span></div><div class="line">            Camera.Parameters mParameters = mCamera.getParameters();</div><div class="line">            mCamera.setParameters(mParameters);</div><div class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">            canUse = <span class="keyword">false</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (mCamera != <span class="keyword">null</span>) &#123;</div><div class="line">            mCamera.release();</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> canUse;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;注：本文所属Android-Wiki，本文主要介绍如何判断&lt;code&gt;摄像头是否可用&lt;/code&gt;，并兼容处理MX5的某些bug。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Android" scheme="http://fengqingxiuyi.xyz/categories/Android/"/>
+    
+    
+      <category term="Wiki" scheme="http://fengqingxiuyi.xyz/tags/Wiki/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>文件的基本操作</title>
+    <link href="http://fengqingxiuyi.xyz/Android/Wiki/%E6%96%87%E4%BB%B6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C.html"/>
+    <id>http://fengqingxiuyi.xyz/Android/Wiki/文件的基本操作.html</id>
+    <published>2016-10-05T01:38:21.000Z</published>
+    <updated>2016-11-26T15:02:53.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>注：本文所属Android-Wiki，本文主要封装了一些<code>文件操作的基本方法</code>，包括创建、删除、获取文件大小等。</p>
+<a id="more"></a>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> android.content.Context;</div><div class="line"><span class="keyword">import</span> android.graphics.Bitmap;</div><div class="line"><span class="keyword">import</span> android.os.Environment;</div><div class="line"><span class="keyword">import</span> android.util.Log;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.io.File;</div><div class="line"><span class="keyword">import</span> java.io.FileOutputStream;</div><div class="line"><span class="keyword">import</span> java.io.IOException;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * 主要封装了一些文件操作的基本方法，包括创建、删除、获取文件大小等。</div><div class="line"> *</div><div class="line"> * Created by qingfeng on 16/9/9.</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FileUtils</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String TAG = <span class="string">"FileUtils"</span>;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 检查是否存在SD卡</div><div class="line">     *</div><div class="line">     * <span class="doctag">@return</span></div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">hasSdcard</span><span class="params">()</span> </span>&#123;</div><div class="line">        String state = Environment.getExternalStorageState();</div><div class="line">        <span class="keyword">if</span> (state.equals(Environment.MEDIA_MOUNTED)) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 创建目录</div><div class="line">     *</div><div class="line">     * <span class="doctag">@param</span> context</div><div class="line">     * <span class="doctag">@param</span> dirName 文件夹名称</div><div class="line">     * <span class="doctag">@return</span></div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> File <span class="title">createFileDir</span><span class="params">(Context context, String dirName)</span> </span>&#123;</div><div class="line">        String filePath;</div><div class="line">        <span class="comment">// 如SD卡已存在，则存储；反之存在data目录下</span></div><div class="line">        <span class="keyword">if</span> (hasSdcard()) &#123;</div><div class="line">            <span class="comment">// SD卡路径</span></div><div class="line">            filePath = Environment.getExternalStorageDirectory() + File.separator + dirName;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            filePath = context.getCacheDir().getPath() + File.separator + dirName;</div><div class="line">        &#125;</div><div class="line">        File destDir = <span class="keyword">new</span> File(filePath);</div><div class="line">        <span class="keyword">if</span> (!destDir.exists()) &#123;</div><div class="line">            <span class="keyword">boolean</span> isCreate = destDir.mkdirs();</div><div class="line">            Log.i(TAG, filePath + <span class="string">" has created. "</span> + isCreate);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> destDir;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 删除文件（若为目录，则递归删除子目录和文件）</div><div class="line">     *</div><div class="line">     * <span class="doctag">@param</span> file</div><div class="line">     * <span class="doctag">@param</span> delThisPath true代表删除参数指定file，false代表保留参数指定file</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">delFile</span><span class="params">(File file, <span class="keyword">boolean</span> delThisPath)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (!file.exists()) &#123;</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (file.isDirectory()) &#123;</div><div class="line">            File[] subFiles = file.listFiles();</div><div class="line">            <span class="keyword">if</span> (subFiles != <span class="keyword">null</span>) &#123;</div><div class="line">                <span class="keyword">int</span> num = subFiles.length;</div><div class="line">                <span class="comment">// 删除子目录和文件</span></div><div class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; num; i++) &#123;</div><div class="line">                    delFile(subFiles[i], <span class="keyword">true</span>);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (delThisPath) &#123;</div><div class="line">            file.delete();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 获取文件大小，单位为byte（若为目录，则包括所有子目录和文件）</div><div class="line">     *</div><div class="line">     * <span class="doctag">@param</span> file</div><div class="line">     * <span class="doctag">@return</span></div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">long</span> <span class="title">getFileSize</span><span class="params">(File file)</span> </span>&#123;</div><div class="line">        <span class="keyword">long</span> size = <span class="number">0</span>;</div><div class="line">        <span class="keyword">if</span> (file.exists()) &#123;</div><div class="line">            <span class="keyword">if</span> (file.isDirectory()) &#123;</div><div class="line">                File[] subFiles = file.listFiles();</div><div class="line">                <span class="keyword">if</span> (subFiles != <span class="keyword">null</span>) &#123;</div><div class="line">                    <span class="keyword">int</span> num = subFiles.length;</div><div class="line">                    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; num; i++) &#123;</div><div class="line">                        size += getFileSize(subFiles[i]);</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                size += file.length();</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> size;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 保存Bitmap到指定目录</div><div class="line">     *</div><div class="line">     * <span class="doctag">@param</span> dir 目录</div><div class="line">     * <span class="doctag">@param</span> fileName 文件名</div><div class="line">     * <span class="doctag">@param</span> bitmap</div><div class="line">     * <span class="doctag">@throws</span> IOException</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">saveBitmap</span><span class="params">(File dir, String fileName, Bitmap bitmap)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (bitmap == <span class="keyword">null</span>) &#123;</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        &#125;</div><div class="line">        File file = <span class="keyword">new</span> File(dir, fileName);</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            file.createNewFile();</div><div class="line">            FileOutputStream fos = <span class="keyword">new</span> FileOutputStream(file);</div><div class="line">            bitmap.compress(Bitmap.CompressFormat.JPEG, <span class="number">100</span>, fos);</div><div class="line">            fos.flush();</div><div class="line">            fos.close();</div><div class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 判断某目录下文件是否存在</div><div class="line">     *</div><div class="line">     * <span class="doctag">@param</span> dir 目录</div><div class="line">     * <span class="doctag">@param</span> fileName 文件名</div><div class="line">     * <span class="doctag">@return</span></div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isFileExists</span><span class="params">(File dir, String fileName)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> File(dir, fileName).exists();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;注：本文所属Android-Wiki，本文主要封装了一些&lt;code&gt;文件操作的基本方法&lt;/code&gt;，包括创建、删除、获取文件大小等。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Android" scheme="http://fengqingxiuyi.xyz/categories/Android/"/>
+    
+    
+      <category term="Wiki" scheme="http://fengqingxiuyi.xyz/tags/Wiki/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>scrollbarStyle详解</title>
+    <link href="http://fengqingxiuyi.xyz/Android/View/ScrollView/scrollbarStyle%E8%AF%A6%E8%A7%A3.html"/>
+    <id>http://fengqingxiuyi.xyz/Android/View/ScrollView/scrollbarStyle详解.html</id>
+    <published>2016-10-04T10:20:21.000Z</published>
+    <updated>2016-11-26T13:50:44.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>注：本文所属Android-View-ScrollView，对于scrollbarStyle的属性值进行详细解释。</p>
+<a id="more"></a>
+<p>android:scrollbarStyle属性及滚动条和分割线覆盖问题</p>
+<p>android:scrollbarStyle可以定义滚动条的样式和位置，可选值有insideOverlay、insideInset、outsideOverlay、outsideInset四种。</p>
+<p>其中inside和outside分别表示是否在view的padding区域内，overlay和inset表示覆盖在view上或是插在view后面，所以四种值分别表示：</p>
+<p>insideOverlay：默认值，表示在padding区域内并且覆盖在view上</p>
+<p>insideInset：表示在padding区域内并且插入在view后面</p>
+<p>outsideOverlay：表示在padding区域外并且覆盖在view上，推荐这个</p>
+<p>outsideInset：表示在padding区域外并且插入在view后面</p>
+<p>分别对应效果如下图：<img src="http://ogpp825dm.bkt.clouddn.com/images/Android/View/ScrollView/scrollbarStyle%E8%AF%A6%E8%A7%A3.jpg" alt="scrollbarStyle详解"></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;注：本文所属Android-View-ScrollView，对于scrollbarStyle的属性值进行详细解释。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Android" scheme="http://fengqingxiuyi.xyz/categories/Android/"/>
+    
+    
+      <category term="View" scheme="http://fengqingxiuyi.xyz/tags/View/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>设置滚动条样式</title>
+    <link href="http://fengqingxiuyi.xyz/Android/View/ScrollView/%E8%AE%BE%E7%BD%AE%E6%BB%9A%E5%8A%A8%E6%9D%A1%E6%A0%B7%E5%BC%8F.html"/>
+    <id>http://fengqingxiuyi.xyz/Android/View/ScrollView/设置滚动条样式.html</id>
+    <published>2016-10-04T10:19:21.000Z</published>
+    <updated>2016-11-26T13:54:48.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>注：本文所属Android-View-ScrollView，用于介绍如何设置滚动条的大小／方向／位置／颜色。</p>
+<a id="more"></a>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ScrollView</span></span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">    <span class="attr">android:layout_marginBottom</span>=<span class="string">"30dp"</span></div><div class="line">    <span class="attr">android:layout_marginTop</span>=<span class="string">"10dp"</span></div><div class="line">    <span class="attr">android:fadeScrollbars</span>=<span class="string">"false"</span></div><div class="line">    <span class="attr">android:paddingLeft</span>=<span class="string">"46dp"</span></div><div class="line">    <span class="attr">android:paddingRight</span>=<span class="string">"46dp"</span></div><div class="line">    <span class="attr">android:scrollbarSize</span>=<span class="string">"2dp"</span></div><div class="line">    <span class="attr">android:scrollbarStyle</span>=<span class="string">"outsideOverlay"</span></div><div class="line">    <span class="attr">android:scrollbarThumbVertical</span>=<span class="string">"@color/white"</span>/&gt;</div></pre></td></tr></table></figure>
+<p>scrollbarSize: 设置滚动条大小，垂直时指宽度，水平时指高度</p>
+<p>scrollbarStyle: 设置滚动条位置，详见<a href="../scrollbarStyle详解/index.html">scrollbarStyle详解</a></p>
+<p>scrollbarThumbVertical: 设置滚动条颜色</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;注：本文所属Android-View-ScrollView，用于介绍如何设置滚动条的大小／方向／位置／颜色。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Android" scheme="http://fengqingxiuyi.xyz/categories/Android/"/>
+    
+    
+      <category term="View" scheme="http://fengqingxiuyi.xyz/tags/View/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>永久显示滚动条</title>
+    <link href="http://fengqingxiuyi.xyz/Android/View/ScrollView/%E6%B0%B8%E4%B9%85%E6%98%BE%E7%A4%BA%E6%BB%9A%E5%8A%A8%E6%9D%A1.html"/>
+    <id>http://fengqingxiuyi.xyz/Android/View/ScrollView/永久显示滚动条.html</id>
+    <published>2016-10-04T10:17:21.000Z</published>
+    <updated>2016-11-26T13:53:05.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>注：本文所属Android-View-ScrollView，在xml布局文件中设置如何永久显示滚动条。</p>
+<a id="more"></a>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ScrollView</span></span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">    <span class="attr">android:layout_marginBottom</span>=<span class="string">"30dp"</span></div><div class="line">    <span class="attr">android:layout_marginTop</span>=<span class="string">"10dp"</span></div><div class="line">    <span class="attr">android:fadeScrollbars</span>=<span class="string">"false"</span></div><div class="line">    <span class="attr">android:paddingLeft</span>=<span class="string">"46dp"</span></div><div class="line">    <span class="attr">android:paddingRight</span>=<span class="string">"46dp"</span></div><div class="line">    <span class="attr">android:scrollbarSize</span>=<span class="string">"2dp"</span></div><div class="line">    <span class="attr">android:scrollbarStyle</span>=<span class="string">"outsideOverlay"</span></div><div class="line">    <span class="attr">android:scrollbarThumbVertical</span>=<span class="string">"@color/white"</span>/&gt;</div></pre></td></tr></table></figure>
+<p>android:fadeScrollbars=”false”: 永久显示滚动条</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;注：本文所属Android-View-ScrollView，在xml布局文件中设置如何永久显示滚动条。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Android" scheme="http://fengqingxiuyi.xyz/categories/Android/"/>
+    
+    
+      <category term="View" scheme="http://fengqingxiuyi.xyz/tags/View/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>自定义View开源项目</title>
+    <link href="http://fengqingxiuyi.xyz/Android/View/%E8%87%AA%E5%AE%9A%E4%B9%89View/%E8%87%AA%E5%AE%9A%E4%B9%89View%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE.html"/>
+    <id>http://fengqingxiuyi.xyz/Android/View/自定义View/自定义View开源项目.html</id>
+    <published>2016-10-03T13:50:21.000Z</published>
+    <updated>2016-11-26T14:01:18.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>注：本文所属Android-View-自定义View，用于记录一些自己用过的View类的开源项目。</p>
+<a id="more"></a>
+<h1 id="GridView-with-Header-and-Footer"><a href="#GridView-with-Header-and-Footer" class="headerlink" title="GridView with Header and Footer"></a>GridView with Header and Footer</h1><p>项目地址：<a href="https://github.com/liaohuqiu/android-GridViewWithHeaderAndFooter" target="_blank" rel="external">https://github.com/liaohuqiu/android-GridViewWithHeaderAndFooter</a></p>
+<p>项目简介：即标题所示含义，使GridView支持addHeader和addFooter</p>
+<p>遇到问题：业务要求，支持文字长按出现ActionMode，即 全选、复制、剪切…弹框，我以<code>TextView</code>的形式，配置属性<code>android:textIsSelectable=&quot;true&quot;</code>，将其添加到Header之后，长按无反应；然后以<code>EditText</code>的形式，将其添加到Header之后，长按仍无反应；最后发现是<font color="red">焦点抢占</font>的缘故，不过没有成功解决。</p>
+<h1 id="Android单点触控技术"><a href="#Android单点触控技术" class="headerlink" title="Android单点触控技术"></a>Android单点触控技术</h1><p>项目地址：<a href="http://blog.csdn.net/xiaanming/article/details/42833893" target="_blank" rel="external">http://blog.csdn.net/xiaanming/article/details/42833893</a></p>
+<p>项目简介：Android单点触控技术，对图片进行平移，缩放，旋转操作</p>
+<p>项目优点：注释详细，解读方便；支持多种选项配置；支持其他选项的自定义配置（如：控制图标的显示、边框的显示等）。</p>
+<p>项目不足之处：很难支持View是否旋转，暂未实现；很难支持View是否滑出显示区域，暂未实现。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;注：本文所属Android-View-自定义View，用于记录一些自己用过的View类的开源项目。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Android" scheme="http://fengqingxiuyi.xyz/categories/Android/"/>
+    
+    
+      <category term="View" scheme="http://fengqingxiuyi.xyz/tags/View/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>外网无法编译</title>
+    <link href="http://fengqingxiuyi.xyz/Android/Android%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Gradle/%E5%A4%96%E7%BD%91%E6%97%A0%E6%B3%95%E7%BC%96%E8%AF%91.html"/>
+    <id>http://fengqingxiuyi.xyz/Android/Android开发工具/Gradle/外网无法编译.html</id>
+    <published>2016-10-02T04:22:23.000Z</published>
+    <updated>2016-11-26T13:29:07.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>注：本文所属Android-Android开发工具-Gradle，用于解决从公司回家办公时，一直处于build中的问题。</p>
+<a id="more"></a>
+<p>大部分情况下，我们开发项目都是在公司中完成的，但是总会有需要在家里开发的时候。这个时候，如果你们公司的项目需要连接公司专有的maven仓库等链接地址，那么久可能会遇到无法编译的问题，具体表现为：<font color="red">一直处于编译中，无法正常停止。</font>然后我们就可以配置选项来解决这个问题，具体看下图：</p>
+<p><img src="http://ogpp825dm.bkt.clouddn.com/images/Android/Android%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Gradle/%E5%A4%96%E7%BD%91%E6%97%A0%E6%B3%95%E7%BC%96%E8%AF%91.png" alt="外网无法编译"></p>
+<p>如果你也是因为这个原因导致这样的问题的话，那就幸运了！如果不是，那我只能Good Luck！</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;注：本文所属Android-Android开发工具-Gradle，用于解决从公司回家办公时，一直处于build中的问题。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Android" scheme="http://fengqingxiuyi.xyz/categories/Android/"/>
+    
+    
+      <category term="Android开发工具" scheme="http://fengqingxiuyi.xyz/tags/Android%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"/>
+    
+  </entry>
+  
+</feed>
