@@ -1,3 +1,139 @@
+//管理员判断开始
+function sskadmin(e) {
+    var ssk = '';
+    if (e.user_id == 6307371788401640194) {
+        if (checkMobile()) {
+            ssk = '<span class="ua"><span class="sskadmin">博主</span></span><br><br>';
+        } else {
+            ssk = '<span class="ua"><span class="sskadmin">博主</span></span>';
+        }
+    } else {
+        if (checkMobile()) {
+            ssk = '<br><br>';
+        }
+    }
+    return ssk;
+}
+//管理员判断结束
+//移动客户端判断开始
+function checkMobile() {
+    var isiPad = navigator.userAgent.match(/iPad/i) != null;
+    if (isiPad) {
+        return false;
+    }
+    var isMobile = navigator.userAgent.match(/iphone|android|phone|mobile|wap|netfront|x11|java|opera mobi|opera mini|ucweb|windows ce|symbian|symbianos|series|webos|sony|blackberry|dopod|nokia|samsung|palmsource|xda|pieplus|meizu|midp|cldc|motorola|foma|docomo|up.browser|up.link|blazer|helio|hosin|huawei|novarra|coolpad|webos|techfaith|palmsource|alcatel|amoi|ktouch|nexian|ericsson|philips|sagem|wellcom|bunjalloo|maui|smartphone|iemobile|spice|bird|zte-|longcos|pantech|gionee|portalmmm|jig browser|hiptop|benq|haier|^lct|320x320|240x320|176x220/i) != null;
+    if (isMobile) {
+        return true;
+    }
+    return false;
+}
+//移动客户端判断结束
+//显UA开始
+function sskua(e) {
+    var r = new Array;
+    var outputer = '';
+    if (r = e.match(/FireFox\/([^\s]+)/ig)) {
+        var r1 = r[0].split("/");
+        outputer = '<span class="ua_firefox"><i class="fa fa-firefox"></i> FireFox'
+    } else if (r = e.match(/Maxthon([\d]*)\/([^\s]+)/ig)) {
+        var r1 = r[0].split("/");
+        outputer = '<span class="ua_maxthon"><i class="fa fa-globe"></i> Maxthon'
+    } else if (r = e.match(/BIDUBrowser([\d]*)\/([^\s]+)/ig)) {
+        var r1 = r[0].split("/");
+        outputer = '<span class="ua_ucweb"><i class="fa fa-globe"></i> 百度浏览器'
+    } else if (r = e.match(/UBrowser([\d]*)\/([^\s]+)/ig)) {
+        var r1 = r[0].split("/");
+        outputer = '<span class="ua_ucweb"><i class="fa fa-globe"></i> UCBrowser'
+    } else if (r = e.match(/UCBrowser([\d]*)\/([^\s]+)/ig)) {
+        var r1 = r[0].split("/");
+        outputer = '<span class="ua_ucweb"><i class="fa fa-globe"></i> UCBrowser'
+    } else if (r = e.match(/MetaSr/ig)) {
+        outputer = '<span class="ua_sogou"><i class="fa fa-globe"></i> 搜狗浏览器'
+    } else if (r = e.match(/2345Explorer/ig)) {
+        outputer = '<span class="ua_2345explorer"><i class="fa fa-globe"></i> 2345王牌浏览器'
+    } else if (r = e.match(/2345chrome/ig)) {
+        outputer = '<span class="ua_2345chrome"><i class="fa fa-globe"></i> 2345加速浏览器'
+    } else if (r = e.match(/LBBROWSER/ig)) {
+        outputer = '<span class="ua_lbbrowser"><i class="fa fa-globe"></i> 猎豹安全浏览器'
+    } else if (r = e.match(/MicroMessenger\/([^\s]+)/ig)) {
+        var r1 = r[0].split("/");
+        outputer = '<span class="ua_qq"><i class="fa fa-weixin"></i> 微信'
+        /*.split('/')[0]*/
+    } else if (r = e.match(/QQBrowser\/([^\s]+)/ig)) {
+        var r1 = r[0].split("/");
+        outputer = '<span class="ua_qq"><i class="fa fa-qq"></i> QQ浏览器'
+        /*.split('/')[0]*/
+    } else if (r = e.match(/QQ\/([^\s]+)/ig)) {
+        var r1 = r[0].split("/");
+        outputer = '<span class="ua_qq"><i class="fa fa-qq"></i> QQ浏览器'
+        /*.split('/')[0]*/
+    } else if (r = e.match(/MiuiBrowser\/([^\s]+)/ig)) {
+        var r1 = r[0].split("/");
+        outputer = '<span class="ua_mi"><i class="fa fa-globe"></i> Miui浏览器'
+        /*.split('/')[0]*/
+    } else if (r = e.match(/Chrome([\d]*)\/([^\s]+)/ig)) {
+        var r1 = r[0].split("/");
+        outputer = '<span class="ua_chrome"><i class="fa fa-chrome"></i> Chrome'
+        /*.split('.')[0]*/
+    } else if (r = e.match(/safari\/([^\s]+)/ig)) {
+        var r1 = r[0].split("/");
+        outputer = '<span class="ua_apple"><i class="fa fa-safari"></i> Safari'
+    } else if (r = e.match(/Opera[\s|\/]([^\s]+)/ig)) {
+        var r1 = r[0].split("/");
+        outputer = '<span class="ua_opera"><i class="fa fa-opera"></i> Opera'
+    } else if (r = e.match(/Trident\/7.0/gi)) {
+        outputer = '<span class="ua_ie"><i class="fa fa-internet-explorer"></i> IE 11'
+    } else if (r = e.match(/MSIE\s([^\s|;]+)/gi)) {
+        outputer = '<span class="ua_ie"><i class="fa fa-internet-explorer"></i> IE' + ' ' + r[0]
+        /*.replace('MSIE', '').split('.')[0]*/
+    } else {
+        outputer = '<span class="ua_other"><i class="fa fa-globe"></i> 其它浏览器'
+    }
+    if (checkMobile()) {
+        Mobile = '<br><br>';
+    } else {
+        Mobile = '';
+    }
+    return outputer + "</span>" + Mobile;
+}
+function sskos(e) {
+    var os = '';
+    if (e.match(/win/ig)) {
+        if (e.match(/nt 5.1/ig)) {
+            os = '<span class="os_xp"><i class="fa fa-windows"></i> Windows XP'
+        } else if (e.match(/nt 6.1/ig)) {
+            os = '<span class="os_7"><i class="fa fa-windows"></i> Windows 7'
+        } else if (e.match(/nt 6.2/ig)) {
+            os = '<span class="os_8"><i class="fa fa-windows"></i> Windows 8'
+        } else if (e.match(/nt 6.3/ig)) {
+            os = '<span class="os_8_1"><i class="fa fa-windows"></i> Windows 8.1'
+        } else if (e.match(/nt 10.0/ig)) {
+            os = '<span class="os_8_1"><i class="fa fa-windows"></i> Windows 10'
+        } else if (e.match(/nt 6.0/ig)) {
+            os = '<span class="os_vista"><i class="fa fa-windows"></i> Windows Vista'
+        } else if (e.match(/nt 5/ig)) {
+            os = '<span class="os_2000"><i class="fa fa-windows"></i> Windows 2000'
+        } else {
+            os = '<span class="os_windows"><i class="fa fa-windows"></i> Windows'
+        }
+    } else if (e.match(/android/ig)) {
+        os = '<span class="os_android"><i class="fa fa-android"></i> Android'
+    } else if (e.match(/ubuntu/ig)) {
+        os = '<span class="os_ubuntu"><i class="fa fa-desktop"></i> Ubuntu'
+    } else if (e.match(/linux/ig)) {
+        os = '<span class="os_linux"><i class="fa fa-linux"></i> Linux'
+    } else if (e.match(/mac/ig)) {
+        os = '<span class="os_mac"><i class="fa fa-apple"></i> Mac OS X'
+    } else if (e.match(/unix/ig)) {
+        os = '<span class="os_unix"><i class="fa fa-desktop"></i> Unix'
+    } else if (e.match(/symbian/ig)) {
+        os = '<span class="os_nokia"><i class="fa fa-mobile"></i> Nokia SymbianOS'
+    } else {
+        os = '<span class="os_other"><i class="fa fa-desktop"></i> 其它操作系统'
+    }
+    return os + "</span>";
+}
+//显UA结束
 !
 function(e, t, s) {
     function a() {
@@ -35,7 +171,7 @@ function(e, t, s) {
     }
     function n(e) {
         S.theme = e,
-        "none" != e && o.injectStylesheet(S.STATIC_URL + "/styles/embed" + (e ? "." + e + ".css?" + M[e] : "." + short_name) + ".css")
+        "none" != e && o.injectStylesheet(S.STATIC_URL + "/styles/embed" + (e ? "." + e + ".css?" + U[e] : "." + short_name) + ".css")
     }
     var o = {},
     d = t.getElementsByTagName("head")[0] || t.getElementsByTagName("body")[0];
@@ -158,34 +294,56 @@ function(e, t, s) {
         S = e.DUOSHUO = {
             sourceName: {
                 weibo: "新浪微博",
-                qq: "QQ",
                 qzone: "QQ空间",
-                qqt: "腾讯微博",
-                renren: "人人网",
-                douban: "豆瓣网",
-                kaixin: "开心网",
                 sohu: "搜狐微博",
+                renren: "人人网",
+                netease: "网易",
+                qqt: "腾讯微博",
+                kaixin: "开心网",
+                douban: "豆瓣网",
+                qq: "QQ",
+                meilishuo: "美丽说",
+                mogujie: "蘑菇街",
                 baidu: "百度",
-                google: "谷歌",
+                taobao: "淘宝",
+                google: "Google+",
                 wechat: "微信",
-                weixin: "微信",
+                diandian: "点点",
+                huaban: "花瓣",
+                duitang: "堆糖",
+                youdao: "有道",
+                pengyou: "朋友网",
                 facebook: "Facebook",
                 twitter: "Twitter",
-                linkedin: "Linkedin"
+                linkedin: "Linkedin",
+                msn: "MSN"
             },
             serviceNames: {
                 weibo: "微博",
-                qq: "QQ",
-                douban: "豆瓣",
+                qzone: "QQ空间",
+                sohu: "搜狐微博",
                 renren: "人人",
-                kaixin: "开心",
+                netease: "网易",
+                qqt: "腾讯微博",
+                kaixin: "开心网",
+                douban: "豆瓣",
+                qq: "QQ",
+                meilishuo: "美丽说",
+                mogujie: "蘑菇街",
                 baidu: "百度",
+                taobao: "淘宝",
                 google: "谷歌",
                 wechat: "微信",
-                weixin: "微信",
+                diandian: "点点",
+                huaban: "花瓣",
+                duitang: "堆糖",
+                youdao: "有道",
+                pengyou: "朋友网",
                 facebook: "Facebook",
                 twitter: "Twitter",
-                linkedin: "Linkedin"
+                linkedin: "Linkedin",
+                msn: "MSN",
+                weixin: "微信"
             },
             parseDate: function(e) {
                 return e.parse("2011-10-28T00:00:00+08:00") &&
@@ -277,7 +435,7 @@ function(e, t, s) {
         L = S.smilies = {};
         S.require = function() {
             function t(e) {
-                var t = U[e] ? "?" + U[e] + ".js": "";
+                var t = R[e] ? "?" + R[e] + ".js": "";
                 return S.STATIC_URL + "/libs/" + e + ".js" + t
             }
             var s = {
@@ -322,7 +480,7 @@ function(e, t, s) {
             }
         } (I[N]);
         S.RecentCommentsWidget = S.RecentComments;
-        var R = S.API = {
+        var A = S.API = {
             ajax: function(e, t, i, r, n) {
                 function d(e) {
                     var t = e.getResponseHeader("Date");
@@ -392,7 +550,7 @@ function(e, t, s) {
                 }
                 "GET" != e && (i._method = "POST");
                 var y = "cb_" + Math.round(1e6 * Math.random());
-                R[y] = function(e) {
+                A[y] = function(e) {
                     switch (e.code) {
                     case 0:
                         r && r(e);
@@ -413,7 +571,7 @@ function(e, t, s) {
                 return this.ajax("POST", e, t, s, a)
             }
         },
-        A = S.ws = {
+        M = S.ws = {
             messages: [],
             send: function(s) {
                 if (! ("WebSocket" in e && p)) return ! 1;
@@ -452,15 +610,14 @@ function(e, t, s) {
         S.DOMAIN = "duoshuo.com",
         S.STATIC_URL = g + "//static.duoshuo.com",
         S.REMOTE = g + "//duoshuo.com",
-        S.version = "16.6.16";
-        var M = {
-            "default": "9b2a46a0",
-            dark: "33f3a5ac",
-            bluebox: "39a75d50",
-            newhua: "706ba4eb",
-            justflat: "9d72ec5a"
+        S.version = "15.11.15";
+        var U = {
+            "default": "79dc948b",
+            dark: "ddc346d8",
+            bluebox: "0f0f035c",
+            newhua: "dc453ca2"
         },
-        U = {
+        R = {
             "embed.compat": "24f8ca3f",
             smilies: "921e8eda"
         },
@@ -512,26 +669,26 @@ function(e, t, s) {
             }
         },
         W = S.loadRequire = function(t) {
-            if (t.visitor && (!nt.data && t.visitor.user_id && e.Notification && A.send({
+            if (t.visitor && (!nt.data && t.visitor.user_id && e.Notification && M.send({
                 logged_user_id: t.visitor.user_id
             }), nt.reset(t.visitor)), t.site && (rt.reset(t.site), D.save("ds_site_" + c.short_name, t.site)), !S.theme && rt.data.theme && n(rt.data.theme), t.lang && (o.extend(z, t.lang), D.save("ds_lang_" + c.short_name, t.lang)), t.stylesheets) for (var s = 0; s < t.stylesheets.length; s++) o.injectStylesheet(t.stylesheets[s]);
             if (t.nonce && (S.nonce = t.nonce), t.style && o.injectStyle((t.style || "") + S.compileStyle(c.component_style)), t.unread && ot.reset(t.unread), t.warnings) for (var s = 0; s < t.warnings.length; s++) C.warn(t.warnings[s])
         },
-        B = 0,
-        H = S.Class = function() {};
-        H.extend = function(e) {
-            function t() { ! B && this.init && this.init.apply(this, arguments)
+        H = 0,
+        B = S.Class = function() {};
+        B.extend = function(e) {
+            function t() { ! H && this.init && this.init.apply(this, arguments)
             }
-            B = 1;
+            H = 1;
             var s = new this;
-            B = 0;
+            H = 0;
             for (var a in e) s[a] = e[a];
             return t.prototype = s,
             t.prototype.constructor = t,
             t.extend = arguments.callee,
             t
         };
-        var J = S.Event = H.extend({
+        var J = S.Event = B.extend({
             on: function(e, t) {
                 var a = this.handlers || (this.handlers = {});
                 return a[e] === s && (a[e] = []),
@@ -854,35 +1011,6 @@ function(e, t, s) {
             t += '<div class="ds-avatar">' + et.avatar(a, e.options.avatar_size) + "</div>";
             return t
         },
-        et["related-read"] = function(e) {
-            var t = "";
-            if (e && e.length) {
-                t += '<article class="ds-reads-expand"><div class="ds-header">头条推荐</div><section> ';
-                var s = e;
-                if (s) for (var a, i = -1,
-                r = s.length - 1; r > i;) {
-                    if (a = s[i += 1], t += ' <a href="' + a.url + '" class="ds-reads-item"> ', 3 == a.imgs.length) {
-                        t += " <h2>" + a.title + '</h2> <div class="ds-reads-pics"> <ul> ';
-                        var n = a.imgs;
-                        if (n) for (var o, d = -1,
-                        l = n.length - 1; l > d;) o = n[d += 1],
-                        t += ' <li> <div class="ds-reads-dumb"></div> <div class="ds-reads-pic-wrap" style="background-image:url(' + o + ');"></div></li> ';
-                        t += ' </ul> </div> <div class="ds-reads-info"> ',
-                        1 == a.type && (t += ' <span class="ds-reads-app-special">打开头条阅读</span> '),
-                        t += ' <span class="ds-reads-date" data-date="' + a.timeStamp + '"></span></div> '
-                    } else t += ' <div class="ds-reads-desc ',
-                    a.imgs.length || (t += "ds-reads-only"),
-                    t += '"> <div class="ds-reads-title">' + a.title + '</div> <div class="ds-reads-info"> ',
-                    1 == a.type && (t += ' <span class="ds-reads-app-special">打开头条阅读</span> '),
-                    t += ' <span class="ds-reads-date" data-date="' + a.timeStamp + '"></span> </div></div> ',
-                    a.imgs.length && (t += ' <div class="ds-reads-pic-right"> <div class="ds-reads-dumb"></div> <div class="ds-reads-pic-wrap" style="background-image:url(' + a.imgs[0] + ');"> ', a.hasVideo && (t += ' <div class="ds-reads-vid-info"><span>' + a.videoDuration + "</span></div> "), t += " </div></div> "),
-                    t += " ";
-                    t += " </a> "
-                }
-                t += "</section></article>"
-            }
-            return t
-        },
         et.replybox = function(e) {
             var t = '<div class="ds-replybox"><a class="ds-avatar"';
             if (t += r() ? ' href="javascript:void(0);" onclick="return false"': ' href="' + S.REMOTE + "/settings/avatar/" + x(T()) + '" target="_blank" title="设置头像"', t += ">" + et.avatarImg(nt.data) + '</a><form method="post">' + tt(e.params) + '<div class="ds-textarea-wrapper ds-rounded-top"><textarea name="message" title="Ctrl+Enter快捷提交" placeholder="' + u(z.leave_a_message) + '"></textarea><pre class="ds-hidden-text"></pre>', t += "</div>", t += '<div class="ds-post-toolbar"><div class="ds-post-options ds-gradient-bg"><span class="ds-sync">', !r() && nt.data.repostOptions) {
@@ -926,7 +1054,7 @@ function(e, t, s) {
             s = e.services;
             if (s) for (var a, i = -1,
             r = s.length - 1; r > i;) a = s[i += 1],
-            t += ' <li> <a class="ds-' + a + '" href="javascript:void(0);" data-service="' + a + '">' + S.sourceName[a] + "</a></li> ";
+            t += ' <li> <a class="ds-' + a + '" href="javascript:void(0);" data-service="' + a + '">' + S.sourceName[a] + "</a> </li> ";
             return t += ' </ul> </div> <div class="ds-share-icons-footer">' + e.copyright + "</div></div>"
         },
         et.smiliesTooltip = function(e) {
@@ -988,10 +1116,10 @@ function(e, t, s) {
             function i(e) {
                 e.stopPropagation()
             }
-            function n(e) { (e.ctrlKey && 13 == e.which || 10 == e.which) && H(this.form).trigger("submit")
+            function n(e) { (e.ctrlKey && 13 == e.which || 10 == e.which) && B(this.form).trigger("submit")
             }
             function d() {
-                var e = H(this);
+                var e = B(this);
                 e.height(Math.max(54, e.next(".ds-hidden-text").text(this.value).height() + 27))
             }
             function l() {
@@ -1005,7 +1133,7 @@ function(e, t, s) {
                 o = 0,
                 d = 0;
                 t.selection && (s = t.selection.createRange(), s && s.parentElement() == n && (i = n.value.length, e = n.value.replace(/\r\n/g, "\n"), a = n.createTextRange(), a.moveToBookmark(s.getBookmark()), r = n.createTextRange(), r.collapse(!1), a.compareEndPoints("StartToEnd", r) > -1 ? o = d = i: (o = -a.moveStart("character", -i), o += e.slice(0, o).split("\n").length - 1, a.compareEndPoints("EndToEnd", r) > -1 ? d = i: (d = -a.moveEnd("character", -i), d += e.slice(0, d).split("\n").length - 1)))),
-                H(n).data("ds-range-start", o).data("ds-range-end", d)
+                B(n).data("ds-range-start", o).data("ds-range-end", d)
             }
             function p(e) {
                 return P.touch && e.addClass("ds-touch"),
@@ -1056,13 +1184,13 @@ function(e, t, s) {
                     function e(e) {
                         if (s && a) {
                             var t = s.options,
-                            i = M(s.postList.el, e.response[a], t);
+                            i = U(s.postList.el, e.response[a], t);
                             "asc" == t.order == ("top" == t.formPosition) && S.scrollTo(i);
                             var r = s.el.find(".ds-comments-tab-" + a + " span.ds-highlight");
                             r.html(parseInt(r.html()) + 1)
                         }
                     }
-                    return a || l.find("[type=checkbox]:checked")[0] ? (R.post("posts/repost", S.toJSON(l), e), o.close(), !1) : (alert("还没有选发布到哪儿呢"), !1)
+                    return a || l.find("[type=checkbox]:checked")[0] ? (A.post("posts/repost", S.toJSON(l), e), o.close(), !1) : (alert("还没有选发布到哪儿呢"), !1)
                 }
                 function r() {
                     var e = this.value;
@@ -1085,11 +1213,11 @@ function(e, t, s) {
                         title: "新留言及回复",
                         apiUrl: "users/unreadComments",
                         tmpl: function(e) {
-                            return e.thread ? '<li data-thread-id="' + e.thread.thread_id + '">' + H.map(e.authors, et.userAnchor).join("、") + ' 在 <a class="ds-read" href="' + e.thread.url + '#comments" target="_blank">' + _(e.thread.title || "无标题") + '</a> 中回复了你 <a class="ds-delete ds-read" title="知道了" href="javascript:void(0)">知道了</a></li>': ""
+                            return e.thread ? '<li data-thread-id="' + e.thread.thread_id + '">' + B.map(e.authors, et.userAnchor).join("、") + ' 在 <a class="ds-read" href="' + e.thread.url + '#comments" target="_blank">' + _(e.thread.title || "无标题") + '</a> 中回复了你 <a class="ds-delete ds-read" title="知道了" href="javascript:void(0)">知道了</a></li>': ""
                         },
                         read: function(e) {
                             var t = e.attr("data-thread-id");
-                            R.post("threads/read", {
+                            A.post("threads/read", {
                                 thread_id: t
                             }),
                             ot.data.comments--
@@ -1103,7 +1231,7 @@ function(e, t, s) {
                         },
                         read: function(e) {
                             var t = e.attr("data-notification-id");
-                            R.post("notifications/read", {
+                            A.post("notifications/read", {
                                 notification_id: t
                             }),
                             ot.data.notifications--
@@ -1114,17 +1242,17 @@ function(e, t, s) {
                 s.on("close", S.resetNotify);
                 var a = s.el.find(".ds-unread-list").delegate(".ds-delete", "click",
                 function() {
-                    return H(this).parent().remove(),
+                    return B(this).parent().remove(),
                     0 === a.children().length && s.close(),
                     !1
                 }).delegate(".ds-read", "click",
                 function() {
-                    t.read(H(this).parent())
+                    t.read(B(this).parent())
                 });
-                H("#ds-notify").hide(),
-                R.get(t.apiUrl, {},
+                B("#ds-notify").hide(),
+                A.get(t.apiUrl, {},
                 function(e) {
-                    s.el.find(".ds-unread-list").html(H.map(e.response, t.tmpl).join("\n"))
+                    s.el.find(".ds-unread-list").html(B.map(e.response, t.tmpl).join("\n"))
                 })
             }
             function N() {
@@ -1137,63 +1265,63 @@ function(e, t, s) {
                 },
                 400)
             }
-            function M(e, t, s) {
-                return e.find(".ds-post[data-post-id=" + t.data.post_id + "]")[0] ? void 0 : (e.find(".ds-post-placeholder").remove(), H(et.post({
+            function U(e, t, s) {
+                return e.find(".ds-post[data-post-id=" + t.data.post_id + "]")[0] ? void 0 : (e.find(".ds-post-placeholder").remove(), B(et.post({
                     post: t.toJSON(),
                     options: s
                 })).hide()["asc" == s.order ? "appendTo": "prependTo"](e).slideDown(function() {}))
             }
-            function U(e, t) {
+            function R(e, t) {
                 function s() {
                     if (r()) return w(),
                     !1;
-                    var e = H(this).parent(),
+                    var e = B(this).parent(),
                     t = e.hasClass("ds-post-liked"),
-                    s = H(this).html().match(/\((\d+)\)/),
+                    s = B(this).html().match(/\((\d+)\)/),
                     a = (s ? parseInt(s[1]) : 0) + (t ? -1 : 1);
-                    return R.post("posts/vote", {
+                    return A.post("posts/vote", {
                         post_id: e.closest(".ds-ctx-entry, .ds-post-self").attr("data-post-id"),
                         vote: t ? 0 : 1
                     }),
-                    H(this).html(H(this).html().replace(/\(\d+\)/, "") + (a ? "(" + a + ")": "")),
+                    B(this).html(B(this).html().replace(/\(\d+\)/, "") + (a ? "(" + a + ")": "")),
                     e[t ? "removeClass": "addClass"]("ds-post-liked"),
                     !1
                 }
                 function a() {
-                    var e = H(this).closest(".ds-post-self"),
+                    var e = B(this).closest(".ds-post-self"),
                     t = lt[e.attr("data-post-id")];
                     return x(t, ""),
                     !1
                 }
                 function i() {
                     if (!confirm("确定要删除这条评论吗？")) return ! 1;
-                    var t = H(this).closest(".ds-post-self");
-                    return R.post("posts/remove", {
+                    var t = B(this).closest(".ds-post-self");
+                    return A.post("posts/remove", {
                         post_id: t.attr("data-post-id")
                     }),
                     t.parent().fadeOut(200,
                     function() {
                         e.data.comments--,
                         e.updateCounter("duoshuo"),
-                        H(this).remove()
+                        B(this).remove()
                     }),
                     !1
                 }
                 function n() {
                     if (!confirm("确定要举报这条评论吗？")) return ! 1;
-                    var e = H(this).closest(".ds-post-self");
-                    return R.post("posts/report", {
+                    var e = B(this).closest(".ds-post-self");
+                    return A.post("posts/report", {
                         post_id: e.attr("data-post-id")
                     }),
                     alert("感谢您的反馈！"),
                     !1
                 }
                 function o() {
-                    var s = H(this),
+                    var s = B(this),
                     a = s.closest(".ds-comment-actions");
                     if (a.hasClass("ds-reply-active")) h.el.fadeOut(200,
                     function() {
-                        H(this).detach()
+                        B(this).detach()
                     }),
                     a.removeClass("ds-reply-active");
                     else {
@@ -1202,14 +1330,14 @@ function(e, t, s) {
                         h.el.find("[name=parent_id]").val(i.attr("data-post-id")),
                         h.el.show().appendTo(s.closest(".ds-ctx-body, .ds-comment-body")).find("textarea").focus(),
                         h.actionsBar = a.addClass("ds-reply-active"),
-                        t.max_depth <= 1 ? h.postList = e.postList.el: (h.postList = i.siblings(".ds-children"), h.postList[0] || (h.postList = H('<ul class="ds-children"></ul>').insertAfter(i)))
+                        t.max_depth <= 1 ? h.postList = e.postList.el: (h.postList = i.siblings(".ds-children"), h.postList[0] || (h.postList = B('<ul class="ds-children"></ul>').insertAfter(i)))
                     }
                     return ! 1
                 }
                 function d() {
                     function e(e) {
                         W(e),
-                        i.append(H.map(e.response,
+                        i.append(B.map(e.response,
                         function(e) {
                             return et.post({
                                 post: e,
@@ -1217,18 +1345,18 @@ function(e, t, s) {
                             })
                         }).join(""))
                     } {
-                        var s = H(this).closest(".ds-post-self"),
+                        var s = B(this).closest(".ds-post-self"),
                         a = s.attr("data-post-id");
                         s.data("source")
                     }
                     if (0 != s.attr("data-root-id")) return ! 1;
                     var i = s.siblings(".ds-children");
-                    return i[0] ? (i.remove(), !1) : (i = H('<ul class="ds-children"></ul>').insertAfter(s), R.get("posts/listComments", B({
+                    return i[0] ? (i.remove(), !1) : (i = B('<ul class="ds-children"></ul>').insertAfter(s), A.get("posts/listComments", H({
                         post_id: a
                     }), e), !1)
                 }
                 function l() {
-                    var t = H(this).closest(".ds-post-self"),
+                    var t = B(this).closest(".ds-post-self"),
                     s = lt[t.attr("data-post-id")],
                     a = s.data.source;
                     if (!nt.data.social_uid["qqt" == a ? "qq": a]) return void y(a);
@@ -1243,7 +1371,7 @@ function(e, t, s) {
                     !1
                 }
                 function c() {
-                    var e = H(this).parent();
+                    var e = B(this).parent();
                     return e.siblings().show(),
                     e.remove(),
                     !1
@@ -1272,7 +1400,7 @@ function(e, t, s) {
                                 c = l.user_id = a.attr("data-user-id");
                                 if (!c) throw "no info";
                                 K.attr("id", "ds-user-card").attr("data-user-id", c).empty(),
-                                ct[c] ? K.html(et.userInfo(ct[c].data)) : R.get("users/profile", B(l), t)
+                                ct[c] ? K.html(et.userInfo(ct[c].data)) : A.get("users/profile", H(l), t)
                             }
                             X.css({
                                 bottom: o,
@@ -1285,7 +1413,7 @@ function(e, t, s) {
                     var s = this;
                     if (bubbleOutTimer && X.owner == s) return clearTimeout(bubbleOutTimer),
                     void(bubbleOutTimer = 0);
-                    var a = H(s);
+                    var a = B(s);
                     tt = setTimeout(t, 200)
                 }
                 function p() {
@@ -1295,7 +1423,7 @@ function(e, t, s) {
                 this.delegate("a.ds-post-likes", "click", s).delegate("a.ds-post-repost", "click", a).delegate("a.ds-post-delete", "click", i).delegate("a.ds-post-report", "click", n).delegate("a.ds-post-reply", "click", o).delegate("a.ds-weibo-comments", "click", d).delegate("a.ds-weibo-reposts", "click", l).delegate("a.ds-expand", "click", c),
                 P.touch || this.delegate("a.ds-comment-context, .ds-avatar, .ds-user-name", "mouseenter", u).delegate("a.ds-comment-context, .ds-avatar, .ds-user-name", "mouseleave", p)
             }
-            function B(e) {
+            function H(e) {
                 var s = {
                     require: "site,visitor,nonce,lang" + (it++?"": ",unread,log,extraCss"),
                     site_ims: D.get("ds_site_" + c.short_name + ":timestamp"),
@@ -1306,12 +1434,12 @@ function(e, t, s) {
                 for (var a in s) s[a] && (!P.ie6 || encodeURIComponent(s[a]).length < 200) && (e[a] = s[a]);
                 return e
             }
-            var H = S.jQuery,
-            V = H(e),
-            Y = H(t);
+            var B = S.jQuery,
+            V = B(e),
+            Y = B(t);
             e.postMessage && (e.addEventListener ? e.addEventListener("message", g, !1) : e.attachEvent && e.attachEvent("onmessage", g)),
             S.scrollTo = function(e) {
-                var t = e.offset().top; (t < V.scrollTop() || t > V.scrollTop() + V.height()) && H("html, body").animate({
+                var t = e.offset().top; (t < V.scrollTop() || t > V.scrollTop() + V.height()) && B("html, body").animate({
                     scrollTop: t - 40
                 },
                 200, "swing")
@@ -1321,12 +1449,12 @@ function(e, t, s) {
                 s = /^(?:color|date|datetime|datetime-local|email|hidden|month|number|password|range|search|tel|text|time|url|week)$/i,
                 a = /^(?:select|textarea)/i,
                 i = e.map(function() {
-                    return this.elements ? H.makeArray(this.elements) : this
+                    return this.elements ? B.makeArray(this.elements) : this
                 }).filter(function() {
                     return this.name && !this.disabled && (this.checked || a.test(this.nodeName) || s.test(this.type))
                 }).map(function(e, s) {
-                    var a = H(this).val();
-                    return null == a ? null: H.isArray(a) ? H.map(a,
+                    var a = B(this).val();
+                    return null == a ? null: B.isArray(a) ? B.map(a,
                     function(e) {
                         return {
                             name: s.name,
@@ -1338,16 +1466,16 @@ function(e, t, s) {
                     }
                 }).toArray(),
                 r = {};
-                return H.each(i,
+                return B.each(i,
                 function() {
                     r[this.name] = this.value
                 }),
                 r
             },
             S.resetNotify = function() {
-                var e = H("#ds-notify"),
+                var e = B("#ds-notify"),
                 s = ot.data;
-                e[0] || (e = H('<div id="ds-notify"></div>').css({
+                e[0] || (e = B('<div id="ds-notify"></div>').css({
                     hidden: {
                         display: "none"
                     },
@@ -1361,10 +1489,10 @@ function(e, t, s) {
                     }
                 } [rt.data.notify_position]).delegate(".ds-notify-unread a", "click",
                 function() {
-                    return T(H(this).data("type")),
+                    return T(B(this).data("type")),
                     !1
                 }).appendTo(t.body)),
-                e.html(et.notify(s))[!s.comments && !s.notifications || "hidden" === rt.data.notify_position || H(".ds-dialog")[0] ? "hide": "show"]()
+                e.html(et.notify(s))[!s.comments && !s.notifications || "hidden" === rt.data.notify_position || B(".ds-dialog")[0] ? "hide": "show"]()
             },
             ot.on("reset", S.resetNotify),
             st.Replybox = function(e) {
@@ -1400,7 +1528,7 @@ function(e, t, s) {
                         checked: 0
                     };
                     for (var v in nt.data.repostOptions) nt.data.repostOptions[v] && (h.repostArray.push(v), h.checked = 1);
-                    var g = i.el = H(et.replybox(h)).click(p),
+                    var g = i.el = B(et.replybox(h)).click(p),
                     b = g.find("form"),
                     y = b.find("input[type=checkbox]")[0],
                     _ = b.find("a.ds-service-icon, a.ds-service-icon-grey"),
@@ -1413,7 +1541,7 @@ function(e, t, s) {
                         })), s.replybox = i, s.el.appendTo(t.body).css({
                             top: i.el.offset().top + i.el.outerHeight() + 4 + "px",
                             left: i.el.find(".ds-textarea-wrapper").offset().left + "px"
-                        }), H(t.body).click(x)) : x(e),
+                        }), B(t.body).click(x)) : x(e),
                         !1
                     }),
                     x = (g.find(".ds-add-image").click(function(e) {
@@ -1439,7 +1567,7 @@ function(e, t, s) {
                     }), i.hideSmilies = function() {
                         w.removeClass("ds-expanded"),
                         S.smiliesTooltip.el.detach(),
-                        H(t.body).unbind("click", x)
+                        B(t.body).unbind("click", x)
                     }),
                     T = function(e, t) {
                         var s = E(et["dialog-anonymous"]({
@@ -1469,10 +1597,10 @@ function(e, t, s) {
                     });
                     var q = function(e) {
                         s(b),
-                        R.post("posts/create", H.extend(S.toJSON(b), e),
+                        A.post("posts/create", B.extend(S.toJSON(b), e),
                         function(e) {
                             var t = lt[e.response.post_id] = new F(e.response),
-                            s = M(i.postList, t, c);
+                            s = U(i.postList, t, c);
                             if ("asc" == c.order == ("top" == c.formPosition) && S.scrollTo(s), o.data.comments++, o.updateCounter("duoshuo"), k.val("").trigger("keyup"), a(b), g.hasClass("ds-inline-replybox") && (g.detach(), i.actionsBar.removeClass("ds-reply-active")), m) try {
                                 m.removeItem("ds_draft_" + o.threadId)
                             } catch(r) {}
@@ -1484,26 +1612,26 @@ function(e, t, s) {
                     };
                     b.submit(function() {
                         if (b.data("submitting")) return ! 1;
-                        var e = H.trim(b[0].message.value);
+                        var e = B.trim(b[0].message.value);
                         return "" == e || !P.placeholder && e == k.attr("placeholder") ? (alert("您还没写内容呢"), !1) : (r() ? T(b, q) : q(), !1)
                     });
                     var C = function(e) {
-                        return H(e).hasClass("ds-service-icon-grey") ? null: H(e).attr("data-service")
+                        return B(e).hasClass("ds-service-icon-grey") ? null: B(e).attr("data-service")
                     };
                     if (_.click(function() {
-                        return H(this).toggleClass("ds-service-icon-grey").toggleClass("ds-service-icon"),
-                        y.value = H.map(_, C).join(","),
+                        return B(this).toggleClass("ds-service-icon-grey").toggleClass("ds-service-icon"),
+                        y.value = B.map(_, C).join(","),
                         y.checked = "" != y.value,
                         !1
-                    }), H(y).change(function() {
+                    }), B(y).change(function() {
                         var e = this.checked;
                         _[e ? "removeClass": "addClass"]("ds-service-icon-grey")[e ? "addClass": "removeClass"]("ds-service-icon"),
-                        this.value = H.map(_, C).join(",")
+                        this.value = B.map(_, C).join(",")
                     }), !e && m) {
                         var j = "ds_draft_" + o.threadId;
                         k.bind("focus blur keyup",
                         function(e) {
-                            var t = H(e.currentTarget).val();
+                            var t = B(e.currentTarget).val();
                             try {
                                 m[j] = t
                             } catch(e) {}
@@ -1514,12 +1642,12 @@ function(e, t, s) {
                 }
             },
             st.Dialog = J.extend({
-                init: function(e, t) { (this.el = H("#ds-wrapper"))[0] || (this.el = p(H('<div id="ds-wrapper"></div>'))),
-                    this.options = H.extend({
+                init: function(e, t) { (this.el = B("#ds-wrapper"))[0] || (this.el = p(B('<div id="ds-wrapper"></div>'))),
+                    this.options = B.extend({
                         width: 600
                     },
                     t),
-                    e !== s && H(e).attr("id", "ds-reset").appendTo(this.el)
+                    e !== s && B(e).attr("id", "ds-reset").appendTo(this.el)
                 },
                 open: function() {
                     function e(e) {
@@ -1538,13 +1666,13 @@ function(e, t, s) {
                         !1
                     }).click(i),
                     Y.keydown(e),
-                    H(t.body).click(s),
+                    B(t.body).click(s),
                     a.close = function() {
                         Y.unbind("keydown", e),
-                        H(t.body).unbind("click", s),
+                        B(t.body).unbind("click", s),
                         a.el.fadeOut(200,
                         function() {
-                            H(this).remove()
+                            B(this).remove()
                         }),
                         a.trigger("close")
                     },
@@ -1566,7 +1694,7 @@ function(e, t, s) {
                         }
                         function c() {
                             n.tooltip.detach(),
-                            H(t.body).unbind("click", c)
+                            B(t.body).unbind("click", c)
                         }
                         function u(t) {
                             switch (this.className) {
@@ -1579,7 +1707,7 @@ function(e, t, s) {
                             return ! 1
                         }
                         var p = l.hasClass("ds-thread-liked");
-                        if (R.post("threads/vote", {
+                        if (A.post("threads/vote", {
                             thread_id: n.embedThread.threadId,
                             vote: p ? 0 : 1
                         },
@@ -1598,18 +1726,18 @@ function(e, t, s) {
                                 },
                                 thread_id: o.data.thread_id
                             });
-                            n.tooltip = H(h).click(i).delegate("a", "click", u)
+                            n.tooltip = B(h).click(i).delegate("a", "click", u)
                         }
                         var f = {};
                         return f.left = 0,
                         f.top = d.position().top + d.outerHeight() - 4 + "px",
                         n.tooltip.appendTo(n.embedThread.innerEl).css(f),
-                        H(t.body).click(c),
+                        B(t.body).click(c),
                         !1
                     }
                     var n = this,
                     o = n.embedThread.model,
-                    d = n.el = H(et.meta(o.toJSON())),
+                    d = n.el = B(et.meta(o.toJSON())),
                     l = d.find(".ds-like-thread-button");
                     return l.click(a),
                     n.resetLikePanel(),
@@ -1646,7 +1774,7 @@ function(e, t, s) {
                             a.params.source = "qqt",
                             s.replybox.el.hide()
                         }
-                        return H(t).addClass("ds-current"),
+                        return B(t).addClass("ds-current"),
                         a.refetch(),
                         !1
                     }
@@ -1655,12 +1783,12 @@ function(e, t, s) {
                         a.params.order = s.options.order = this.className.replace("ds-order-", ""),
                         a.params.page = 1,
                         a.refetch(),
-                        H(this).addClass("ds-current"),
+                        B(this).addClass("ds-current"),
                         !1
                     }
                     var s = this.embedThread,
                     a = s.postList,
-                    i = this.el = H(et.postListHead({
+                    i = this.el = B(et.postListHead({
                         thread: s.model.toJSON(),
                         options: s.options
                     })),
@@ -1677,12 +1805,12 @@ function(e, t, s) {
                     return i.params.page = parseInt(this.innerHTML),
                     i.refetch(),
                     a.find(".ds-current").removeClass("ds-current"),
-                    H(this).addClass("ds-current"),
+                    B(this).addClass("ds-current"),
                     !1
                 }
                 e = e || {};
                 var s = this,
-                a = s.el = e.el || H('<div class="ds-paginator"></div>'),
+                a = s.el = e.el || B('<div class="ds-paginator"></div>'),
                 i = s.collection = e.collection;
                 a.delegate("a", "click", t)
             },
@@ -1732,7 +1860,7 @@ function(e, t, s) {
                         i.focus()
                     }
                     var s = this,
-                    a = s.el = H(et.smiliesTooltip(L));
+                    a = s.el = B(et.smiliesTooltip(L));
                     return a.click(i).find("ul.ds-smilies-tabs").delegate("a", "click",
                     function() {
                         s.reset(this.innerHTML)
@@ -1752,7 +1880,7 @@ function(e, t, s) {
                         return this.innerHTML == e
                     }).addClass("ds-current");
                     var a = "<ul>";
-                    return H.each(L[e], t),
+                    return B.each(L[e], t),
                     a += "</ul>",
                     this.el.find(".ds-smilies-container").html(a),
                     this
@@ -1761,7 +1889,7 @@ function(e, t, s) {
             et.postPlaceholder = function() {
                 return ['<li class="ds-post ds-post-placeholder">', z.no_comments_yet, "</li>"].join("")
             };
-            var X = H('<div id="ds-bubble"><div class="ds-bubble-content"></div><div class="ds-arrow ds-arrow-down ds-arrow-border"></div><div class="ds-arrow ds-arrow-down"></div></div>'),
+            var X = B('<div id="ds-bubble"><div class="ds-bubble-content"></div><div class="ds-arrow ds-arrow-down ds-arrow-border"></div><div class="ds-arrow ds-arrow-down"></div></div>'),
             K = X.find(".ds-bubble-content").delegate("a.ds-ctx-open", "click",
             function() {
                 function e(e) {
@@ -1771,13 +1899,13 @@ function(e, t, s) {
                             index: t
                         })
                     }
-                    C.log(H.map(e.response, t).join("\n"));
+                    C.log(B.map(e.response, t).join("\n"));
                     s.el.find("ol");
-                    s.el.find("ol").html(H.map(e.response, t).join("\n"))
+                    s.el.find("ol").html(B.map(e.response, t).join("\n"))
                 }
                 var t = {};
                 t.post_id = K.attr("data-post-id"),
-                R.get("posts/conversation", t, e);
+                A.get("posts/conversation", t, e);
                 var s = E('<h2>查看对话</h2><ol id="ds-ctx"></ol>');
                 return s.el.find(".ds-dialog").css("width", "600px"),
                 s.el.find(".ds-dialog-body").css({
@@ -1792,17 +1920,17 @@ function(e, t, s) {
             X.mouseenter(N).mouseleave(I),
             st.PostList = function(e) {
                 e && (e.params && (this.params = e.params), e.embedThread && (this.embedThread = e.embedThread)),
-                this.el = H('<ul class="ds-comments"></ul>')
+                this.el = B('<ul class="ds-comments"></ul>')
             },
             st.PostList.prototype = {
                 url: "threads/listPosts",
                 render: function() {
-                    return U.call(this.el, this.embedThread, this.embedThread.options),
+                    return R.call(this.el, this.embedThread, this.embedThread.options),
                     this
                 },
                 reset: function(e) {
                     var t = this.embedThread.options;
-                    this.el.html(e[0] ? H.map(lt.getJSON(e),
+                    this.el.html(e[0] ? B.map(lt.getJSON(e),
                     function(e) {
                         return et.post({
                             post: e,
@@ -1821,34 +1949,9 @@ function(e, t, s) {
                         a.remove()
                     }
                     var s = this,
-                    a = H(et.indicator()).appendTo(t.body).fadeIn(200);
+                    a = B(et.indicator()).appendTo(t.body).fadeIn(200);
                     s.el.fadeTo(200, .5),
-                    R.get(s.url, s.params, e)
-                }
-            },
-            st.RelatedRead = function() {
-                this._init()
-            },
-            st.RelatedRead.prototype = {
-                _init: function() {
-                    this.el = H('<div id="ds-related-reads"></div>')
-                },
-                load: function(s) {
-                    e.__duoshuo_id__ = s,
-                    e.readsByToutiao = [],
-                    e.readsByToutiao.push({
-                        id: "ds-related-reads",
-                        num: 3
-                    });
-                    var a = "//s0.pstatp.com/site/reads-sdk/5bf3702b38076207bee1.js",
-                    i = t.createElement("script");
-                    i.src = a,
-                    i.charset = "utf-8",
-                    i.crossOrigin = "anonymous",
-                    t.head.appendChild(i)
-                },
-                mount: function(e) {
-                    this.el.insertBefore(e)
+                    A.get(s.url, s.params, e)
                 }
             },
             st.EmbedThread = Q.extend({
@@ -1860,7 +1963,7 @@ function(e, t, s) {
                     !1;
                     e.attr("id", "ds-thread").append(et.waitingImg());
                     var t = e.width(),
-                    s = e.data("url") || !e.attr("data-thread-id") && H("link[rel=canonical]").attr("href");
+                    s = e.data("url") || !e.attr("data-thread-id") && B("link[rel=canonical]").attr("href");
                     s ? e.data("url", k(s)) : e.data("container-url", h.href),
                     t && 400 >= t && e.addClass("ds-narrow").data("max-depth", 1)
                 },
@@ -1887,14 +1990,13 @@ function(e, t, s) {
                     i = a.threadId = t.thread.thread_id,
                     n = t.cursor,
                     o = a.options = t.options,
-                    d = a.innerEl = p(H('<div id="ds-reset"></div>').appendTo(a.el));
+                    d = a.innerEl = p(B('<div id="ds-reset"></div>').appendTo(a.el));
                     a.model = new G(a.data = t.thread),
                     lt.set(t.parentPosts || t.relatedPosts),
                     ct.set(t.users),
                     a.el.find("#ds-waiting").remove(),
-                    t.options && t.options.show_recommend && (a.relatedRead = new st.RelatedRead, a.relatedRead.load(t.thread.site_id), a.relatedRead.mount(d)),
                     o.like_thread_enabled && (a.meta = new st.Meta(a), d.append(a.meta.render().el)),
-                    o.hot_posts && t.hotPosts && t.hotPosts.length && (a.hotPosts = new st.HotPosts(H('<div class="ds-rounded"></div>'), {
+                    o.hot_posts && t.hotPosts && t.hotPosts.length && (a.hotPosts = new st.HotPosts(B('<div class="ds-rounded"></div>'), {
                         max_depth: 1,
                         show_context: o.show_context
                     }), a.hotPosts.thread = a, d.append(a.hotPosts.el), a.hotPosts.onload({
@@ -1918,16 +2020,16 @@ function(e, t, s) {
                     a.paginator.reset(n);
                     var c = a.replybox = new st.Replybox(a);
                     c.postList = a.postList.el,
-                    r() ? a.loginButtons = H(et.loginButtons()).delegate("a.ds-more-services", "click",
+                    r() ? a.loginButtons = B(et.loginButtons()).delegate("a.ds-more-services", "click",
                     function() {
                         return a.loginButtons.find(".ds-additional-services").toggle(),
                         !1
-                    }).delegate("a.ds-service-link", "click", l) : a.toolbar = H(et.toolbar()).delegate(".ds-account-control", "mouseenter",
+                    }).delegate("a.ds-service-link", "click", l) : a.toolbar = B(et.toolbar()).delegate(".ds-account-control", "mouseenter",
                     function() {
-                        H(this).addClass("ds-active")
+                        B(this).addClass("ds-active")
                     }).delegate(".ds-account-control", "mouseleave",
                     function() {
-                        H(this).removeClass("ds-active")
+                        B(this).removeClass("ds-active")
                     }).delegate("a.ds-bind-more", "click",
                     function() {
                         var e = E(et["dialog-bind-more"]()).el.find(".ds-dialog").addClass("ds-dialog-bind-more").css("width", "300px");
@@ -1939,14 +2041,14 @@ function(e, t, s) {
                         !1
                     });
                     var u = ['<a name="respond"></a>', a.toolbar || a.loginButtons, c.render().el];
-                    "top" == o.formPosition && H.fn.append.apply(d, u),
+                    "top" == o.formPosition && B.fn.append.apply(d, u),
                     d.append(a.postListHead.render().el, a.postList.el, a.paginator.el),
-                    "bottom" == o.formPosition && H.fn.append.apply(d, u),
+                    "bottom" == o.formPosition && B.fn.append.apply(d, u),
                     d.append(et.poweredBy(o.poweredby_text)),
                     a.updateCounter(),
-                    t.alerts && H.each(t.alerts,
+                    t.alerts && B.each(t.alerts,
                     function(e, t) {
-                        H('<div class="ds-alert">' + t + "</div>").insertBefore(a.toolbar || loginButtons)
+                        B('<div class="ds-alert">' + t + "</div>").insertBefore(a.toolbar || loginButtons)
                     }),
                     o.message && c.el.find("textarea").val(o.message).focus(),
                     ot.on("reset",
@@ -1955,7 +2057,7 @@ function(e, t, s) {
                         d.find("a.ds-unread-comments-count").html(e).attr("title", e ? "你有" + e + "条新回复": "你没有新回复").css("display", e ? "inline": "none")
                     }),
                     o.mzadx_id && (S.require("mzadxN",
-                    function() {}), H('<div id="MZADX_' + o.mzadx_id + '" style="margin:0 auto;"></div>').appendTo(d), __mz_rpq = e.__mz_rpq || [], __mz_rpq.push({
+                    function() {}), B('<div id="MZADX_' + o.mzadx_id + '" style="margin:0 auto;"></div>').appendTo(d), __mz_rpq = e.__mz_rpq || [], __mz_rpq.push({
                         l: [o.mzadx_id],
                         r: "1",
                         _srv: "MZADX",
@@ -1963,12 +2065,12 @@ function(e, t, s) {
                     })),
                     S.thread = a,
                     ot.data !== s && ot.trigger("reset"),
-                    r() || A.send({
+                    r() || M.send({
                         visit_thread_id: a.threadId
                     })
                 },
                 onMessage: function(e) {
-                    M(this.postList.el, new F(e), this.options)
+                    U(this.postList.el, new F(e), this.options)
                 }
             }),
             st.HotPosts = Q.extend({
@@ -1979,9 +2081,9 @@ function(e, t, s) {
                     this
                 },
                 onload: function(e) {
-                    e.options = H.extend(this.options, e.options),
+                    e.options = B.extend(this.options, e.options),
                     Q.prototype.onload.call(this, e),
-                    U.call(this.el.find("ul"), this.thread, this.options)
+                    R.call(this.el.find("ul"), this.thread, this.options)
                 }
             }),
             st.RecentComments = Q.extend({
@@ -1993,7 +2095,7 @@ function(e, t, s) {
                 },
                 prepare: function(e) {
                     return {
-                        list: H.map(e.response,
+                        list: B.map(e.response,
                         function(e) {
                             return new F(e).toJSON()
                         })
@@ -2006,7 +2108,7 @@ function(e, t, s) {
                 params: "show-time avatar-size num-items channel-key",
                 render: function() {
                     this.el.children().detach(),
-                    this.el.attr("id", "ds-recent-visitors").append(this.waitingEl = H(et.waitingImg()))
+                    this.el.attr("id", "ds-recent-visitors").append(this.waitingEl = B(et.waitingImg()))
                 }
             }),
             st.TopThreads = Q.extend({
@@ -2015,7 +2117,7 @@ function(e, t, s) {
                 params: "range num-items channel-key",
                 render: function() {
                     this.el.children().detach(),
-                    this.el.attr("id", "ds-top-threads").append(this.waitingEl = H(et.waitingImg()))
+                    this.el.attr("id", "ds-top-threads").append(this.waitingEl = B(et.waitingImg()))
                 }
             }),
             st.LoginWidget = Q.extend({
@@ -2048,7 +2150,7 @@ function(e, t, s) {
                     this.el.find(".ds-share-icons-more").html(et.shareWidget(e)),
                     this.el.find(".ds-share-icons-more").hide(),
                     this.el.hasClass("flat") && this.el.find("a").each(function() {
-                        H(this).addClass("flat")
+                        B(this).addClass("flat")
                     }),
                     p(this.el),
                     this.delegateEvents()
@@ -2107,7 +2209,7 @@ function(e, t, s) {
                     }
                     i.delegate("a", "click",
                     function(t) {
-                        var s = H(this).data("service");
+                        var s = B(this).data("service");
                         if (!i.data("url")) return void alert("请设置data-url");
                         if ("wechat" === s) {
                             var r = a() + "/api/qrcode/getImage.png",
@@ -2119,7 +2221,7 @@ function(e, t, s) {
                             d.el.find(".ds-dialog").css("width", "320px")
                         } else {
                             var l = a() + "/share-proxy/?" + o.param({
-                                service: H(this).data("service"),
+                                service: B(this).data("service"),
                                 thread_key: i.data("threadKey"),
                                 title: i.data("title"),
                                 images: i.data("images"),
@@ -2140,8 +2242,8 @@ function(e, t, s) {
                     o.extend(z, e.options),
                     dt.set(e.response)
                 }
-                var a = []; ! q() || !H.isReady && j || H(e).each(function(e, s) {
-                    var i = H(s);
+                var a = []; ! q() || !B.isReady && j || B(e).each(function(e, s) {
+                    var i = B(s);
                     if (!i.data("initialized")) {
                         i.data("initialized", !0);
                         var r = new st[t.type](i, t);
@@ -2156,39 +2258,39 @@ function(e, t, s) {
                             })
                         } else if (r.uri) {
                             var o = {};
-                            H.each(r.params.split(" "),
+                            B.each(r.params.split(" "),
                             function(e, t) {
                                 o[t.replace(/-/g, "_")] = i.attr("data-" + t) || i.data(t)
                             }),
-                            R.get(r.uri, B(o),
+                            A.get(r.uri, H(o),
                             function(e) {
                                 r.load(e)
                             })
                         }
                     }
                 }),
-                a.length && R.get("threads/counts", B({
+                a.length && A.get("threads/counts", H({
                     threads: a.join(",")
                 }), s)
             },
             (S.initView = function() {
-                H.each(O, S.initSelector)
+                B.each(O, S.initSelector)
             })(),
-            H(function() {
+            B(function() {
                 if (!c) {
                     if (!q()) return C.error("缺少 duoshuoQuery 的定义");
                     C.warn("请在加载多说 embed.js 之前定义 duoshuoQuery")
                 }
                 setInterval(function() {
-                    H(".ds-time").each(function() {
-                        var e = H(this).attr("datetime");
+                    B(".ds-time").each(function() {
+                        var e = B(this).attr("datetime");
                         e && (this.innerHTML = S.elapsedTime(e))
                     })
                 },
                 2e4),
                 c.ondomready && c.ondomready(),
                 S.initView(),
-                !it && c.short_name && R.get("analytics/ping", B({}), W)
+                !it && c.short_name && A.get("analytics/ping", H({}), W)
             })
         })
     }
