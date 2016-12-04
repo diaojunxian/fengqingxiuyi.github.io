@@ -506,8 +506,12 @@
       <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
       <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
       <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
-      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-sohu" href="javascript:void(0);" data-service="sohu">搜狐微博</a></li>
+      <li><a class="ds-douban" href="javascript:void(0);" data-service="douban">豆瓣网</a></li>
+      <li><a class="ds-qq" href="javascript:void(0);" data-service="qq">QQ</a></li>
       <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+      <li><a class="ds-facebook" href="javascript:void(0);" data-service="facebook">Facebook</a></li>
+      <li><a class="ds-twitter" href="javascript:void(0);" data-service="twitter">Twitter</a></li>
 
     </ul>
     <div class="ds-share-icons-more">
@@ -740,26 +744,6 @@
     var s = document.getElementsByTagName("script")[0];
     s.parentNode.insertBefore(bp, s);
 })();
-
-$(document).one('mouseover', 'li[data-toggle="ds-share-icons-more"]', function () {
-    var dataService2Text = {
-        'netease': '网易',
-        'mogujie': '蘑菇街',
-        'meilishuo': '美丽说',
-        'taobao': '淘宝',
-        'diandian': '点点',
-        'huaban': '花瓣',
-        'duitang': '堆糖',
-        'youdao': '有道',
-        'pengyou': '朋友网',
-        'msn': 'MSN',
-        'google': 'Google+'
-    };
-
-    $.each(dataService2Text, function (key, value) {
-        $('a[data-service="' + key + '"]').text(value);
-    });
-});
 </script>
 
 <!--
