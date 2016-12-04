@@ -29,7 +29,7 @@ function checkMobile() {
 }
 //移动客户端判断结束
 //显UA开始
-function ua(e) {
+function sskua(e) {
     var r = new Array;
     var outputer = '';
     if (r = e.match(/FireFox\/([^\s]+)/ig)) {
@@ -96,7 +96,7 @@ function ua(e) {
     }
     return outputer + "</span>" + Mobile;
 }
-function os(e) {
+function sskos(e) {
     var os = '';
     if (e.match(/win/ig)) {
         if (e.match(/nt 5.1/ig)) {
