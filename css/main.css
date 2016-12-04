@@ -339,7 +339,7 @@ body {
   font-size: 14px;
   line-height: 2;
   color: #555;
-  background: #a9a9a9;
+  background: #00b2ee;
 }
 @media (max-width: 767px) {
   body {
@@ -1946,7 +1946,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff3c34;
+  background: #28ff26;
 }
 .links-of-blogroll {
   font-size: 13px;
