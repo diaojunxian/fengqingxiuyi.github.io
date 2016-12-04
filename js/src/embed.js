@@ -319,20 +319,20 @@ function(e, t, s) {
                 msn: "MSN"
             },
             serviceNames: {
-                weibo: "新浪微博",
+                weibo: "微博",
                 qzone: "QQ空间",
                 sohu: "搜狐微博",
-                renren: "人人网",
+                renren: "人人",
                 netease: "网易",
                 qqt: "腾讯微博",
                 kaixin: "开心网",
-                douban: "豆瓣网",
+                douban: "豆瓣",
                 qq: "QQ",
                 meilishuo: "美丽说",
                 mogujie: "蘑菇街",
                 baidu: "百度",
                 taobao: "淘宝",
-                google: "Google+",
+                google: "谷歌",
                 wechat: "微信",
                 diandian: "点点",
                 huaban: "花瓣",
@@ -342,7 +342,8 @@ function(e, t, s) {
                 facebook: "Facebook",
                 twitter: "Twitter",
                 linkedin: "Linkedin",
-                msn: "MSN"
+                msn: "MSN",
+                weixin: "微信"
             },
             parseDate: function(e) {
                 return e.parse("2011-10-28T00:00:00+08:00") &&
