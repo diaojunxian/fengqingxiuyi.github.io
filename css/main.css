@@ -1946,7 +1946,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #6a2995;
+  background: #0b0aa6;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2281,6 +2281,7 @@ pre .javascript .function {
   background-color: #ccc !important;
   border-radius: 4px;
   padding: 0 5px !important;
+  opacity: 0.4;
   margin: 1px 1px !important;
   border: 1px solid #bbb !important;
   color: #fff;
@@ -2293,8 +2294,8 @@ pre .javascript .function {
 .theme-next .this_ua.platform.iOS,
 .theme-next .this_ua.platform.Mac,
 .theme-next .this_ua.platform.Windows {
-  background-color: #39b3d7 !important;
-  border-color: #46b8da !important;
+  background-color: #666 !important;
+  border-color: #1f1f1f !important;
 }
 .theme-next .this_ua.platform.Linux {
   background-color: #3a3a3a !important;
