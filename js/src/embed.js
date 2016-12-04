@@ -29,7 +29,7 @@ function checkMobile() {
 }
 //移动客户端判断结束
 //显UA开始
-function sskua(e) {
+function ua(e) {
     var r = new Array;
     var outputer = '';
     if (r = e.match(/FireFox\/([^\s]+)/ig)) {
@@ -75,6 +75,7 @@ function sskua(e) {
         var r1 = r[0].split("/");
         outputer = '<span class="ua_chrome"><i class="fa fa-chrome"></i> Chrome'
         /*.split('.')[0]*/
+        /* 例如： + r1[1].split('.')[0] */
     } else if (r = e.match(/safari\/([^\s]+)/ig)) {
         var r1 = r[0].split("/");
         outputer = '<span class="ua_apple"><i class="fa fa-safari"></i> Safari'
@@ -96,7 +97,7 @@ function sskua(e) {
     }
     return outputer + "</span>" + Mobile;
 }
-function sskos(e) {
+function os(e) {
     var os = '';
     if (e.match(/win/ig)) {
         if (e.match(/nt 5.1/ig)) {
@@ -968,7 +969,7 @@ function(e, t, s) {
             s = e.post,
             i = e.options,
             r = s.author;
-            if (t += '<li class="ds-post" data-post-id="' + s.post_id + '"><div class="ds-post-self" data-post-id="' + s.post_id + '" data-thread-id="' + s.thread_id + '" data-root-id="' + s.root_id + '" data-source="' + s.source + '"><div class="ds-avatar"', r.user_id && (t += ' data-user-id="' + r.user_id + '"'), t += ">" + et.avatar(r), S.sourceName[s.source] && (t += et.serviceIcon(s.source)), t += '</div><div class="ds-comment-body"><div class="ds-comment-header">', r.url ? (t += '<a class="ds-user-name ds-highlight" data-qqt-account="' + (r.qqt_account || "") + '" href="' + u(r.url) + '" ', r.user_id && (t += " onclick=\"this.href='" + a() + "/user-url/?user_id=" + r.user_id + "';\""), t += ' rel="nofollow" target="_blank"', r.user_id && (t += ' data-user-id="' + r.user_id + '"'), t += ">" + u(r.name) + "</a>") : (t += '<span class="ds-user-name"', r.user_id && (t += ' data-user-id="' + r.user_id + '"'), t += ' data-qqt-account="' + (r.qqt_account || "") + '">' + u(r.name) + "</span>"), t += "</div>", 1 == i.max_depth && i.show_context && s.parents.length) {
+            if (t += '<li class="ds-post" data-post-id="' + s.post_id + '"><div class="ds-post-self" data-post-id="' + s.post_id + '" data-thread-id="' + s.thread_id + '" data-root-id="' + s.root_id + '" data-source="' + s.source + '"><div class="ds-avatar"', r.user_id && (t += ' data-user-id="' + r.user_id + '"'), t += ">" + et.avatar(r), S.sourceName[s.source] && (t += et.serviceIcon(s.source)), t += '</div><div class="ds-comment-body"><div class="ds-comment-header">', r.url ? (t += '<a class="ds-user-name ds-highlight" data-qqt-account="' + (r.qqt_account || "") + '" href="' + u(r.url) + '" ', r.user_id && (t += " onclick=\"this.href='" + a() + "/user-url/?user_id=" + r.user_id + "';\""), t += ' rel="nofollow" target="_blank"', r.user_id && (t += ' data-user-id="' + r.user_id + '"'), t += ">" + u(r.name) + "</a>") : (t += '<span class="ds-user-name"', r.user_id && (t += ' data-user-id="' + r.user_id + '"'), t += ' data-qqt-account="' + (r.qqt_account || "") + '">' + u(r.name) + "</span>"), t += sskadmin(s.author) + "<span class=\"ua\">" + ua(s.agent) + "</span><span class=\"ua\">" + os(s.agent) + "</span>", t += "</div>", 1 == i.max_depth && i.show_context && s.parents.length) {
                 t += '<ol id="ds-ctx">';
                 var n = lt.getJSON(s.parents);
                 if (n) for (var o, d = -1,
