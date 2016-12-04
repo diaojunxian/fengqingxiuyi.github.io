@@ -2089,7 +2089,7 @@ function(e, t, s) {
             st.RecentComments = Q.extend({
                 tmpl: "commentList",
                 uri: "sites/listRecentPosts",
-                params: "show-avatars show-time show-title avatar-size excerpt-length num-items channel-key",
+                params: "show-avatars show-time show-title avatar-size show-admin excerpt-length num-items channel-key",
                 render: function() {
                     this.el.attr("id", "ds-recent-comments")
                 },
