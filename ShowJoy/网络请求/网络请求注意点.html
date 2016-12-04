@@ -535,6 +535,29 @@
     </div>
   </div>
 </div>
+
+<script>
+$(document).one('mouseover', 'li[data-toggle="ds-share-icons-more"]', function () {
+    var dataService2Text = {
+        'netease': '网易',
+        'mogujie': '蘑菇街',
+        'meilishuo': '美丽说',
+        'taobao': '淘宝',
+        'diandian': '点点',
+        'huaban': '花瓣',
+        'duitang': '堆糖',
+        'youdao': '有道',
+        'pengyou': '朋友网',
+        'msn': 'MSN',
+        'google': 'Google+'
+    };
+
+    $.each(dataService2Text, function (key, value) {
+        $('a[data-service="' + key + '"]').text(value);
+    });
+});
+</script>
+
       
     </div>
   </div>

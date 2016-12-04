@@ -470,8 +470,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/ShowJoy/View/Android-Relativelayout属性总结.html" rel="next" title="Android-Relativelayout属性总结">
-                <i class="fa fa-chevron-left"></i> Android-Relativelayout属性总结
+              <a href="/ShowJoy/View/ShopEditText.html" rel="next" title="ShopEditText">
+                <i class="fa fa-chevron-left"></i> ShopEditText
               </a>
             
           </div>
@@ -480,8 +480,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/ShowJoy/View/ShopEditText.html" rel="prev" title="ShopEditText">
-                ShopEditText <i class="fa fa-chevron-right"></i>
+              <a href="/ShowJoy/View/View注意点.html" rel="prev" title="View注意点">
+                View注意点 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -515,6 +515,29 @@
     </div>
   </div>
 </div>
+
+<script>
+$(document).one('mouseover', 'li[data-toggle="ds-share-icons-more"]', function () {
+    var dataService2Text = {
+        'netease': '网易',
+        'mogujie': '蘑菇街',
+        'meilishuo': '美丽说',
+        'taobao': '淘宝',
+        'diandian': '点点',
+        'huaban': '花瓣',
+        'duitang': '堆糖',
+        'youdao': '有道',
+        'pengyou': '朋友网',
+        'msn': 'MSN',
+        'google': 'Google+'
+    };
+
+    $.each(dataService2Text, function (key, value) {
+        $('a[data-service="' + key + '"]').text(value);
+    });
+});
+</script>
+
       
     </div>
   </div>
