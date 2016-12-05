@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://fengqingxiuyi.xyz/"/>
-  <updated>2016-12-05T16:43:11.000Z</updated>
+  <updated>2016-12-05T17:13:20.000Z</updated>
   <id>http://fengqingxiuyi.xyz/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://fengqingxiuyi.xyz/%E5%9F%BA%E6%9C%AC%E5%B7%A5%E5%85%B7/Charles/Charles%20-%20Mac%E4%B8%8A%E7%9A%84%E6%8A%93%E5%8C%85%E5%B7%A5%E5%85%B7.html"/>
     <id>http://fengqingxiuyi.xyz/基本工具/Charles/Charles - Mac上的抓包工具.html</id>
     <published>2016-12-05T03:26:19.000Z</published>
-    <updated>2016-12-05T16:43:11.000Z</updated>
+    <updated>2016-12-05T17:13:20.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>官网：<a href="https://www.charlesproxy.com" target="_blank" rel="external">Charles Web Debugging Proxy - Official Site</a></p>
 <p>概述：<a href="https://www.charlesproxy.com/overview/about-charles/" target="_blank" rel="external">官网简介</a></p>
@@ -30,8 +30,19 @@
 <p>2、在代理选项，选择手动选项，输入电脑已连接网络的IP地址；</p>
 <p>3、在代理选项，选择手动选项，输入端口号：<font color="red">8888</font>；</p>
 <p>4、随便访问个网页，电脑上会弹出<code>是否允许抓包</code>之类的弹框，点击<code>允许</code>即可使用Charles进行抓包。</p>
-<h1 id="高级使用"><a href="#高级使用" class="headerlink" title="高级使用"></a>高级使用</h1><font color="red">还在思考中…主要是<code>抓包网址的过滤</code>和<code>手机抓包访问权限</code>两方面</font>
-
+<h1 id="高级使用"><a href="#高级使用" class="headerlink" title="高级使用"></a>高级使用</h1><h2 id="过滤抓包网址"><a href="#过滤抓包网址" class="headerlink" title="过滤抓包网址"></a>过滤抓包网址</h2><p>默认情况下，只要设置了代理，就会全部抓取并显示，但是有时候我们只需要查看某一个或者某几个网址的访问情况，怎么办呢？显示<code>过滤</code>是一个很好的选择。</p>
+<p>步骤1：</p>
+<p><img src="http://ogpp825dm.bkt.clouddn.com/images/%E5%9F%BA%E6%9C%AC%E5%B7%A5%E5%85%B7/Charles/RecordingSettings.png" alt="RecordingSettings"></p>
+<p>步骤2：</p>
+<p><img src="http://ogpp825dm.bkt.clouddn.com/images/%E5%9F%BA%E6%9C%AC%E5%B7%A5%E5%85%B7/Charles/RecordingSettingsDetail.png" alt="RecordingSettingsDetail"></p>
+<p>你可以点击<code>Add</code>按钮，新增想要访问的地址信息（包括：协议、域名、端口等）；如果你<code>不想查看</code>某个网址的信息了，将其前面的对勾勾掉即可；如果你想要<code>保存过滤规则</code>，点击<code>Export</code>按钮即可保存到本地，点击<code>Import</code>按钮可以将本地过滤规则文件导入。</p>
+<h2 id="过滤手机访问权限"><a href="#过滤手机访问权限" class="headerlink" title="过滤手机访问权限"></a>过滤手机访问权限</h2><p>基本使用与<code>过滤抓包网址</code>一文相似；就说两点：</p>
+<p>1、过滤规则中的IP地址是你当时成功进行代理时所连网络的IP地址；</p>
+<p>2、如果你在一开始设置代理，Charles跳出弹框询问你是否进行代理的时候，点击了<code>拒绝</code>，不用着急，进入这里，将你所连网络的IP地址通过<code>Add</code>按钮Add即可。</p>
+<p>步骤1：</p>
+<p><img src="http://ogpp825dm.bkt.clouddn.com/images/%E5%9F%BA%E6%9C%AC%E5%B7%A5%E5%85%B7/Charles/AccessControlSettings.png" alt="AccessControlSettings"></p>
+<p>步骤2：</p>
+<p><img src="http://ogpp825dm.bkt.clouddn.com/images/%E5%9F%BA%E6%9C%AC%E5%B7%A5%E5%85%B7/Charles/AccessControlSettingsDetail.png" alt="AccessControlSettingsDetail"></p>
 <h1 id="在手机上安装证书并使用"><a href="#在手机上安装证书并使用" class="headerlink" title="在手机上安装证书并使用"></a>在手机上安装证书并使用</h1><p>步骤1：<br><img src="http://ogpp825dm.bkt.clouddn.com/images/%E5%9F%BA%E6%9C%AC%E5%B7%A5%E5%85%B7/Charles/InstallCertOnMobileOrRemoteBrowser.png" alt="InstallCertOnMobileOrRemoteBrowser"></p>
 <p>步骤2：<br><img src="http://ogpp825dm.bkt.clouddn.com/images/%E5%9F%BA%E6%9C%AC%E5%B7%A5%E5%85%B7/Charles/InstallCertOnMobileOrRemoteBrowserDialog.png" alt="InstallCertOnMobileOrRemoteBrowserDialog"></p>
 <p>步骤3：</p>
