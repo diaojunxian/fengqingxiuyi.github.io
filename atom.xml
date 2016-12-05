@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://fengqingxiuyi.xyz/"/>
-  <updated>2016-12-05T15:57:17.000Z</updated>
+  <updated>2016-12-05T16:19:00.000Z</updated>
   <id>http://fengqingxiuyi.xyz/</id>
   
   <author>
@@ -17,20 +17,25 @@
   
   <entry>
     <title>Charles使用技巧</title>
-    <link href="http://fengqingxiuyi.xyz/%E5%9F%BA%E6%9C%AC%E5%B7%A5%E5%85%B7/Charles/Charles%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8.html"/>
-    <id>http://fengqingxiuyi.xyz/基本工具/Charles/Charles基本使用.html</id>
+    <link href="http://fengqingxiuyi.xyz/%E5%9F%BA%E6%9C%AC%E5%B7%A5%E5%85%B7/Charles/Charles%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7.html"/>
+    <id>http://fengqingxiuyi.xyz/基本工具/Charles/Charles使用技巧.html</id>
     <published>2016-12-05T03:26:19.000Z</published>
-    <updated>2016-12-05T15:57:17.000Z</updated>
+    <updated>2016-12-05T16:19:00.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h1><p>1、在手机上打开已连接的网络，设置代理；</p>
 <p>2、在代理选项，选择手动选项，输入电脑已连接网络的IP地址；</p>
 <p>3、在代理选项，选择手动选项，输入端口号：8888；</p>
 <p>4、随便访问个网页，电脑上会弹出<code>是否允许抓包</code>之类的弹框，点击<code>允许</code>即可使用Charles进行抓包。</p>
-<h1 id="高级使用"><a href="#高级使用" class="headerlink" title="高级使用"></a>高级使用</h1><p>还在思考中…</p>
-<h1 id="在手机上安装证书"><a href="#在手机上安装证书" class="headerlink" title="在手机上安装证书"></a>在手机上安装证书</h1><p>步骤1：<br><img src="http://ogpp825dm.bkt.clouddn.com/images/%E5%9F%BA%E6%9C%AC%E5%B7%A5%E5%85%B7/Charles/InstallCertOnMobileOrRemoteBrowser.png" alt="InstallCertOnMobileOrRemoteBrowser"></p>
+<h1 id="高级使用"><a href="#高级使用" class="headerlink" title="高级使用"></a>高级使用</h1><font color="red">还在思考中…主要是<code>抓包网址的过滤</code>和<code>手机抓包访问权限</code>两方面</font>
+
+<h1 id="在手机上安装证书并使用"><a href="#在手机上安装证书并使用" class="headerlink" title="在手机上安装证书并使用"></a>在手机上安装证书并使用</h1><p>步骤1：<br><img src="http://ogpp825dm.bkt.clouddn.com/images/%E5%9F%BA%E6%9C%AC%E5%B7%A5%E5%85%B7/Charles/InstallCertOnMobileOrRemoteBrowser.png" alt="InstallCertOnMobileOrRemoteBrowser"></p>
 <p>步骤2：<br><img src="http://ogpp825dm.bkt.clouddn.com/images/%E5%9F%BA%E6%9C%AC%E5%B7%A5%E5%85%B7/Charles/InstallCertOnMobileOrRemoteBrowserDialog.png" alt="InstallCertOnMobileOrRemoteBrowserDialog"></p>
 <p>步骤3：</p>
-<p>在手机上打开浏览器，输入网址<code>chls.pro/ssl</code>，然后下载并安装证书即可。</p>
+<p>在手机上打开浏览器，输入网址<code>chls.pro/ssl</code>，然后下载并安装证书即可，不过好像只要访问成功就已经安装好了。</p>
+<p>步骤4：</p>
+<p><img src="http://ogpp825dm.bkt.clouddn.com/images/%E5%9F%BA%E6%9C%AC%E5%B7%A5%E5%85%B7/Charles/SSLProxySettings.png" alt="SSLProxySettings"></p>
+<p>步骤5：</p>
+<p><img src="http://ogpp825dm.bkt.clouddn.com/images/%E5%9F%BA%E6%9C%AC%E5%B7%A5%E5%85%B7/Charles/SSLProxySettingsDetail.png" alt="SSLProxySettingsDetail"><br>这是我需要的配置的允许抓取HTTPS开头的地址</p>
 ]]></content>
     
     <summary type="html">
