@@ -1946,7 +1946,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ed20af;
+  background: #1cff1a;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2697,7 +2697,7 @@ hr {
   margin-top: 80px;
 }
 .header {
-  background: #ffefd5;
+  background: #f5f5f5;
 }
 .header-inner {
   padding: 25px 0 20px;
@@ -2977,7 +2977,7 @@ hr {
 .footer {
   margin-top: 80px;
   padding: 10px 0;
-  background: #ffefd5;
+  background: #f5f5f5;
   color: #666;
 }
 .footer-inner {
