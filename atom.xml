@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://fengqingxiuyi.xyz/"/>
-  <updated>2016-12-05T16:36:23.000Z</updated>
+  <updated>2016-12-05T16:43:11.000Z</updated>
   <id>http://fengqingxiuyi.xyz/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://fengqingxiuyi.xyz/%E5%9F%BA%E6%9C%AC%E5%B7%A5%E5%85%B7/Charles/Charles%20-%20Mac%E4%B8%8A%E7%9A%84%E6%8A%93%E5%8C%85%E5%B7%A5%E5%85%B7.html"/>
     <id>http://fengqingxiuyi.xyz/基本工具/Charles/Charles - Mac上的抓包工具.html</id>
     <published>2016-12-05T03:26:19.000Z</published>
-    <updated>2016-12-05T16:36:23.000Z</updated>
+    <updated>2016-12-05T16:43:11.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>官网：<a href="https://www.charlesproxy.com" target="_blank" rel="external">Charles Web Debugging Proxy - Official Site</a></p>
 <p>概述：<a href="https://www.charlesproxy.com/overview/about-charles/" target="_blank" rel="external">官网简介</a></p>
@@ -28,14 +28,14 @@
 <p>破解版使用教程：同下载地址页面，主要查看内容为：激活方法、解压密码、红框内容、评论区域。</p>
 <h1 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h1><p>1、在手机上打开已连接的网络，设置代理；</p>
 <p>2、在代理选项，选择手动选项，输入电脑已连接网络的IP地址；</p>
-<p>3、在代理选项，选择手动选项，输入端口号：8888；</p>
+<p>3、在代理选项，选择手动选项，输入端口号：<font color="red">8888</font>；</p>
 <p>4、随便访问个网页，电脑上会弹出<code>是否允许抓包</code>之类的弹框，点击<code>允许</code>即可使用Charles进行抓包。</p>
 <h1 id="高级使用"><a href="#高级使用" class="headerlink" title="高级使用"></a>高级使用</h1><font color="red">还在思考中…主要是<code>抓包网址的过滤</code>和<code>手机抓包访问权限</code>两方面</font>
 
 <h1 id="在手机上安装证书并使用"><a href="#在手机上安装证书并使用" class="headerlink" title="在手机上安装证书并使用"></a>在手机上安装证书并使用</h1><p>步骤1：<br><img src="http://ogpp825dm.bkt.clouddn.com/images/%E5%9F%BA%E6%9C%AC%E5%B7%A5%E5%85%B7/Charles/InstallCertOnMobileOrRemoteBrowser.png" alt="InstallCertOnMobileOrRemoteBrowser"></p>
 <p>步骤2：<br><img src="http://ogpp825dm.bkt.clouddn.com/images/%E5%9F%BA%E6%9C%AC%E5%B7%A5%E5%85%B7/Charles/InstallCertOnMobileOrRemoteBrowserDialog.png" alt="InstallCertOnMobileOrRemoteBrowserDialog"></p>
 <p>步骤3：</p>
-<p>在手机上打开浏览器，输入网址<code>chls.pro/ssl</code>，然后下载并安装证书即可，不过好像只要访问成功就已经安装好了。</p>
+<p>在手机上打开浏览器，输入网址<font color="red">chls.pro/ssl</font>，然后下载并安装证书即可，不过好像只要访问成功就已经安装好了。</p>
 <p>步骤4：</p>
 <p><img src="http://ogpp825dm.bkt.clouddn.com/images/%E5%9F%BA%E6%9C%AC%E5%B7%A5%E5%85%B7/Charles/SSLProxySettings.png" alt="SSLProxySettings"></p>
 <p>步骤5：</p>
@@ -274,6 +274,36 @@
   </entry>
   
   <entry>
+    <title>模块版本更新流程</title>
+    <link href="http://fengqingxiuyi.xyz/ShowJoy/%E6%A8%A1%E5%9D%97/%E6%A8%A1%E5%9D%97%E7%89%88%E6%9C%AC%E6%9B%B4%E6%96%B0%E6%B5%81%E7%A8%8B.html"/>
+    <id>http://fengqingxiuyi.xyz/ShowJoy/模块/模块版本更新流程.html</id>
+    <published>2016-11-10T08:12:15.000Z</published>
+    <updated>2016-11-27T04:18:24.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>注：本文所属ShowJoy-模块，本文讲述在将主模块或者是子模块的版本更新流程，案例持续更新…</p>
+<a id="more"></a>
+<h1 id="案例1"><a href="#案例1" class="headerlink" title="案例1"></a>案例1</h1><p>工程中包含<code>主模块</code>、<code>子模块A</code>、<code>子模块B</code>，其中<code>主模块</code>依赖<code>子模块A</code>和<code>子模块B</code>，<code>子模块A</code>也依赖<code>子模块B</code>。现在<code>子模块B</code>发现了Bug，需要解决Bug并更新版本。</p>
+<h2 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h2><p>当<code>子模块B</code>更新版本后，提交到Gitlab，并使用Jenkins成功构建后，<strong><em>我们不需要更新 子模块A 中 子模块B 的版本，只需要更新 主模块 中 子模块B 的版本，如果出现版本冲突，比如说现在 主模块 依赖 子模块A ，主模块 又依赖了 新子模块B 的版本，只需要把不必要的版本依赖 剔除 即可</em></strong></p>
+<h2 id="主要原理"><a href="#主要原理" class="headerlink" title="主要原理"></a>主要原理</h2><p>工程 Build 后，一个模块只会存在一个版本，否则就会出现版本<font color="red">依赖冲突</font>！！！</p>
+<h1 id="案例2"><a href="#案例2" class="headerlink" title="案例2"></a>案例2</h1><p>工程中包含<code>主模块</code>、<code>子模块A</code>、<code>子模块B</code>，其中<code>主模块</code>依赖<code>子模块A</code>和<code>子模块B</code>，<code>子模块B</code>又依赖<code>子模块A</code>。此时<code>子模块A</code>改变了内容，需要版本更新，同时也涉及到了<code>子模块B</code>中的某些改动。</p>
+<h2 id="注意点-1"><a href="#注意点-1" class="headerlink" title="注意点"></a>注意点</h2><p>此时当<code>子模块A</code>更新版本后，同时需要更改<code>子模块B</code>依赖的<code>子模块A</code>的版本，同时也需要更新<code>子模块B</code>的版本，并进行项目构建。</p>
+<h2 id="主要原理-1"><a href="#主要原理-1" class="headerlink" title="主要原理"></a>主要原理</h2><p>如果不更改<code>子模块B</code>依赖的<code>子模块A</code>的版本，那么<code>子模块B</code>将编译不过。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;注：本文所属ShowJoy-模块，本文讲述在将主模块或者是子模块的版本更新流程，案例持续更新…&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="ShowJoy" scheme="http://fengqingxiuyi.xyz/categories/ShowJoy/"/>
+    
+    
+      <category term="模块" scheme="http://fengqingxiuyi.xyz/tags/%E6%A8%A1%E5%9D%97/"/>
+    
+  </entry>
+  
+  <entry>
     <title>抽离模块注意点</title>
     <link href="http://fengqingxiuyi.xyz/ShowJoy/%E6%A8%A1%E5%9D%97/%E6%8A%BD%E7%A6%BB%E6%A8%A1%E5%9D%97%E6%B3%A8%E6%84%8F%E7%82%B9.html"/>
     <id>http://fengqingxiuyi.xyz/ShowJoy/模块/抽离模块注意点.html</id>
@@ -294,36 +324,6 @@
     <summary type="html">
     
       &lt;p&gt;注：本文所属ShowJoy-模块，本文讲述在将主模块或者是子模块的抽离流程，注意点持续更新…&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="ShowJoy" scheme="http://fengqingxiuyi.xyz/categories/ShowJoy/"/>
-    
-    
-      <category term="模块" scheme="http://fengqingxiuyi.xyz/tags/%E6%A8%A1%E5%9D%97/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>模块版本更新流程</title>
-    <link href="http://fengqingxiuyi.xyz/ShowJoy/%E6%A8%A1%E5%9D%97/%E6%A8%A1%E5%9D%97%E7%89%88%E6%9C%AC%E6%9B%B4%E6%96%B0%E6%B5%81%E7%A8%8B.html"/>
-    <id>http://fengqingxiuyi.xyz/ShowJoy/模块/模块版本更新流程.html</id>
-    <published>2016-11-10T08:12:15.000Z</published>
-    <updated>2016-11-27T04:18:24.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>注：本文所属ShowJoy-模块，本文讲述在将主模块或者是子模块的版本更新流程，案例持续更新…</p>
-<a id="more"></a>
-<h1 id="案例1"><a href="#案例1" class="headerlink" title="案例1"></a>案例1</h1><p>工程中包含<code>主模块</code>、<code>子模块A</code>、<code>子模块B</code>，其中<code>主模块</code>依赖<code>子模块A</code>和<code>子模块B</code>，<code>子模块A</code>也依赖<code>子模块B</code>。现在<code>子模块B</code>发现了Bug，需要解决Bug并更新版本。</p>
-<h2 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h2><p>当<code>子模块B</code>更新版本后，提交到Gitlab，并使用Jenkins成功构建后，<strong><em>我们不需要更新 子模块A 中 子模块B 的版本，只需要更新 主模块 中 子模块B 的版本，如果出现版本冲突，比如说现在 主模块 依赖 子模块A ，主模块 又依赖了 新子模块B 的版本，只需要把不必要的版本依赖 剔除 即可</em></strong></p>
-<h2 id="主要原理"><a href="#主要原理" class="headerlink" title="主要原理"></a>主要原理</h2><p>工程 Build 后，一个模块只会存在一个版本，否则就会出现版本<font color="red">依赖冲突</font>！！！</p>
-<h1 id="案例2"><a href="#案例2" class="headerlink" title="案例2"></a>案例2</h1><p>工程中包含<code>主模块</code>、<code>子模块A</code>、<code>子模块B</code>，其中<code>主模块</code>依赖<code>子模块A</code>和<code>子模块B</code>，<code>子模块B</code>又依赖<code>子模块A</code>。此时<code>子模块A</code>改变了内容，需要版本更新，同时也涉及到了<code>子模块B</code>中的某些改动。</p>
-<h2 id="注意点-1"><a href="#注意点-1" class="headerlink" title="注意点"></a>注意点</h2><p>此时当<code>子模块A</code>更新版本后，同时需要更改<code>子模块B</code>依赖的<code>子模块A</code>的版本，同时也需要更新<code>子模块B</code>的版本，并进行项目构建。</p>
-<h2 id="主要原理-1"><a href="#主要原理-1" class="headerlink" title="主要原理"></a>主要原理</h2><p>如果不更改<code>子模块B</code>依赖的<code>子模块A</code>的版本，那么<code>子模块B</code>将编译不过。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;注：本文所属ShowJoy-模块，本文讲述在将主模块或者是子模块的版本更新流程，案例持续更新…&lt;/p&gt;
     
     </summary>
     
