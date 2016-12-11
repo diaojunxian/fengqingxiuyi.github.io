@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://fengqingxiuyi.xyz/"/>
-  <updated>2016-12-11T10:49:10.000Z</updated>
+  <updated>2016-12-11T11:12:10.000Z</updated>
   <id>http://fengqingxiuyi.xyz/</id>
   
   <author>
@@ -16,11 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>VPS&amp;VPN折腾记录</title>
-    <link href="http://fengqingxiuyi.xyz/%E5%9F%BA%E6%9C%AC%E5%B7%A5%E5%85%B7/%E7%BF%BB%E5%A2%99/VPS&amp;VPN%E6%8A%98%E8%85%BE%E8%AE%B0%E5%BD%95.html"/>
-    <id>http://fengqingxiuyi.xyz/基本工具/翻墙/VPS&amp;VPN折腾记录.html</id>
+    <title>VPS-VPN折腾记录</title>
+    <link href="http://fengqingxiuyi.xyz/%E5%9F%BA%E6%9C%AC%E5%B7%A5%E5%85%B7/%E7%BF%BB%E5%A2%99/VPS-VPN%E6%8A%98%E8%85%BE%E8%AE%B0%E5%BD%95.html"/>
+    <id>http://fengqingxiuyi.xyz/基本工具/翻墙/VPS-VPN折腾记录.html</id>
     <published>2016-12-11T09:02:19.000Z</published>
-    <updated>2016-12-11T10:49:10.000Z</updated>
+    <updated>2016-12-11T11:12:10.000Z</updated>
     
     <content type="html"><![CDATA[<p>双11的时候买了个<a href="https://bandwagonhost.com/" target="_blank" rel="external">搬瓦工</a>的VPS来翻墙，当然是最便宜的了，折腾了一个月，只想说一分价钱一份货，今天已经不想使用它了，然后买了一个月的<a href="https://www.locovpn.info/" target="_blank" rel="external">LoCoVPN</a>，主要是因为试用的感觉不错，😄</p>
 <p>本来想要列举一下折腾了哪些地方，后来发现原来全部是在想着怎么为VPS加速。。。主要折腾的就是<a href="https://github.com/snooda/net-speeder" target="_blank" rel="external">net-speeder</a>、<a href="https://github.com/d1sm/finalspeed" target="_blank" rel="external">FinalSpeed</a>、<a href="https://github.com/lparam/xSocks" target="_blank" rel="external">xSocks</a>、<a href="https://blog.kuoruan.com/102.html" target="_blank" rel="external">Kcptun</a>，以下就来列举一下我在使用这些软件过程中的感悟：</p>
