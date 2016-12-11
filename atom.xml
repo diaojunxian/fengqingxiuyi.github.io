@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://fengqingxiuyi.xyz/"/>
-  <updated>2016-12-05T17:19:09.000Z</updated>
+  <updated>2016-12-11T10:39:05.000Z</updated>
   <id>http://fengqingxiuyi.xyz/</id>
   
   <author>
@@ -14,6 +14,52 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>搬瓦工VPS折腾记录</title>
+    <link href="http://fengqingxiuyi.xyz/%E5%9F%BA%E6%9C%AC%E5%B7%A5%E5%85%B7/%E7%BF%BB%E5%A2%99/%E6%90%AC%E7%93%A6%E5%B7%A5VPS%E6%8A%98%E8%85%BE%E8%AE%B0%E5%BD%95.html"/>
+    <id>http://fengqingxiuyi.xyz/基本工具/翻墙/搬瓦工VPS折腾记录.html</id>
+    <published>2016-12-11T09:02:19.000Z</published>
+    <updated>2016-12-11T10:39:05.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>双11的时候买了个<a href="https://bandwagonhost.com/" target="_blank" rel="external">搬瓦工</a>的VPS来翻墙，当然是最便宜的了，折腾了一个月，只想说一分价钱一份货，今天已经不想使用它了，然后买了一个月的<a href="https://www.locovpn.info/" target="_blank" rel="external">LoCoVPN</a>，主要是因为试用的感觉不错，😄</p>
+<p>本来想要列举一下折腾了哪些地方，后来发现原来全部是在想着怎么为VPS加速。。。主要折腾的就是<a href="https://github.com/snooda/net-speeder" target="_blank" rel="external">net-speeder</a>、<a href="https://github.com/d1sm/finalspeed" target="_blank" rel="external">FinalSpeed</a>、<a href="https://github.com/lparam/xSocks" target="_blank" rel="external">xSocks</a>、<a href="https://blog.kuoruan.com/102.html" target="_blank" rel="external">Kcptun</a>，以下就来列举一下我在使用这些软件过程中的感悟：</p>
+<h1 id="net-speeder"><a href="#net-speeder" class="headerlink" title="net-speeder"></a>net-speeder</h1><p>教程：<a href="http://www.laozuo.org/7967.html" target="_blank" rel="external">安装net-speeder工具加速VPS主机及体验实际的速度性能</a></p>
+<p>优缺点：提高下载速度、降低上传速度、消耗双倍流量、可能被封号；</p>
+<h1 id="FinalSpeed"><a href="#FinalSpeed" class="headerlink" title="FinalSpeed"></a>FinalSpeed</h1><p>教程：<a href="https://blog.kuoruan.com/82.html" target="_blank" rel="external">黑科技，效果逆天！使用FinalSpeed给搬瓦工(Bandwagonhost)加速！</a></p>
+<p>优缺点：客户端和服务端都需要装软件，麻烦；</p>
+<h1 id="xSocks"><a href="#xSocks" class="headerlink" title="xSocks"></a>xSocks</h1><p>PS：其实就是<code>FinalSpeed</code>，2016.05.30 官方停止了Finalspeed的维护，并推荐使用xsocks。</p>
+<p>教程：<a href="http://www.ip4a.com/t/944.html" target="_blank" rel="external">公告:FilnalSpeed停止提供产品和技术支持</a></p>
+<p>优缺点：客户端和服务端都需要装软件，要收费，80/年，具体看官网；</p>
+<h1 id="Kcptun"><a href="#Kcptun" class="headerlink" title="Kcptun"></a>Kcptun</h1><p>教程：<a href="https://blog.kuoruan.com/102.html" target="_blank" rel="external">小内存福音，Kcptun Shadowsocks加速方案</a></p>
+<p>优缺点：客户端和服务端都需要装软件，麻烦，双倍流量，不过教程中的作者为我们贡献了集成工具，大大的减轻了我们的负担，但是我觉得我还是有必要稍微阐述一下，免得跟我一样，第一次使用的时候看不懂教程。</p>
+<h2 id="KCP协议简述"><a href="#KCP协议简述" class="headerlink" title="KCP协议简述"></a>KCP协议简述</h2><p>官方介绍：<a href="https://github.com/skywind3000/kcp" target="_blank" rel="external">KCP - A Fast and Reliable ARQ Protocol</a></p>
+<p>重点：</p>
+<ol>
+<li>KCP是一个快速可靠协议，能以比 TCP浪费10%-20%的带宽的代价，换取平均延迟降低 30%-40%，且最大延迟降低三倍的传输效果。纯算法实现，并不负责底层协议（如UDP）的收发，需要使用者自己定义下层数据包的发送方式，以 callback的方式提供给 KCP。</li>
+<li>TCP是为流量设计的（每秒内可以传输多少KB的数据），讲究的是充分利用带宽。而 KCP是为流速设计的（单个数据包从一端发送到一端需要多少时间），以10%-20%带宽浪费的代价换取了比 TCP快30%-40%的传输速度。TCP信道是一条流速很慢，但每秒流量很大的大运河，而KCP是水流湍急的小激流。</li>
+</ol>
+<h2 id="Kcptun教程简述"><a href="#Kcptun教程简述" class="headerlink" title="Kcptun教程简述"></a>Kcptun教程简述</h2><p>一开始，我本着DIY的心理，没有使用作者的<a href="https://blog.kuoruan.com/110.html" target="_blank" rel="external">一键安装脚本</a>，然后顺着作者的教程看下去，总感觉缺胳膊少腿，各种懵逼，在此我劝大家一句，在自己不懂的时候，还是由简入繁为好！</p>
+<p>额，在此之前像大家推荐一个软件：<a href="http://xclient.info/s/securecrt.html" target="_blank" rel="external">SecureCRT 一款终端仿真程序</a>，向大家推荐这款软件的目的不是为了推销，而是为了在之后的概述中方便操作，至于它是干什么的，百度下就知道了。</p>
+<p>首先在VPS服务器上安装<code>系统</code>和<code>Shadowsocks</code>，一键安装即可，接着使用<code>SecureCRT</code>连接你自己的VPS服务器，然后按照<a href="https://blog.kuoruan.com/110.html" target="_blank" rel="external">教程</a>安装，根据<a href="https://blog.kuoruan.com/110.html" target="_blank" rel="external">教程</a>，运行到<code>./kcptun.sh</code>这条命令的时候，会让你配置一大堆东西，个人感觉作者没有写全，所以，<font color="red">如果你不明白不确定的话，使用默认配置即可，不要瞎搞！</font>最后记得自己拷贝一份服务端配置成功的输出信息：例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">恭喜, Kcptun 服务端配置完毕！</div><div class="line"> </div><div class="line">正在获取当前安装的 Kcptun 版本...</div><div class="line"> </div><div class="line">服务器IP:  10.10.10.10</div><div class="line">端口:  29900</div><div class="line">加速地址: 127.0.0.1:8388</div><div class="line">密码: 123456</div><div class="line">加密方式 Crypt:  salsa20</div><div class="line"> </div><div class="line">当前安装的 Kcptun 版本为: v20160922</div><div class="line"> </div><div class="line">推荐的客户端配置为: </div><div class="line">&#123;</div><div class="line">  &quot;localaddr&quot;: &quot;:8388&quot;,</div><div class="line">  &quot;remoteaddr&quot;: &quot;128.199.71.85:29900&quot;,</div><div class="line">  &quot;key&quot;: &quot;123456&quot;,</div><div class="line">  &quot;crypt&quot;: &quot;salsa20&quot;,</div><div class="line">  &quot;mode&quot;: &quot;fast&quot;,</div><div class="line">  &quot;mtu&quot;: 1350,</div><div class="line">  &quot;sndwnd&quot;: 1024,</div><div class="line">  &quot;rcvwnd&quot;: 1024,</div><div class="line">  &quot;datashard&quot;: 10,</div><div class="line">  &quot;parityshard&quot;: 3,</div><div class="line">  &quot;dscp&quot;: 0,</div><div class="line">  &quot;conn&quot;: 1,</div><div class="line">  &quot;autoexpire&quot;: 60,</div><div class="line">  &quot;nocomp&quot;: false</div><div class="line">&#125;</div><div class="line"> </div><div class="line">手机端参数可以使用：</div><div class="line">-autoexpire 60 -key &quot;123456&quot; -crypt &quot;salsa20&quot;</div><div class="line"> </div><div class="line">其他参数请自行计算或设置, 详细信息可以查看: https://github.com/xtaci/kcptun</div><div class="line"> </div><div class="line">Kcptun 安装目录: /usr/share/kcptun</div><div class="line">Kcptun 日志文件目录: /var/log/kcptun/</div></pre></td></tr></table></figure>
+<p>服务端的安装使用，根据教程还是比较顺利的，但是客户端，可能是因为我是用Mac的缘故，踩了一些坑，个人感觉作者写文章的时候是以Windows为主的，所以对于Windows，我就不说了，下面就Mac进行阐述。</p>
+<p>首先下载跟服务端输出信息中的Kcptun版本相同的客户端程序，可以在<a href="https://github.com/xtaci/kcptun/releases" target="_blank" rel="external">这里</a>查找。<font color="red">必须要保证Kcptun的客户端程序和服务端程序版本号一致</font>，接着将服务端输出信息中的<code>客户端配置</code>保证到<code>client-config.json</code>文件中，然后下载安装客户端软件<a href="https://github.com/dfdragon/kcptun_xclient/releases" target="_blank" rel="external">kcptun_xclient</a>，在左下角添加一个客户端，并在右上角配置Kcptun客户端文件路径和配置文件路径，最后点击启动按钮即可使用，如下图所示：<img src="http://ogpp825dm.bkt.clouddn.com/images/%E5%9F%BA%E6%9C%AC%E5%B7%A5%E5%85%B7/FanQiang/Kcptun_xclient%E4%BD%BF%E7%94%A8.png" alt="Kcptun_xclient使用"></p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>虽然使用这些软件可以为VPS加速，还算显著，但是如果你买的VPS本来就便宜的话，我只想说：一分价钱一份货。比如我自己：买了最便宜的搬瓦工VPS，50M的网，用Kcptun加速，浏览网页是（这）不（不）成（是）问（废）题（话），看Youtube视频有时候1080P也能看，有时候144P都卡。。。下载速度提升了两倍[/捂脸]，其实不过是从20KB/s提升到了60KB/s而已。。。</p>
+<h1 id="LoCoVPN使用两小时感觉"><a href="#LoCoVPN使用两小时感觉" class="headerlink" title="LoCoVPN使用两小时感觉"></a>LoCoVPN使用两小时感觉</h1><p>官网：<a href="https://www.locovpn.info/" target="_blank" rel="external">LoCo加速器</a></p>
+<p>我买的是标准套餐，15元/月，用的是日本的线路，目前感觉浏览网页比之前使用加速过的VPS还要快一点，看YouTube视频能达到套餐中的最高点480P，稳定性还不确定，出现过一次，网页突然加载不出来的情况，通过断开重连解决，继续使用中。。。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;双11的时候买了个&lt;a href=&quot;https://bandwagonhost.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;搬瓦工&lt;/a&gt;的VPS来翻墙，当然是最便宜的了，折腾了一个月，只想说一分价钱一份货，今天已经不想使用它了，然后买了一个月
+    
+    </summary>
+    
+      <category term="基本工具" scheme="http://fengqingxiuyi.xyz/categories/%E5%9F%BA%E6%9C%AC%E5%B7%A5%E5%85%B7/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Charles - Mac上的抓包工具</title>
@@ -649,37 +695,6 @@
     <summary type="html">
     
       &lt;p&gt;注：本文所属Android-View-ScrollView，在xml布局文件中设置如何永久显示滚动条。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Android" scheme="http://fengqingxiuyi.xyz/categories/Android/"/>
-    
-    
-      <category term="View" scheme="http://fengqingxiuyi.xyz/tags/View/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>自定义View开源项目</title>
-    <link href="http://fengqingxiuyi.xyz/Android/View/%E8%87%AA%E5%AE%9A%E4%B9%89View/%E8%87%AA%E5%AE%9A%E4%B9%89View%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE.html"/>
-    <id>http://fengqingxiuyi.xyz/Android/View/自定义View/自定义View开源项目.html</id>
-    <published>2016-10-03T13:50:21.000Z</published>
-    <updated>2016-11-26T14:01:18.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>注：本文所属Android-View-自定义View，用于记录一些自己用过的View类的开源项目。</p>
-<a id="more"></a>
-<h1 id="GridView-with-Header-and-Footer"><a href="#GridView-with-Header-and-Footer" class="headerlink" title="GridView with Header and Footer"></a>GridView with Header and Footer</h1><p>项目地址：<a href="https://github.com/liaohuqiu/android-GridViewWithHeaderAndFooter" target="_blank" rel="external">https://github.com/liaohuqiu/android-GridViewWithHeaderAndFooter</a></p>
-<p>项目简介：即标题所示含义，使GridView支持addHeader和addFooter</p>
-<p>遇到问题：业务要求，支持文字长按出现ActionMode，即 全选、复制、剪切…弹框，我以<code>TextView</code>的形式，配置属性<code>android:textIsSelectable=&quot;true&quot;</code>，将其添加到Header之后，长按无反应；然后以<code>EditText</code>的形式，将其添加到Header之后，长按仍无反应；最后发现是<font color="red">焦点抢占</font>的缘故，不过没有成功解决。</p>
-<h1 id="Android单点触控技术"><a href="#Android单点触控技术" class="headerlink" title="Android单点触控技术"></a>Android单点触控技术</h1><p>项目地址：<a href="http://blog.csdn.net/xiaanming/article/details/42833893" target="_blank" rel="external">http://blog.csdn.net/xiaanming/article/details/42833893</a></p>
-<p>项目简介：Android单点触控技术，对图片进行平移，缩放，旋转操作</p>
-<p>项目优点：注释详细，解读方便；支持多种选项配置；支持其他选项的自定义配置（如：控制图标的显示、边框的显示等）。</p>
-<p>项目不足之处：很难支持View是否旋转，暂未实现；很难支持View是否滑出显示区域，暂未实现。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;注：本文所属Android-View-自定义View，用于记录一些自己用过的View类的开源项目。&lt;/p&gt;
     
     </summary>
     
