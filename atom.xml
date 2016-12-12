@@ -4,9 +4,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://fengqingxiuyi.github.io/"/>
+  <link href="http://fengqingxiuyi.xyz/"/>
   <updated>2016-12-12T07:00:22.000Z</updated>
-  <id>http://fengqingxiuyi.github.io/</id>
+  <id>http://fengqingxiuyi.xyz/</id>
   
   <author>
     <name>青峰</name>
@@ -17,8 +17,8 @@
   
   <entry>
     <title>VPS - VPN折腾记录</title>
-    <link href="http://fengqingxiuyi.github.io/%E5%9F%BA%E6%9C%AC%E5%B7%A5%E5%85%B7/%E7%BF%BB%E5%A2%99/VPS%20-%20VPN%E6%8A%98%E8%85%BE%E8%AE%B0%E5%BD%95.html"/>
-    <id>http://fengqingxiuyi.github.io/基本工具/翻墙/VPS - VPN折腾记录.html</id>
+    <link href="http://fengqingxiuyi.xyz/%E5%9F%BA%E6%9C%AC%E5%B7%A5%E5%85%B7/%E7%BF%BB%E5%A2%99/VPS%20-%20VPN%E6%8A%98%E8%85%BE%E8%AE%B0%E5%BD%95.html"/>
+    <id>http://fengqingxiuyi.xyz/基本工具/翻墙/VPS - VPN折腾记录.html</id>
     <published>2016-12-11T09:02:19.000Z</published>
     <updated>2016-12-12T07:00:22.000Z</updated>
     
@@ -63,15 +63,15 @@
     
     </summary>
     
-      <category term="基本工具" scheme="http://fengqingxiuyi.github.io/categories/%E5%9F%BA%E6%9C%AC%E5%B7%A5%E5%85%B7/"/>
+      <category term="基本工具" scheme="http://fengqingxiuyi.xyz/categories/%E5%9F%BA%E6%9C%AC%E5%B7%A5%E5%85%B7/"/>
     
     
   </entry>
   
   <entry>
     <title>Charles - Mac上的抓包工具</title>
-    <link href="http://fengqingxiuyi.github.io/%E5%9F%BA%E6%9C%AC%E5%B7%A5%E5%85%B7/Charles/Charles%20-%20Mac%E4%B8%8A%E7%9A%84%E6%8A%93%E5%8C%85%E5%B7%A5%E5%85%B7.html"/>
-    <id>http://fengqingxiuyi.github.io/基本工具/Charles/Charles - Mac上的抓包工具.html</id>
+    <link href="http://fengqingxiuyi.xyz/%E5%9F%BA%E6%9C%AC%E5%B7%A5%E5%85%B7/Charles/Charles%20-%20Mac%E4%B8%8A%E7%9A%84%E6%8A%93%E5%8C%85%E5%B7%A5%E5%85%B7.html"/>
+    <id>http://fengqingxiuyi.xyz/基本工具/Charles/Charles - Mac上的抓包工具.html</id>
     <published>2016-12-05T03:26:19.000Z</published>
     <updated>2016-12-12T06:56:24.000Z</updated>
     
@@ -115,15 +115,15 @@
     
     </summary>
     
-      <category term="基本工具" scheme="http://fengqingxiuyi.github.io/categories/%E5%9F%BA%E6%9C%AC%E5%B7%A5%E5%85%B7/"/>
+      <category term="基本工具" scheme="http://fengqingxiuyi.xyz/categories/%E5%9F%BA%E6%9C%AC%E5%B7%A5%E5%85%B7/"/>
     
     
   </entry>
   
   <entry>
     <title>类型转换注意点</title>
-    <link href="http://fengqingxiuyi.github.io/Android/Wiki/%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E6%B3%A8%E6%84%8F%E7%82%B9.html"/>
-    <id>http://fengqingxiuyi.github.io/Android/Wiki/类型转换注意点.html</id>
+    <link href="http://fengqingxiuyi.xyz/Android/Wiki/%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E6%B3%A8%E6%84%8F%E7%82%B9.html"/>
+    <id>http://fengqingxiuyi.xyz/Android/Wiki/类型转换注意点.html</id>
     <published>2016-11-17T06:28:21.000Z</published>
     <updated>2016-11-26T15:03:19.000Z</updated>
     
@@ -140,17 +140,17 @@
     
     </summary>
     
-      <category term="Android" scheme="http://fengqingxiuyi.github.io/categories/Android/"/>
+      <category term="Android" scheme="http://fengqingxiuyi.xyz/categories/Android/"/>
     
     
-      <category term="Wiki" scheme="http://fengqingxiuyi.github.io/tags/Wiki/"/>
+      <category term="Wiki" scheme="http://fengqingxiuyi.xyz/tags/Wiki/"/>
     
   </entry>
   
   <entry>
     <title>Dialog使用注意点</title>
-    <link href="http://fengqingxiuyi.github.io/Android/View/Dialog/Dialog%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E7%82%B9.html"/>
-    <id>http://fengqingxiuyi.github.io/Android/View/Dialog/Dialog使用注意点.html</id>
+    <link href="http://fengqingxiuyi.xyz/Android/View/Dialog/Dialog%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F%E7%82%B9.html"/>
+    <id>http://fengqingxiuyi.xyz/Android/View/Dialog/Dialog使用注意点.html</id>
     <published>2016-11-16T01:13:21.000Z</published>
     <updated>2016-11-26T13:43:12.000Z</updated>
     
@@ -176,17 +176,17 @@
     
     </summary>
     
-      <category term="Android" scheme="http://fengqingxiuyi.github.io/categories/Android/"/>
+      <category term="Android" scheme="http://fengqingxiuyi.xyz/categories/Android/"/>
     
     
-      <category term="View" scheme="http://fengqingxiuyi.github.io/tags/View/"/>
+      <category term="View" scheme="http://fengqingxiuyi.xyz/tags/View/"/>
     
   </entry>
   
   <entry>
     <title>mapping文件查看</title>
-    <link href="http://fengqingxiuyi.github.io/Android/Android%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/mapping%E6%96%87%E4%BB%B6%E6%9F%A5%E7%9C%8B.html"/>
-    <id>http://fengqingxiuyi.github.io/Android/Android开发工具/mapping文件查看.html</id>
+    <link href="http://fengqingxiuyi.xyz/Android/Android%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/mapping%E6%96%87%E4%BB%B6%E6%9F%A5%E7%9C%8B.html"/>
+    <id>http://fengqingxiuyi.xyz/Android/Android开发工具/mapping文件查看.html</id>
     <published>2016-11-16T00:56:23.000Z</published>
     <updated>2016-11-26T13:30:28.000Z</updated>
     
@@ -209,17 +209,17 @@
     
     </summary>
     
-      <category term="Android" scheme="http://fengqingxiuyi.github.io/categories/Android/"/>
+      <category term="Android" scheme="http://fengqingxiuyi.xyz/categories/Android/"/>
     
     
-      <category term="Android开发工具" scheme="http://fengqingxiuyi.github.io/tags/Android%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"/>
+      <category term="Android开发工具" scheme="http://fengqingxiuyi.xyz/tags/Android%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"/>
     
   </entry>
   
   <entry>
     <title>SourceTree使用注意</title>
-    <link href="http://fengqingxiuyi.github.io/Android/Android%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/SourceTree%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F.html"/>
-    <id>http://fengqingxiuyi.github.io/Android/Android开发工具/SourceTree使用注意.html</id>
+    <link href="http://fengqingxiuyi.xyz/Android/Android%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/SourceTree%E4%BD%BF%E7%94%A8%E6%B3%A8%E6%84%8F.html"/>
+    <id>http://fengqingxiuyi.xyz/Android/Android开发工具/SourceTree使用注意.html</id>
     <published>2016-11-16T00:53:23.000Z</published>
     <updated>2016-11-26T13:32:13.000Z</updated>
     
@@ -235,17 +235,17 @@
     
     </summary>
     
-      <category term="Android" scheme="http://fengqingxiuyi.github.io/categories/Android/"/>
+      <category term="Android" scheme="http://fengqingxiuyi.xyz/categories/Android/"/>
     
     
-      <category term="Android开发工具" scheme="http://fengqingxiuyi.github.io/tags/Android%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"/>
+      <category term="Android开发工具" scheme="http://fengqingxiuyi.xyz/tags/Android%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"/>
     
   </entry>
   
   <entry>
     <title>AndroidStudio开发注意点</title>
-    <link href="http://fengqingxiuyi.github.io/Android/Android%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/AndroidStudio%E5%BC%80%E5%8F%91%E6%B3%A8%E6%84%8F%E7%82%B9.html"/>
-    <id>http://fengqingxiuyi.github.io/Android/Android开发工具/AndroidStudio开发注意点.html</id>
+    <link href="http://fengqingxiuyi.xyz/Android/Android%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/AndroidStudio%E5%BC%80%E5%8F%91%E6%B3%A8%E6%84%8F%E7%82%B9.html"/>
+    <id>http://fengqingxiuyi.xyz/Android/Android开发工具/AndroidStudio开发注意点.html</id>
     <published>2016-11-16T00:48:23.000Z</published>
     <updated>2016-11-26T13:32:29.000Z</updated>
     
@@ -263,17 +263,17 @@
     
     </summary>
     
-      <category term="Android" scheme="http://fengqingxiuyi.github.io/categories/Android/"/>
+      <category term="Android" scheme="http://fengqingxiuyi.xyz/categories/Android/"/>
     
     
-      <category term="Android开发工具" scheme="http://fengqingxiuyi.github.io/tags/Android%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"/>
+      <category term="Android开发工具" scheme="http://fengqingxiuyi.xyz/tags/Android%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"/>
     
   </entry>
   
   <entry>
     <title>Sublime Text 3折腾记录</title>
-    <link href="http://fengqingxiuyi.github.io/%E5%9F%BA%E6%9C%AC%E5%B7%A5%E5%85%B7/Sublime/Sublime%20Text%203%E6%8A%98%E8%85%BE%E8%AE%B0%E5%BD%95.html"/>
-    <id>http://fengqingxiuyi.github.io/基本工具/Sublime/Sublime Text 3折腾记录.html</id>
+    <link href="http://fengqingxiuyi.xyz/%E5%9F%BA%E6%9C%AC%E5%B7%A5%E5%85%B7/Sublime/Sublime%20Text%203%E6%8A%98%E8%85%BE%E8%AE%B0%E5%BD%95.html"/>
+    <id>http://fengqingxiuyi.xyz/基本工具/Sublime/Sublime Text 3折腾记录.html</id>
     <published>2016-11-10T09:55:19.000Z</published>
     <updated>2016-11-27T04:03:27.000Z</updated>
     
@@ -305,15 +305,15 @@
     
     </summary>
     
-      <category term="基本工具" scheme="http://fengqingxiuyi.github.io/categories/%E5%9F%BA%E6%9C%AC%E5%B7%A5%E5%85%B7/"/>
+      <category term="基本工具" scheme="http://fengqingxiuyi.xyz/categories/%E5%9F%BA%E6%9C%AC%E5%B7%A5%E5%85%B7/"/>
     
     
   </entry>
   
   <entry>
     <title>tinypng的使用</title>
-    <link href="http://fengqingxiuyi.github.io/%E5%9F%BA%E6%9C%AC%E5%B7%A5%E5%85%B7/%E5%9B%BE%E7%89%87%E5%8E%8B%E7%BC%A9/tinypng/tinypng%E7%9A%84%E4%BD%BF%E7%94%A8.html"/>
-    <id>http://fengqingxiuyi.github.io/基本工具/图片压缩/tinypng/tinypng的使用.html</id>
+    <link href="http://fengqingxiuyi.xyz/%E5%9F%BA%E6%9C%AC%E5%B7%A5%E5%85%B7/%E5%9B%BE%E7%89%87%E5%8E%8B%E7%BC%A9/tinypng/tinypng%E7%9A%84%E4%BD%BF%E7%94%A8.html"/>
+    <id>http://fengqingxiuyi.xyz/基本工具/图片压缩/tinypng/tinypng的使用.html</id>
     <published>2016-11-10T08:32:19.000Z</published>
     <updated>2016-12-12T06:31:26.000Z</updated>
     
@@ -334,45 +334,15 @@
     
     </summary>
     
-      <category term="基本工具" scheme="http://fengqingxiuyi.github.io/categories/%E5%9F%BA%E6%9C%AC%E5%B7%A5%E5%85%B7/"/>
+      <category term="基本工具" scheme="http://fengqingxiuyi.xyz/categories/%E5%9F%BA%E6%9C%AC%E5%B7%A5%E5%85%B7/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>模块版本更新流程</title>
-    <link href="http://fengqingxiuyi.github.io/ShowJoy/%E6%A8%A1%E5%9D%97/%E6%A8%A1%E5%9D%97%E7%89%88%E6%9C%AC%E6%9B%B4%E6%96%B0%E6%B5%81%E7%A8%8B.html"/>
-    <id>http://fengqingxiuyi.github.io/ShowJoy/模块/模块版本更新流程.html</id>
-    <published>2016-11-10T08:12:15.000Z</published>
-    <updated>2016-11-27T04:18:24.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>注：本文所属ShowJoy-模块，本文讲述在将主模块或者是子模块的版本更新流程，案例持续更新…</p>
-<a id="more"></a>
-<h1 id="案例1"><a href="#案例1" class="headerlink" title="案例1"></a>案例1</h1><p>工程中包含<code>主模块</code>、<code>子模块A</code>、<code>子模块B</code>，其中<code>主模块</code>依赖<code>子模块A</code>和<code>子模块B</code>，<code>子模块A</code>也依赖<code>子模块B</code>。现在<code>子模块B</code>发现了Bug，需要解决Bug并更新版本。</p>
-<h2 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h2><p>当<code>子模块B</code>更新版本后，提交到Gitlab，并使用Jenkins成功构建后，<strong><em>我们不需要更新 子模块A 中 子模块B 的版本，只需要更新 主模块 中 子模块B 的版本，如果出现版本冲突，比如说现在 主模块 依赖 子模块A ，主模块 又依赖了 新子模块B 的版本，只需要把不必要的版本依赖 剔除 即可</em></strong></p>
-<h2 id="主要原理"><a href="#主要原理" class="headerlink" title="主要原理"></a>主要原理</h2><p>工程 Build 后，一个模块只会存在一个版本，否则就会出现版本<font color="red">依赖冲突</font>！！！</p>
-<h1 id="案例2"><a href="#案例2" class="headerlink" title="案例2"></a>案例2</h1><p>工程中包含<code>主模块</code>、<code>子模块A</code>、<code>子模块B</code>，其中<code>主模块</code>依赖<code>子模块A</code>和<code>子模块B</code>，<code>子模块B</code>又依赖<code>子模块A</code>。此时<code>子模块A</code>改变了内容，需要版本更新，同时也涉及到了<code>子模块B</code>中的某些改动。</p>
-<h2 id="注意点-1"><a href="#注意点-1" class="headerlink" title="注意点"></a>注意点</h2><p>此时当<code>子模块A</code>更新版本后，同时需要更改<code>子模块B</code>依赖的<code>子模块A</code>的版本，同时也需要更新<code>子模块B</code>的版本，并进行项目构建。</p>
-<h2 id="主要原理-1"><a href="#主要原理-1" class="headerlink" title="主要原理"></a>主要原理</h2><p>如果不更改<code>子模块B</code>依赖的<code>子模块A</code>的版本，那么<code>子模块B</code>将编译不过。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;注：本文所属ShowJoy-模块，本文讲述在将主模块或者是子模块的版本更新流程，案例持续更新…&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="ShowJoy" scheme="http://fengqingxiuyi.github.io/categories/ShowJoy/"/>
-    
-    
-      <category term="模块" scheme="http://fengqingxiuyi.github.io/tags/%E6%A8%A1%E5%9D%97/"/>
     
   </entry>
   
   <entry>
     <title>抽离模块注意点</title>
-    <link href="http://fengqingxiuyi.github.io/ShowJoy/%E6%A8%A1%E5%9D%97/%E6%8A%BD%E7%A6%BB%E6%A8%A1%E5%9D%97%E6%B3%A8%E6%84%8F%E7%82%B9.html"/>
-    <id>http://fengqingxiuyi.github.io/ShowJoy/模块/抽离模块注意点.html</id>
+    <link href="http://fengqingxiuyi.xyz/ShowJoy/%E6%A8%A1%E5%9D%97/%E6%8A%BD%E7%A6%BB%E6%A8%A1%E5%9D%97%E6%B3%A8%E6%84%8F%E7%82%B9.html"/>
+    <id>http://fengqingxiuyi.xyz/ShowJoy/模块/抽离模块注意点.html</id>
     <published>2016-11-10T08:12:15.000Z</published>
     <updated>2016-11-27T04:19:44.000Z</updated>
     
@@ -393,17 +363,47 @@
     
     </summary>
     
-      <category term="ShowJoy" scheme="http://fengqingxiuyi.github.io/categories/ShowJoy/"/>
+      <category term="ShowJoy" scheme="http://fengqingxiuyi.xyz/categories/ShowJoy/"/>
     
     
-      <category term="模块" scheme="http://fengqingxiuyi.github.io/tags/%E6%A8%A1%E5%9D%97/"/>
+      <category term="模块" scheme="http://fengqingxiuyi.xyz/tags/%E6%A8%A1%E5%9D%97/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>模块版本更新流程</title>
+    <link href="http://fengqingxiuyi.xyz/ShowJoy/%E6%A8%A1%E5%9D%97/%E6%A8%A1%E5%9D%97%E7%89%88%E6%9C%AC%E6%9B%B4%E6%96%B0%E6%B5%81%E7%A8%8B.html"/>
+    <id>http://fengqingxiuyi.xyz/ShowJoy/模块/模块版本更新流程.html</id>
+    <published>2016-11-10T08:12:15.000Z</published>
+    <updated>2016-11-27T04:18:24.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>注：本文所属ShowJoy-模块，本文讲述在将主模块或者是子模块的版本更新流程，案例持续更新…</p>
+<a id="more"></a>
+<h1 id="案例1"><a href="#案例1" class="headerlink" title="案例1"></a>案例1</h1><p>工程中包含<code>主模块</code>、<code>子模块A</code>、<code>子模块B</code>，其中<code>主模块</code>依赖<code>子模块A</code>和<code>子模块B</code>，<code>子模块A</code>也依赖<code>子模块B</code>。现在<code>子模块B</code>发现了Bug，需要解决Bug并更新版本。</p>
+<h2 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h2><p>当<code>子模块B</code>更新版本后，提交到Gitlab，并使用Jenkins成功构建后，<strong><em>我们不需要更新 子模块A 中 子模块B 的版本，只需要更新 主模块 中 子模块B 的版本，如果出现版本冲突，比如说现在 主模块 依赖 子模块A ，主模块 又依赖了 新子模块B 的版本，只需要把不必要的版本依赖 剔除 即可</em></strong></p>
+<h2 id="主要原理"><a href="#主要原理" class="headerlink" title="主要原理"></a>主要原理</h2><p>工程 Build 后，一个模块只会存在一个版本，否则就会出现版本<font color="red">依赖冲突</font>！！！</p>
+<h1 id="案例2"><a href="#案例2" class="headerlink" title="案例2"></a>案例2</h1><p>工程中包含<code>主模块</code>、<code>子模块A</code>、<code>子模块B</code>，其中<code>主模块</code>依赖<code>子模块A</code>和<code>子模块B</code>，<code>子模块B</code>又依赖<code>子模块A</code>。此时<code>子模块A</code>改变了内容，需要版本更新，同时也涉及到了<code>子模块B</code>中的某些改动。</p>
+<h2 id="注意点-1"><a href="#注意点-1" class="headerlink" title="注意点"></a>注意点</h2><p>此时当<code>子模块A</code>更新版本后，同时需要更改<code>子模块B</code>依赖的<code>子模块A</code>的版本，同时也需要更新<code>子模块B</code>的版本，并进行项目构建。</p>
+<h2 id="主要原理-1"><a href="#主要原理-1" class="headerlink" title="主要原理"></a>主要原理</h2><p>如果不更改<code>子模块B</code>依赖的<code>子模块A</code>的版本，那么<code>子模块B</code>将编译不过。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;注：本文所属ShowJoy-模块，本文讲述在将主模块或者是子模块的版本更新流程，案例持续更新…&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="ShowJoy" scheme="http://fengqingxiuyi.xyz/categories/ShowJoy/"/>
+    
+    
+      <category term="模块" scheme="http://fengqingxiuyi.xyz/tags/%E6%A8%A1%E5%9D%97/"/>
     
   </entry>
   
   <entry>
     <title>Iterable和Iterator的区别</title>
-    <link href="http://fengqingxiuyi.github.io/Python/Iterable%E5%92%8CIterator%E7%9A%84%E5%8C%BA%E5%88%AB.html"/>
-    <id>http://fengqingxiuyi.github.io/Python/Iterable和Iterator的区别.html</id>
+    <link href="http://fengqingxiuyi.xyz/Python/Iterable%E5%92%8CIterator%E7%9A%84%E5%8C%BA%E5%88%AB.html"/>
+    <id>http://fengqingxiuyi.xyz/Python/Iterable和Iterator的区别.html</id>
     <published>2016-11-10T05:56:57.000Z</published>
     <updated>2016-11-27T03:56:08.000Z</updated>
     
@@ -418,17 +418,17 @@
     
     </summary>
     
-      <category term="Python" scheme="http://fengqingxiuyi.github.io/categories/Python/"/>
+      <category term="Python" scheme="http://fengqingxiuyi.xyz/categories/Python/"/>
     
     
-      <category term="Python基础" scheme="http://fengqingxiuyi.github.io/tags/Python%E5%9F%BA%E7%A1%80/"/>
+      <category term="Python基础" scheme="http://fengqingxiuyi.xyz/tags/Python%E5%9F%BA%E7%A1%80/"/>
     
   </entry>
   
   <entry>
     <title>ShowJoy开发记录</title>
-    <link href="http://fengqingxiuyi.github.io/ShowJoy/ShowJoy%E5%BC%80%E5%8F%91%E8%AE%B0%E5%BD%95.html"/>
-    <id>http://fengqingxiuyi.github.io/ShowJoy/ShowJoy开发记录.html</id>
+    <link href="http://fengqingxiuyi.xyz/ShowJoy/ShowJoy%E5%BC%80%E5%8F%91%E8%AE%B0%E5%BD%95.html"/>
+    <id>http://fengqingxiuyi.xyz/ShowJoy/ShowJoy开发记录.html</id>
     <published>2016-11-02T08:05:15.000Z</published>
     <updated>2016-11-27T04:09:06.000Z</updated>
     
@@ -521,15 +521,15 @@
     
     </summary>
     
-      <category term="ShowJoy" scheme="http://fengqingxiuyi.github.io/categories/ShowJoy/"/>
+      <category term="ShowJoy" scheme="http://fengqingxiuyi.xyz/categories/ShowJoy/"/>
     
     
   </entry>
   
   <entry>
     <title>输入法的显示与隐藏</title>
-    <link href="http://fengqingxiuyi.github.io/Android/Wiki/%E8%BE%93%E5%85%A5%E6%B3%95%E7%9A%84%E6%98%BE%E7%A4%BA%E4%B8%8E%E9%9A%90%E8%97%8F.html"/>
-    <id>http://fengqingxiuyi.github.io/Android/Wiki/输入法的显示与隐藏.html</id>
+    <link href="http://fengqingxiuyi.xyz/Android/Wiki/%E8%BE%93%E5%85%A5%E6%B3%95%E7%9A%84%E6%98%BE%E7%A4%BA%E4%B8%8E%E9%9A%90%E8%97%8F.html"/>
+    <id>http://fengqingxiuyi.xyz/Android/Wiki/输入法的显示与隐藏.html</id>
     <published>2016-10-05T01:57:21.000Z</published>
     <updated>2016-11-26T15:04:52.000Z</updated>
     
@@ -544,17 +544,17 @@
     
     </summary>
     
-      <category term="Android" scheme="http://fengqingxiuyi.github.io/categories/Android/"/>
+      <category term="Android" scheme="http://fengqingxiuyi.xyz/categories/Android/"/>
     
     
-      <category term="Wiki" scheme="http://fengqingxiuyi.github.io/tags/Wiki/"/>
+      <category term="Wiki" scheme="http://fengqingxiuyi.xyz/tags/Wiki/"/>
     
   </entry>
   
   <entry>
     <title>复制粘贴文本的三种类型</title>
-    <link href="http://fengqingxiuyi.github.io/Android/Wiki/%E5%A4%8D%E5%88%B6%E7%B2%98%E8%B4%B4%E6%96%87%E6%9C%AC%E7%9A%84%E4%B8%89%E7%A7%8D%E7%B1%BB%E5%9E%8B.html"/>
-    <id>http://fengqingxiuyi.github.io/Android/Wiki/复制粘贴文本的三种类型.html</id>
+    <link href="http://fengqingxiuyi.xyz/Android/Wiki/%E5%A4%8D%E5%88%B6%E7%B2%98%E8%B4%B4%E6%96%87%E6%9C%AC%E7%9A%84%E4%B8%89%E7%A7%8D%E7%B1%BB%E5%9E%8B.html"/>
+    <id>http://fengqingxiuyi.xyz/Android/Wiki/复制粘贴文本的三种类型.html</id>
     <published>2016-10-05T01:56:21.000Z</published>
     <updated>2016-11-26T15:01:23.000Z</updated>
     
@@ -569,17 +569,17 @@
     
     </summary>
     
-      <category term="Android" scheme="http://fengqingxiuyi.github.io/categories/Android/"/>
+      <category term="Android" scheme="http://fengqingxiuyi.xyz/categories/Android/"/>
     
     
-      <category term="Wiki" scheme="http://fengqingxiuyi.github.io/tags/Wiki/"/>
+      <category term="Wiki" scheme="http://fengqingxiuyi.xyz/tags/Wiki/"/>
     
   </entry>
   
   <entry>
     <title>摄像头是否可用</title>
-    <link href="http://fengqingxiuyi.github.io/Android/Wiki/%E6%91%84%E5%83%8F%E5%A4%B4%E6%98%AF%E5%90%A6%E5%8F%AF%E7%94%A8.html"/>
-    <id>http://fengqingxiuyi.github.io/Android/Wiki/摄像头是否可用.html</id>
+    <link href="http://fengqingxiuyi.xyz/Android/Wiki/%E6%91%84%E5%83%8F%E5%A4%B4%E6%98%AF%E5%90%A6%E5%8F%AF%E7%94%A8.html"/>
+    <id>http://fengqingxiuyi.xyz/Android/Wiki/摄像头是否可用.html</id>
     <published>2016-10-05T01:52:21.000Z</published>
     <updated>2016-11-26T15:02:21.000Z</updated>
     
@@ -594,17 +594,17 @@
     
     </summary>
     
-      <category term="Android" scheme="http://fengqingxiuyi.github.io/categories/Android/"/>
+      <category term="Android" scheme="http://fengqingxiuyi.xyz/categories/Android/"/>
     
     
-      <category term="Wiki" scheme="http://fengqingxiuyi.github.io/tags/Wiki/"/>
+      <category term="Wiki" scheme="http://fengqingxiuyi.xyz/tags/Wiki/"/>
     
   </entry>
   
   <entry>
     <title>文件的基本操作</title>
-    <link href="http://fengqingxiuyi.github.io/Android/Wiki/%E6%96%87%E4%BB%B6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C.html"/>
-    <id>http://fengqingxiuyi.github.io/Android/Wiki/文件的基本操作.html</id>
+    <link href="http://fengqingxiuyi.xyz/Android/Wiki/%E6%96%87%E4%BB%B6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C.html"/>
+    <id>http://fengqingxiuyi.xyz/Android/Wiki/文件的基本操作.html</id>
     <published>2016-10-05T01:38:21.000Z</published>
     <updated>2016-11-26T15:02:53.000Z</updated>
     
@@ -619,17 +619,17 @@
     
     </summary>
     
-      <category term="Android" scheme="http://fengqingxiuyi.github.io/categories/Android/"/>
+      <category term="Android" scheme="http://fengqingxiuyi.xyz/categories/Android/"/>
     
     
-      <category term="Wiki" scheme="http://fengqingxiuyi.github.io/tags/Wiki/"/>
+      <category term="Wiki" scheme="http://fengqingxiuyi.xyz/tags/Wiki/"/>
     
   </entry>
   
   <entry>
     <title>scrollbarStyle详解</title>
-    <link href="http://fengqingxiuyi.github.io/Android/View/ScrollView/scrollbarStyle%E8%AF%A6%E8%A7%A3.html"/>
-    <id>http://fengqingxiuyi.github.io/Android/View/ScrollView/scrollbarStyle详解.html</id>
+    <link href="http://fengqingxiuyi.xyz/Android/View/ScrollView/scrollbarStyle%E8%AF%A6%E8%A7%A3.html"/>
+    <id>http://fengqingxiuyi.xyz/Android/View/ScrollView/scrollbarStyle详解.html</id>
     <published>2016-10-04T10:20:21.000Z</published>
     <updated>2016-12-12T05:48:20.000Z</updated>
     
@@ -651,17 +651,17 @@
     
     </summary>
     
-      <category term="Android" scheme="http://fengqingxiuyi.github.io/categories/Android/"/>
+      <category term="Android" scheme="http://fengqingxiuyi.xyz/categories/Android/"/>
     
     
-      <category term="View" scheme="http://fengqingxiuyi.github.io/tags/View/"/>
+      <category term="View" scheme="http://fengqingxiuyi.xyz/tags/View/"/>
     
   </entry>
   
   <entry>
     <title>设置滚动条样式</title>
-    <link href="http://fengqingxiuyi.github.io/Android/View/ScrollView/%E8%AE%BE%E7%BD%AE%E6%BB%9A%E5%8A%A8%E6%9D%A1%E6%A0%B7%E5%BC%8F.html"/>
-    <id>http://fengqingxiuyi.github.io/Android/View/ScrollView/设置滚动条样式.html</id>
+    <link href="http://fengqingxiuyi.xyz/Android/View/ScrollView/%E8%AE%BE%E7%BD%AE%E6%BB%9A%E5%8A%A8%E6%9D%A1%E6%A0%B7%E5%BC%8F.html"/>
+    <id>http://fengqingxiuyi.xyz/Android/View/ScrollView/设置滚动条样式.html</id>
     <published>2016-10-04T10:19:21.000Z</published>
     <updated>2016-11-26T13:54:48.000Z</updated>
     
@@ -679,17 +679,17 @@
     
     </summary>
     
-      <category term="Android" scheme="http://fengqingxiuyi.github.io/categories/Android/"/>
+      <category term="Android" scheme="http://fengqingxiuyi.xyz/categories/Android/"/>
     
     
-      <category term="View" scheme="http://fengqingxiuyi.github.io/tags/View/"/>
+      <category term="View" scheme="http://fengqingxiuyi.xyz/tags/View/"/>
     
   </entry>
   
   <entry>
     <title>永久显示滚动条</title>
-    <link href="http://fengqingxiuyi.github.io/Android/View/ScrollView/%E6%B0%B8%E4%B9%85%E6%98%BE%E7%A4%BA%E6%BB%9A%E5%8A%A8%E6%9D%A1.html"/>
-    <id>http://fengqingxiuyi.github.io/Android/View/ScrollView/永久显示滚动条.html</id>
+    <link href="http://fengqingxiuyi.xyz/Android/View/ScrollView/%E6%B0%B8%E4%B9%85%E6%98%BE%E7%A4%BA%E6%BB%9A%E5%8A%A8%E6%9D%A1.html"/>
+    <id>http://fengqingxiuyi.xyz/Android/View/ScrollView/永久显示滚动条.html</id>
     <published>2016-10-04T10:17:21.000Z</published>
     <updated>2016-11-26T13:53:05.000Z</updated>
     
@@ -705,10 +705,10 @@
     
     </summary>
     
-      <category term="Android" scheme="http://fengqingxiuyi.github.io/categories/Android/"/>
+      <category term="Android" scheme="http://fengqingxiuyi.xyz/categories/Android/"/>
     
     
-      <category term="View" scheme="http://fengqingxiuyi.github.io/tags/View/"/>
+      <category term="View" scheme="http://fengqingxiuyi.xyz/tags/View/"/>
     
   </entry>
   
