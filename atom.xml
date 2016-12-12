@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://fengqingxiuyi.xyz/"/>
-  <updated>2016-12-11T11:21:58.000Z</updated>
+  <updated>2016-12-12T07:00:22.000Z</updated>
   <id>http://fengqingxiuyi.xyz/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://fengqingxiuyi.xyz/%E5%9F%BA%E6%9C%AC%E5%B7%A5%E5%85%B7/%E7%BF%BB%E5%A2%99/VPS%20-%20VPN%E6%8A%98%E8%85%BE%E8%AE%B0%E5%BD%95.html"/>
     <id>http://fengqingxiuyi.xyz/基本工具/翻墙/VPS - VPN折腾记录.html</id>
     <published>2016-12-11T09:02:19.000Z</published>
-    <updated>2016-12-11T11:21:58.000Z</updated>
+    <updated>2016-12-12T07:00:22.000Z</updated>
     
     <content type="html"><![CDATA[<p>双11的时候买了个<a href="https://bandwagonhost.com/" target="_blank" rel="external">搬瓦工</a>的VPS来翻墙，当然是最便宜的了，折腾了一个月，只想说一分价钱一份货，今天已经不想使用它了，然后买了一个月的<a href="https://www.locovpn.info/" target="_blank" rel="external">LoCoVPN</a>，主要是因为试用的感觉不错，😄</p>
 <p>本来想要列举一下折腾了哪些地方，后来发现原来全部是在想着怎么为VPS加速。。。主要折腾的就是<a href="https://github.com/snooda/net-speeder" target="_blank" rel="external">net-speeder</a>、<a href="https://github.com/d1sm/finalspeed" target="_blank" rel="external">FinalSpeed</a>、<a href="https://github.com/lparam/xSocks" target="_blank" rel="external">xSocks</a>、<a href="https://blog.kuoruan.com/102.html" target="_blank" rel="external">Kcptun</a>，以下就来列举一下我在使用这些软件过程中的感悟：</p>
@@ -42,9 +42,9 @@
 <h2 id="Kcptun教程简述"><a href="#Kcptun教程简述" class="headerlink" title="Kcptun教程简述"></a>Kcptun教程简述</h2><p>一开始，我本着DIY的心理，没有使用作者的<a href="https://blog.kuoruan.com/110.html" target="_blank" rel="external">一键安装脚本</a>，然后顺着作者的教程看下去，总感觉缺胳膊少腿，各种懵逼，在此我劝大家一句，在自己不懂的时候，还是由简入繁为好！</p>
 <p>额，在此之前像大家推荐一个软件：<a href="http://xclient.info/s/securecrt.html" target="_blank" rel="external">SecureCRT 一款终端仿真程序</a>，向大家推荐这款软件的目的不是为了推销，而是为了在之后的概述中方便操作，至于它是干什么的，百度下就知道了。</p>
 <p>首先在VPS服务器上安装<code>系统</code>和<code>Shadowsocks</code>，一键安装即可，接着使用<code>SecureCRT</code>连接你自己的VPS服务器，然后按照<a href="https://blog.kuoruan.com/110.html" target="_blank" rel="external">教程</a>安装，根据<a href="https://blog.kuoruan.com/110.html" target="_blank" rel="external">教程</a>，运行到<code>./kcptun.sh</code>这条命令的时候，会让你配置一大堆东西，个人感觉作者没有写全，所以，<font color="red">如果你不明白不确定的话，使用默认配置即可，不要瞎搞！</font>最后记得自己拷贝一份服务端配置成功的输出信息：例如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">恭喜, Kcptun 服务端配置完毕！</div><div class="line"> </div><div class="line">正在获取当前安装的 Kcptun 版本...</div><div class="line"> </div><div class="line">服务器IP:  10.10.10.10</div><div class="line">端口:  29900</div><div class="line">加速地址: 127.0.0.1:8388</div><div class="line">密码: 123456</div><div class="line">加密方式 Crypt:  salsa20</div><div class="line"> </div><div class="line">当前安装的 Kcptun 版本为: v20160922</div><div class="line"> </div><div class="line">推荐的客户端配置为: </div><div class="line">&#123;</div><div class="line">  &quot;localaddr&quot;: &quot;:8388&quot;,</div><div class="line">  &quot;remoteaddr&quot;: &quot;128.199.71.85:29900&quot;,</div><div class="line">  &quot;key&quot;: &quot;123456&quot;,</div><div class="line">  &quot;crypt&quot;: &quot;salsa20&quot;,</div><div class="line">  &quot;mode&quot;: &quot;fast&quot;,</div><div class="line">  &quot;mtu&quot;: 1350,</div><div class="line">  &quot;sndwnd&quot;: 1024,</div><div class="line">  &quot;rcvwnd&quot;: 1024,</div><div class="line">  &quot;datashard&quot;: 10,</div><div class="line">  &quot;parityshard&quot;: 3,</div><div class="line">  &quot;dscp&quot;: 0,</div><div class="line">  &quot;conn&quot;: 1,</div><div class="line">  &quot;autoexpire&quot;: 60,</div><div class="line">  &quot;nocomp&quot;: false</div><div class="line">&#125;</div><div class="line"> </div><div class="line">手机端参数可以使用：</div><div class="line">-autoexpire 60 -key &quot;123456&quot; -crypt &quot;salsa20&quot;</div><div class="line"> </div><div class="line">其他参数请自行计算或设置, 详细信息可以查看: https://github.com/xtaci/kcptun</div><div class="line"> </div><div class="line">Kcptun 安装目录: /usr/share/kcptun</div><div class="line">Kcptun 日志文件目录: /var/log/kcptun/</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">恭喜, Kcptun 服务端配置完毕！</div><div class="line"></div><div class="line">正在获取当前安装的 Kcptun 版本...</div><div class="line"></div><div class="line">服务器IP:  10.10.10.10</div><div class="line">端口:  29900</div><div class="line">加速地址: 127.0.0.1:8388</div><div class="line">密码: 123456</div><div class="line">加密方式 Crypt:  salsa20</div><div class="line"></div><div class="line">当前安装的 Kcptun 版本为: v20160922</div><div class="line"></div><div class="line">推荐的客户端配置为:</div><div class="line">&#123;</div><div class="line">  &quot;localaddr&quot;: &quot;:8388&quot;,</div><div class="line">  &quot;remoteaddr&quot;: &quot;128.199.71.85:29900&quot;,</div><div class="line">  &quot;key&quot;: &quot;123456&quot;,</div><div class="line">  &quot;crypt&quot;: &quot;salsa20&quot;,</div><div class="line">  &quot;mode&quot;: &quot;fast&quot;,</div><div class="line">  &quot;mtu&quot;: 1350,</div><div class="line">  &quot;sndwnd&quot;: 1024,</div><div class="line">  &quot;rcvwnd&quot;: 1024,</div><div class="line">  &quot;datashard&quot;: 10,</div><div class="line">  &quot;parityshard&quot;: 3,</div><div class="line">  &quot;dscp&quot;: 0,</div><div class="line">  &quot;conn&quot;: 1,</div><div class="line">  &quot;autoexpire&quot;: 60,</div><div class="line">  &quot;nocomp&quot;: false</div><div class="line">&#125;</div><div class="line"></div><div class="line">手机端参数可以使用：</div><div class="line">-autoexpire 60 -key &quot;123456&quot; -crypt &quot;salsa20&quot;</div><div class="line"></div><div class="line">其他参数请自行计算或设置, 详细信息可以查看: https://github.com/xtaci/kcptun</div><div class="line"></div><div class="line">Kcptun 安装目录: /usr/share/kcptun</div><div class="line">Kcptun 日志文件目录: /var/log/kcptun/</div></pre></td></tr></table></figure>
 <p>服务端的安装使用，根据教程还是比较顺利的，但是客户端，可能是因为我是用Mac的缘故，踩了一些坑，个人感觉作者写文章的时候是以Windows为主的，所以对于Windows，我就不说了，下面就Mac进行阐述。</p>
-<p>首先下载跟服务端输出信息中的Kcptun版本相同的客户端程序，可以在<a href="https://github.com/xtaci/kcptun/releases" target="_blank" rel="external">这里</a>查找。<font color="red">必须要保证Kcptun的客户端程序和服务端程序版本号一致</font>，接着将服务端输出信息中的<code>客户端配置</code>保证到<code>client-config.json</code>文件中，然后下载安装客户端软件<a href="https://github.com/dfdragon/kcptun_xclient/releases" target="_blank" rel="external">kcptun_xclient</a>，在左下角添加一个客户端，并在右上角配置Kcptun客户端文件路径和配置文件路径，最后点击启动按钮即可使用，如下图所示：<img src="http://ogpp825dm.bkt.clouddn.com/images/%E5%9F%BA%E6%9C%AC%E5%B7%A5%E5%85%B7/FanQiang/Kcptun_xclient%E4%BD%BF%E7%94%A8.png" alt="Kcptun_xclient使用"></p>
+<p>首先下载跟服务端输出信息中的Kcptun版本相同的客户端程序，可以在<a href="https://github.com/xtaci/kcptun/releases" target="_blank" rel="external">这里</a>查找。<font color="red">必须要保证Kcptun的客户端程序和服务端程序版本号一致</font>，接着将服务端输出信息中的<code>客户端配置</code>保证到<code>client-config.json</code>文件中，然后下载安装客户端软件<a href="https://github.com/dfdragon/kcptun_xclient/releases" target="_blank" rel="external">kcptun_xclient</a>，在左下角添加一个客户端，并在右上角配置Kcptun客户端文件路径和配置文件路径，最后点击启动按钮即可使用，如下图所示：<img src="../../images/基本工具/翻墙/Kcptun_xclient使用.png" alt="Kcptun_xclient使用"></p>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>虽然使用这些软件可以为VPS加速，还算显著，但是如果你买的VPS本来就便宜的话，我只想说：一分价钱一份货。比如我自己：买了最便宜的搬瓦工VPS，50M的网，用Kcptun加速，浏览网页是（这）不（不）成（是）问（废）题（话），看Youtube视频有时候1080P也能看，有时候144P都卡。。。下载速度提升了两倍[/捂脸]，其实不过是从20KB/s提升到了60KB/s而已。。。</p>
 <h1 id="LoCoVPN使用两小时感觉"><a href="#LoCoVPN使用两小时感觉" class="headerlink" title="LoCoVPN使用两小时感觉"></a>LoCoVPN使用两小时感觉</h1><p>官网：<a href="https://www.locovpn.info/" target="_blank" rel="external">LoCo加速器</a></p>
 <p>我买的是标准套餐，15元/月，用的是日本的线路，目前感觉：</p>
@@ -52,7 +52,7 @@
 <li>浏览网页比之前使用加速过的VPS还要快一点；</li>
 <li>看YouTube视频能达到套餐中的最高点480P；</li>
 <li>稳定性还不确定，出现过一次，网页突然加载不出来的情况，通过断开重连解决；</li>
-<li>有个大问题：使用VPN过程中无法在QQ中向我的手机传输QQ截图（Mac版），通过断开连接解决，尚未咨询客服；</li>
+<li><del>有个大问题：使用VPN过程中无法在Mac上的QQ客户端中向我的手机传输QQ截图，还有无法播放网页版的网易云音乐，通过断开连接解决，尚未咨询客服；</del>原来是全局代理的原因。。。已问客服，无法解决，坑，巨坑！！！</li>
 </ol>
 <p>继续使用中。。。</p>
 ]]></content>
@@ -73,7 +73,7 @@
     <link href="http://fengqingxiuyi.xyz/%E5%9F%BA%E6%9C%AC%E5%B7%A5%E5%85%B7/Charles/Charles%20-%20Mac%E4%B8%8A%E7%9A%84%E6%8A%93%E5%8C%85%E5%B7%A5%E5%85%B7.html"/>
     <id>http://fengqingxiuyi.xyz/基本工具/Charles/Charles - Mac上的抓包工具.html</id>
     <published>2016-12-05T03:26:19.000Z</published>
-    <updated>2016-12-05T17:19:09.000Z</updated>
+    <updated>2016-12-12T06:56:24.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="序"><a href="#序" class="headerlink" title="序"></a>序</h1><p>注：本文只记录自己工作中经常使用到的部分，最后附了一篇个人感觉比较全的文章，可以看看。</p>
 <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>官网：<a href="https://www.charlesproxy.com" target="_blank" rel="external">Charles Web Debugging Proxy - Official Site</a></p>
@@ -86,25 +86,25 @@
 <p>4、随便访问个网页，电脑上会弹出<code>是否允许抓包</code>之类的弹框，点击<code>允许</code>即可使用Charles进行抓包。</p>
 <h1 id="高级使用"><a href="#高级使用" class="headerlink" title="高级使用"></a>高级使用</h1><h2 id="过滤抓包网址"><a href="#过滤抓包网址" class="headerlink" title="过滤抓包网址"></a>过滤抓包网址</h2><p>默认情况下，只要设置了代理，就会全部抓取并显示，但是有时候我们只需要查看某一个或者某几个网址的访问情况，怎么办呢？显示<code>过滤</code>是一个很好的选择。</p>
 <p>步骤1：</p>
-<p><img src="http://ogpp825dm.bkt.clouddn.com/images/%E5%9F%BA%E6%9C%AC%E5%B7%A5%E5%85%B7/Charles/RecordingSettings.png" alt="RecordingSettings"></p>
+<p><img src="../../images/基本工具/Charles/RecordingSettings.png" alt="RecordingSettings"></p>
 <p>步骤2：</p>
-<p><img src="http://ogpp825dm.bkt.clouddn.com/images/%E5%9F%BA%E6%9C%AC%E5%B7%A5%E5%85%B7/Charles/RecordingSettingsDetail.png" alt="RecordingSettingsDetail"></p>
+<p><img src="../../images/基本工具/Charles/RecordingSettingsDetail.png" alt="RecordingSettingsDetail"></p>
 <p>你可以点击<code>Add</code>按钮，新增想要访问的地址信息（包括：协议、域名、端口等）；如果你<code>不想查看</code>某个网址的信息了，将其前面的对勾勾掉即可；如果你想要<code>保存过滤规则</code>，点击<code>Export</code>按钮即可保存到本地，点击<code>Import</code>按钮可以将本地过滤规则文件导入。</p>
 <h2 id="过滤手机访问权限"><a href="#过滤手机访问权限" class="headerlink" title="过滤手机访问权限"></a>过滤手机访问权限</h2><p>基本使用与<code>过滤抓包网址</code>一文相似；就说两点：</p>
 <p>1、过滤规则中的IP地址是你当时成功进行代理时所连网络的IP地址；</p>
 <p>2、如果你在一开始设置代理，Charles跳出弹框询问你是否进行代理的时候，点击了<code>拒绝</code>，不用着急，进入这里，将你所连网络的IP地址通过<code>Add</code>按钮Add即可。</p>
 <p>步骤1：</p>
-<p><img src="http://ogpp825dm.bkt.clouddn.com/images/%E5%9F%BA%E6%9C%AC%E5%B7%A5%E5%85%B7/Charles/AccessControlSettings.png" alt="AccessControlSettings"></p>
+<p><img src="../../images/基本工具/Charles/AccessControlSettings.png" alt="AccessControlSettings"></p>
 <p>步骤2：</p>
-<p><img src="http://ogpp825dm.bkt.clouddn.com/images/%E5%9F%BA%E6%9C%AC%E5%B7%A5%E5%85%B7/Charles/AccessControlSettingsDetail.png" alt="AccessControlSettingsDetail"></p>
-<h1 id="在手机上安装证书并使用"><a href="#在手机上安装证书并使用" class="headerlink" title="在手机上安装证书并使用"></a>在手机上安装证书并使用</h1><p>步骤1：<br><img src="http://ogpp825dm.bkt.clouddn.com/images/%E5%9F%BA%E6%9C%AC%E5%B7%A5%E5%85%B7/Charles/InstallCertOnMobileOrRemoteBrowser.png" alt="InstallCertOnMobileOrRemoteBrowser"></p>
-<p>步骤2：<br><img src="http://ogpp825dm.bkt.clouddn.com/images/%E5%9F%BA%E6%9C%AC%E5%B7%A5%E5%85%B7/Charles/InstallCertOnMobileOrRemoteBrowserDialog.png" alt="InstallCertOnMobileOrRemoteBrowserDialog"></p>
+<p><img src="../../images/基本工具/Charles/AccessControlSettingsDetail.png" alt="AccessControlSettingsDetail"></p>
+<h1 id="在手机上安装证书并使用"><a href="#在手机上安装证书并使用" class="headerlink" title="在手机上安装证书并使用"></a>在手机上安装证书并使用</h1><p>步骤1：<br><img src="../../images/基本工具/Charles/InstallCertOnMobileOrRemoteBrowser.png" alt="InstallCertOnMobileOrRemoteBrowser"></p>
+<p>步骤2：<br><img src="../../images/基本工具/Charles/InstallCertOnMobileOrRemoteBrowserDialog.png" alt="InstallCertOnMobileOrRemoteBrowserDialog"></p>
 <p>步骤3：</p>
 <p>在手机上打开浏览器，输入网址<font color="red">chls.pro/ssl</font>，然后下载并安装证书即可，不过好像只要访问成功就已经安装好了。</p>
 <p>步骤4：</p>
-<p><img src="http://ogpp825dm.bkt.clouddn.com/images/%E5%9F%BA%E6%9C%AC%E5%B7%A5%E5%85%B7/Charles/SSLProxySettings.png" alt="SSLProxySettings"></p>
+<p><img src="../../images/基本工具/Charles/SSLProxySettings.png" alt="SSLProxySettings"></p>
 <p>步骤5：</p>
-<p><img src="http://ogpp825dm.bkt.clouddn.com/images/%E5%9F%BA%E6%9C%AC%E5%B7%A5%E5%85%B7/Charles/SSLProxySettingsDetail.png" alt="SSLProxySettingsDetail"><br>这是我需要的配置的允许抓取HTTPS开头的地址</p>
+<p><img src="../../images/基本工具/Charles/SSLProxySettingsDetail.png" alt="SSLProxySettingsDetail"><br>这是我需要的配置的允许抓取HTTPS开头的地址</p>
 <h1 id="附"><a href="#附" class="headerlink" title="附"></a>附</h1><p>附上一篇感觉比较全的文章：<a href="http://blog.devtang.com/2015/11/14/charles-introduction/" target="_blank" rel="external">Charles 从入门到精通</a></p>
 ]]></content>
     
@@ -315,7 +315,7 @@
     <link href="http://fengqingxiuyi.xyz/%E5%9F%BA%E6%9C%AC%E5%B7%A5%E5%85%B7/%E5%9B%BE%E7%89%87%E5%8E%8B%E7%BC%A9/tinypng/tinypng%E7%9A%84%E4%BD%BF%E7%94%A8.html"/>
     <id>http://fengqingxiuyi.xyz/基本工具/图片压缩/tinypng/tinypng的使用.html</id>
     <published>2016-11-10T08:32:19.000Z</published>
-    <updated>2016-11-27T04:01:59.000Z</updated>
+    <updated>2016-12-12T06:31:26.000Z</updated>
     
     <content type="html"><![CDATA[<p>注：本文所属基本工具-图片压缩-tinypng，本文介绍一个在使用tinypng过程中的小技巧。</p>
 <a id="more"></a>
@@ -324,7 +324,7 @@
 <p><strong>压缩方式：</strong></p>
 <ol>
 <li>普通压缩方式：根据页面的提示 Drop 或 Open</li>
-<li>压缩技巧：首先执行 普通压缩方式 一次，然后如果想要持续压缩，不需要将图片下载下来，再执行 普通压缩方式 ，只需要 鼠标悬浮在含有下划线的download字样上，变成手势模样，垂直向下拖拽1厘米即可再次压缩，具体使用看图：<img src="http://ogpp825dm.bkt.clouddn.com/images/%E5%9F%BA%E6%9C%AC%E5%B7%A5%E5%85%B7/%E5%9B%BE%E7%89%87%E5%8E%8B%E7%BC%A9/tinypng/tinypng%E7%9A%84%E4%BD%BF%E7%94%A8.gif" alt="tinypng的使用"></li>
+<li>压缩技巧：首先执行 普通压缩方式 一次，然后如果想要持续压缩，不需要将图片下载下来，再执行 普通压缩方式 ，只需要 鼠标悬浮在含有下划线的download字样上，变成手势模样，垂直向下拖拽1厘米即可再次压缩，具体使用看图：<img src="../../../images/基本工具/图片压缩/tinypng/tinypng的使用.gif" alt="tinypng的使用"></li>
 </ol>
 ]]></content>
     
@@ -336,6 +336,36 @@
     
       <category term="基本工具" scheme="http://fengqingxiuyi.xyz/categories/%E5%9F%BA%E6%9C%AC%E5%B7%A5%E5%85%B7/"/>
     
+    
+  </entry>
+  
+  <entry>
+    <title>模块版本更新流程</title>
+    <link href="http://fengqingxiuyi.xyz/ShowJoy/%E6%A8%A1%E5%9D%97/%E6%A8%A1%E5%9D%97%E7%89%88%E6%9C%AC%E6%9B%B4%E6%96%B0%E6%B5%81%E7%A8%8B.html"/>
+    <id>http://fengqingxiuyi.xyz/ShowJoy/模块/模块版本更新流程.html</id>
+    <published>2016-11-10T08:12:15.000Z</published>
+    <updated>2016-11-27T04:18:24.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>注：本文所属ShowJoy-模块，本文讲述在将主模块或者是子模块的版本更新流程，案例持续更新…</p>
+<a id="more"></a>
+<h1 id="案例1"><a href="#案例1" class="headerlink" title="案例1"></a>案例1</h1><p>工程中包含<code>主模块</code>、<code>子模块A</code>、<code>子模块B</code>，其中<code>主模块</code>依赖<code>子模块A</code>和<code>子模块B</code>，<code>子模块A</code>也依赖<code>子模块B</code>。现在<code>子模块B</code>发现了Bug，需要解决Bug并更新版本。</p>
+<h2 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h2><p>当<code>子模块B</code>更新版本后，提交到Gitlab，并使用Jenkins成功构建后，<strong><em>我们不需要更新 子模块A 中 子模块B 的版本，只需要更新 主模块 中 子模块B 的版本，如果出现版本冲突，比如说现在 主模块 依赖 子模块A ，主模块 又依赖了 新子模块B 的版本，只需要把不必要的版本依赖 剔除 即可</em></strong></p>
+<h2 id="主要原理"><a href="#主要原理" class="headerlink" title="主要原理"></a>主要原理</h2><p>工程 Build 后，一个模块只会存在一个版本，否则就会出现版本<font color="red">依赖冲突</font>！！！</p>
+<h1 id="案例2"><a href="#案例2" class="headerlink" title="案例2"></a>案例2</h1><p>工程中包含<code>主模块</code>、<code>子模块A</code>、<code>子模块B</code>，其中<code>主模块</code>依赖<code>子模块A</code>和<code>子模块B</code>，<code>子模块B</code>又依赖<code>子模块A</code>。此时<code>子模块A</code>改变了内容，需要版本更新，同时也涉及到了<code>子模块B</code>中的某些改动。</p>
+<h2 id="注意点-1"><a href="#注意点-1" class="headerlink" title="注意点"></a>注意点</h2><p>此时当<code>子模块A</code>更新版本后，同时需要更改<code>子模块B</code>依赖的<code>子模块A</code>的版本，同时也需要更新<code>子模块B</code>的版本，并进行项目构建。</p>
+<h2 id="主要原理-1"><a href="#主要原理-1" class="headerlink" title="主要原理"></a>主要原理</h2><p>如果不更改<code>子模块B</code>依赖的<code>子模块A</code>的版本，那么<code>子模块B</code>将编译不过。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;注：本文所属ShowJoy-模块，本文讲述在将主模块或者是子模块的版本更新流程，案例持续更新…&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="ShowJoy" scheme="http://fengqingxiuyi.xyz/categories/ShowJoy/"/>
+    
+    
+      <category term="模块" scheme="http://fengqingxiuyi.xyz/tags/%E6%A8%A1%E5%9D%97/"/>
     
   </entry>
   
@@ -360,36 +390,6 @@
     <summary type="html">
     
       &lt;p&gt;注：本文所属ShowJoy-模块，本文讲述在将主模块或者是子模块的抽离流程，注意点持续更新…&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="ShowJoy" scheme="http://fengqingxiuyi.xyz/categories/ShowJoy/"/>
-    
-    
-      <category term="模块" scheme="http://fengqingxiuyi.xyz/tags/%E6%A8%A1%E5%9D%97/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>模块版本更新流程</title>
-    <link href="http://fengqingxiuyi.xyz/ShowJoy/%E6%A8%A1%E5%9D%97/%E6%A8%A1%E5%9D%97%E7%89%88%E6%9C%AC%E6%9B%B4%E6%96%B0%E6%B5%81%E7%A8%8B.html"/>
-    <id>http://fengqingxiuyi.xyz/ShowJoy/模块/模块版本更新流程.html</id>
-    <published>2016-11-10T08:12:15.000Z</published>
-    <updated>2016-11-27T04:18:24.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>注：本文所属ShowJoy-模块，本文讲述在将主模块或者是子模块的版本更新流程，案例持续更新…</p>
-<a id="more"></a>
-<h1 id="案例1"><a href="#案例1" class="headerlink" title="案例1"></a>案例1</h1><p>工程中包含<code>主模块</code>、<code>子模块A</code>、<code>子模块B</code>，其中<code>主模块</code>依赖<code>子模块A</code>和<code>子模块B</code>，<code>子模块A</code>也依赖<code>子模块B</code>。现在<code>子模块B</code>发现了Bug，需要解决Bug并更新版本。</p>
-<h2 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h2><p>当<code>子模块B</code>更新版本后，提交到Gitlab，并使用Jenkins成功构建后，<strong><em>我们不需要更新 子模块A 中 子模块B 的版本，只需要更新 主模块 中 子模块B 的版本，如果出现版本冲突，比如说现在 主模块 依赖 子模块A ，主模块 又依赖了 新子模块B 的版本，只需要把不必要的版本依赖 剔除 即可</em></strong></p>
-<h2 id="主要原理"><a href="#主要原理" class="headerlink" title="主要原理"></a>主要原理</h2><p>工程 Build 后，一个模块只会存在一个版本，否则就会出现版本<font color="red">依赖冲突</font>！！！</p>
-<h1 id="案例2"><a href="#案例2" class="headerlink" title="案例2"></a>案例2</h1><p>工程中包含<code>主模块</code>、<code>子模块A</code>、<code>子模块B</code>，其中<code>主模块</code>依赖<code>子模块A</code>和<code>子模块B</code>，<code>子模块B</code>又依赖<code>子模块A</code>。此时<code>子模块A</code>改变了内容，需要版本更新，同时也涉及到了<code>子模块B</code>中的某些改动。</p>
-<h2 id="注意点-1"><a href="#注意点-1" class="headerlink" title="注意点"></a>注意点</h2><p>此时当<code>子模块A</code>更新版本后，同时需要更改<code>子模块B</code>依赖的<code>子模块A</code>的版本，同时也需要更新<code>子模块B</code>的版本，并进行项目构建。</p>
-<h2 id="主要原理-1"><a href="#主要原理-1" class="headerlink" title="主要原理"></a>主要原理</h2><p>如果不更改<code>子模块B</code>依赖的<code>子模块A</code>的版本，那么<code>子模块B</code>将编译不过。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;注：本文所属ShowJoy-模块，本文讲述在将主模块或者是子模块的版本更新流程，案例持续更新…&lt;/p&gt;
     
     </summary>
     
@@ -631,7 +631,7 @@
     <link href="http://fengqingxiuyi.xyz/Android/View/ScrollView/scrollbarStyle%E8%AF%A6%E8%A7%A3.html"/>
     <id>http://fengqingxiuyi.xyz/Android/View/ScrollView/scrollbarStyle详解.html</id>
     <published>2016-10-04T10:20:21.000Z</published>
-    <updated>2016-11-26T13:50:44.000Z</updated>
+    <updated>2016-12-12T05:48:20.000Z</updated>
     
     <content type="html"><![CDATA[<p>注：本文所属Android-View-ScrollView，对于scrollbarStyle的属性值进行详细解释。</p>
 <a id="more"></a>
@@ -642,7 +642,7 @@
 <p>insideInset：表示在padding区域内并且插入在view后面</p>
 <p>outsideOverlay：表示在padding区域外并且覆盖在view上，推荐这个</p>
 <p>outsideInset：表示在padding区域外并且插入在view后面</p>
-<p>分别对应效果如下图：<img src="http://ogpp825dm.bkt.clouddn.com/images/Android/View/ScrollView/scrollbarStyle%E8%AF%A6%E8%A7%A3.jpg" alt="scrollbarStyle详解"></p>
+<p>分别对应效果如下图：<img src="../../../images/Android/View/ScrollView/scrollbarStyle详解.jpg" alt="scrollbarStyle详解"></p>
 ]]></content>
     
     <summary type="html">

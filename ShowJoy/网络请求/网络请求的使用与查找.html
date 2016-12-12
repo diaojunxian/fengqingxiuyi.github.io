@@ -110,12 +110,12 @@
 <meta property="og:url" content="http://fengqingxiuyi.xyz/ShowJoy/网络请求/网络请求的使用与查找.html">
 <meta property="og:site_name" content="风清袖一的博客">
 <meta property="og:description" content="注：本文所属ShowJoy-网络请求，本文根据情况介绍网络请求的使用方式与查找源码过程。">
-<meta property="og:image" content="http://ogpp825dm.bkt.clouddn.com/images/ShowJoy/%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82/%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82%E7%9A%84%E4%BD%BF%E7%94%A8%E4%B8%8E%E6%9F%A5%E6%89%BE-%E6%83%85%E5%86%B5%E4%BA%8C.gif">
-<meta property="og:updated_time" content="2016-11-27T04:21:49.000Z">
+<meta property="og:image" content="http://fengqingxiuyi.xyz/../../images/ShowJoy/网络请求/网络请求的使用与查找-情况二.gif">
+<meta property="og:updated_time" content="2016-12-12T06:27:43.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="网络请求的使用与查找">
 <meta name="twitter:description" content="注：本文所属ShowJoy-网络请求，本文根据情况介绍网络请求的使用方式与查找源码过程。">
-<meta name="twitter:image" content="http://ogpp825dm.bkt.clouddn.com/images/ShowJoy/%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82/%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82%E7%9A%84%E4%BD%BF%E7%94%A8%E4%B8%8E%E6%9F%A5%E6%89%BE-%E6%83%85%E5%86%B5%E4%BA%8C.gif">
+<meta name="twitter:image" content="http://fengqingxiuyi.xyz/../../images/ShowJoy/网络请求/网络请求的使用与查找-情况二.gif">
 
 
 
@@ -447,7 +447,7 @@
 <p>再进入这个方法看看：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> String <span class="title">getRealUrl</span><span class="params">(String url, Map&lt;String, String&gt; mParams)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span>(<span class="keyword">null</span> == mParams) &#123;</div><div class="line">        <span class="keyword">return</span> url;</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        Uri uri = Uri.parse(url);</div><div class="line">        Builder builder = uri.buildUpon();</div><div class="line">        Iterator realUrl = mParams.entrySet().iterator();</div><div class="line"></div><div class="line">        <span class="keyword">while</span>(realUrl.hasNext()) &#123;</div><div class="line">            Entry entry = (Entry)realUrl.next();</div><div class="line">            builder.appendQueryParameter((String)entry.getKey(), (String)entry.getValue());</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        String realUrl1 = builder.build().toString();</div><div class="line">        SHNetworkLog.d(<span class="string">"RealUrl:"</span>, realUrl1);</div><div class="line">        <span class="keyword">return</span> realUrl1;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>原来这是将URL和参数进行拼接的方法，最后的realUrl1即真正的请求地址。</p>
-<h1 id="情况二：操作流程图"><a href="#情况二：操作流程图" class="headerlink" title="情况二：操作流程图"></a>情况二：操作流程图</h1><p><img src="http://ogpp825dm.bkt.clouddn.com/images/ShowJoy/%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82/%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82%E7%9A%84%E4%BD%BF%E7%94%A8%E4%B8%8E%E6%9F%A5%E6%89%BE-%E6%83%85%E5%86%B5%E4%BA%8C.gif" alt="网络请求的使用与查找-情况二"></p>
+<h1 id="情况二：操作流程图"><a href="#情况二：操作流程图" class="headerlink" title="情况二：操作流程图"></a>情况二：操作流程图</h1><p><img src="../../images/ShowJoy/网络请求/网络请求的使用与查找-情况二.gif" alt="网络请求的使用与查找-情况二"></p>
 
       
     </div>
